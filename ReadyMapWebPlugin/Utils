@@ -1,0 +1,254 @@
+#ifndef READYMAPWEBPLUGIN_UTILS
+#define READYMAPWEBPLUGIN_UTILS 1
+
+#include <ReadyMapWebPlugin/Export>
+#include <osg/Geode>
+#include <osg/Node>
+#include <osg/NodeVisitor>
+#include <osg/Polytope>
+#include <osg/Transform>
+#include <sstream>
+#include <algorithm>
+
+namespace ReadyMapWebPlugin
+{
+    struct Utils
+    {
+        // converts a string to primitive using serialization
+        template<typename T> static inline T
+        as( const std::string& str, T default_value )
+        {
+            T temp = default_value;
+            std::istringstream strin( str );
+            if ( !strin.eof() ) strin >> temp;
+            return temp;
+        }
+
+        // converts a primitive to a string
+        template<typename T> static inline std::string
+        toString(const T value)
+        {
+            std::stringstream out;
+            out << value;
+            return out.str();
+        }
+
+        // template speciallization for a bool to print out "true" or "false"
+        template<> static inline std::string
+          toString<bool>(const bool value)
+        {
+          return value ? "true" : "false";
+        }
+    };
+
+
+    class FindNamedNodeVisitor : public osg::NodeVisitor
+    {
+    public:
+        FindNamedNodeVisitor(const std::string &name):
+          osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN),
+              _result(0),
+              _name(name)
+          {
+              setTraversalMask(0xffffffff);
+              setNodeMaskOverride(0xffffffff);
+          }
+
+          void apply(osg::Node& node)
+          {
+              if (node.getName() == _name) 
+              {
+                  _result = &node;
+              }
+              else
+              {
+                  traverse(node);
+              }
+          }
+
+          osg::Node *_result;
+          std::string _name;
+    };
+
+       class FindNodeWithDescriptionVisitor : public osg::NodeVisitor
+    {
+    public:
+        FindNodeWithDescriptionVisitor(const std::string &description):
+          osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN),
+              _result(0),
+              _description(description)
+          {
+              setTraversalMask(0xffffffff);
+              setNodeMaskOverride(0xffffffff);
+          }
+
+          void apply(osg::Node& node)
+          {
+              for (osg::Node::DescriptionList::const_iterator itr = node.getDescriptions().begin();
+                  itr != node.getDescriptions().end();
+                  ++itr)
+              {
+                  if ((*itr) == _description)
+                  {
+                      _result = &node;
+                      return;
+                  }
+              }
+
+              traverse(node);
+          }
+
+          osg::Node *_result;
+          std::string _description;
+    };
+
+    template<class T>
+    class FindTopMostNodeOfTypeVisitor : public osg::NodeVisitor
+    {
+    public:
+        FindTopMostNodeOfTypeVisitor():
+          osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN),
+              _foundNode(0)
+          {}
+
+          void apply(osg::Node& node)
+          {
+              T* result = dynamic_cast<T*>(&node);
+              if (result)
+              {
+                  _foundNode = result;
+              }
+              else
+              {
+                  traverse(node);
+              }
+          }
+
+          T* _foundNode;
+    };
+
+    template<class T>
+    inline T* findTopMostNodeOfType(osg::Node* node)
+    {
+        if (!node) return 0;
+
+        FindTopMostNodeOfTypeVisitor<T> fnotv;
+        node->accept(fnotv);
+
+        return fnotv._foundNode;
+    }
+
+    inline osg::Node* findNamedNode(const std::string& name, osg::Node* node)
+    {
+        if (!node) return 0;
+
+        FindNamedNodeVisitor nv(name);
+        node->accept(nv);
+        return nv._result;
+    }
+
+    inline osg::Node* findNodeWithDescription(const std::string& description, osg::Node* node)
+    {
+        if (!node) return 0;
+
+        FindNodeWithDescriptionVisitor nv(description);
+        node->accept(nv);
+        return nv._result;
+    }
+
+    struct GetObjectInfoVisitor : public osg::NodeVisitor
+    {
+        GetObjectInfoVisitor( const std::string& name, const std::string& description ) :
+            osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN ),
+            _name(name),
+            _description(description),
+            _done(false) { }
+
+    public:
+        void apply(osg::Node& node) {
+            if ( !_done ) {            
+                if ( !_name.empty() && _name == node.getName() ) {
+                    _result = &node;
+                    _resultMatrix = !_matrixStack.empty()? _matrixStack.back() : osg::Matrixd::identity();
+                }
+                else if ( !_description.empty() && hasDescription( &node, _description )) {
+                    _result = &node;
+                    _resultMatrix = !_matrixStack.empty()? _matrixStack.back() : osg::Matrixd::identity();
+                }
+                // traverse downwards to calculate the bounds.
+                traverse( node );
+                if ( !_done )
+                    _done = _result.valid();
+            }
+        }
+
+        bool hasDescription( osg::Node* node, const std::string& desc ) {
+            const osg::Node::DescriptionList& list = node->getDescriptions();
+            return std::find( list.begin(), list.end(), desc ) != list.end();
+        }
+        
+        void apply(osg::Transform& transform) {
+            osg::Matrix matrix;
+            if (!_matrixStack.empty()) matrix = _matrixStack.back();
+            transform.computeLocalToWorldMatrix( matrix, this );
+            _matrixStack.push_back( matrix );
+            traverse( transform );
+            _matrixStack.pop_back();
+        }
+
+        void apply(osg::Geode& geode) {
+            if ( !_done ) {
+                osg::NodeVisitor::apply( geode );
+                if ( _result.valid() ) {
+                    for(unsigned int i=0; i<geode.getNumDrawables(); ++i) {
+                        applyDrawable(geode.getDrawable(i));
+                    }
+                }
+            }
+        }
+
+        void applyDrawable(osg::Drawable* drawable) {
+            if ( _result.valid() ) {
+                if (_matrixStack.empty()) {
+                    _bb.expandBy(drawable->getBound());
+                }
+                else {
+                    osg::Matrix& matrix = _matrixStack.back();
+                    const osg::BoundingBox& dbb = drawable->getBound();
+                    if (dbb.valid()) {
+                        _bb.expandBy(dbb.corner(0) * matrix);
+                        _bb.expandBy(dbb.corner(1) * matrix);
+                        _bb.expandBy(dbb.corner(2) * matrix);
+                        _bb.expandBy(dbb.corner(3) * matrix);
+                        _bb.expandBy(dbb.corner(4) * matrix);
+                        _bb.expandBy(dbb.corner(5) * matrix);
+                        _bb.expandBy(dbb.corner(6) * matrix);
+                        _bb.expandBy(dbb.corner(7) * matrix);
+                    }
+                }
+            }
+        }
+        
+        void getPolytope(osg::Polytope& polytope, float margin) const {
+            float delta = _bb.radius()*margin;
+            polytope.add( osg::Plane(0.0, 0.0, 1.0, -(_bb.zMin()-delta)) );
+            polytope.add( osg::Plane(0.0, 0.0, -1.0, (_bb.zMax()+delta)) );
+            polytope.add( osg::Plane(1.0, 0.0, 0.0, -(_bb.xMin()-delta)) );
+            polytope.add( osg::Plane(-1.0, 0.0, 0.0, (_bb.xMax()+delta)) );
+            polytope.add( osg::Plane(0.0, 1.0, 0.0, -(_bb.yMin()-delta)) );
+            polytope.add( osg::Plane(0.0, -1.0, 0.0, (_bb.yMax()+delta)) );
+        }
+
+        osg::ref_ptr<osg::Node> _result;
+        osg::Matrixd _resultMatrix;
+        osg::BoundingBox _bb;
+
+    private:
+        std::string _name, _description;
+        bool _done;
+        std::vector<osg::Matrixd> _matrixStack;
+    };
+
+}
+
+#endif //READYMAPWEBPLUGIN_UTILS

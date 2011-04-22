@@ -1,0 +1,54 @@
+// ieosgearth.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (ieosgearth.tlb) that will become a resource in
+// ieosgearth.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(B7B14D89-E239-451A-A86E-FD03D2D3464F), version(1.0),
+  helpfile("ieosgearth.hlp"),
+  helpstring("ieosgearth ActiveX Control module"),
+  control ]
+library ieosgearthLib
+{
+	importlib(STDOLE_TLB);
+
+    //  Primary dispatch interface for CosgearthCtrl
+
+	[ uuid(87F293B3-5349-4E7E-A681-4F3053287E57),
+	  helpstring("Dispatch interface for osgearth Control")]
+	dispinterface _Dieosgearth
+	{
+		properties:
+    methods:
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+            [id(1), helpstring("method sendCommand")] BSTR sendCommand(BSTR command, BSTR args, VARIANT_BOOL block);
+    };
+
+	//  Event dispatch interface for CosgearthCtrl
+
+	[ uuid(1D9360FA-1B82-462C-B397-E9C90F7A3F3C),
+	  helpstring("Event interface for osgearth Control") ]
+	dispinterface _DieosgearthEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+            [id(DISPID_DOCLICK), helpstring("method DoClick")] void DoClick(void);
+            [id(1)] void readymapevent(BSTR target, BSTR eventName, BSTR data);
+    };
+
+	//  Class information for CosgearthCtrl
+
+	[ uuid(5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA),
+	  helpstring("osgearth Control"), control ]
+	coclass ieosgearth
+	{
+		[default] dispinterface _Dieosgearth;
+		[default, source] dispinterface _DieosgearthEvents;
+	};
+
+};

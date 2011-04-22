@@ -1,0 +1,75 @@
+#ifndef READYMAPWEBPLUGIN_GEOICON_H
+#define READYMAPWEBPLUGIN_GEOICON_H
+
+#include <ReadyMapWebPlugin/Export>
+#include <ReadyMapWebPlugin/Command>
+#include <ReadyMapWebPlugin/Command>
+
+#include <osg/AutoTransform>
+#include <osg/Geode>
+#include <osg/Image>
+#include <string>
+
+namespace ReadyMapWebPlugin
+{
+    class READYMAPWEBPLUGIN_EXPORT MapControl;
+
+    class READYMAPWEBPLUGIN_EXPORT GeoIcon : public osg::Group
+    {
+    public:
+        GeoIcon(const std::string& filename);
+
+        const std::string& getFilename() {return _filename;}
+        void setFilename(const std::string& filename);
+
+
+        const osg::Vec3d& getPosition() {return _position;}
+        void setPosition(const osg::Vec3d &position);
+
+        float getIconWidth() {return _iconWidth;}
+        float getIconHeight() {return _iconHeight;}
+
+        void setSize(float w, float h);
+
+    protected:
+        void init();
+        std::string _filename;
+        osg::Vec3d _position;
+        float _iconWidth;
+        float _iconHeight;
+        osg::ref_ptr<osg::Image> _image;
+    };
+
+    class UpdateIconCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        UpdateIconCommand(const std::string &id, const osg::Vec3d& latLonHeight, const std::string &filename, float iconWidth, float iconHeight);
+        virtual bool operator()(MapControl* map);
+    protected:
+        std::string _filename;
+        osg::Vec3d _latLonHeight;
+        float _iconWidth, _iconHeight;
+        std::string _id;
+    };
+
+    class RemoveIconCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        RemoveIconCommand(const std::string &id);
+        virtual bool operator()(MapControl* map);
+    protected:
+        std::string _id;
+    };
+}
+
+#endif //READYMAPWEBPLUGIN_GEOICON_H

@@ -1,0 +1,23 @@
+#ifndef READYMAPWEBPLUGIN_MAPEVENTHANDLER_H
+#define READYMAPWEBPLUGIN_MAPEVENTHANDLER_H 1
+
+#include <ReadyMapWebPlugin/Export>
+#include <ReadyMapWebPlugin/MapControl>
+
+#include <osgGA/GUIEventHandler>
+
+namespace ReadyMapWebPlugin
+{
+    class READYMAPWEBPLUGIN_EXPORT MapEventHandler : public osgGA::GUIEventHandler
+    {
+    public:
+        MapEventHandler(MapControl* map);
+        bool handle(const osgGA::GUIEventAdapter& ea,osgGA::GUIActionAdapter& aa);
+    private:
+        osg::ref_ptr<MapControl> _map;
+        float _xMouseDown, _yMouseDown;
+    };
+}
+
+#endif
+

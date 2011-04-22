@@ -1,0 +1,51 @@
+#ifndef READYMAPWEBPLUGIN_MODEL_H
+#define READYMAPWEBPLUGIN_MODEL_H
+
+
+#include <ReadyMapWebPlugin/Export>
+#include <ReadyMapWebPlugin/Command>
+#include <ReadyMapWebPlugin/Command>
+
+#include <osg/MatrixTransform>
+#include <osg/observer_ptr>
+#include <string>
+
+
+namespace ReadyMapWebPlugin
+{
+    class READYMAPWEBPLUGIN_EXPORT MapControl;
+
+    class UpdateModelCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        UpdateModelCommand(const std::string &id, const std::string &filename, const osg::Vec3d &latLonHeight, const osg::Vec3d &scale, double heading, double pitch, double roll, bool absolutelyPositioned);
+        virtual bool operator()(MapControl* map);
+    protected:
+        std::string _filename;
+        osg::Vec3d _latLonHeight;
+        osg::Vec3d _scale;
+        double _heading;
+        double _pitch;
+        double _roll;
+        std::string _id;
+        bool _absolutelyPositioned;
+    };
+
+    class RemoveModelCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        RemoveModelCommand(const std::string &id);
+        virtual bool operator()(MapControl* map);
+    protected:
+        std::string _id;
+    };
+}
+#endif READYMAPWEBPLUGIN_MODEL_H

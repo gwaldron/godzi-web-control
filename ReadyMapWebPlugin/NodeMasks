@@ -1,0 +1,15 @@
+#ifndef READYMAPWEBPLUGIN_NODEMASKS_H
+#define READYMAPWEBPLUGIN_NODEMASKS_H
+
+namespace ReadyMapWebPlugin
+{
+    enum NodeMasks
+    {
+        TERRAIN     = 0x1 << 0,
+        ICONS       = 0x1 << 1,
+        TEXT_LABELS = 0x1 << 2,
+        MODELS      = 0x1 << 3
+    };
+}
+
+#endif // READYMAPWEBPLUGIN_NODEMASKS_H

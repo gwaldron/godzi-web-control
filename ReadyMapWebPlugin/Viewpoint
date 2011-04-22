@@ -1,0 +1,43 @@
+//#ifndef OSGEARTHMANIPULATORS_VIEWPOINT_H
+//#define OSGEARTHMANIPULATORS_VIEWPOINT_H 1
+//
+//#include <ReadyMapWebPlugin/Export>
+//
+//namespace ReadyMapWebPlugin
+//{
+//    /**
+//    *Represents a specific camera viewpoint
+//    *Note:  All angular values are in radians
+//    */
+//    class READYMAPWEBPLUGIN_EXPORT Viewpoint
+//    {
+//    public:
+//        /**
+//        *Constructs a new Viewpoint
+//        */
+//        Viewpoint();
+//
+//        /**
+//        *Constructs a new Viewpoint
+//        *@param x
+//        *       The x coordinate of the viewpoint
+//        *@param y
+//        *       The y coordinate of the viewpoint
+//        *@param range
+//        *       The range in world coordinates
+//        *@param heading
+//        *       The heading in radians
+//        *@param pitch
+//        *       The pitch in radians
+//        */
+//        Viewpoint(double x, double y, double range, double heading, double pitch);
+//
+//        double _x;
+//        double _y;
+//        double _range;
+//        double _pitch;
+//        double _heading;
+//    };
+//}
+//
+//#endif //OSGEARTHMANIPULATORS_VIEWPOINT_H

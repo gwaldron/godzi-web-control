@@ -1,0 +1,206 @@
+#ifndef READYMAPWEBPLUGIN_MAPCOMMANDS
+#define READYMAPWEBPLUGIN_MAPCOMMANDS 1
+
+#include <ReadyMapWebPlugin/Export>
+#include <ReadyMapWebPlugin/Command>
+#include <ReadyMapWebPlugin/MapControl>
+
+
+namespace ReadyMapWebPlugin
+{
+    class READYMAPWEBPLUGIN_EXPORT SetMapCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        SetMapCommand(const std::string &mapFile);
+
+        virtual bool operator()(MapControl* map);
+    private:
+        std::string _mapFile;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT GetBackColorCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        GetBackColorCommand();
+        bool operator ()(MapControl* map);
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT SetBackColorCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        SetBackColorCommand(const osg::Vec4f &color);
+        bool operator ()(MapControl* map);
+    private:
+        osg::Vec4f _color;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT ChangeVisibilityCommand : public Command
+    {
+    public:
+
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ChangeVisibilityCommand(const std::string &id, bool visible);
+        virtual bool operator()(MapControl* map);
+
+    private:
+        std::string _id;
+        bool _visible;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT GetViewpointCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        GetViewpointCommand();
+
+        virtual bool operator()(MapControl* map);
+
+    private:
+        osgEarth::Util::Viewpoint _viewpoint;
+        double _transitionTime;
+    };
+
+
+    class READYMAPWEBPLUGIN_EXPORT SetViewpointCommand : public Command
+    {
+    public:
+        class READYMAPWEBPLUGIN_EXPORT Factory : public CommandFactory
+        {
+        public:
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        SetViewpointCommand(const osgEarth::Util::Viewpoint& viewpoint, double transitionTime);
+
+        virtual bool operator()(MapControl* map);
+
+    private:
+        osgEarth::Util::Viewpoint _viewpoint;
+        double _transitionTime;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT ToggleStatsCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ToggleStatsCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT CyclePolygonModeCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        CyclePolygonModeCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT HomeCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        HomeCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT GetNamesCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        GetNamesCommand(int x, int y);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        int _x;
+        int _y;
+    }; 
+
+    class READYMAPWEBPLUGIN_EXPORT GetIntersectionCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        GetIntersectionCommand(int x, int y);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        int _x;
+        int _y;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT GetDescriptionsCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        GetDescriptionsCommand(int x, int y);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        int _x;
+        int _y;
+    };
+
+    class READYMAPWEBPLUGIN_EXPORT FadeMapCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        FadeMapCommand(float opacity);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        float _opacity;
+    };
+}
+
+#endif //READYMAPWEBPLUGIN_MAPCOMMANDS

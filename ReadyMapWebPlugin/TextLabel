@@ -1,0 +1,79 @@
+#ifndef READYMAPWEBPLUGIN_TEXTLABEL
+#define READYMAPWEBPLUGIN_TEXTLABEL 1
+
+#include <ReadyMapWebPlugin/Export>
+#include <ReadyMapWebPlugin/Command>
+
+#include <osg/Referenced>
+#include <osg/Geode>
+#include <string>
+
+#include <osgText/Text>
+
+
+namespace ReadyMapWebPlugin
+{
+    class READYMAPWEBPLUGIN_EXPORT MapControl;
+
+    class READYMAPWEBPLUGIN_EXPORT TextLabel : public osg::Geode
+    {
+    public:
+        TextLabel(std::string id);
+
+        const std::string& getId() {return _id;}
+        
+        void setText(const std::string& value);
+        const std::string& getText() {return _text;}
+    public:
+        osg::ref_ptr<osgText::Text> _drawable;
+        std::string _id;
+        std::string _text;
+    };
+
+    class UpdateTextLabelCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        UpdateTextLabelCommand(const std::string &id, double latitude, double longitude, double height,
+                               const osg::Vec4& color,
+                               const osg::Vec4& outlineColor,
+                               bool  outlineVisible,
+                               const float &size,
+                               const int &alignment,
+                               const std::string &text);
+
+        virtual bool operator()(MapControl* map);
+    private:
+        std::string _id;
+        std::string _text;
+        double _latitude;
+        double _longitude;
+        double _height;
+        float _size;
+        osg::Vec4 _color;
+        osg::Vec4 _outlineColor;
+        bool _outlineVisible;
+        int _alignment;
+    };
+
+    class RemoveTextLabelCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        RemoveTextLabelCommand(const std::string &id);
+
+        virtual bool operator()(MapControl* map);
+    private:
+        std::string _id;
+    };
+}
+
+#endif //READYMAPWEBPLUGIN_TEXTLABEL
