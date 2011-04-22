@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Pelican ReadyMap - Pelican Mapping</title>
+
+<style type="text/css">
+#readymap
+{ 
+  width:  100%;
+  height: 100%;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="styles/layout-skin.css"/>
+<link rel="stylesheet" type="text/css" href="styles/layout.css"/>
+
+<script src="../api/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../api/BrowserDetect.js"></script>
+<script type="text/javascript" src="../api/Common.js"> </script>
+<script type="text/javascript" src="../api/Color.js"> </script>
+<script type="text/javascript" src="../api/Location.js"></script>
+<script type="text/javascript" src="../api/Map.js"> </script>
+<script type="text/javascript" src="../api/Model.js"></script>
+<script type="text/javascript" src="../api/Utils.js"></script>
+<script type="text/javascript" src="../api/PluginManagement.js"></script>
+
+<script type="text/javascript">
+
+var map;
+
+function initialize()
+{        
+    map = new Map( "readymap1" );
+    map.setBackColor( new Color(.1, .1, .4, 1) );
+    
+    var args = Utils.getPageURI().args;
+    
+    if (args.conf == undefined) {
+        alert("Missing expected conf parameter");
+        return;
+    }
+    
+    var confURI = Utils.makeAbsURI( args.conf + "/conf.json" );
+
+    $.ajax({
+      url: confURI,
+      headers: { "Connection" : "close" },
+      dataType: "json",
+      success: function(data){
+        if (data.mapfile != null)
+          map.setMapFile(Utils.makeAbsURI(data.mapfile));
+	else
+	  alert("Error reading configuration file: " + confURI);
+      },
+      error: function(){
+        alert("Failed to load configuration file: " + confURI);
+      }
+    });
+}
+
+var pelicanProxyURI = "http://demo.pelicanmapping.com/rmweb/proxy.php";
+var yahooGeocodeURI = "http://local.yahooapis.com/MapsService/V1/geocode";
+var yahooPlaceURI   = "http://wherein.yahooapis.com/v1/document";
+var yahooAppId = "n51Mo.jV34EwZuxIhJ0GqHLzPXoZyjSG6jhLJsQ1v1q975Lf9g7iC4gRYKecVQ--";
+
+function runSearch()
+{
+    var v = document.getElementById("search").value;
+    if ( v != undefined )
+    {
+        var yahooURI = encodeURI(yahooPlaceURI);
+	$.ajax({
+	    url:pelicanProxyURI,
+            async: "false",
+            type: "POST",
+            headers: { "Connection": "close" },
+            data: {
+                url: yahooURI, mimeType: "text/xml",
+                documentContent: encodeURI(v),
+                documentType: "text/plain",
+                appid: yahooAppId
+            },
+
+            success: function(data) {
+                var xml = data.documentElement;
+
+		if (xml != undefined)
+		{
+                    var lat = xml.getElementsByTagName("latitude")[0].firstChild.nodeValue;
+                    var lon = xml.getElementsByTagName("longitude")[0].firstChild.nodeValue;
+
+                    var southWest = xml.getElementsByTagName("southWest")[0];
+                    var swlat = southWest.getElementsByTagName("latitude")[0].firstChild.nodeValue;
+                    var swlon = southWest.getElementsByTagName("longitude")[0].firstChild.nodeValue;
+
+                    var northEast = xml.getElementsByTagName("northEast")[0];
+                    var nelat = northEast.getElementsByTagName("latitude")[0].firstChild.nodeValue;
+                    var nelon = northEast.getElementsByTagName("longitude")[0].firstChild.nodeValue;
+
+                    var range = ((.5 * (nelat - swlat)) / 0.267949849) * 111000.0;
+
+                    map.setViewpoint(
+                    { latitude: lat, longitude: lon, range: range, pitch: -90, heading: 0 },
+                    5.0);
+		}
+		else
+		{
+		    alert("Cannot find that location.");
+		}
+            },
+
+            error: function() {
+                alert("Cannot find that location.");
+            }
+        });        
+    }
+}
+
+</script>
+
+</head>
+
+<body onload="initialize()">
+
+    <div id="controls">
+        Search: <input id="search" size="50" type="text" onkeydown="if(event.keyCode==13) runSearch();" />           
+    </div>
+    <br />
+    <div id="readymap">
+        <script type="text/javascript">
+            Map.embed( "readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA" );
+        </script>
+    </div>
+
+</body>
+</html>

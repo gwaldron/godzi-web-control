@@ -1,0 +1,339 @@
+<html>
+<head>
+
+<style type="text/css">
+
+A:link {text-decoration: none; color: blue}
+A:visited {text-decoration: none; color: blue}
+A:active {text-decoration: none; color: blue}
+A:hover {text-decoration: underline; color: blue}
+
+
+#map_div
+{ 
+  width:79%;
+  height:100%;
+  float:left;
+}
+
+p.feed-date 
+{ 
+  color : Grey;
+  font-style: italic;
+  font-size: smaller;
+}
+
+#sidebar
+{
+  padding-left: 10px;
+  width:20%;
+  height:100%;
+  float:right;
+  overflow:auto;
+}
+
+div.feed-item
+{
+  border: thin solid LightBlue
+}
+
+
+
+</style>
+
+<script src="../api/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script src="../api/BrowserDetect.js" type="text/javascript"> </script>
+<script src="../api/Common.js" type="text/javascript"> </script>
+<script src="../api/Color.js" type="text/javascript"> </script>
+<script src="../api/Location.js" type="text/javascript"></script>
+<script src="../api/Scale.js" type="text/javascript"></script>
+<script src="../api/Orientation.js" type="text/javascript"></script>
+<script src="../api/TextLabel.js" type="text/javascript"> </script>
+<script src="../api/Map.js" type="text/javascript"> </script>
+<script src="../api/Parsers/GeoRSSParser.js" type="text/javascript"></script>
+<script src="../api/Layers/GeoRSSLayer.js" type="text/javascript"></script>
+<script src="../api/GeoIcon.js" type="text/javascript"></script>
+<script src="../api/Model.js" type="text/javascript"></script>
+<script src="../api/PluginManagement.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+//Demo viewpoints
+var viewpoints = [
+    { name: "Miami",
+	  latitude: 25.758315,
+	  longitude: -80.190376,
+	  range: 3000},
+    
+	{ name: "Mt. Fuji",
+	  latitude: 35.358,
+	  longitude:138.731,
+	  range:20000},
+	  
+	  { name: "Mt. Rainier",
+	  latitude: 46.852778,
+	  longitude:-121.760278,
+	  range:20000},
+
+     { name: "Washington, DC",
+	  latitude: 38.895111,
+	  longitude:-77.036667,
+	  range:10000},	  
+	  
+];
+
+
+var layer;
+var proxy = "http://demo.pelicanmapping.com/rmweb/proxy.php?url=";
+var feedURL = "http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-M5.xml";
+var normalSize = 16;
+var selectedSize = 32;
+var selectedIcon = null;
+
+function initialize()
+{
+  map = new Map('readymap1');
+  map.setMapFile( "http://demo.pelicanmapping.com/rmweb/maps/ags_imagery.earth" );
+  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
+
+  map.addEvent("onmousedown", onMapClick);
+  
+  loadFeed();
+}
+
+function onMapClick(data)
+{
+  selectIconAt(data.x, data.y);
+}
+
+function getIcon(title)
+{
+  var mag = title.match(/[0-9]*\.?[0-9]+/);
+
+  if (mag < 5.0)
+  {
+    return "http://demo.pelicanmapping.com/rmweb/icons/exgreen.png";
+  }
+  else if (mag < 6.0)
+  {
+    return "http://demo.pelicanmapping.com/rmweb/icons/exyellow.png";
+  }
+  return "http://demo.pelicanmapping.com/rmweb/icons/exorange.png";
+}
+  
+function loadXMLDoc(dname) 
+{
+try //Internet Explorer
+  {
+  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+  }
+catch(e)
+  {
+  try //Firefox, Mozilla, Opera, etc.
+    {
+    xmlDoc=document.implementation.createDocument("","",null);
+    }
+  catch(e) {alert(e.message)}
+  }
+try 
+  {
+  xmlDoc.async=false;
+  xmlDoc.load(dname);
+  return(xmlDoc);
+  }
+catch(e) {alert(e.message)}
+return(null);
+}
+
+function selectIcon(icon)
+{
+  if (selectedIcon != null)
+  {
+    selectedIcon.setIconSize(normalSize,normalSize);
+  }
+  
+  selectedIcon = icon;
+  
+  if (selectedIcon != null)
+  {
+    selectedIcon.setIconSize(selectedSize,selectedSize);
+	
+    map.setViewpoint({latitude: selectedIcon.getLocation().getLatitude(),
+		      longitude: selectedIcon.getLocation().getLongitude(),
+		      pitch: -45,
+		      range: 50000}, 1);
+  }
+}
+
+function updateFeed(doc)
+{
+  if (doc)
+  {
+    var p = new GeoRSSParser();
+	var feedItems = p.getItems(doc);
+		
+	layer = new GeoRSSLayer(map,feedItems);
+	layer.setRenderCallback(function(feedItem)
+	{
+	  var icon = getIcon(feedItem.title);
+	  var geoIcon = new GeoIcon(feedItem.location, icon);
+	  geoIcon.setIconSize(normalSize,normalSize);
+	  return geoIcon;
+	}
+	);
+	
+	
+	var feedHTML = "";
+	feedHTML += "<h2>Feed Items</h2>"
+	for (var i = 0; i < feedItems.length; i++)
+	{
+      var fi = feedItems[i];
+	  var divID = "feed_item_" + i + "_div";
+	  var checkID = "feed_item_" + i + "_check";
+	  
+	  feedHTML += "<div id=" + divID + " class='feed-item' onclick=\" selectIcon(layer._icons[" + i + "]) \">" +
+	              "<input type='checkbox' id=" + checkID + " checked= 'true' onclick=\"layer._icons[" + i + "].setVisible(this.checked)\"/>Visible" + 
+	              "<img width=\"32\" height=\"32\" src=\"" + getIcon(fi.title) + "\"/>" +
+	  	          "<a href='" + fi.link + "' target='_blank'><p>" + fi.title + "<p></a>" +
+	              "<p class='feed-date'>" + fi.pubDate + "</p>" +
+				  fi.description +
+	              "</div></br>"
+	}
+	document.getElementById("feed_div").innerHTML = feedHTML;
+
+  } 
+  else
+  {
+    document.write("Could not load XML document");
+  }
+}
+
+function loadFeed()
+{
+  try
+  {
+    var url = proxy + feedURL;
+  
+    var request = new XMLHttpRequest();
+
+    if (request.overrideMimeType)
+      request.overrideMimeType('text/xml');
+
+    request.open("GET", url, true);
+    request.setRequestHeader( "content-type", "text/xml" );
+    request.onreadystatechange = function() {
+      if (request.readyState == 4)
+      {
+	if (request.status == "200")
+	{
+	  var doc = request.responseXML;
+	  if (BrowserDetect.browser == "Explorer")
+	  {
+	    doc = new ActiveXObject('Microsoft.XMLDOM');
+	    doc.async = false;
+	    doc.loadXML(request.responseText);
+	  }
+	  
+	  updateFeed(doc);
+	}
+      }
+    }
+    request.send(null);
+  }
+  catch(e)
+  {
+    alert(e.description);
+  }
+}
+
+function getIconById(id)
+{
+  for (var i = 0; i < layer._icons.length; ++i)
+  {
+    if (layer._icons[i].getId() == id) return layer._icons[i];  
+  }
+  return null;
+}
+
+function selectIconAt(x, y)
+{
+  var names = map.getNames(x, y);
+  if ((names != null) && (names.length > 0))
+  {
+    var icon = getIconById(names[0]);
+    if (icon)
+    {
+      selectIcon(icon);
+    }
+    else
+    {
+      selectIcon(null);
+    }
+  }
+  else
+  {
+    selectIcon(null);
+  }
+}
+
+function getLocation(obj,e)
+{
+  var x,y;
+
+  if (window.event)
+  {
+   x = window.event.x;
+   y = window.event.y;
+  }
+  else
+  {
+   x = e.clientX;
+   y = e.clientY;
+  }
+  
+  var clickX = x-obj.offsetLeft;
+  var clickY = y-obj.offsetTop;
+  
+  var hit = map.getIntersection(clickX, clickY);
+  if (hit != null)
+  {
+    alert("You hit " + hit.getLatitude() + "," + hit.getLongitude() + "," + hit.getAltitude());
+  }
+  else
+  {
+    alert("You missed it!");
+  }
+}
+
+function gotoViewpoint(id)
+{
+  map.setViewpoint(viewpoints[id], 2);
+}
+  
+</script>
+  
+</head>
+  <body onload="initialize()">
+    <div id="map_div">
+      <script type="text/javascript">
+        Map.embed("readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+      </script>
+    </div>
+
+    <div id="sidebar">
+      <div id="viewpoints_div" class = "viewpoints">
+        <h2>Viewpoints</h2>
+     
+        <script type="text/javascript">
+          for( var i in viewpoints ) {
+            var name = viewpoints[i].name;
+            document.writeln( "<a onclick='gotoViewpoint(" + i + ")'>" + name + "</a><br/>" );
+          }
+        </script>
+      </div>
+      </br>
+      <div id="feed_div" class="feed"/>
+      </div>
+  </body>
+</html>
