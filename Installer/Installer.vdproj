@@ -93,12 +93,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0AEF9AC8C956CE07AFC166B4CB56A924"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_0C33D1B1E5E44122B377D15B46C901B3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -111,7 +105,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0E2DC582CE78ECD4B1F453EEABDD4279"
+        "MsmKey" = "8:_0E75D01DEA86670F58E9598F8C6AC3E1"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -213,18 +207,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_262986FC6AB249AA5CB169DF1367E970"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_262986FC6AB249AA5CB169DF1367E970"
-        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_268A06500EBD45FBA7EE166B3C5FB7BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -251,12 +233,6 @@
         {
         "MsmKey" = "8:_2D77020540FE492D972DE721E0DDBD12"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2D7F360C86DBEBDFDB6998E63CD3617F"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -297,8 +273,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3732EE03A26D413A82CEC0C8FBB934CF"
-        "OwnerKey" = "8:_F27470894EEA4AA484C325A8C852F6E8"
+        "MsmKey" = "8:_38946AB4DA7D35742B33F49A01E6EA4A"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -537,7 +513,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_64953F8B88DE5D4A100AA58883260990"
+        "MsmKey" = "8:_66724EE4E0683571D51E5EC77DE7B70D"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -573,12 +549,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6BCE661C73E0D7C3CDE2AFE9C59DCEA0"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6CD1ACB9029A48459E4E76400DB275C2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -587,24 +557,6 @@
         {
         "MsmKey" = "8:_70D90303058C47F896900946344EDD06"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_712C19E063EF24175E8B34E271FEB89B"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_712C19E063EF24175E8B34E271FEB89B"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_712C19E063EF24175E8B34E271FEB89B"
-        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -759,6 +711,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_89F01E1E19FAA740A39CE17066B4132D"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8BA95991700A46A2BD9977FCB19B4689"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -767,6 +725,12 @@
         {
         "MsmKey" = "8:_8BEDBCAF9BCB4C528A85BF122DA524DA"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8D3DE2FCCB3927B4FF8724D8450A004A"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -789,7 +753,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_92F67D08B57F8DD6F867F37FBDF874D8"
+        "MsmKey" = "8:_92F257118B429C1AE56D4230C0E4100F"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -827,12 +791,6 @@
         {
         "MsmKey" = "8:_9D6A7ABEF8274518850A5301F551F99E"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9F0F69622788431BBF64B361E1E3CC24"
-        "OwnerKey" = "8:_EE8944F6305341C99F012CDC692B7E87"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -903,12 +861,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A8B2794A09C44B4E94C7A54EAD42DDFB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A8CF45E1484B45299B29DE10876E80C3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -957,6 +909,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AEAA456541450CBCD183D9A92ACA0C8B"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B3692568828148C182EA9177DF240F14"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -965,6 +923,12 @@
         {
         "MsmKey" = "8:_B6550156543444C49AC6D4D9FAE32A6A"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B7BC6CC1DC2BEDB3EC368FB0A6ED0AE8"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -989,6 +953,24 @@
         {
         "MsmKey" = "8:_BA644816C26E4A8582EBEB73F58310D5"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA65EC9F45E2188D097DC76A7034A167"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA65EC9F45E2188D097DC76A7034A167"
+        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA65EC9F45E2188D097DC76A7034A167"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1035,8 +1017,32 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C3ABAA20E14F427EB98F9B492B6216FB"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C3E03E612C8E4DCDB1EBC390809BF550"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C4617BA4279F8A7F77B3C2516D070D05"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C4617BA4279F8A7F77B3C2516D070D05"
+        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C4617BA4279F8A7F77B3C2516D070D05"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1059,12 +1065,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C992B82CE3ECAE81FCBD8899A89102FF"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C9A4A3271D224EDEAA3BAEF2F855EC4D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1073,6 +1073,12 @@
         {
         "MsmKey" = "8:_CAB50C3064E84BEF9685B2BE4DEE5FC5"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CF230EBBD1338D782A2FDBDD9494E765"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1103,6 +1109,12 @@
         {
         "MsmKey" = "8:_D5FAFDEA466E460E89D594CF521F2C6B"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D69FA5C9939342CA8AD62B5EFB021C0D"
+        "OwnerKey" = "8:_F43A8D1AFD784D9692EB2C3BBC746F7B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1139,6 +1151,12 @@
         {
         "MsmKey" = "8:_DC3522071CDB4A32AC43B460933350BF"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC6F680CFF1A42C1943A23DDCEFDED9F"
+        "OwnerKey" = "8:_C3ABAA20E14F427EB98F9B492B6216FB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1209,12 +1227,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE8944F6305341C99F012CDC692B7E87"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_EFE9FE0BA0B94D2390A959E071B58E44"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1233,49 +1245,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F07FA25536D9D0F025197E3CECBA8C63"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F07FA25536D9D0F025197E3CECBA8C63"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F07FA25536D9D0F025197E3CECBA8C63"
-        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F148ADBDBD8E4E8AB0C3D77DA6860A00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F27470894EEA4AA484C325A8C852F6E8"
+        "MsmKey" = "8:_F43A8D1AFD784D9692EB2C3BBC746F7B"
         "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F27470894EEA4AA484C325A8C852F6E8"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F27470894EEA4AA484C325A8C852F6E8"
+        "MsmKey" = "8:_F43A8D1AFD784D9692EB2C3BBC746F7B"
         "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F450E145BCB0633C938F144B666CC29F"
+        "MsmKey" = "8:_F43A8D1AFD784D9692EB2C3BBC746F7B"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1653,26 +1641,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0AEF9AC8C956CE07AFC166B4CB56A924"
-            {
-            "SourcePath" = "8:osgEarth.dll"
-            "TargetName" = "8:osgEarth.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C33D1B1E5E44122B377D15B46C901B3"
             {
             "SourcePath" = "8:..\\dependencies\\osg69-osgPresentation.dll"
@@ -1713,10 +1681,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E2DC582CE78ECD4B1F453EEABDD4279"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E75D01DEA86670F58E9598F8C6AC3E1"
             {
-            "SourcePath" = "8:osg69-osgUtil.dll"
-            "TargetName" = "8:osg69-osgUtil.dll"
+            "SourcePath" = "8:osg69-osgSim.dll"
+            "TargetName" = "8:osg69-osgSim.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -2033,26 +2001,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_262986FC6AB249AA5CB169DF1367E970"
-            {
-            "SourcePath" = "8:ReadyMapWebPlugin.dll"
-            "TargetName" = "8:ReadyMapWebPlugin.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_268A06500EBD45FBA7EE166B3C5FB7BE"
             {
             "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgvolume.dll"
@@ -2151,26 +2099,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D7F360C86DBEBDFDB6998E63CD3617F"
-            {
-            "SourcePath" = "8:osg69-osgViewer.dll"
-            "TargetName" = "8:osg69-osgViewer.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2DFAE47318CD4E7B9595BA74650DC8BE"
@@ -2291,6 +2219,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_38946AB4DA7D35742B33F49A01E6EA4A"
+            {
+            "SourcePath" = "8:osg69-osgGA.dll"
+            "TargetName" = "8:osg69-osgGA.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_396E40596CF54DB3800537BA78FBE709"
@@ -3053,10 +3001,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_64953F8B88DE5D4A100AA58883260990"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66724EE4E0683571D51E5EC77DE7B70D"
             {
-            "SourcePath" = "8:osg69-osgText.dll"
-            "TargetName" = "8:osg69-osgText.dll"
+            "SourcePath" = "8:osg69-osgUtil.dll"
+            "TargetName" = "8:osg69-osgUtil.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -3173,26 +3121,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6BCE661C73E0D7C3CDE2AFE9C59DCEA0"
-            {
-            "SourcePath" = "8:osg69-osgDB.dll"
-            "TargetName" = "8:osg69-osgDB.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6CD1ACB9029A48459E4E76400DB275C2"
             {
             "SourcePath" = "8:..\\dependencies\\osg69-osgVolume.dll"
@@ -3231,26 +3159,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_712C19E063EF24175E8B34E271FEB89B"
-            {
-            "SourcePath" = "8:ot12-OpenThreads.dll"
-            "TargetName" = "8:ot12-OpenThreads.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_733606C2C80544D0A7A1993ADC4D5A52"
@@ -3753,6 +3661,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_89F01E1E19FAA740A39CE17066B4132D"
+            {
+            "SourcePath" = "8:osg69-osgText.dll"
+            "TargetName" = "8:osg69-osgText.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BA95991700A46A2BD9977FCB19B4689"
             {
             "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgvolume.dll"
@@ -3791,6 +3719,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D3DE2FCCB3927B4FF8724D8450A004A"
+            {
+            "SourcePath" = "8:osg69-osgTerrain.dll"
+            "TargetName" = "8:osg69-osgTerrain.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DFA482578C04DA99E1E18D7E2F39E5C"
@@ -3853,7 +3801,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92F67D08B57F8DD6F867F37FBDF874D8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92F257118B429C1AE56D4230C0E4100F"
             {
             "SourcePath" = "8:osgEarthUtil.dll"
             "TargetName" = "8:osgEarthUtil.dll"
@@ -4193,26 +4141,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8B2794A09C44B4E94C7A54EAD42DDFB"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_feature_overlay.dll"
-            "TargetName" = "8:osgdb_osgearth_model_feature_overlay.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8CF45E1484B45299B29DE10876E80C3"
             {
             "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osg.dll"
@@ -4373,6 +4301,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEAA456541450CBCD183D9A92ACA0C8B"
+            {
+            "SourcePath" = "8:osgEarth.dll"
+            "TargetName" = "8:osgEarth.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3692568828148C182EA9177DF240F14"
             {
             "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_wms.dll"
@@ -4411,6 +4359,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B7BC6CC1DC2BEDB3EC368FB0A6ED0AE8"
+            {
+            "SourcePath" = "8:osg69-osgDB.dll"
+            "TargetName" = "8:osg69-osgDB.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B93807F4810F41EAB82A10CC9FFD6B3B"
@@ -4491,6 +4459,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA65EC9F45E2188D097DC76A7034A167"
+            {
+            "SourcePath" = "8:ot12-OpenThreads.dll"
+            "TargetName" = "8:ot12-OpenThreads.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCCB5AD630704C39970C2D72BE609E02"
@@ -4653,6 +4641,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4617BA4279F8A7F77B3C2516D070D05"
+            {
+            "SourcePath" = "8:osg69-osg.dll"
+            "TargetName" = "8:osg69-osg.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4D05CFB97B74C369D2D215B1A2706AD"
             {
             "SourcePath" = "8:..\\dependencies\\osgdb_dw.dll"
@@ -4713,26 +4721,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C992B82CE3ECAE81FCBD8899A89102FF"
-            {
-            "SourcePath" = "8:osg69-osgTerrain.dll"
-            "TargetName" = "8:osg69-osgTerrain.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C9A4A3271D224EDEAA3BAEF2F855EC4D"
             {
             "SourcePath" = "8:..\\dependencies\\gthread-1.3.dll"
@@ -4771,6 +4759,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF230EBBD1338D782A2FDBDD9494E765"
+            {
+            "SourcePath" = "8:osg69-osgViewer.dll"
+            "TargetName" = "8:osg69-osgViewer.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF44E032FF4F4CA6B3C1E5AD74423C5E"
@@ -5273,26 +5281,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F07FA25536D9D0F025197E3CECBA8C63"
-            {
-            "SourcePath" = "8:osg69-osg.dll"
-            "TargetName" = "8:osg69-osg.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F148ADBDBD8E4E8AB0C3D77DA6860A00"
             {
             "SourcePath" = "8:..\\dependencies\\geotiff_fw.dll"
@@ -5311,26 +5299,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F450E145BCB0633C938F144B666CC29F"
-            {
-            "SourcePath" = "8:osg69-osgGA.dll"
-            "TargetName" = "8:osg69-osgGA.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6382AD3C8CA4E93941BAA6B35AB76BC"
@@ -5474,6 +5442,7 @@
         "MsiBootstrapper"
         {
         "LangId" = "3:1033"
+        "RequiresElevation" = "11:FALSE"
         }
         "Product"
         {
@@ -6067,11 +6036,11 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_3732EE03A26D413A82CEC0C8FBB934CF"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_C3ABAA20E14F427EB98F9B492B6216FB"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_8_0_microsoft_vc80_crt_x86.msm"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_MFC_x86.msm"
                 "Properties"
                 {
                 }
@@ -6081,11 +6050,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_9F0F69622788431BBF64B361E1E3CC24"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_D69FA5C9939342CA8AD62B5EFB021C0D"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_8_0_microsoft_vc80_mfc_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_crt_x86.msm"
                 "Properties"
                 {
                 }
@@ -6095,11 +6064,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_EE8944F6305341C99F012CDC692B7E87"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_DC6F680CFF1A42C1943A23DDCEFDED9F"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC80_MFC_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_mfc_x86.msm"
                 "Properties"
                 {
                 }
@@ -6109,11 +6078,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_F27470894EEA4AA484C325A8C852F6E8"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_F43A8D1AFD784D9692EB2C3BBC746F7B"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC80_CRT_x86.msm"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
                 "Properties"
                 {
                 }
@@ -6128,7 +6097,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_15AF0585958645F386C33149F942C18A"
             {
-            "SourcePath" = "8:..\\release\\ieosgearth.ocx"
+            "SourcePath" = "8:..\\Release\\ieosgearth.ocx"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
@@ -6156,7 +6125,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4CB79E5A4B37437F8AEA25B5625F9124"
             {
-            "SourcePath" = "8:..\\release\\npreadymap.dll"
+            "SourcePath" = "8:..\\Release\\npreadymap.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
@@ -6184,7 +6153,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A848FB9B3E904F49B8C125FD25E6E93E"
             {
-            "SourcePath" = "8:..\\release\\ReadyMapWebPlugin.dll"
+            "SourcePath" = "8:..\\Release\\ReadyMapWebPlugin.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
@@ -6210,9 +6179,6 @@
                 {
                 }
             }
-        }
-        "VJSharpPlugin"
-        {
         }
     }
 }

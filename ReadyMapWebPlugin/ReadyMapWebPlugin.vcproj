@@ -202,6 +202,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ImageLayer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MapCommands.cpp"
 				>
 			</File>
@@ -253,6 +257,10 @@
 			</File>
 			<File
 				RelativePath=".\GetObjectInfoCommand"
+				>
+			</File>
+			<File
+				RelativePath=".\ImageLayer"
 				>
 			</File>
 			<File

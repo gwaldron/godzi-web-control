@@ -15,11 +15,11 @@ xcopy /D /Y "%OSGEARTH%\bin\*.dll" %DEST_DIR%
 REM Copy OSG deps
 xcopy /D /Y "%OSG_DEPS%\bin\*.dll" %DEST_DIR%
 
+REM Copy 3rd party deps
+xcopy /D /Y "3rdParty\*.dll" %DEST_DIR%
+
 REM Copy GDAL deps
 xcopy /D /Y "%GDAL%\bin\*.dll" %DEST_DIR%
-
-REM Copy Expat deps
-xcopy /D /Y "%EXPAT%\bin\*.dll" %DEST_DIR%
 
 REM Copy over the necessary plugins
 xcopy /D /Y "%OSG_PLUGINS_DIR%\osgdb_*.dll" %DEST_DIR%
