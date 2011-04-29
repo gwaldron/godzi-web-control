@@ -25,10 +25,10 @@ p.feed-date
 
 #sidebar
 {
-  padding-left: 10px;
+  margin-left: 1%;
   width:20%;
   height:100%;
-  float:right;
+  float:left;
   overflow:auto;
 }
 
@@ -317,7 +317,7 @@ function gotoViewpoint(id)
   <body onload="initialize()">
     <div id="map_div">
       <script type="text/javascript">
-        Map.embed("readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+        Map.embed("map_div", "readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
       </script>
     </div>
 
@@ -334,6 +334,6 @@ function gotoViewpoint(id)
       </div>
       </br>
       <div id="feed_div" class="feed"/>
-      </div>
+    </div>
   </body>
 </html>

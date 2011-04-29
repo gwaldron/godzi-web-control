@@ -48,14 +48,14 @@ function Map( id )
 
 }
 
-Map.embed = function( id, type, classid ) {
+Map.embed = function(div_id, map_id, type, classid ) {
 
     //Firefox uses the type attribute to determine what plugin to use
     if (BrowserDetect.browser == "Firefox")
     {
 	if (detectReadyMap())
 	{
-	    objString = '<object id="' + id + '" type="' + type + '" width="100%" height="100%" border="0" frameborder="no"/>';
+	    objString = '<object id="' + map_id + '" type="' + type + '" width="100%" height="100%" border="0" frameborder="no"/>';
 	}
 	else
 	{
@@ -66,7 +66,7 @@ Map.embed = function( id, type, classid ) {
     {
 	if (detectReadyMap())
 	{
-	    objString = '<object id="' + id + '" height="100%" width="100%" classid="' + classid + '"/>';
+	    objString = '<object id="' + map_id + '" height="100%" width="100%" classid="' + classid + '"/>';
 	}
 	else
 	{
@@ -77,7 +77,8 @@ Map.embed = function( id, type, classid ) {
     {
         alert("Unsupported browser" + BrowserDetect.browser);
     }
-    document.write( objString );
+
+		document.getElementById(div_id).innerHTML = objString;
 }
 
 Map.prototype._id;
