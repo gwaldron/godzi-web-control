@@ -6,6 +6,7 @@
 #include <ReadyMapWebPlugin/TextLabel>
 #include <ReadyMapWebPlugin/GeoIcon>
 #include <ReadyMapWebPlugin/Model>
+#include <ReadyMapWebPlugin/ImageLayer>
 #include <ReadyMapWebPlugin/Command>
 #include <ReadyMapWebPlugin/Selection>
 

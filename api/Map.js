@@ -173,7 +173,7 @@ Map.prototype.addTextLabel = function(label)
 
 Map.prototype.removeTextLabel = function(label)
 {
-  this._plugin.sendCommand("removeTextLabel", "id:" + label._id, false);
+  this.sendCommand("removeTextLabel", { id: label._id }, false);
 }
 
 Map.prototype.addIcon = function(icon)
@@ -183,7 +183,7 @@ Map.prototype.addIcon = function(icon)
 
 Map.prototype.removeIcon = function(icon)
 {
-  this._plugin.sendCommand("removeIcon", "id:" + icon._id, false);
+  this.sendCommand("removeIcon", { id: icon._id }, false);
 }
 
 Map.prototype.addModel = function(model)
@@ -193,7 +193,17 @@ Map.prototype.addModel = function(model)
 
 Map.prototype.removeModel = function(model)
 {
-  this._plugin.sendCommand("removeModel", "id:" + model._id, false);
+  this.sendCommand("removeModel", { id: model._id }, false);
+}
+
+Map.prototype.addImageLayer = function(layer)
+{
+	layer.setMap(this);
+}
+
+Map.prototype.removeImageLayer = function(layer)
+{
+	this.sendCommand("removeImageLayer", { id: layer._id }, false);
 }
 
 Map.prototype.setMapFile = function(mapFile)
