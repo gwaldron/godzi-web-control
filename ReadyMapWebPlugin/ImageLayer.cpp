@@ -6,6 +6,7 @@
 #include <osgEarth/Common>
 #include <osgEarthDrivers/tms/TMSOptions>
 #include <osgEarthDrivers/wms/WMSOptions>
+#include <osgEarthDrivers/arcgis/ArcGISOptions>
 
 #include <osg/io_utils>
 #include <osg/ClusterCullingCallback>
@@ -144,6 +145,18 @@ osgEarth::ImageLayer* UpdateImageLayerCommand::createImageLayer()
       opt.style() = styles;
     else if (lower.find("styles=", 0) != std::string::npos)
       opt.style() = extractBetween(lower, "styles=", "&");
+
+    return new osgEarth::ImageLayer(_id, opt);
+  }
+  else if (type == "arcgis")
+  {
+    std::string token = _args["token"];
+
+    osgEarth::Drivers::ArcGISOptions opt;
+    opt.url() = url;
+
+    if (!token.empty())
+      opt.token() = token;
 
     return new osgEarth::ImageLayer(_id, opt);
   }
