@@ -53,11 +53,6 @@ Command* RemoveImageLayerCommand::Factory::create(const std::string& command, co
     return NULL;
 }
 
-RemoveImageLayerCommand::RemoveImageLayerCommand(const std::string &id)
-{
-    _id = id;
-}
-
 bool RemoveImageLayerCommand::operator ()(ReadyMapWebPlugin::MapControl *map)
 {
   osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByName(_id);
@@ -82,13 +77,6 @@ Command* UpdateImageLayerCommand::Factory::create(const std::string& command, co
         return new UpdateImageLayerCommand(id, args, opacity, visible);
     }
     return NULL;
-}
-
-UpdateImageLayerCommand::UpdateImageLayerCommand(const std::string &id, const CommandArguments& args, double opacity, bool visible) : _args(args)
-{
-    _id = id;
-    _opacity = opacity;
-    _visible = visible;
 }
 
 bool UpdateImageLayerCommand::operator ()(ReadyMapWebPlugin::MapControl *map)
@@ -161,4 +149,34 @@ osgEarth::ImageLayer* UpdateImageLayerCommand::createImageLayer()
   }
 
   return 0;
+}
+
+/***************************************************************************************/
+
+Command* MoveImageLayerCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("moveImageLayer" == command)
+    {
+        std::string id = args["id"];
+        int index = as<int>(args["index"], -1);
+
+        return new MoveImageLayerCommand(id, index);
+    }
+    return NULL;
+}
+
+bool MoveImageLayerCommand::operator ()(ReadyMapWebPlugin::MapControl *map)
+{
+  if (_index < 0)
+    return false;
+
+  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByName(_id);
+
+  if (layer)
+  {
+    map->getMap()->moveImageLayer(layer, _index);
+    return true;
+  }
+
+  return false;
 }

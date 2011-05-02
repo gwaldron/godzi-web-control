@@ -23,8 +23,12 @@ namespace ReadyMapWebPlugin
         {
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
-        UpdateImageLayerCommand(const std::string &id, const CommandArguments& args, double opacity=1.0, bool visible=true);
+        
+        UpdateImageLayerCommand(const std::string &id, const CommandArguments& args, double opacity=1.0, bool visible=true) :
+            _id(id), _args(args), _opacity(opacity), _visible(visible) { }
+          
         virtual bool operator()(MapControl* map);
+        
     protected:
         osgEarth::ImageLayer* createImageLayer();
 
@@ -32,6 +36,22 @@ namespace ReadyMapWebPlugin
         std::string _id;
         double _opacity;
         bool _visible;
+    };
+    
+    class MoveImageLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        MoveImageLayerCommand(const std::string &id, int index=-1) : _id(id), _index(index) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        std::string _id;
+        int _index;
     };
 
     class RemoveImageLayerCommand : public Command
@@ -41,8 +61,10 @@ namespace ReadyMapWebPlugin
         {
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
-        RemoveImageLayerCommand(const std::string &id);
+        
+        RemoveImageLayerCommand(const std::string &id) : _id(id) { }
         virtual bool operator()(MapControl* map);
+        
     protected:
         std::string _id;
     };

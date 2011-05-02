@@ -160,6 +160,7 @@ _eventCallback(0)
     addCommandFactory(new RemoveModelCommand::Factory());
 
     addCommandFactory(new UpdateImageLayerCommand::Factory());
+    addCommandFactory(new MoveImageLayerCommand::Factory());
     addCommandFactory(new RemoveImageLayerCommand::Factory());
 
     addCommandFactory(new UpdateTextLabelCommand::Factory());

@@ -201,6 +201,11 @@ Map.prototype.addImageLayer = function(layer)
 	layer.setMap(this);
 }
 
+Map.prototype.moveImageLayer = function(layer, newIndex)
+{
+	this.sendCommand("moveImageLayer", { id: layer._id, index: newIndex }, false);
+}
+
 Map.prototype.removeImageLayer = function(layer)
 {
 	this.sendCommand("removeImageLayer", { id: layer._id }, false);
