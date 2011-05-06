@@ -6,20 +6,22 @@ function ArcGISLayer(name, url, token)
 	this._opacity = 1.0;
 	this._visible = true;
   this._token = token;
+	this._mapCommand = "updateImageLayer";
 }
 
 ArcGISLayer.prototype.updateRender = function()
 {
   if (this._map != null)
   {
-    this._map.sendCommand("updateImageLayer", {
-      type: "arcgis",
-      id: this._id,
-      name: this._name,
-      url: this._url,
-			token: this._token,
-      opacity: this._opacity,
-      visible: this._visible }, false);
+    if (this._mapCommand != undefined)
+      this._map.sendCommand(this._mapCommand, {
+        type: "arcgis",
+        id: this._id,
+        name: this._name,
+        url: this._url,
+        token: this._token,
+        opacity: this._opacity,
+        visible: this._visible }, false);
   }
 }
 
@@ -72,9 +74,13 @@ ArcGISLayer.prototype.getMap = function()
   return this._map;
 }
 
-ArcGISLayer.prototype.setMap = function(map)
+ArcGISLayer.prototype.setMap = function(map, command)
 {
   this._map = map;
+
+	if (command != undefined)
+		this._mapCommand = command;
+
   this.updateRender();
 }
 
@@ -85,4 +91,4 @@ ArcGISLayer.prototype._token;
 ArcGISLayer.prototype._opacity;
 ArcGISLayer.prototype._visible;
 ArcGISLayer.prototype._map;
-
+ArcGISLayer.prototype._mapCommand;

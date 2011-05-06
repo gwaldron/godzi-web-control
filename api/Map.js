@@ -198,7 +198,7 @@ Map.prototype.removeModel = function(model)
 
 Map.prototype.addImageLayer = function(layer)
 {
-	layer.setMap(this);
+	layer.setMap(this, "updateImageLayer");
 }
 
 Map.prototype.moveImageLayer = function(layer, newIndex)
@@ -209,6 +209,21 @@ Map.prototype.moveImageLayer = function(layer, newIndex)
 Map.prototype.removeImageLayer = function(layer)
 {
 	this.sendCommand("removeImageLayer", { id: layer._id }, false);
+}
+
+Map.prototype.addElevationLayer = function(layer)
+{
+	layer.setMap(this, "addElevationLayer");
+}
+
+Map.prototype.moveElevationLayer = function(layer, newIndex)
+{
+	this.sendCommand("moveElevationLayer", { id: layer._id, index: newIndex }, false);
+}
+
+Map.prototype.removeElevationLayer = function(layer)
+{
+	this.sendCommand("removeElevationLayer", { id: layer._id }, false);
 }
 
 Map.prototype.setMapFile = function(mapFile)

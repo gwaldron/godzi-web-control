@@ -194,6 +194,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ElevationLayer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\GeoIcon.cpp"
 				>
 			</File>
@@ -230,6 +234,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\TileSourceUtil.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Viewpoint.cpp"
 				>
 			</File>
@@ -245,6 +253,10 @@
 			</File>
 			<File
 				RelativePath=".\EarthManipulator"
+				>
+			</File>
+			<File
+				RelativePath=".\ElevationLayer"
 				>
 			</File>
 			<File
@@ -289,6 +301,10 @@
 			</File>
 			<File
 				RelativePath=".\TextLabel"
+				>
+			</File>
+			<File
+				RelativePath=".\TileSourceUtil"
 				>
 			</File>
 			<File

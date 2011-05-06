@@ -1,0 +1,163 @@
+<html>
+<head>
+
+  <title>Layers Example</title>
+
+<style type="text/css">
+#map_div     
+{ 
+  width:100%;
+  height:100%;
+}
+</style>
+
+<script src="../api/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script src="../api/PluginManagement.js" type="text/javascript"></script>
+<script src="../api/BrowserDetect.js" type = "text/javascript"></script>
+<script src="../api/Common.js" type="text/javascript"> </script>
+<script src="../api/Color.js" type="text/javascript"> </script>
+<script src="../api/Map.js" type="text/javascript"> </script>
+<script src="../api/Location.js" type="text/javascript"></script>
+<script src="../api/Scale.js" type="text/javascript"></script>
+<script src="../api/Orientation.js" type="text/javascript"></script>
+<script src="../api/Layers/TMSLayer.js" type="text/javascript"> </script>
+<script src="../api/Layers/WMSLayer.js" type="text/javascript"> </script>
+<script src="../api/Layers/ArcGISLayer.js" type="text/javascript"> </script>
+
+
+<script type="text/javascript">
+
+function initialize()
+{
+  map = new Map('readymap');
+  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
+  map.setMapFile("http://live.pelicanmapping.com/readymap/maps/public/Landsat.earth");
+}
+
+function toggleTMS()
+{
+	if (typeof tms == 'undefined')
+	{
+		document.getElementById("btnTMS").value = "Remove TMS Layer";
+		tms = new TMSLayer("TMS OSM", "http://live.pelicanmapping.com/readymap/tiles/1.0.0/33/");
+    map.addImageLayer(tms);
+	}
+	else
+	{
+		document.getElementById("btnTMS").value = "Add TMS Layer";
+		map.removeImageLayer(tms);
+		wms = undefined;
+	}
+}
+
+function toggleWMS()
+{
+	if (typeof wms == 'undefined')
+	{
+	  document.getElementById("btnWMS").value = "Remove WMS Layer";
+	  wms = new WMSLayer("Night WMS", "http://live.pelicanmapping.com/readymap/tiles", { layers: "26", format: "image/png" });
+
+    //Alternatively, parameters can be provided via the wms url
+    //wms = new WMSLayer("Night WMS", "http://live.pelicanmapping.com/readymap/tiles?request=GetMap&layers=26&format=image/png&service=WMS&version=1.1.1&srs=EPSG:4326");
+
+    map.addImageLayer(wms);
+	}
+	else
+	{
+	  document.getElementById("btnWMS").value = "Add WMS Layer";
+		map.removeImageLayer(wms);
+		wms = undefined;
+	}
+}
+
+function toggleArc()
+{
+	if (typeof arc == 'undefined')
+	{
+		document.getElementById("btnArc").value = "Remove ArcGIS Layer";
+		arc = new ArcGISLayer("ArcGIS Places", "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer");
+    map.addImageLayer(arc);
+	}
+	else
+	{
+		document.getElementById("btnArc").value = "Add ArcGIS Layer";
+		map.removeImageLayer(arc);
+		arc = undefined;
+	}
+}
+
+function toggleElev()
+{
+	if (typeof elev == 'undefined')
+	{
+		document.getElementById("btnElev").value = "Remove Elevation Layer";
+	  elev = new TMSLayer("Elevation", "http://live.pelicanmapping.com/readymap/tiles/1.0.0/9/");
+    map.addElevationLayer(elev);
+	}
+	else
+	{
+		document.getElementById("btnElev").value = "Add Elevation Layer";
+		map.removeElevationLayer(elev);
+		elev = undefined;
+	}
+}
+
+function moveTMS()
+{
+	var count = getLayerCount();
+	if (count > 2 && typeof tms != 'undefined')
+	{
+		map.moveImageLayer(tms, count - 1);
+	}
+}
+
+function moveWMS()
+{
+	var count = getLayerCount();
+	if (count > 2 && typeof wms != 'undefined')
+	{
+		map.moveImageLayer(wms, count - 1);
+	}
+}
+
+function moveArc()
+{
+	var count = getLayerCount();
+	if (count > 2 && typeof arc != 'undefined')
+	{
+		map.moveImageLayer(arc, count - 1);
+	}
+}
+
+function getLayerCount()
+{
+	var count = 1;
+	if (typeof tms != 'undefined')
+		count++;
+	if (typeof wms != 'undefined')
+		count++;
+	if (typeof arc != 'undefined')
+		count++;
+
+	return count;
+}
+
+</script>
+
+</head>
+
+<body onload="initialize()">
+<input id ="btnTMS" type="button" style="width: 200px" value="Add TMS Layer" onclick="toggleTMS()"/><input id="btnMoveTMS" type="button" style="width: 200px" value="Move to top" onclick="moveTMS()"/><br />
+<input id ="btnWMS" type="button" style="width: 200px" value="Add WMS Layer" onclick="toggleWMS()"/><input id="btnMoveWMS" type="button" style="width: 200px" value="Move to top" onclick="moveWMS()"/><br />
+<input id ="btnArc" type="button" style="width: 200px" value="Add ArcGIS Layer" onclick="toggleArc()"/><input id="btnMoveArc" type="button" style="width: 200px" value="Move to top" onclick="moveArc()"/><br />
+<input id ="btnElev" type="button" style="width: 200px" value="Add Elevation Layer" onclick="toggleElev()"/><br />
+
+<div id="map_div">
+  <script type="text/javascript">
+    Map.embed("map_div", "readymap", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+  </script>
+</div>
+
+</body>
+</html>

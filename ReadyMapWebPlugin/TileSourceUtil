@@ -1,0 +1,16 @@
+#ifndef READYMAPWEBPLUGIN_TILESOURCEUTIL_H
+#define READYMAPWEBPLUGIN_TILESOURCEUTIL_H
+
+#include <ReadyMapWebPlugin/Command>
+#include <osgEarth/TileSource>
+#include <string>
+
+namespace ReadyMapWebPlugin
+{
+    class TileSourceUtil
+    {
+    public:
+      static bool createTileSourceOptions(const CommandArguments& args, osgEarth::TileSourceOptions& out_opt);
+    };
+}
+#endif READYMAPWEBPLUGIN_TILESOURCEUTIL_H

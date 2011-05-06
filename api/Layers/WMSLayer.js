@@ -5,6 +5,7 @@ function WMSLayer(name, url, params)
   this._url = url;
 	this._opacity = 1.0;
 	this._visible = true;
+	this._mapCommand = "updateImageLayer";
 
 	if (params != undefined)
 	{
@@ -19,17 +20,18 @@ WMSLayer.prototype.updateRender = function()
 {
   if (this._map != null)
   {
-    this._map.sendCommand("updateImageLayer", {
-      type: "wms",
-      id: this._id,
-      name: this._name,
-      url: this._url,
-			layers: this._layers,
-			format: this._format,
-			srs: this._srs,
-			styles: this._styles,
-      opacity: this._opacity,
-      visible: this._visible }, false);
+    if (this._mapCommand != undefined)
+      this._map.sendCommand(this._mapCommand, {
+        type: "wms",
+        id: this._id,
+        name: this._name,
+        url: this._url,
+        layers: this._layers,
+        format: this._format,
+        srs: this._srs,
+        styles: this._styles,
+        opacity: this._opacity,
+        visible: this._visible }, false);
   }
 }
 
@@ -115,9 +117,13 @@ WMSLayer.prototype.getMap = function()
   return this._map;
 }
 
-WMSLayer.prototype.setMap = function(map)
+WMSLayer.prototype.setMap = function(map, command)
 {
   this._map = map;
+
+	if (command != undefined)
+		this._mapCommand = command;
+
   this.updateRender();
 }
 
@@ -131,3 +137,4 @@ WMSLayer.prototype._styles;
 WMSLayer.prototype._opacity;
 WMSLayer.prototype._visible;
 WMSLayer.prototype._map;
+WMSLayer.prototype._mapCommand;

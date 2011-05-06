@@ -163,6 +163,10 @@ _eventCallback(0)
     addCommandFactory(new MoveImageLayerCommand::Factory());
     addCommandFactory(new RemoveImageLayerCommand::Factory());
 
+    addCommandFactory(new AddElevationLayerCommand::Factory());
+    addCommandFactory(new MoveElevationLayerCommand::Factory());
+    addCommandFactory(new RemoveElevationLayerCommand::Factory());
+
     addCommandFactory(new UpdateTextLabelCommand::Factory());
     addCommandFactory(new RemoveTextLabelCommand::Factory());
 

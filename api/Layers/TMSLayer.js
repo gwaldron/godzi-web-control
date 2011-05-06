@@ -5,19 +5,21 @@ function TMSLayer(name, url)
   this._url = url;
   this._opacity = 1.0;
   this._visible = true;
+	this._mapCommand = "updateImageLayer";
 }
 
 TMSLayer.prototype.updateRender = function()
 {
   if (this._map != null)
   {
-    this._map.sendCommand("updateImageLayer", {
-      type: "tms",
-      id: this._id,
-      name: this._name,
-      url: this._url,
-      opacity: this._opacity,
-      visible: this._visible }, false);
+    if (this._mapCommand != undefined)
+      this._map.sendCommand(this._mapCommand, {
+        type: "tms",
+        id: this._id,
+        name: this._name,
+        url: this._url,
+        opacity: this._opacity,
+        visible: this._visible }, false);
   }
 }
 
@@ -59,9 +61,13 @@ TMSLayer.prototype.getMap = function()
   return this._map;
 }
 
-TMSLayer.prototype.setMap = function(map)
+TMSLayer.prototype.setMap = function(map, command)
 {
   this._map = map;
+
+	if (command != undefined)
+		this._mapCommand = command;
+
   this.updateRender();
 }
 
@@ -71,3 +77,4 @@ TMSLayer.prototype._url;
 TMSLayer.prototype._opacity;
 TMSLayer.prototype._visible;
 TMSLayer.prototype._map;
+TMSLayer.prototype._mapCommand;
