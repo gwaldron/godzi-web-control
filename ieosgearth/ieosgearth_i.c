@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Fri Apr 29 16:48:10 2011
+/* at Mon May 16 15:37:24 2011
  */
 /* Compiler settings for .\ieosgearth.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

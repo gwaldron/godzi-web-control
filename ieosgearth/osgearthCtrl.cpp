@@ -13,7 +13,7 @@
 
 #include <sstream>
 
-using namespace ReadyMapWebPlugin;
+using namespace GodziWebControl;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -48,7 +48,7 @@ END_DISPATCH_MAP()
 // Event map
 
 BEGIN_EVENT_MAP(CosgearthCtrl, COleControl)
-    EVENT_CUSTOM_ID("readymapevent", eventidreadymapevent, readymapevent, VTS_BSTR VTS_BSTR VTS_BSTR)
+    EVENT_CUSTOM_ID("godzievent", eventidgodzievent, godzievent, VTS_BSTR VTS_BSTR VTS_BSTR)
 END_EVENT_MAP()
 
 
@@ -224,7 +224,7 @@ CosgearthCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
     int result = COleControl::OnCreate(lpCreateStruct);
 
     //Initialize the map
-    _map = new ReadyMapWebPlugin::MapControl;
+    _map = new GodziWebControl::MapControl;
     _map->init( GetSafeHwnd() );
     _map->setEventCallback(this);
     _map->startThread();
@@ -266,5 +266,5 @@ CosgearthCtrl::handleEvent(const std::string &target, const std::string &eventNa
     targetStr = target.c_str();
     eventNameStr = eventName.c_str();
     dataStr = data.c_str();
-    readymapevent(targetStr.AllocSysString(), eventNameStr.AllocSysString(), dataStr.AllocSysString());
+    godzievent(targetStr.AllocSysString(), eventNameStr.AllocSysString(), dataStr.AllocSysString());
 }

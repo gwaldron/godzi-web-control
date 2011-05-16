@@ -1,13 +1,13 @@
 #pragma once
 
-#include <ReadyMapWebPlugin/MapControl>
+#include <GodziWebControl/MapControl>
 
 // osgearthCtrl.h : Declaration of the CosgearthCtrl ActiveX Control class.
 
 
 // CosgearthCtrl : See osgearthCtrl.cpp for implementation.
 
-class CosgearthCtrl : public COleControl, public ReadyMapWebPlugin::MapControl::EventCallback
+class CosgearthCtrl : public COleControl, public GodziWebControl::MapControl::EventCallback
 {
 	DECLARE_DYNCREATE(CosgearthCtrl)
 
@@ -53,17 +53,17 @@ protected:
 public:
 
 	enum DispIDEnum {
-        eventidreadymapevent = 1L,
+        eventidgodzievent = 1L,
         dispidsendCommand = 1L,
 	};
 
 protected:
-    osg::ref_ptr< ReadyMapWebPlugin::MapControl > _map;
+    osg::ref_ptr< GodziWebControl::MapControl > _map;
     BSTR sendCommand(LPCTSTR command, LPCTSTR args, VARIANT_BOOL blocking);
 
-    void readymapevent(LPCTSTR target, LPCTSTR eventName, LPCTSTR data)
+    void godzievent(LPCTSTR target, LPCTSTR eventName, LPCTSTR data)
     {
-        FireEvent(eventidreadymapevent, EVENT_PARAM(VTS_BSTR VTS_BSTR VTS_BSTR), target, eventName, data);
+        FireEvent(eventidgodzievent, EVENT_PARAM(VTS_BSTR VTS_BSTR VTS_BSTR), target, eventName, data);
     }
 };
 

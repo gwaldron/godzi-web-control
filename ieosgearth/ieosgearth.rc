@@ -74,7 +74,7 @@ BEGIN
             VALUE "InternalName", "ieosgearth.ocx"
             VALUE "LegalCopyright", "(c) Pelican Mapping.  All rights reserved."
             VALUE "OriginalFilename", "ieosgearth.ocx"
-            VALUE "ProductName", "ReadyMap 3D Web"
+            VALUE "ProductName", "Godzi Web Control"
             VALUE "ProductVersion", "1.0.0.1"
         END
     END

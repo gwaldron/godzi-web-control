@@ -38,7 +38,7 @@ library ieosgearthLib
 
 		methods:
             [id(DISPID_DOCLICK), helpstring("method DoClick")] void DoClick(void);
-            [id(1)] void readymapevent(BSTR target, BSTR eventName, BSTR data);
+            [id(1)] void godzievent(BSTR target, BSTR eventName, BSTR data);
     };
 
 	//  Class information for CosgearthCtrl

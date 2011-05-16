@@ -72,7 +72,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="false"
-				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osgd.lib osgDBd.lib OpenThreadsd.lib osgViewerd.lib osgGAd.lib osgEarthd.lib ReadyMapWebPlugind.lib"
+				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osgd.lib osgDBd.lib OpenThreadsd.lib osgViewerd.lib osgGAd.lib osgEarthd.lib GodziWebControld.lib"
 				OutputFile="$(OutDir)\$(ProjectName).ocx"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(OSG_ROOT)\lib&quot;;..\lib"
@@ -160,7 +160,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="false"
-				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osg.lib osgDB.lib OpenThreads.lib osgViewer.lib osgGA.lib ReadyMapWebPlugin.lib"
+				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osg.lib osgDB.lib OpenThreads.lib osgViewer.lib osgGA.lib GodziWebControl.lib"
 				OutputFile="$(OutDir)\$(ProjectName).ocx"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(OSG_ROOT)\lib&quot;;..\lib"
