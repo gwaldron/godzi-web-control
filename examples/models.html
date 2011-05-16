@@ -108,7 +108,7 @@ function stopAnimation()
 
 function initialize()
 {
-  map = new Map('readymap1');
+  map = new Map('mapcontrol');
   map.setMapFile( "http://demo.pelicanmapping.com/rmweb/maps/ags_imagery.earth" );
   map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
   
@@ -134,7 +134,7 @@ function updateVisibility()
 
 <div id="map_div">
    <script type="text/javascript">
-      Map.embed("map_div", "readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+      Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
    </script>
 </div>
 

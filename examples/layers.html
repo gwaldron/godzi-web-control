@@ -30,7 +30,7 @@
 
 function initialize()
 {
-  map = new Map('readymap');
+  map = new Map('mapcontrol');
   map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
   map.setMapFile("http://live.pelicanmapping.com/readymap/maps/public/Landsat.earth");
 }
@@ -155,7 +155,7 @@ function getLayerCount()
 
 <div id="map_div">
   <script type="text/javascript">
-    Map.embed("map_div", "readymap", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+    Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
   </script>
 </div>
 

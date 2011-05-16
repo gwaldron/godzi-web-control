@@ -1,9 +1,9 @@
 <html>
 <head>
-<title>Pelican ReadyMap - Pelican Mapping</title>
+<title>Location Search (Yahoo) Example</title>
 
 <style type="text/css">
-#readymap
+#map_div
 { 
   width:  100%;
   height: 100%;
@@ -30,7 +30,7 @@ var map;
 
 function initialize()
 {        
-    map = new Map( "readymap1" );
+    map = new Map( "mapcontrol" );
     map.setBackColor( new Color(.1, .1, .4, 1) );
     
     var args = Utils.getPageURI().args;
@@ -126,9 +126,9 @@ function runSearch()
         Search: <input id="search" size="50" type="text" onkeydown="if(event.keyCode==13) runSearch();" />           
     </div>
     <br />
-    <div id="readymap">
+    <div id="map_div">
         <script type="text/javascript">
-            Map.embed( "readymap", "readymap1", "application/readymap", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA" );
+            Map.embed( "map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA" );
         </script>
     </div>
 
