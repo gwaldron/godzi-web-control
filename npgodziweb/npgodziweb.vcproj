@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="npreadymap"
+	Name="npgodziweb"
 	ProjectGUID="{B4BD900F-1B99-4087-88A5-085562F8BF42}"
-	RootNamespace="npreadymap"
+	RootNamespace="npgodziweb"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;NPREADYMAP_EXPORTS"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;NPGODZIWEB_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -116,7 +116,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;$(OSGEARTH)\include&quot;;&quot;$(OSG_ROOT)\include&quot;;..;&quot;$(SolutionDir)xul_sdk\include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;NPREADYMAP_EXPORTS;XP_WIN32;MOZILLA_STRICT_API;XPCOM_GLUE;XP_WIN;_X86_"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;NPGODZIWEB_EXPORTS;XP_WIN32;MOZILLA_STRICT_API;XPCOM_GLUE;XP_WIN;_X86_"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -134,7 +134,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osg.lib osgDB.lib OpenThreads.lib osgViewer.lib osgGA.lib ReadyMapWebPlugin.lib"
+				AdditionalDependencies="psapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib osg.lib osgDB.lib OpenThreads.lib osgViewer.lib osgGA.lib GodziWebControl.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(OSG_ROOT)\lib&quot;;..\lib;&quot;$(SolutionDir)xul_sdk\lib&quot;"
 				ModuleDefinitionFile="nprt.def"

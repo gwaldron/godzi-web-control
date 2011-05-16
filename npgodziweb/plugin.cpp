@@ -55,10 +55,10 @@
 #include "plugin.h"
 #include "npupp.h"
 
-using namespace ReadyMapWebPlugin;
+using namespace GodziWebControl;
 
 static NPIdentifier sSendCommand_id;
-static NPIdentifier sReadyMapEventHandler_id; 
+static NPIdentifier sGodziEventHandler_id; 
 static NPIdentifier sDocument_id;
 static NPIdentifier sCreateEvent_id;
 static NPIdentifier sDispatchEvent_id;
@@ -262,7 +262,7 @@ public:
       : 
   ScriptablePluginObjectBase(npp),
   _plugin(0),
-  _readyMapEventHandler(0)
+  _godziEventHandler(0)
   {
   }
 
@@ -276,7 +276,7 @@ public:
   virtual bool SetProperty(NPIdentifier name, const NPVariant *value);
 
   CPlugin* _plugin;
-  NPObject* _readyMapEventHandler;
+  NPObject* _godziEventHandler;
 };
 
 static NPObject *
@@ -305,7 +305,7 @@ ScriptablePluginObject::HasProperty(NPIdentifier name)
 {
     /*NPUTF8* name2 = NPN_UTF8FromIdentifier(name);
     osg::notify(osg::NOTICE) << "HasProperty " << name2 << std::endl;*/
-    if (name == sReadyMapEventHandler_id) return true;
+    if (name == sGodziEventHandler_id) return true;
     return false;
 }
 
@@ -315,9 +315,9 @@ ScriptablePluginObject::GetProperty(NPIdentifier name, NPVariant *result)
     /*NPUTF8* name2 = NPN_UTF8FromIdentifier(name);
     osg::notify(osg::NOTICE) << "GetProperty " << name2 << std::endl;*/
 
-    if ((name == sReadyMapEventHandler_id) && (_readyMapEventHandler))
+    if ((name == sGodziEventHandler_id) && (_godziEventHandler))
     {
-        OBJECT_TO_NPVARIANT(_readyMapEventHandler, *result);
+        OBJECT_TO_NPVARIANT(_godziEventHandler, *result);
         return true;
     }
     //No properties
@@ -330,10 +330,10 @@ ScriptablePluginObject::SetProperty(NPIdentifier name, const NPVariant *value)
     /*NPUTF8* name2 = NPN_UTF8FromIdentifier(name);
     osg::notify(osg::NOTICE) << "SetProperty " << name2 << std::endl;*/
 
-    if (name == sReadyMapEventHandler_id)
+    if (name == sGodziEventHandler_id)
     {
         //Store the reference to the incoming object
-        _readyMapEventHandler = NPN_RetainObject(NPVARIANT_TO_OBJECT(*value));
+        _godziEventHandler = NPN_RetainObject(NPVARIANT_TO_OBJECT(*value));
 
         //Try to invoke it
         /*NPVariant result;
@@ -403,7 +403,7 @@ CPlugin::CPlugin(NPP pNPInstance) :
 #endif
 
   sSendCommand_id = NPN_GetStringIdentifier("sendCommand");  
-  sReadyMapEventHandler_id = NPN_GetStringIdentifier("readyMapEventHandler");
+  sGodziEventHandler_id = NPN_GetStringIdentifier("godziEventHandler");
   sDocument_id = NPN_GetStringIdentifier("document");
   sCreateEvent_id = NPN_GetStringIdentifier("createEvent");
   sDispatchEvent_id = NPN_GetStringIdentifier("dispatchEvent");
@@ -430,7 +430,7 @@ NPBool CPlugin::init(NPWindow* pNPWindow)
 		return FALSE;
     }
 
-    _map = new ReadyMapWebPlugin::MapControl;
+    _map = new GodziWebControl::MapControl;
     _map->setEventCallback(this);
     _map->init( m_hWnd );
     _map->startThread();
@@ -514,7 +514,7 @@ CPlugin::handleEvent(const std::string &target, const std::string &eventName, co
         {
             NPVariant resultv;
             NPVariant args[3];
-            STRINGZ_TO_NPVARIANT("onreadymapevent", args[0]);
+            STRINGZ_TO_NPVARIANT("ongodzievent", args[0]);
             BOOLEAN_TO_NPVARIANT(true, args[1]);
             BOOLEAN_TO_NPVARIANT(true, args[2]);
             //Initialize the event
@@ -553,7 +553,7 @@ CPlugin::handleEvent(const std::string &target, const std::string &eventName, co
         
         //osg::notify(osg::NOTICE) << "Calling NPN_InvokeDefault" << std::endl;
         NPVariant result;
-        NPN_InvokeDefault(m_pNPInstance, ((ScriptablePluginObject*)m_pScriptableObject)->_readyMapEventHandler,
+        NPN_InvokeDefault(m_pNPInstance, ((ScriptablePluginObject*)m_pScriptableObject)->_godziEventHandler,
                           args, 3, &result);
         //osg::notify(osg::NOTICE) << "Calling NPN_InvokeDefault" << std::endl;
 

@@ -44,15 +44,15 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", " "
-            VALUE "FileDescription", "ReadyMap"
+            VALUE "FileDescription", "GodziWeb"
             VALUE "FileExtents", "rts"
-            VALUE "FileOpenName", "Readymap"
+            VALUE "FileOpenName", "GodziWeb"
             VALUE "FileVersion", "1, 0, 0, 1"
-            VALUE "InternalName", "ReadyMap"
+            VALUE "InternalName", "GodziWeb"
             VALUE "LegalCopyright", "Copyright © Pelican Mapping 2009"
-            VALUE "MIMEType", "application/readymap"
-            VALUE "OriginalFilename", "npreadymap.dll"
-            VALUE "ProductName", "ReadyMap"
+            VALUE "MIMEType", "application/godzi"
+            VALUE "OriginalFilename", "npgodziweb.dll"
+            VALUE "ProductName", "GodziWebControl"
             VALUE "ProductVersion", "1, 0, 0, 1"
         END
     END

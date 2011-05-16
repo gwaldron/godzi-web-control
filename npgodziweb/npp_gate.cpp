@@ -45,7 +45,7 @@
 char*
 NPP_GetMIMEDescription(void)
 {
-  return "application/readymap";
+  return "application/godzi";
 }
 
 
@@ -166,10 +166,10 @@ NPError	NPP_GetValue(NPP instance, NPPVariable variable, void *value)
 
   switch (variable) {
   case NPPVpluginNameString:
-    *((char **)value) = "ReadyMap";
+    *((char **)value) = "GodziWeb";
     break;
   case NPPVpluginDescriptionString:
-    *((char **)value) = "ReadyMap";
+    *((char **)value) = "GodziWeb";
     break;
   case NPPVpluginScriptableNPObject:
     *(NPObject **)value = plugin->GetScriptableObject();

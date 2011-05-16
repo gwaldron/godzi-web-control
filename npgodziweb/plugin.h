@@ -41,9 +41,9 @@
 #include "npapi.h"
 #include "npruntime.h"
 
-#include <ReadyMapWebPlugin/MapControl>
+#include <GodziWebControl/MapControl>
 
-class CPlugin : public ReadyMapWebPlugin::MapControl::EventCallback
+class CPlugin : public GodziWebControl::MapControl::EventCallback
 {
 private:
   NPP m_pNPInstance;
@@ -74,7 +74,7 @@ public:
 
   virtual void handleEvent(const std::string &target, const std::string &eventName, const std::string &data);
 
-  osg::ref_ptr<ReadyMapWebPlugin::MapControl> _map;
+  osg::ref_ptr<GodziWebControl::MapControl> _map;
 };
 
 #endif // __PLUGIN_H__
