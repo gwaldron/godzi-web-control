@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadyMapWebPlugin", "ReadyMapWebPlugin\ReadyMapWebPlugin.vcproj", "{A9B01329-F486-4744-BF38-A11DE3A4AF10}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GodziWebControl", "GodziWebControl\GodziWebControl.vcproj", "{A9B01329-F486-4744-BF38-A11DE3A4AF10}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ieosgearth", "ieosgearth\ieosgearth.vcproj", "{9D41FF1D-41C2-45FD-B18C-D3D3AD57123E}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -10,7 +10,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ieosgearth", "ieosgearth\ie
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{4F6B539B-764C-429B-872C-1E199328C0C6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "npreadymap", "npreadymap\npreadymap.vcproj", "{B4BD900F-1B99-4087-88A5-085562F8BF42}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "npgodziweb", "npgodziweb\npgodziweb.vcproj", "{B4BD900F-1B99-4087-88A5-085562F8BF42}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A9B01329-F486-4744-BF38-A11DE3A4AF10} = {A9B01329-F486-4744-BF38-A11DE3A4AF10}
 	EndProjectSection
