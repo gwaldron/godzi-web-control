@@ -40,8 +40,8 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
     document.writeln('</scr' + 'ipt>');
 }
 
-function detectReadyMap() {
-    var pluginFound = detectPlugin('ReadyMap');
+function detectGodzi() {
+    var pluginFound = detectPlugin('GodziWeb');
 
     if(!pluginFound && detectableWithVB) {
 	pluginFound = detectActiveXControl('IEOSGEARTH.osgearthCtrl.1');

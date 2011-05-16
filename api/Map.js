@@ -39,11 +39,11 @@ function Map( id )
   //FF
   if (BrowserDetect.browser == "Firefox")
   {
-    this._plugin.readyMapEventHandler = handleEvent;
+    this._plugin.godziEventHandler = handleEvent;
   }
   else if (BrowserDetect.browser == "Explorer")
   {
-    this._plugin.attachEvent("readymapevent", handleEvent);
+    this._plugin.attachEvent("godzievent", handleEvent);
   }  
 
 }
@@ -53,7 +53,7 @@ Map.embed = function(div_id, map_id, type, classid ) {
     //Firefox uses the type attribute to determine what plugin to use
     if (BrowserDetect.browser == "Firefox")
     {
-	if (detectReadyMap())
+	if (detectGodzi())
 	{
 	    objString = '<object id="' + map_id + '" type="' + type + '" width="100%" height="100%" border="0" frameborder="no"/>';
 	}
@@ -64,7 +64,7 @@ Map.embed = function(div_id, map_id, type, classid ) {
     }
     else if (BrowserDetect.browser == "Explorer")
     {
-	if (detectReadyMap())
+	if (detectGodzi())
 	{
 	    objString = '<object id="' + map_id + '" height="100%" width="100%" classid="' + classid + '"/>';
 	}
