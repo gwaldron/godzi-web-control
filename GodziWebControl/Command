@@ -1,0 +1,64 @@
+#ifndef GODZIWEBCONTROL_COMMAND
+#define GODZIWEBCONTROL_COMMAND 1
+
+#include <GodziWebControl/Export>
+#include <osgEarth/JsonUtils>
+#include <osg/Referenced>
+#include <osg/OperationThread>
+#include <osg/ref_ptr>
+#include <vector>
+#include <map>
+
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl;
+
+    class GODZIWEBCONTROL_EXPORT Command : public osg::Referenced
+    {
+    public:
+        void execute(MapControl* map);
+        void setBlock(osg::RefBlock* block);
+        const std::string& getResult() {return _result;}
+
+    protected:
+        void setResult(const std::string& result) { _result = result; }
+
+        virtual bool operator()(MapControl* map) = 0;
+        osg::ref_ptr<osg::RefBlock> _block;
+        std::string _result;
+    };
+
+
+    class GODZIWEBCONTROL_EXPORT CommandQueue : public osg::Referenced
+    {
+    public:
+        CommandQueue();
+        void add(Command* command);
+        void execute(MapControl* map);
+    protected:
+        typedef std::vector<osg::ref_ptr<Command>> Commands;
+        Commands _commands;
+        OpenThreads::Mutex _commandsMutex;
+    };
+
+    class GODZIWEBCONTROL_EXPORT CommandArguments
+    {
+    public:
+        CommandArguments( const std::string& json_string );
+        std::string operator [] ( const std::string& key ) const;
+
+    private:
+        osgEarth::Json::Value _obj;
+    };
+
+    class GODZIWEBCONTROL_EXPORT CommandFactory : public osg::Referenced
+    {
+    public:
+        virtual Command* create(const std::string& command, const CommandArguments& args) = 0;
+    };
+}
+
+
+
+
+#endif //GODZIWEBCONTROL_COMMAND

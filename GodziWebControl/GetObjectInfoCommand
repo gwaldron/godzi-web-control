@@ -1,0 +1,38 @@
+#ifndef GODZIWEBCONTROL_GET_OBJECT_INFO_COMMAND
+#define GODZIWEBCONTROL_GET_OBJECT_INFO_COMMAND 1
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/Command>
+#include <GodziWebControl/MapControl>
+
+
+namespace GodziWebControl
+{
+    /**
+     * Gets information (centroid, bounding radius, name, description) of the located object.
+     * Input parameters determine how the object is located:
+     *
+     *  "name" = by node name
+     *  "description" = by node description
+     *  "x", "y" = by intersection test given mouse coordinates (nearest object)
+     */
+    class GODZIWEBCONTROL_EXPORT GetObjectInfoCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args);
+        };
+
+        GetObjectInfoCommand( const CommandArguments& args );
+        virtual bool operator ()( GodziWebControl::MapControl* map );
+
+    protected:
+        std::string _nodeName;
+        std::string _description;
+        int _mouseX, _mouseY;
+        std::string _searchNodeName;
+    };
+
+}
+
+#endif // GODZIWEBCONTROL_GET_OBJECT_INFO_COMMAND

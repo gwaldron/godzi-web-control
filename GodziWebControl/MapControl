@@ -1,0 +1,108 @@
+#ifndef GODZIWEBCONTROL_MAP_CONTROL_H
+#define GODZIWEBCONTROL_MAP_CONTROL_H 1
+
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/TextLabel>
+#include <GodziWebControl/GeoIcon>
+#include <GodziWebControl/Model>
+#include <GodziWebControl/ImageLayer>
+#include <GodziWebControl/ElevationLayer>
+#include <GodziWebControl/Command>
+#include <GodziWebControl/Selection>
+
+#include <osgGA/StateSetManipulator>
+#include <osgViewer/Viewer>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgTerrain/Terrain>
+
+#include <osgEarthUtil/Viewpoint>
+#include <osgEarth/MapNode>
+
+#include <windows.h>
+
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl : public osg::Referenced, public OpenThreads::Thread
+    {
+    public:
+
+        class EventCallback
+        {
+        public:
+            virtual void handleEvent(const std::string &target, const std::string &eventName, const std::string &data) = 0;
+        };
+
+        MapControl();
+        virtual void init(void* window);
+
+        void setEventCallback(EventCallback* eventCallback) { _eventCallback = eventCallback; }
+
+        virtual void run();
+        virtual int cancel();
+
+        osg::CoordinateSystemNode* getCoordinateSystemsNode() {return _csn.get();}
+
+        CommandQueue* getCommandQueue() {return _commandQueue.get();}
+
+        osgViewer::View* getView() {return _viewer.get();}
+
+        osg::Group* getRoot() {return _root.get();}
+        
+        osgEarth::Map* getMap() { return _mapNode.get() ? _mapNode->getMap() : 0L; }
+
+        SelectionSet* getSelectionSet() { return _selectionSet.get(); }
+
+        void toggleStats();
+        void cyclePolygonMode();
+
+        void setMapFile(const std::string &mapFile);
+
+        float getVerticalScale();
+        void setVerticalScale(float verticalScale);
+
+        float getSampleRatio();
+        void setSampleRatio(float sampleRatio);
+
+        void latLongHeightToXYZ(double lat, double lon, double height, double &x, double &y, double &z);
+        void xyzToLatLongHeight(double x, double y, double z, double &lat, double &lon, double &height);
+
+        osgEarth::Util::Viewpoint getViewpoint();
+
+        LRESULT handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam );
+
+        void addCommandFactory(CommandFactory* factory);
+
+        std::string handleCommand(const std::string &command, const std::string &args, bool block);
+
+        void postEvent(const std::string &target, const std::string &eventName, const std::string &data);
+    private:
+        osg::Vec4 _clearColor;
+
+        osg::ref_ptr<osgViewer::Viewer> _viewer;
+        osg::ref_ptr<osg::Group> _root;
+
+        osg::ref_ptr<osgViewer::StatsHandler> _statsHandler;
+        osg::ref_ptr<osgGA::StateSetManipulator> _stateSetManipulator;
+
+        osg::ref_ptr<osg::CoordinateSystemNode> _csn;
+        osg::ref_ptr<osgTerrain::Terrain> _terrain;
+
+        osg::ref_ptr<GodziWebControl::CommandQueue> _commandQueue;
+
+        HWND _hwnd;
+        WNDPROC _previousWindowProcedure;
+
+        //osg::ref_ptr<osg::Node> _rootNode;
+        osg::ref_ptr<osgEarth::MapNode> _mapNode;
+
+        typedef std::vector< osg::ref_ptr<CommandFactory> > CommandFactoryList;
+        CommandFactoryList _commandFactories;
+
+        EventCallback* _eventCallback;
+
+        osg::ref_ptr<SelectionSet> _selectionSet;
+    };
+}
+
+#endif //GODZIWEBCONTROL_MAP_CONTROL_H

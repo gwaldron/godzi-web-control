@@ -1,0 +1,16 @@
+#ifndef GODZIWEBCONTROL_TILESOURCEUTIL_H
+#define GODZIWEBCONTROL_TILESOURCEUTIL_H
+
+#include <GodziWebControl/Command>
+#include <osgEarth/TileSource>
+#include <string>
+
+namespace GodziWebControl
+{
+    class TileSourceUtil
+    {
+    public:
+      static bool createTileSourceOptions(const CommandArguments& args, osgEarth::TileSourceOptions& out_opt);
+    };
+}
+#endif GODZIWEBCONTROL_TILESOURCEUTIL_H

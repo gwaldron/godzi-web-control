@@ -1,0 +1,66 @@
+#ifndef GODZIWEBCONTROL_ELEVATIONLAYER_H
+#define GODZIWEBCONTROL_ELEVATIONLAYER_H
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/Command>
+
+#include <osg/observer_ptr>
+
+#include <osgEarth/ElevationLayer>
+
+#include <string>
+
+
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl;
+
+    class AddElevationLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        AddElevationLayerCommand(const std::string &id, const CommandArguments& args) : _id(id), _args(args) { }
+          
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        const CommandArguments _args;
+        std::string _id;
+    };
+    
+    class MoveElevationLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        MoveElevationLayerCommand(const std::string &id, int index=-1) : _id(id), _index(index) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        std::string _id;
+        int _index;
+    };
+
+    class RemoveElevationLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        RemoveElevationLayerCommand(const std::string &id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        std::string _id;
+    };
+}
+#endif GODZIWEBCONTROL_ELEVATIONLAYER_H
