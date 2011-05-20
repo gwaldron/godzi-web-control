@@ -16,6 +16,7 @@
 #include <osgViewer/ViewerEventHandlers>
 #include <osgTerrain/Terrain>
 
+#include <osgEarthUtil/SkyNode>
 #include <osgEarthUtil/Viewpoint>
 #include <osgEarth/MapNode>
 
@@ -58,6 +59,8 @@ namespace GodziWebControl
 
         void setMapFile(const std::string &mapFile);
 
+        void showSkyNode();
+
         float getVerticalScale();
         void setVerticalScale(float verticalScale);
 
@@ -89,6 +92,8 @@ namespace GodziWebControl
         osg::ref_ptr<osgTerrain::Terrain> _terrain;
 
         osg::ref_ptr<GodziWebControl::CommandQueue> _commandQueue;
+
+        osg::ref_ptr<osgEarth::Util::SkyNode> _skyNode;
 
         HWND _hwnd;
         WNDPROC _previousWindowProcedure;

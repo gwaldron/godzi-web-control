@@ -48,30 +48,30 @@ function Map( id )
 
 }
 
-Map.embed = function(div_id, map_id, type, classid ) {
-
+Map.embed = function(div_id, map_id, type, classid )
+{
     //Firefox uses the type attribute to determine what plugin to use
     if (BrowserDetect.browser == "Firefox")
     {
-	if (detectGodzi())
-	{
-	    objString = '<object id="' + map_id + '" type="' + type + '" width="100%" height="100%" border="0" frameborder="no"/>';
-	}
-	else
-	{
-	    objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
-	}
+	      if (detectGodzi())
+	      {
+	          objString = '<object id="' + map_id + '" type="' + type + '" width="100%" height="100%" border="0" frameborder="no"/>';
+	     }
+	     else
+       {
+	         objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
+	     }
     }
     else if (BrowserDetect.browser == "Explorer")
     {
-	if (detectGodzi())
-	{
-	    objString = '<object id="' + map_id + '" height="100%" width="100%" classid="' + classid + '"/>';
-	}
-	else
-	{
-	    objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
-	}
+	      if (detectGodzi())
+	      {
+	          objString = '<object id="' + map_id + '" height="100%" width="100%" classid="' + classid + '"/>';
+	      }
+	      else
+	      {
+	          objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
+	      }
     }
     else
     {
@@ -289,6 +289,11 @@ Map.prototype.setViewpoint = function(viewpoint, transitionTime)
     }
 
     this.sendCommand( "setViewpoint", vp, false );
+}
+
+Map.prototype.showSky = function()
+{
+	this.sendCommand("showSky", { }, false);
 }
 
 Map.prototype.home = function()

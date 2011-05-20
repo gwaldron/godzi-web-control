@@ -185,6 +185,29 @@ bool SetViewpointCommand::operator()(MapControl* map)
 
 
 /**************************************************************************************************/
+
+Command* ShowSkyCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("showSky" == command)
+    {
+        return new ShowSkyCommand();
+    }
+    return NULL;
+}
+
+ShowSkyCommand::ShowSkyCommand()
+{
+    //NOP
+}
+
+bool ShowSkyCommand::operator()(MapControl* map)
+{
+    map->showSkyNode();
+    return true;
+}
+
+
+/**************************************************************************************************/
 Command* SetBackColorCommand::Factory::create(const std::string& command, const CommandArguments& args)
 {
     if ("setBackColor" == command)

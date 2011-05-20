@@ -143,6 +143,7 @@ _eventCallback(0)
     _commandQueue = new CommandQueue;
 
     addCommandFactory(new SetMapCommand::Factory());
+    addCommandFactory(new ShowSkyCommand::Factory());
     addCommandFactory(new GetBackColorCommand::Factory());
     addCommandFactory(new SetBackColorCommand::Factory());
     addCommandFactory(new ChangeVisibilityCommand::Factory());
@@ -374,6 +375,10 @@ void MapControl::setMapFile(const std::string &mapFile)
     {
         //Remove the current map node
 		    _root->removeChild( _mapNode.get() );
+        
+        if (_skyNode.valid())
+          _root->removeChild( _skyNode.get() );
+
         _mapNode->releaseGLObjects();
         osg::flushAllDeletedGLObjects(_viewer->getCamera()->getGraphicsContext()->getState()->getContextID());
         _mapNode = 0;
@@ -424,6 +429,11 @@ void MapControl::setMapFile(const std::string &mapFile)
             {
 				        mapNode->getMap()->getImageLayerAt(i)->setOpacity( 1.0f );
             }
+            if (_skyNode.valid())
+            {
+              _skyNode = 0L;
+              showSkyNode();
+            }
         }
     }
     _viewer->getDatabasePager()->registerPagedLODs(_root.get());
@@ -435,6 +445,17 @@ void MapControl::setMapFile(const std::string &mapFile)
     {
         _viewer->home();
     }
+}
+
+void MapControl::showSkyNode()
+{
+  if (!_skyNode.valid())
+  {
+    _skyNode = new osgEarth::Util::SkyNode( _mapNode->getMap() );
+    _skyNode->setDateTime( 2011, 3, 6, 12.0 );
+    _skyNode->attach( _viewer );
+    _root->addChild( _skyNode );
+  }
 }
 
 LRESULT MapControl::handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam )

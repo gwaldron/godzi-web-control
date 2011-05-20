@@ -100,6 +100,20 @@ namespace GodziWebControl
         double _transitionTime;
     };
 
+    class GODZIWEBCONTROL_EXPORT ShowSkyCommand : public Command
+    {
+    public:
+      class GODZIWEBCONTROL_EXPORT Factory : public CommandFactory
+        {
+        public:
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ShowSkyCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
     class GODZIWEBCONTROL_EXPORT ToggleStatsCommand : public Command
     {
     public:
