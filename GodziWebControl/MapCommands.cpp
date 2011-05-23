@@ -208,6 +208,34 @@ bool ShowSkyCommand::operator()(MapControl* map)
 
 
 /**************************************************************************************************/
+
+Command* SetSkyDateTimeCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("setSkyDateTime" == command)
+    {
+        int year = osgEarth::as<int>(args["year"], 0);
+        int month = osgEarth::as<int>(args["month"], 0);
+        int day = osgEarth::as<int>(args["day"], 0);
+        double time = osgEarth::as<double>(args["time"], 0.0);
+
+        return new SetSkyDateTimeCommand(year, month, day, time);
+    }
+    return NULL;
+}
+
+SetSkyDateTimeCommand::SetSkyDateTimeCommand(int year, int month, int day, double timeUTC) : _year(year), _month(month), _day(day), _time(timeUTC)
+{
+    //NOP
+}
+
+bool SetSkyDateTimeCommand::operator()(MapControl* map)
+{
+    map->setSkyDateTime(_year, _month, _day, _time);
+    return true;
+}
+
+
+/**************************************************************************************************/
 Command* SetBackColorCommand::Factory::create(const std::string& command, const CommandArguments& args)
 {
     if ("setBackColor" == command)

@@ -144,6 +144,7 @@ _eventCallback(0)
 
     addCommandFactory(new SetMapCommand::Factory());
     addCommandFactory(new ShowSkyCommand::Factory());
+    addCommandFactory(new SetSkyDateTimeCommand::Factory());
     addCommandFactory(new GetBackColorCommand::Factory());
     addCommandFactory(new SetBackColorCommand::Factory());
     addCommandFactory(new ChangeVisibilityCommand::Factory());
@@ -456,6 +457,12 @@ void MapControl::showSkyNode()
     _skyNode->attach( _viewer );
     _root->addChild( _skyNode );
   }
+}
+
+void MapControl::setSkyDateTime(int year, int month, int day, double timeUTC)
+{
+  if (_skyNode.valid())
+    _skyNode->setDateTime(year, month, day, timeUTC);
 }
 
 LRESULT MapControl::handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam )

@@ -114,6 +114,26 @@ namespace GodziWebControl
         virtual bool operator()(MapControl* map);
     };
 
+    class GODZIWEBCONTROL_EXPORT SetSkyDateTimeCommand : public Command
+    {
+    public:
+      class GODZIWEBCONTROL_EXPORT Factory : public CommandFactory
+        {
+        public:
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        SetSkyDateTimeCommand(int year, int month, int day, double timeUTC);
+
+        virtual bool operator()(MapControl* map);
+
+    private:
+        int _year;
+        int _month;
+        int _day;
+        double _time;
+    };
+
     class GODZIWEBCONTROL_EXPORT ToggleStatsCommand : public Command
     {
     public:

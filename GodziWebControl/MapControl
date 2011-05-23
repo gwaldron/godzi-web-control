@@ -60,6 +60,7 @@ namespace GodziWebControl
         void setMapFile(const std::string &mapFile);
 
         void showSkyNode();
+        void setSkyDateTime(int year, int month, int day, double timeUTC);
 
         float getVerticalScale();
         void setVerticalScale(float verticalScale);

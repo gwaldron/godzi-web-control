@@ -1,0 +1,73 @@
+<html>
+<head>
+
+  <title>Sky Example</title>
+
+<style type="text/css">
+#map_div     
+{ 
+  width:100%;
+  height:100%;
+}
+</style>
+
+<script src="../api/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script src="../api/PluginManagement.js" type="text/javascript"></script>
+<script src="../api/BrowserDetect.js" type = "text/javascript"></script>
+<script src="../api/Common.js" type="text/javascript"> </script>
+<script src="../api/Color.js" type="text/javascript"> </script>
+<script src="../api/Map.js" type="text/javascript"> </script>
+<script src="../api/Location.js" type="text/javascript"></script>
+<script src="../api/Scale.js" type="text/javascript"></script>
+<script src="../api/Orientation.js" type="text/javascript"></script>
+<script src="../api/Layers/TMSLayer.js" type="text/javascript"> </script>
+<script src="../api/Layers/WMSLayer.js" type="text/javascript"> </script>
+<script src="../api/Layers/ArcGISLayer.js" type="text/javascript"> </script>
+
+
+<script type="text/javascript">
+
+function initialize()
+{
+  map = new Map('mapcontrol');
+  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
+  map.setMapFile("http://live.pelicanmapping.com/readymap/maps/public/Lansdat%20+%20elevation.earth");
+	map.showSky();
+
+	updateDateTime();
+}
+
+
+function updateDateTime()
+{
+  var year = parseInt(document.getElementById("txtYear").value);
+  var month = parseInt(document.getElementById("txtMonth").value);
+  var day = parseInt(document.getElementById("txtDay").value);
+  var time = parseFloat(document.getElementById("txtTime").value);
+	map.setSkyDateTime(year, month, day, time);
+}
+
+</script>
+
+</head>
+
+<body onload="initialize()">
+
+
+Year <input id = "txtYear" type="text" size = "4" value="2011"/>
+Month <input id = "txtMonth" type="text" size = "4" value="5"/>
+Day <input id = "txtDay" type="text" size = "4" value="23"/>
+Time UTC <input id = "txtTime" type="text" size = "12" value="12.00"/>
+<input type="button" value="Set Time" onclick="updateDateTime()"/>
+</br>
+
+<div id="map_div">
+  <script type="text/javascript">
+    Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+  </script>
+</div>
+
+</body>
+</html>

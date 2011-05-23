@@ -296,6 +296,11 @@ Map.prototype.showSky = function()
 	this.sendCommand("showSky", { }, false);
 }
 
+Map.prototype.setSkyDateTime = function (year, month, day, timeUTC)
+{
+	this.sendCommand("setSkyDateTime", { year: year, month: month, day: day, time:timeUTC }, false);
+}
+
 Map.prototype.home = function()
 {
     var args = $.toJSON( { "dummy": 0 } );
