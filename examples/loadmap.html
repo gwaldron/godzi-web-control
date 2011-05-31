@@ -20,11 +20,7 @@
 <script src="../api/Location.js" type="text/javascript"></script>
 <script src="../api/Orientation.js" type="text/javascript"></script>
 <script src="../api/Scale.js" type="text/javascript"></script>
-<script src="../api/TextLabel.js" type="text/javascript"> </script>
 <script src="../api/Map.js" type="text/javascript"> </script>
-<script src="../api/Model.js" type="text/javascript"></script>
-<script src="../api/GeoIcon.js" type="text/javascript"></script>
-<script src="../api/Parsers/GPXParser.js" type="text/javascript"></script>
 
 
 <script type="text/javascript">
@@ -32,15 +28,8 @@
 function initialize()
 {
   map = new Map('mapcontrol');
-  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
   map.setMapFile("http://demo.pelicanmapping.com/rmweb/maps/ags_imagery.earth");
-	map.showSky();
-}
-
-function loadMap()
-{
-  var filename = document.getElementById("txtMapFile").value;
-  map.setMapFile(filename);
+  map.showSky();
 }
 
 </script>
@@ -48,11 +37,6 @@ function loadMap()
 </head>
 
 <body onload="initialize()">
-
-Map:
-<input id ="txtMapFile" size = 70 type="text" value=""/>
-<input id ="btnLoadMap" type="button" value="Load" onclick="loadMap()"/>
-<br />
 
 <div id="map_div">
   <script type="text/javascript">
