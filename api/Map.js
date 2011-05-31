@@ -1,3 +1,8 @@
+/**
+ * The primary Map object
+ * @param {string} id An id that corresponds to the id passed to the page's Map.embed() call
+ * @constructor
+ */
 function Map( id )
 {  
   this._id = id;  
@@ -48,6 +53,13 @@ function Map( id )
 
 }
 
+/**
+ * Method used to embed the map control into page.
+ * @param {string} div_id ID of the parent div
+ * @param {string} map_id ID of the map control object
+ * @param {string} type MIME type, should be "application/godzi" unless chaned in the plugin code
+ * @param {string} classid Windows Class ID, should be "5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA" unless changed in the plugin code
+ */
 Map.embed = function(div_id, map_id, type, classid )
 {
     //Firefox uses the type attribute to determine what plugin to use
@@ -89,6 +101,11 @@ Map.prototype.getId = function() {
 
 Map.prototype._eventCallbacks = {};
 
+/**
+ * Adds an callback for the specified event
+ * @param {string} type The event to register for
+ * @param {function} callback The callback function
+ */
 Map.prototype.addEvent = function( type, callback ) {
   //Registers callbacks for events by type
   //Valid types include:
@@ -125,6 +142,11 @@ Map.prototype.sendCommand = function( command, args, hasResult )
     }
 }
 
+/**
+ * Changes the visibility of an object in the scene (model, icon, label, etc.)
+ * @param {string} id The object's ID
+ * @param {bool} visible The desired visibility
+ */
 Map.prototype.changeVisibility = function( id, visible )
 {
     this.sendCommand( "changeVisibility", { id: id, visible: visible }, false );
@@ -145,93 +167,167 @@ Map.prototype.changeVisibility = function( id, visible )
 //    return this.sendCommand( "getObjectInfo", { mouseX: mx, mouseY: my }, true );
 //}    
 
+/**
+ * Gets the map's background color (not valid if the sky is displayed)
+ * @returns {Color} A Color object representing the background color
+ */
 Map.prototype.getBackColor = function()
 {
     var result = this.sendCommand( "getBackColor", {}, true );
     return new Color( result.r, result.g, result.b, result.a );
 }
 
+/**
+ * Sets the map's background color (not valid if the sky is displayed)
+ * @param {Color} color Color object defining the new background color
+ */
 Map.prototype.setBackColor = function(color)
 {
     this.sendCommand( "setBackColor", { "r": color.getR(), "g": color.getG(), "b": color.getB(), "a": color.getA() }, false );
 }
 
+/**
+ * Cycles through the stats overlay displays. Equivalent of pressing the 's' key.
+ */
 Map.prototype.toggleStats = function()
 {
     this.sendCommand( "toggleStats", {}, false );
 }
 
+/**
+ * Toggles wireframe/vertex display modes. Equivalent of pressing the 'w' key.
+ */
 Map.prototype.cyclePolygonMode = function()
 {
     this.sendCommand( "cyclePolygonMode", {}, false );
 }
 
+/**
+ * Adds a text label to the scene.
+ * @param {TextLabel} label The label to add
+ */
 Map.prototype.addTextLabel = function(label)
 {
   label.setMap(this);
 }
 
+/**
+ * Removes a text label from the scene
+ * @param {TextLabel} label The label to remove
+ */
 Map.prototype.removeTextLabel = function(label)
 {
   this.sendCommand("removeTextLabel", { id: label._id }, false);
 }
 
+/**
+ * Adds a GeoIcon to the scene
+ * @param {GeoIcon} icon The icon to add
+ */
 Map.prototype.addIcon = function(icon)
 {
   icon.setMap(this);
 }
 
+/**
+ * Removes a GeoIcon from the scene
+ * @param {GeoIcon} icon The icon to remove
+ */
 Map.prototype.removeIcon = function(icon)
 {
   this.sendCommand("removeIcon", { id: icon._id }, false);
 }
 
+/**
+ * Adds a model to the scene
+ * @param {Model} model The model to add
+ */
 Map.prototype.addModel = function(model)
 {
     model.setMap(this);
 }
 
+/**
+ * Removes a model from the scene
+ * @param {Model} model The model to remove
+ */
 Map.prototype.removeModel = function(model)
 {
   this.sendCommand("removeModel", { id: model._id }, false);
 }
 
+/**
+ * Adds an image layer to the map
+ * @param {supported layer type} layer The layer to add
+ */
 Map.prototype.addImageLayer = function(layer)
 {
 	layer.setMap(this, "updateImageLayer");
 }
 
+/**
+ * Moves an image layer to the given index
+ * @param {supported layer type} layer The layer to move
+ * @param {integer} newIndex The (valid) new index of the layer
+ */
 Map.prototype.moveImageLayer = function(layer, newIndex)
 {
 	this.sendCommand("moveImageLayer", { id: layer._id, index: newIndex }, false);
 }
 
+/**
+ * Removes an image layer from the map
+ * @param {supported layer type} layer The layer to remove
+ */
 Map.prototype.removeImageLayer = function(layer)
 {
 	this.sendCommand("removeImageLayer", { id: layer._id }, false);
 }
 
+/**
+ * Adds an elevation layer to the map
+ * @param {supported layer type} layer The layer to add
+ */
 Map.prototype.addElevationLayer = function(layer)
 {
 	layer.setMap(this, "addElevationLayer");
 }
 
+/**
+ * Moves an elevation layer to the given index
+ * @param {supported layer type} layer The layer to move
+ * @param {integer} newIndex The (valid) new index of the layer
+ */
 Map.prototype.moveElevationLayer = function(layer, newIndex)
 {
 	this.sendCommand("moveElevationLayer", { id: layer._id, index: newIndex }, false);
 }
 
+/**
+ * Removes an elevation layer from the map
+ * @param {supported layer type} layer The layer to remove
+ */
 Map.prototype.removeElevationLayer = function(layer)
 {
 	this.sendCommand("removeElevationLayer", { id: layer._id }, false);
 }
 
+/**
+ * Sets and loads the specified map (.earth) file
+ * @param {string} mapFile The map file URL
+ */
 Map.prototype.setMapFile = function(mapFile)
 {
     var args = $.toJSON( { "filename": mapFile } );
     this._plugin.sendCommand("setMap", args, false);
 }
 
+/**
+ * Gets the intersection point with the scene based on mouse x/y coordinates
+ * @param {float} x The mouse X coordinate
+ * @param {float} y The mouse Y coordinate
+ * @returns {Location} a Location object containing the intersect coordinates (lat/lon/alt) or null if none found
+ */
 Map.prototype.getIntersection = function(x,y)
 {
     var result = this.sendCommand("getIntersection", { x: x, y: y }, true);
@@ -244,6 +340,12 @@ Map.prototype.getIntersection = function(x,y)
     return null;                                                         
 }
 
+/**
+ * Gets the names of objects in the scene at a given location based on mouse x/y coordinates
+ * @param {float} x The mouse x coordinate
+ * @param {float} y The mouse y coordinate
+ * @returns {object} Array of strings containing the names
+ */
 Map.prototype.getNames = function(x,y)
 {
     var result = this.sendCommand("getNames", { x: x, y: y }, true);
@@ -257,6 +359,12 @@ Map.prototype.getNames = function(x,y)
     return names;
 }
 
+/**
+ * Gets the descriptions of objects in the scene at a given location based on mouse x/y coordinates
+ * @param {float} x The mouse x coordinate
+ * @param {float} y The mouse y coordinate
+ * @returns {object} Array of strings containing the descriptions
+ */
 Map.prototype.getDescriptions = function(x,y)
 {
     var result = this.sendCommand("getDescriptions", { x: x, y: y }, true);
@@ -270,6 +378,10 @@ Map.prototype.getDescriptions = function(x,y)
     return descriptions;
 }
 
+/**
+ * Gets the current viewpoint
+ * @returns {object} Object containing viewpoint properties: latitude, longitude, altitude, range, heading, and pitch
+ */
 Map.prototype.getViewpoint = function()
 {
     var args = $.toJSON( { "dummy": 0 } );
@@ -277,6 +389,11 @@ Map.prototype.getViewpoint = function()
     return result;
 }
 
+/**
+ * Sets the viewpoint
+ * @param {object} viewpoint Object containing viewpoint properties: latitude, longitude, altitude, range, heading, and pitch
+ * @param {float} transitionTime Length of camera transition from current viewpoint to the new one
+ */
 Map.prototype.setViewpoint = function(viewpoint, transitionTime)
 {
     var vp = jQuery.extend({}, viewpoint);
@@ -291,22 +408,39 @@ Map.prototype.setViewpoint = function(viewpoint, transitionTime)
     this.sendCommand( "setViewpoint", vp, false );
 }
 
+/**
+ * Enables the sky display
+ */
 Map.prototype.showSky = function()
 {
 	this.sendCommand("showSky", { }, false);
 }
 
+/**
+ * Sets the date and time to be respresented by the sky
+ * @param {integer} year The year
+ * @param {integer} month The month
+ * @param {integer} day The day
+ * @param {float} timeUTC The UTC time
+ */
 Map.prototype.setSkyDateTime = function (year, month, day, timeUTC)
 {
 	this.sendCommand("setSkyDateTime", { year: year, month: month, day: day, time:timeUTC }, false);
 }
 
+/**
+ * Resets the view. Equivalent of pressing the spacebar.
+ */
 Map.prototype.home = function()
 {
     var args = $.toJSON( { "dummy": 0 } );
     this._plugin.sendCommand("home", args, false);
 }
 
+/**
+ * Sets the opacity of all image layers
+ * @param {float} opacity The opacity (0.0 - 1.0)
+ */
 Map.prototype.setFade = function(opacity)
 {
     this.sendCommand("fadeMap", { "opacity": opacity }, false);

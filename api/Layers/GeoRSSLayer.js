@@ -1,3 +1,9 @@
+/**
+ * GeoRSS layer container object
+ * @param {Map} map The parent Map object
+ * @param {array} feedItems An array of FeedItem objects
+ * @constructor
+ */
 function GeoRSSLayer(map, feedItems)
 {
   this._map = map;

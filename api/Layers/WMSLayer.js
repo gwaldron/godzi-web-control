@@ -1,3 +1,10 @@
+/**
+ * WMS layer object
+ * @param {string} name The layer name
+ * @param {string} url The layer url
+ * @param {object} params Object containing optional parameters (layers, format, srs, and styles) as properties
+ * @constructor
+ */
 function WMSLayer(name, url, params)
 {
 	this._id = guid();
@@ -35,83 +42,143 @@ WMSLayer.prototype.updateRender = function()
   }
 }
 
+/**
+ * Gets the layer's name
+ * @returns {string}
+ */
 WMSLayer.prototype.getName = function()
 {
 	return this._name;
 }
 
+/**
+ * Sets the layer's name
+ * @param {string} name
+ */
 WMSLayer.prototype.setName = function(name)
 {
 	this._name = name;
 	this.updateRender();
 }
 
+/**
+ * Gets the list of displayed WMS layers from this source
+ * @returns {string} Comma-separated list of layers
+ */
 WMSLayer.prototype.getLayers = function()
 {
 	return this._layers;
 }
 
+/**
+ * Sets the list of displayed WMS layers from this source
+ * @param {string} layers Comma-separated list of layers
+ */
 WMSLayer.prototype.setLayers = function(layers)
 {
 	this._layers = layers;
 	this.updateRender();
 }
 
+/**
+ * Gets the optional WMS format parameter
+ * @returns {string}
+ */
 WMSLayer.prototype.getFormat = function()
 {
 	return this._format;
 }
 
+/**
+ * Sets the optional WMS format paramter
+ * @param {string} format
+ */
 WMSLayer.prototype.setFormat = function(format)
 {
 	this._format = format;
 	this.updateRender();
 }
 
+/**
+ * Gets the optional WMS SRS parameter
+ * @returns {string}
+ */
 WMSLayer.prototype.getSRS = function()
 {
 	return this._srs;
 }
 
+/**
+ * Sets the optional WMS SRS paramter
+ * @param {string} srs
+ */
 WMSLayer.prototype.setSRS = function(srs)
 {
 	this._srs = srs;
 	this.updateRender();
 }
 
+/**
+ * Gets the optional WMS styles parameter
+ * @returns {string}
+ */
 WMSLayer.prototype.getStyles = function()
 {
 	return this._styles;
 }
 
+/**
+ * Sets the optional WMS styles paramter
+ * @param {string} styles
+ */
 WMSLayer.prototype.setStyles = function(styles)
 {
 	this._styles = styles;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's opacity
+ * @returns {float}
+ */
 WMSLayer.prototype.getOpacity = function()
 {
 	return this._opacity;
 }
 
+/**
+ * Sets the layer's opacity
+ * @param {float} opacity
+ */
 WMSLayer.prototype.setOpacity = function(opacity)
 {
 	this._opacity = opacity;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's visibility
+ * @returns {bool}
+ */
 WMSLayer.prototype.getVisible = function()
 {
 	return this._visible;
 }
 
+/**
+ * Sets the layer's visibility
+ * @param {bool} visible
+ */
 WMSLayer.prototype.setVisible = function(visible)
 {
 	this._visible = visible;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's parent map
+ * @returns {Map}
+ */
 WMSLayer.prototype.getMap = function()
 {
   return this._map;

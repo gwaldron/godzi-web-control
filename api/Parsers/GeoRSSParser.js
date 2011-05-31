@@ -1,4 +1,7 @@
-//RSS properties defined in http://www.w3schools.com/rss/rss_item.asp
+/**
+ * GeoRSS feed item container object. Properties based on RSS properties defined in http://www.w3schools.com/rss/rss_item.asp
+ * @constructor
+ */
 function FeedItem()
 {
 }
@@ -16,10 +19,19 @@ FeedItem.prototype.description;
 FeedItem.prototype.location;
 FeedItem.prototype.source;
 
+/**
+ * GeoRSS parser
+ * @constructor
+ */
 function GeoRSSParser()
 {
 }
 
+/**
+ * Parses the data from a GeoRSS feed and returns an array of feed items
+ * @param {string} doc XML content of the GeoRSS feed
+ * @returns {array} An array of FeedItem objects
+ */
 GeoRSSParser.prototype.getItems = function(doc)
 {
   //Get the "item" elements

@@ -1,3 +1,9 @@
+/**
+ * TMS layer object
+ * @param {string} name The layer name
+ * @param {string} url The layer url
+ * @constructor
+ */
 function TMSLayer(name, url)
 {
   this._id = guid();
@@ -23,39 +29,67 @@ TMSLayer.prototype.updateRender = function()
   }
 }
 
+/**
+ * Gets the layer's name
+ * @returns {string}
+ */
 TMSLayer.prototype.getName = function()
 {
 	return this._name;
 }
 
+/**
+ * Sets the layer's name
+ * @param {string} name
+ */
 TMSLayer.prototype.setName = function(name)
 {
 	this._name = name;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's opacity
+ * @returns {float}
+ */
 TMSLayer.prototype.getOpacity = function()
 {
 	return this._opacity;
 }
 
+/**
+ * Sets the layer's opacity
+ * @param {float} opacity
+ */
 TMSLayer.prototype.setOpacity = function(opacity)
 {
 	this._opacity = opacity;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's visibility
+ * @returns {bool}
+ */
 TMSLayer.prototype.getVisible = function()
 {
 	return this._visible;
 }
 
+/**
+ * Sets the layer's visibility
+ * @param {bool} visible
+ */
 TMSLayer.prototype.setVisible = function(visible)
 {
 	this._visible = visible;
 	this.updateRender();
 }
 
+/**
+ * Gets the layer's parent map
+ * @returns {Map}
+ */
 TMSLayer.prototype.getMap = function()
 {
   return this._map;
