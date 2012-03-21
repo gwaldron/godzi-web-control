@@ -80,7 +80,7 @@ bool UpdateImageLayerCommand::operator ()(GodziWebControl::MapControl *map)
   if (layer)
   {
     layer->setOpacity(_opacity);
-    layer->setEnabled(_visible);
+    layer->setVisible(_visible);
 
     return true;
   }

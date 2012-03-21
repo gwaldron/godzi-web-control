@@ -17,7 +17,7 @@
 #include <osgTerrain/Terrain>
 
 #include <osgEarthUtil/SkyNode>
-#include <osgEarthUtil/Viewpoint>
+#include <osgEarth/Viewpoint>
 #include <osgEarth/MapNode>
 
 #include <windows.h>

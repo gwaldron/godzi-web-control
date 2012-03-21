@@ -1,10 +1,10 @@
 set SOLUTION_DIR=%CD%
-set OSG=C:\Program Files (x86)\OpenSceneGraph
+set OSG=E:\devel\osg\osgsvn\vs9
 set OSG_ROOT=%OSG%
-set OSG_DEPS=D:\dev\svn\osg\3rdParty_vc90
-set OSGEARTH=C:\Program Files (x86)\OSGEARTH
-set OSGEARTH_PLUGINS=C:\Program Files (x86)\OSGEARTH\bin\osgPlugins-2.9.11
-set OSG_PLUGINS_DIR=C:\Program Files (x86)\OpenSceneGraph\bin\osgPlugins-2.9.11
-set GEOS=D:\dev\svn\geos-3.2.2
-set GDAL=%SOLUTION_DIR%\..\3rdParty\gdal-1.6.0
+set OSG_DEPS=E:\devel\osg\3rdParty_vs90sp1
+set OSGEARTH=E:\devel\osgearth\2.x\install\osgsvn\vs9
+set OSGEARTH_PLUGINS=%OSGEARTH%\bin\osgPlugins-3.1.0
+set OSG_PLUGINS_DIR=%OSG%\bin\osgPlugins-3.1.0
+set GEOS=E:\devel\geos\geos-3.2.0-devel-win32-vs9sp1
+set GDAL=E:\devel\gdal-1.6.0\vs9
 set PATH=%OSG%\bin;%OSGEARTH%\bin;%OSG_DEPS%\bin;%GDAL%\bin;%PATH%

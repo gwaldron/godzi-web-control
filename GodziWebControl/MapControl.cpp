@@ -9,7 +9,9 @@
 #include <GodziWebControl/MapEventHandler>
 
 #include <osgEarth/Registry>
+#include <osgEarth/Cache>
 #include <osgEarthUtil/EarthManipulator>
+#include <osgEarthDrivers/cache_filesystem/FileSystemCache>
 
 #include <osg/io_utils>
 #include <osg/Version>
@@ -91,11 +93,11 @@ public:
 		  osgDB::makeDirectory( cachePath );
 		  //Set up a global cache for all maps to use
 
-		  osgEarth::TMSCacheOptions cacheOpt;
-		  cacheOpt.setPath(cachePath);
+          osgEarth::Drivers::FileSystemCacheOptions cacheOpt;
+          cacheOpt.rootPath() = cachePath;
+          osgEarth::Cache* globalCache = osgEarth::CacheFactory::create(cacheOpt);
 
-		  osgEarth::Cache* globalCache = new osgEarth::TMSCache(cacheOpt);
-		  osgEarth::Registry::instance()->setCacheOverride( globalCache );
+		  osgEarth::Registry::instance()->setCache( globalCache );
 
 #if (OPENSCENEGRAPH_MAJOR_VERSION == 2 && OPENSCENEGRAPH_MINOR_VERSION >= 8)
           int numThreads = OpenThreads::GetNumberOfProcessors();
@@ -117,7 +119,7 @@ public:
       ~MapInit()
       {
 
-          osgEarth::Registry::instance()->setCacheOverride( 0 );
+          osgEarth::Registry::instance()->setCache( 0L );
           if (_log)
           {
               _log->close();
