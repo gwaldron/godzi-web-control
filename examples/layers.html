@@ -4,15 +4,28 @@
   <title>Layers Example</title>
 
 <style type="text/css">
+  
 #map_div     
 { 
-  width:100%;
-  height:100%;
+  float: left;
+  width: 80%;
+  height: 100%;
+  position: relative;
 }
+
+#LayerList
+{
+  float: left;
+  position: relative;
+  width: 20%;
+  padding: 10;
+}
+
 </style>
 
 <script src="../api/jquery-1.5.2.min.js" type="text/javascript"></script>
 <script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script src="../api/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
 <script src="../api/PluginManagement.js" type="text/javascript"></script>
 <script src="../api/BrowserDetect.js" type = "text/javascript"></script>
 <script src="../api/Common.js" type="text/javascript"> </script>
@@ -21,18 +34,27 @@
 <script src="../api/Location.js" type="text/javascript"></script>
 <script src="../api/Scale.js" type="text/javascript"></script>
 <script src="../api/Orientation.js" type="text/javascript"></script>
+<script src="../api/Layers/LayerProperties.js" type="text/javascript"></script>
 <script src="../api/Layers/TMSLayer.js" type="text/javascript"> </script>
 <script src="../api/Layers/WMSLayer.js" type="text/javascript"> </script>
 <script src="../api/Layers/ArcGISLayer.js" type="text/javascript"> </script>
+<script src="../api/Controls/LayerListControl.js" type="text/javascript"></script>
+
+<link href="css/ui-lightness/jquery.ui.all.css" rel="stylesheet" type="text/css"></link>
 
 
 <script type="text/javascript">
 
+var layerList;
+
 function initialize()
 {
   map = new Map('mapcontrol');
+  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
   map.setMapFile("http://live.pelicanmapping.com/readymap/maps/public/Landsat.earth");
-  map.showSky();
+
+  
+  layerList = new LayerListControl("LayerList", map);
 }
 
 function toggleTMS()
@@ -48,7 +70,7 @@ function toggleTMS()
 		document.getElementById("btnTMS").value = "Add TMS Layer";
 		map.removeImageLayer(tms);
 		wms = undefined;
-	}
+  }
 }
 
 function toggleWMS()
@@ -140,14 +162,14 @@ function getLayerCount()
 	if (typeof arc != 'undefined')
 		count++;
 
-	return count;
-}
+	return count;}
 
 </script>
 
 </head>
 
 <body onload="initialize()">
+
 <input id ="btnTMS" type="button" style="width: 200px" value="Add TMS Layer" onclick="toggleTMS()"/><input id="btnMoveTMS" type="button" style="width: 200px" value="Move to top" onclick="moveTMS()"/><br />
 <input id ="btnWMS" type="button" style="width: 200px" value="Add WMS Layer" onclick="toggleWMS()"/><input id="btnMoveWMS" type="button" style="width: 200px" value="Move to top" onclick="moveWMS()"/><br />
 <input id ="btnArc" type="button" style="width: 200px" value="Add ArcGIS Layer" onclick="toggleArc()"/><input id="btnMoveArc" type="button" style="width: 200px" value="Move to top" onclick="moveArc()"/><br />
@@ -158,6 +180,8 @@ function getLayerCount()
     Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
   </script>
 </div>
+
+<div id="LayerList" class="ui-widget-content"></div>
 
 </body>
 </html>

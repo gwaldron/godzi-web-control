@@ -28,7 +28,7 @@ Command* RemoveImageLayerCommand::Factory::create(const std::string& command, co
 {
     if ("removeImageLayer" == command)
     {
-        std::string id = args["id"];
+        int id = as<int>(args["id"], -1);
         return new RemoveImageLayerCommand(id);
     }
     return NULL;
@@ -36,7 +36,7 @@ Command* RemoveImageLayerCommand::Factory::create(const std::string& command, co
 
 bool RemoveImageLayerCommand::operator ()(GodziWebControl::MapControl *map)
 {
-  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByName(_id);
+  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByUID(_id);
   if (layer)
   {
     map->getMap()->removeImageLayer(layer);
@@ -51,36 +51,43 @@ Command* UpdateImageLayerCommand::Factory::create(const std::string& command, co
 {
     if ("updateImageLayer" == command || "addImageLayer" == command)
     {
-        std::string id = args["id"];
-        double opacity = as<double>(args["opacity"], 1.0);
+        int id = as<int>(args["id"], -1);
+        std::string name = args["name"];
+        double opacity = as<double>(args["opacity"], -1.0);
         bool visible = args["visible"] != "false";
+        bool visibleSet = args["visible"].length() > 0;
 
-        return new UpdateImageLayerCommand(id, args, opacity, visible);
+        return new UpdateImageLayerCommand(id, name, args, opacity, visible, visibleSet);
     }
     return NULL;
 }
 
 bool UpdateImageLayerCommand::operator ()(GodziWebControl::MapControl *map)
 {
-  if (_id.empty())
-    return false;
-
-  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByName(_id);
+  osgEarth::ImageLayer* layer = _id != -1 ? map->getMap()->getImageLayerByUID(_id) : 0L;
 
   if (!layer)
   {
     osgEarth::TileSourceOptions opt;
     if (TileSourceUtil::createTileSourceOptions(_args, opt))
     {
-      layer = new osgEarth::ImageLayer(_id, opt);
+      layer = new osgEarth::ImageLayer(_name, opt);
       map->getMap()->addImageLayer(layer);
     }
   }
 
   if (layer)
   {
-    layer->setOpacity(_opacity);
-    layer->setVisible(_visible);
+    if (_opacity >= 0.0)
+      layer->setOpacity(_opacity);
+
+    if (_visibleSet)
+      layer->setVisible(_visible);
+
+    osgEarth::Json::Value result;
+    result["id"] = layer->getUID();
+    osgEarth::Json::FastWriter writer;
+    setResult(writer.write(result));
 
     return true;
   }
@@ -94,7 +101,7 @@ Command* MoveImageLayerCommand::Factory::create(const std::string& command, cons
 {
     if ("moveImageLayer" == command)
     {
-        std::string id = args["id"];
+        int id = as<int>(args["id"], -1);
         int index = as<int>(args["index"], -1);
 
         return new MoveImageLayerCommand(id, index);
@@ -107,7 +114,7 @@ bool MoveImageLayerCommand::operator ()(GodziWebControl::MapControl *map)
   if (_index < 0)
     return false;
 
-  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByName(_id);
+  osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByUID(_id);
 
   if (layer)
   {
@@ -116,4 +123,67 @@ bool MoveImageLayerCommand::operator ()(GodziWebControl::MapControl *map)
   }
 
   return false;
+}
+
+/***************************************************************************************/
+
+Command* GetImageLayersCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("getImageLayers" == command)
+    {
+        return new GetImageLayersCommand();
+    }
+    return NULL;
+}
+
+bool GetImageLayersCommand::operator ()(GodziWebControl::MapControl *map)
+{
+  osgEarth::ImageLayerVector layers;
+  map->getMap()->getImageLayers(layers);
+
+  std::stringstream idBuf;
+  std::stringstream nameBuf;
+  for (osgEarth::ImageLayerVector::const_iterator it = layers.begin(); it != layers.end(); ++it)
+  {
+    idBuf << (*it)->getUID() << ";";
+    nameBuf << (*it)->getName() << ";";
+  }
+
+  osgEarth::Json::Value result;
+  result["ids"] = idBuf.str();
+  result["names"] = nameBuf.str();
+  osgEarth::Json::FastWriter writer;
+  setResult(writer.write(result));
+
+  return true;
+}
+
+/***************************************************************************************/
+
+Command* GetImageLayerPropertiesCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("getImageLayerProperties" == command)
+    {
+        int id = as<int>(args["id"], -1);
+        return new GetImageLayerPropertiesCommand(id);
+    }
+    return NULL;
+}
+
+bool GetImageLayerPropertiesCommand::operator ()(GodziWebControl::MapControl *map)
+{
+    osgEarth::ImageLayer* layer = map->getMap()->getImageLayerByUID(_id);
+    if (layer)
+    {
+        osgEarth::Json::Value result;
+        result["name"] = layer->getName();
+        result["opacity"] = layer->getOpacity();
+        result["visible"] = layer->getVisible();
+        osgEarth::Json::FastWriter writer;
+        setResult(writer.write(result));
+
+        return true;
+    }
+
+    return false;
 }

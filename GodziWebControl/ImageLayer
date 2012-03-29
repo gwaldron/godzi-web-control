@@ -24,16 +24,18 @@ namespace GodziWebControl
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
         
-        UpdateImageLayerCommand(const std::string &id, const CommandArguments& args, double opacity=1.0, bool visible=true) :
-            _id(id), _args(args), _opacity(opacity), _visible(visible) { }
+        UpdateImageLayerCommand(int id, const std::string &name, const CommandArguments& args, double opacity=1.0, bool visible=true, bool visibleSet=false) :
+            _id(id), _name(name), _args(args), _opacity(opacity), _visible(visible), _visibleSet(visibleSet) { }
           
         virtual bool operator()(MapControl* map);
         
     protected:
         const CommandArguments _args;
-        std::string _id;
+        int _id;
+        std::string _name;
         double _opacity;
         bool _visible;
+        bool _visibleSet;
     };
     
     class MoveImageLayerCommand : public Command
@@ -44,11 +46,11 @@ namespace GodziWebControl
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
         
-        MoveImageLayerCommand(const std::string &id, int index=-1) : _id(id), _index(index) { }
+        MoveImageLayerCommand(int id, int index=-1) : _id(id), _index(index) { }
         virtual bool operator()(MapControl* map);
         
     protected:
-        std::string _id;
+        int _id;
         int _index;
     };
 
@@ -60,11 +62,38 @@ namespace GodziWebControl
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
         
-        RemoveImageLayerCommand(const std::string &id) : _id(id) { }
+        RemoveImageLayerCommand(int id) : _id(id) { }
         virtual bool operator()(MapControl* map);
         
     protected:
-        std::string _id;
+        int _id;
+    };
+
+    class GetImageLayersCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetImageLayersCommand() { }
+        virtual bool operator()(MapControl* map);
+    };
+
+    class GetImageLayerPropertiesCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetImageLayerPropertiesCommand(int id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
     };
 }
 #endif GODZIWEBCONTROL_IMAGELAYER_H

@@ -28,7 +28,7 @@ Command* RemoveElevationLayerCommand::Factory::create(const std::string& command
 {
     if ("removeElevationLayer" == command)
     {
-        std::string id = args["id"];
+        int id = as<int>(args["id"], -1);
         return new RemoveElevationLayerCommand(id);
     }
     return NULL;
@@ -36,7 +36,7 @@ Command* RemoveElevationLayerCommand::Factory::create(const std::string& command
 
 bool RemoveElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
 {
-  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByName(_id);
+  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
   if (layer)
   {
     map->getMap()->removeElevationLayer(layer);
@@ -51,27 +51,38 @@ Command* AddElevationLayerCommand::Factory::create(const std::string& command, c
 {
     if ("addElevationLayer" == command)
     {
-        std::string id = args["id"];
+        int id = as<int>(args["id"], -1);
+        std::string name = args["name"];
 
-        return new AddElevationLayerCommand(id, args);
+        return new AddElevationLayerCommand(id, name, args);
     }
     return NULL;
 }
 
 bool AddElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
 {
-  if (_id.empty())
+  if (_name.empty())
     return false;
 
-  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByName(_id);
+  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
 
   if (!layer)
   {
     osgEarth::TileSourceOptions opt;
     if (TileSourceUtil::createTileSourceOptions(_args, opt))
     {
-      layer = new osgEarth::ElevationLayer(_id, opt);
+      layer = new osgEarth::ElevationLayer(_name, opt);
       map->getMap()->addElevationLayer(layer);
+    }
+
+    if (layer)
+    {
+      osgEarth::Json::Value result;
+      result["id"] = layer->getUID();
+      osgEarth::Json::FastWriter writer;
+      setResult(writer.write(result));
+
+      return true;
     }
   }
 
@@ -84,7 +95,7 @@ Command* MoveElevationLayerCommand::Factory::create(const std::string& command, 
 {
     if ("moveElevationLayer" == command)
     {
-        std::string id = args["id"];
+        int id = as<int>(args["id"], -1);
         int index = as<int>(args["index"], -1);
 
         return new MoveElevationLayerCommand(id, index);
@@ -97,7 +108,7 @@ bool MoveElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
   if (_index < 0)
     return false;
 
-  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByName(_id);
+  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
 
   if (layer)
   {

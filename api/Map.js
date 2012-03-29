@@ -262,14 +262,31 @@ Map.prototype.removeModel = function(model)
  */
 Map.prototype.addImageLayer = function(layer)
 {
-	layer.setMap(this, "updateImageLayer");
+	layer.setMap(this, "updateImageLayer");}
+
+/**
+ * Updates an image layer
+ * @param {ImageLayerProperties} updated layer properties
+ */
+Map.prototype.updateImageLayer = function(layer)
+{
+  this.sendCommand("updateImageLayer", layer, false);
 }
 
 /**
- * Moves an image layer to the given index
- * @param {supported layer type} layer The layer to move
- * @param {integer} newIndex The (valid) new index of the layer
+ * Gets an image layer's properties
+ * @param {integer} layer id
  */
+Map.prototype.getImageLayerProperties = function(id)
+{
+  return this.sendCommand("getImageLayerProperties", { "id" : id }, true);
+}
+
+/**
+* Moves an image layer to the given index
+* @param {supported layer type} layer The layer to move
+* @param {integer} newIndex The (valid) new index of the layer
+*/
 Map.prototype.moveImageLayer = function(layer, newIndex)
 {
 	this.sendCommand("moveImageLayer", { id: layer._id, index: newIndex }, false);
@@ -281,13 +298,34 @@ Map.prototype.moveImageLayer = function(layer, newIndex)
  */
 Map.prototype.removeImageLayer = function(layer)
 {
-	this.sendCommand("removeImageLayer", { id: layer._id }, false);
+	this.sendCommand("removeImageLayer", { id: layer._id }, false);}
+
+/**
+ * Gets a list of image layers from the map
+ */
+Map.prototype.getImageLayers = function()
+{
+  var result = this.sendCommand("getImageLayers", { }, true);
+
+  var ids = result.ids;
+  if ((ids != null) && (ids.length > 0))
+  {
+    ids = ids.split(";");
+  }
+  
+  var names = result.names;
+  if ((names != null) && (names.length > 0))
+  {
+    names = names.split(";");
+  }
+
+  return { "ids" : ids, "names" : names };
 }
 
 /**
- * Adds an elevation layer to the map
- * @param {supported layer type} layer The layer to add
- */
+* Adds an elevation layer to the map
+* @param {supported layer type} layer The layer to add
+*/
 Map.prototype.addElevationLayer = function(layer)
 {
 	layer.setMap(this, "addElevationLayer");

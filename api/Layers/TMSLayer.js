@@ -6,7 +6,7 @@
  */
 function TMSLayer(name, url)
 {
-  this._id = guid();
+  this._id = -1; //guid();
   this._name = name;
   this._url = url;
   this._opacity = 1.0;
@@ -19,13 +19,17 @@ TMSLayer.prototype.updateRender = function()
   if (this._map != null)
   {
     if (this._mapCommand != undefined)
-      this._map.sendCommand(this._mapCommand, {
+    {
+      var rslt = this._map.sendCommand(this._mapCommand, {
         type: "tms",
         id: this._id,
         name: this._name,
         url: this._url,
         opacity: this._opacity,
-        visible: this._visible }, false);
+        visible: this._visible }, true);
+        
+      this._id =  rslt.id;
+    }
   }
 }
 

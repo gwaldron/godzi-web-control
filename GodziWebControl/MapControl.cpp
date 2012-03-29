@@ -166,6 +166,8 @@ _eventCallback(0)
     addCommandFactory(new UpdateImageLayerCommand::Factory());
     addCommandFactory(new MoveImageLayerCommand::Factory());
     addCommandFactory(new RemoveImageLayerCommand::Factory());
+    addCommandFactory(new GetImageLayersCommand::Factory());
+    addCommandFactory(new GetImageLayerPropertiesCommand::Factory());
 
     addCommandFactory(new AddElevationLayerCommand::Factory());
     addCommandFactory(new MoveElevationLayerCommand::Factory());
@@ -266,6 +268,10 @@ void MapControl::init(void* window)
     _selectionSet = new SelectionSet( _viewer->getCamera() );
 
     _viewer->home();
+
+
+    //Initialize the map callback
+    _mapCallback = new MapControlMapCallback(this);
 }
 
 void MapControl::run()
@@ -376,6 +382,7 @@ void MapControl::setMapFile(const std::string &mapFile)
     bool wasMapValid = _mapNode.valid();
     if (_mapNode.valid())
     {
+        _mapNode->getMap()->removeMapCallback(_mapCallback);
         //Remove the current map node
 		    _root->removeChild( _mapNode.get() );
         
@@ -438,6 +445,8 @@ void MapControl::setMapFile(const std::string &mapFile)
               showSkyNode();
             }
         }
+
+        mapNode->getMap()->addMapCallback(_mapCallback);
     }
     _viewer->getDatabasePager()->registerPagedLODs(_root.get());
     _viewer->computeActiveCoordinateSystemNodePath();
