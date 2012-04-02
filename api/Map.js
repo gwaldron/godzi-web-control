@@ -270,7 +270,7 @@ Map.prototype.addImageLayer = function(layer)
  */
 Map.prototype.updateImageLayer = function(layer)
 {
-  this.sendCommand("updateImageLayer", layer, false);
+  this.sendCommand("updateImageLayer", { 'id': layer._id, 'name': layer._name, 'visible': layer._visible, 'opacity': layer._opacity }, false);
 }
 
 /**
@@ -289,6 +289,7 @@ Map.prototype.getImageLayerProperties = function(id)
 */
 Map.prototype.moveImageLayer = function(layer, newIndex)
 {
+  //alert('Moving layer ' + layer._id + ' to index ' + newIndex);
 	this.sendCommand("moveImageLayer", { id: layer._id, index: newIndex }, false);
 }
 

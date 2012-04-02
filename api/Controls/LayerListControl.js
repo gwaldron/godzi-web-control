@@ -53,12 +53,12 @@ LayerListControl.prototype = {
 
     for (var i = 0; i < layers.ids.length; i++) {
       if (layers.ids[i].length > 0) {
-        var div = jQuery('<div id="layer_"' + i + '>')
+        var div = jQuery('<div id="layer_' + layers.ids[i] + '">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
         var props = this.map.getImageLayerProperties(layers.ids[i]);
 
-        jQuery(div).append('<input id="layercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span>');
+        jQuery(div).append('<div class="drag_handle"><input id="layercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
         jQuery(div).append('<div id="layeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
@@ -70,6 +70,17 @@ LayerListControl.prototype = {
           layerProps.setVisible(checked);
           event.data.map.updateImageLayer(layerProps);
         });
+
+        jQuery(layerContainer).sortable({
+          handle: '.drag_handle',
+          cursor: 'move',
+          map: this.map,
+          update: function(event, ui) {
+            jQuery(this).data('sortable').options.map.moveImageLayer(new ImageLayerProperties(ui.item.attr('id').split("_").pop()), ui.item.index());
+            //alert(ui.item.attr('id').split("_").pop() + 'at' + ui.item.index());
+          }
+        });
+        jQuery(layerContainer).disableSelection();
 
         var opacity = props.opacity;
         jQuery('#layeropacity_' + i).slider({

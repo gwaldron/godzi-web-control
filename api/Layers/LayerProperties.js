@@ -5,10 +5,10 @@
 * @constructor
 */
 function ImageLayerProperties(layerId) {
-  this.id = layerId;
-  this.name = null;
-  this.opacity = null;
-  this.visible = null;
+  this._id = layerId;
+  this._name = null;
+  this._opacity = null;
+  this._visible = null;
 }
 
 /**
@@ -16,7 +16,7 @@ function ImageLayerProperties(layerId) {
  * @returns {int}
  */
 ImageLayerProperties.prototype.getId = function() {
-  return this.id;
+  return this._id;
 }
 
 /**
@@ -24,7 +24,7 @@ ImageLayerProperties.prototype.getId = function() {
 * @returns {string}
 */
 ImageLayerProperties.prototype.getName = function() {
-  return this.name;
+  return this._name;
 }
 
 /**
@@ -32,7 +32,7 @@ ImageLayerProperties.prototype.getName = function() {
 * @param {string} name
 */
 ImageLayerProperties.prototype.setName = function(name) {
-  this.name = name;
+  this._name = name;
 }
 
 /**
@@ -40,7 +40,7 @@ ImageLayerProperties.prototype.setName = function(name) {
 * @returns {float}
 */
 ImageLayerProperties.prototype.getOpacity = function() {
-  return this.opacity;
+  return this._opacity;
 }
 
 /**
@@ -48,7 +48,7 @@ ImageLayerProperties.prototype.getOpacity = function() {
 * @param {float} opacity
 */
 ImageLayerProperties.prototype.setOpacity = function(opacity) {
-  this.opacity = opacity;
+  this._opacity = opacity;
 }
 
 /**
@@ -56,7 +56,7 @@ ImageLayerProperties.prototype.setOpacity = function(opacity) {
 * @returns {bool}
 */
 ImageLayerProperties.prototype.getVisible = function() {
-  return this.visible;
+  return this._visible;
 }
 
 /**
@@ -64,10 +64,10 @@ ImageLayerProperties.prototype.getVisible = function() {
 * @param {bool} visible
 */
 ImageLayerProperties.prototype.setVisible = function(visible) {
-  this.visible = visible;
+  this._visible = visible;
 }
 
-ImageLayerProperties.prototype.id;
-ImageLayerProperties.prototype.name;
-ImageLayerProperties.prototype.opacity;
-ImageLayerProperties.prototype.visible;
+ImageLayerProperties.prototype._id;
+ImageLayerProperties.prototype._name;
+ImageLayerProperties.prototype._opacity;
+ImageLayerProperties.prototype._visible;
