@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "npgodziweb", "npgodziweb\np
 		{A9B01329-F486-4744-BF38-A11DE3A4AF10} = {A9B01329-F486-4744-BF38-A11DE3A4AF10}
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JavaScript API", "api\", "{111E0597-914A-4389-918F-A3B2F7ACDA9B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "api", "api\", "{111E0597-914A-4389-918F-A3B2F7ACDA9B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
 		Debug.AspNetCompiler.VirtualPath = "/api"
@@ -33,6 +33,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JavaScript API", "api\", "{
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "50872"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "examples", "examples\", "{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		Debug.AspNetCompiler.VirtualPath = "/examples"
+		Debug.AspNetCompiler.PhysicalPath = "examples\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\examples\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/examples"
+		Release.AspNetCompiler.PhysicalPath = "examples\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\examples\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59309"
 	EndProjectSection
 EndProject
 Global
@@ -93,6 +113,16 @@ Global
 		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Win32.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4A166ABE-9984-44C8-9CCB-BA2B5D4A3C8C}.Release|Win32.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

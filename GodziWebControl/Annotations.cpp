@@ -89,9 +89,9 @@ CreateLabelNodeCommand::Factory::create(const std::string& cmd, const CommandArg
     {
         return new CreateLabelNodeCommand(
             args["id"],
-            as<double>( args["lat"],  0.0 ),
-            as<double>( args["long"], 0.0 ),
-            as<double>( args["alt"],  0.0 ),
+            as<double>( args["latitude"],  0.0 ),
+            as<double>( args["longitude"], 0.0 ),
+            as<double>( args["altitude"],  0.0 ),
             args["text"] );
     }
     return 0L;
@@ -137,9 +137,9 @@ CreatePlaceNodeCommand::Factory::create(const std::string& cmd, const CommandArg
     {
         return new CreatePlaceNodeCommand(
             args["id"],
-            as<double>( args["lat"],  0.0 ),
-            as<double>( args["long"], 0.0 ),
-            as<double>( args["alt"],  0.0 ),
+            as<double>( args["latitude"],  0.0 ),
+            as<double>( args["longitude"], 0.0 ),
+            as<double>( args["altitude"],  0.0 ),
             args["text"],
             args["iconURI"] );
     }
@@ -188,18 +188,12 @@ CreateCircleNodeCommand::Factory::create(const std::string& cmd, const CommandAr
 {
     if ( "createCircleNode" == cmd )
     {
-        osg::Vec4f color(
-            as<float>(args["colorR"],1.0f),
-            as<float>(args["colorG"],1.0f),
-            as<float>(args["colorB"],1.0f),
-            as<float>(args["colorA"],1.0f) );
-
         return new CreateCircleNodeCommand(
             args["id"],
-            as<double>( args["lat"],    0.0 ),
-            as<double>( args["long"],   0.0 ),
-            as<double>( args["radius"], 0.0 ),
-            color );
+            as<double>( args["latitude"],    0.0 ),
+            as<double>( args["longitude"],   0.0 ),
+            as<double>( args["radius"],      0.0 ),
+            Color( args["color"] ) );
     }
     return 0L;
 }
@@ -246,20 +240,14 @@ CreateEllipseNodeCommand::Factory::create(const std::string& cmd, const CommandA
 {
     if ( "createEllipseNode" == cmd )
     {
-        osg::Vec4f color(
-            as<float>(args["colorR"],1.0f),
-            as<float>(args["colorG"],1.0f),
-            as<float>(args["colorB"],1.0f),
-            as<float>(args["colorA"],1.0f) );
-
         return new CreateEllipseNodeCommand(
             args["id"],
-            as<double>( args["lat"],            0.0 ),
-            as<double>( args["long"],           0.0 ),
+            as<double>( args["latitude"],       0.0 ),
+            as<double>( args["longitude"],      0.0 ),
             as<double>( args["radiusMajor"], 1000.0 ),
             as<double>( args["radiusMinor"], 2000.0 ),
             as<double>( args["rotation"],       0.0 ),
-            color );
+            Color( args["color"] ) );
     }
     return 0L;
 }
@@ -313,19 +301,13 @@ CreateRectangleNodeCommand::Factory::create(const std::string& cmd, const Comman
 {
     if ( "createRectangleNode" == cmd )
     {
-        osg::Vec4f color(
-            as<float>(args["colorR"],1.0f),
-            as<float>(args["colorG"],1.0f),
-            as<float>(args["colorB"],1.0f),
-            as<float>(args["colorA"],1.0f) );
-
         return new CreateRectangleNodeCommand(
             args["id"],
-            as<double>( args["lat"],            0.0 ),
-            as<double>( args["long"],           0.0 ),
+            as<double>( args["latitude"],       0.0 ),
+            as<double>( args["longitude"],      0.0 ),
             as<double>( args["width"],       1000.0 ),
             as<double>( args["height"],      2000.0 ),
-            color );
+            Color( args["color"] ) );
     }
     return 0L;
 }
@@ -377,16 +359,10 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
 {
     if ( "createFeatureNode" == cmd )
     {
-        osg::Vec4f color(
-            as<float>(args["colorR"],1.0f),
-            as<float>(args["colorG"],1.0f),
-            as<float>(args["colorB"],1.0f),
-            as<float>(args["colorA"],1.0f) );
-
         return new CreateFeatureNodeCommand(
             args["id"],
             args["geomWKT"],
-            color,
+            Color( args["color"] ),
             as<bool>( args["draped"], true ) );
     }
     return 0L;
@@ -443,19 +419,13 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
 {
     if ( "createLocalGeometryNode" == cmd )
     {
-        osg::Vec4f color(
-            as<float>(args["colorR"],1.0f),
-            as<float>(args["colorG"],1.0f),
-            as<float>(args["colorB"],1.0f),
-            as<float>(args["colorA"],1.0f) );
-
         return new CreateLocalGeometryNodeCommand(
             args["id"],
-            as<double>( args["lat"],  0.0 ),
-            as<double>( args["long"], 0.0 ),
-            as<double>( args["alt"],  0.0 ),
+            as<double>( args["latitude"],  0.0 ),
+            as<double>( args["longitude"], 0.0 ),
+            as<double>( args["altitude"],  0.0 ),
             args["geomWKT"],
-            color,
+            Color( args["color"] ),
             as<bool>( args["draped"], true ) );
     }
     return 0L;
@@ -515,9 +485,9 @@ SetAnnotationNodePositionCommand::Factory::create(const std::string& cmd, const 
     {
         return new SetAnnotationNodePositionCommand(
             args["id"],
-            as<double>( args["lat"],  0.0 ),
-            as<double>( args["long"], 0.0 ),
-            as<double>( args["alt"],  0.0 ) );
+            as<double>( args["latitude"],  0.0 ),
+            as<double>( args["longitude"], 0.0 ),
+            as<double>( args["altitude"],  0.0 ) );
     }
     return 0L;
 }

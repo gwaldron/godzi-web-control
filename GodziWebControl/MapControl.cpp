@@ -476,7 +476,11 @@ void MapControl::setMapFile(const std::string &mapFile)
     }
     _viewer->getDatabasePager()->registerPagedLODs(_root.get());
     _viewer->computeActiveCoordinateSystemNodePath();
-    _viewer->getCameraManipulator()->setNode(_mapNode.get());
+    //_viewer->getCameraManipulator()->setNode(_mapNode.get());
+
+    osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator();
+    manip->setIntersectTraversalMask( TERRAIN );
+    _viewer->setCameraManipulator( manip );
 
     //Go home if we are going from an invalid map to a valid one
     if (!wasMapValid && _mapNode.valid())
@@ -529,7 +533,9 @@ LRESULT MapControl::handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wPar
             }
         case WM_PAINT:
             {
+                // this fires whenever part of the window needs repainting (resize, min/maximize, unobscured)
                 _paintRequested = true;
+                ValidateRect(hwnd, NULL);
                 break;
             }
     }

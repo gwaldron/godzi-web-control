@@ -1,5 +1,21 @@
 function Utils() { }
 
+
+InheritsFromClass = function(base, extras) {
+    function F() { }
+    F.prototype = base;
+    var obj = new F();
+    if (extras) { MixInClass(obj, extras, false); }
+    return obj;
+};
+MixInClass = function(obj, properties, test) {
+    for (var key in properties) {
+        if (!(test && obj[key])) { obj[key] = properties[key]; }
+    }
+    return obj;
+};
+
+
 String.prototype.startsWith = function(str) {
     //return (this.match("^"+str)==str)	
 	if (this.length >= str.length)

@@ -90,7 +90,7 @@ Map.embed = function(div_id, map_id, type, classid )
         alert("Unsupported browser" + BrowserDetect.browser);
     }
 
-		document.getElementById(div_id).innerHTML = objString;
+    document.getElementById(div_id).innerHTML = objString;
 }
 
 Map.prototype._id;
