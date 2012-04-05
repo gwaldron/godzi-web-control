@@ -19,15 +19,15 @@ Annotation.prototype = {
 
     getId : function() {
         return this._id;
-    },
+    },    
     
     getMap : function() {
         return this._map;
-    },
+    },    
     
     getVisible : function() {
         return this._visible;
-    },
+    },    
     
     setVisible : function(value) {
         if ( value != this._visible && this._map !== null ) {
@@ -61,9 +61,9 @@ PositionedAnnotation.prototype = InheritsFromClass( Annotation, {
         if ( this._map !== null ) {
             this._map.sendCommand("setAnnotationNodePosition", {
                 id: this._id,
-                latitude: this._location.getLatitude(),
-                longitude: this._location.getLongitude(),
-                altitude: this._location.getAltitude()
+                latitude: this.getLocation().getLatitude(),
+                longitude: this.getLocation().getLongitude(),
+                altitude: this.getLocation().getAltitude()
             } );
             this._location = location;
         }
@@ -88,23 +88,28 @@ LabelAnnotation = function(map, args) {
         if (args.color !== undefined )
             this._color = args.color;
     }
-
-    if (map !== null) {
-        map.sendCommand("createLabelNode", {
-            id: this._id,
-            latitude: this._location.getLatitude(),
-            longitude: this._location.getLongitude(),
-            text: this._text,
-            color: this._color
-        });
-    }
 };
 
-CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
-    getRadius : function() {
-        return this._radius;
+LabelAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
+
+    setMap: function(map) {
+        if (map !== undefined) {
+            map.sendCommand("createLabelNode", {
+                id: this._id,
+                latitude: this.getLocation().getLatitude(),
+                longitude: this.getLocation().getLongitude(),
+                text: this.getText(),
+                color: this.getColor()
+            });
+            this._map = map;
+        }
+    },    
+    
+    getText: function() {
+        return this._text;
     },
-    getColor : function() {
+    
+    getColor: function() {
         return this._color;
     }
 });
@@ -127,23 +132,28 @@ CircleAnnotation = function(map, args) {
         if (args.color !== undefined)
             this._color = args.color;
     }
-
-    if (map !== null) {
-        map.sendCommand("createCircleNode", {
-            id: this.getId(),
-            latitude: this.getLocation().getLatitude(),
-            longitude: this.getLocation().getLongitude(),
-            radius: this._radius,
-            color: this._color
-        });
-    }
 };
 
 CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
-    getRadius : function() {
+
+    setMap: function(map) {
+        if (map !== null) {
+            map.sendCommand("createCircleNode", {
+                id: this.getId(),
+                latitude: this.getLocation().getLatitude(),
+                longitude: this.getLocation().getLongitude(),
+                radius: this.getRadius(),
+                color: this.getColor()
+            });
+            this._map = map;
+        }
+    },
+    
+    getRadius: function() {
         return this._radius;
     },
-    getColor : function() {
+    
+    getColor: function() {
         return this._color;
     }
 });

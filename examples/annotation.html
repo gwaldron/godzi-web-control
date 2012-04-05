@@ -25,6 +25,7 @@
 <script src="../api/Layers/TMSLayer.js" type="text/javascript"> </script>
 <script src="../api/Layers/WMSLayer.js" type="text/javascript"> </script>
 <script src="../api/Layers/ArcGISLayer.js" type="text/javascript"> </script>
+<script src="../api/Utils.js" type="text/javascript"></script>
 <script src="../api/Annotations.js" type="text/javascript""></script>
 
 
@@ -33,10 +34,11 @@
 var map;
 
 function createAnnotations() {
-    var label = new LabelAnnotation(map, {
+    var label = new LabelAnnotation( {
         location: new Location(42.0, -76.0, 0.0),
         text: "Washington DC"
     });
+    label.setMap(map);
 }
 
 function initialize()
