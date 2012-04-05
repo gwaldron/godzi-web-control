@@ -106,8 +106,9 @@ namespace GodziWebControl
 
         osg::ref_ptr<osgEarth::Util::SkyNode> _skyNode;
 
-        HWND _hwnd;
+        HWND    _hwnd;
         WNDPROC _previousWindowProcedure;
+        bool    _paintRequested;
 
         //osg::ref_ptr<osg::Node> _rootNode;
         osg::ref_ptr<osgEarth::MapNode> _mapNode;

@@ -16,15 +16,14 @@
 
 #include <osg/io_utils>
 #include <osg/Version>
-
+#include <osg/DisplaySettings>
+#include <osg/GLObjects>
 #include <osgDB/ReadFile>
 #include <osgDB/FileUtils>
 #include <osgDB/FileNameUtils>
 #include <osgGA/TrackballManipulator>
-
-#include <osg/GLObjects>
-
 #include <osgViewer/api/Win32/GraphicsWindowWin32>
+#include <OpenThreads/Thread>
 
 #include <sstream>
 #include <iostream>
@@ -190,10 +189,23 @@ _eventCallback(0)
 
 void MapControl::init(void* window)
 {
+    // detect the number of cores on the machine, and allocate pager threads accordingly.
+    unsigned cores = OpenThreads::GetNumberOfProcessors();
+    unsigned totalThreads = 1, remoteThreads = 1;
+    if ( cores > 2 )
+    {
+        totalThreads = cores;
+        remoteThreads = cores/2;
+    }
+    osg::DisplaySettings::instance()->setNumOfDatabaseThreadsHint( totalThreads );
+    osg::DisplaySettings::instance()->setNumOfHttpDatabaseThreadsHint( remoteThreads );
+
+
     //Create a new viewer
     _viewer = new osgViewer::Viewer;
     //_viewer->setThreadingModel(osgViewer::ViewerBase::SingleThreaded);
 
+    // enable "on demand" rendering.
     _viewer->setRunFrameScheme( osgViewer::ViewerBase::ON_DEMAND );
 
     _viewer->setKeyEventSetsDone(0);
@@ -286,6 +298,7 @@ void MapControl::run()
         while (!_viewer->done())
         {
             bool frameNeeded =
+                _paintRequested ||
                 _viewer->getRunFrameScheme() != osgViewer::ViewerBase::ON_DEMAND ||
                 !_commandQueue->empty() ||
                 _viewer->checkNeedToDoFrame();
@@ -301,6 +314,8 @@ void MapControl::run()
                 //_viewer->getLight()->setPosition(osg::Vec4(eye, 1));
                 //osg::notify(osg::NOTICE) << "Eye " << eye << std::endl;
                 _viewer->frame();
+
+                _paintRequested = false;
             }
             microSleep(10);
         }
@@ -511,6 +526,11 @@ LRESULT MapControl::handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wPar
             {
                 getView()->getEventQueue()->mouseScroll(GET_WHEEL_DELTA_WPARAM(wParam)<0 ? osgGA::GUIEventAdapter::SCROLL_DOWN : osgGA::GUIEventAdapter::SCROLL_UP);
                 return 0;
+            }
+        case WM_PAINT:
+            {
+                _paintRequested = true;
+                break;
             }
     }
     return ::CallWindowProc(_previousWindowProcedure, hwnd, msg, wParam, lParam);
