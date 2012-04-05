@@ -1,0 +1,291 @@
+#ifndef GODZIWEBCONTROL_ANNOTATIONS_H
+#define GODZIWEBCONTROL_ANNOTATIONS_H
+
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/Command>
+
+#include <osg/MatrixTransform>
+#include <osg/Vec4f>
+#include <osg/observer_ptr>
+#include <string>
+
+
+/**
+ * Annotation commands - hooks into the osgEarth::Annotations framework.
+ */
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl;
+
+    /**
+     * Registration agent.
+     */
+    class AnnotationCommands
+    {
+    public:
+        static void registerAll( MapControl* map );
+    };
+
+
+    /**
+     * Creates a LabelNode annotation.
+     */
+    class CreateLabelNodeCommand : public Command
+    {
+    public:
+        CreateLabelNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             alt_m,
+            const std::string& text );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+        std::string _text;
+    };
+
+
+    /**
+     * Creates a PlaceNode annotation.
+     */
+    class CreatePlaceNodeCommand : public Command
+    {
+    public:
+        CreatePlaceNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             alt_m,
+            const std::string& text,
+            const std::string& iconURI );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+        std::string _text, _iconURI;
+    };
+
+
+    /**
+     * Creates a CircleNode annotation.
+     */
+    class CreateCircleNodeCommand : public Command
+    {
+    public:
+        CreateCircleNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             radius_m,
+            const osg::Vec4f&  color );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt, _radius;
+        osg::Vec4f  _color;
+    };
+
+
+    /**
+     * Creates an EllipseNode annotation.
+     */
+    class CreateEllipseNodeCommand : public Command
+    {
+    public:
+        CreateEllipseNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             radius_major_m,
+            double             radius_minor_m,
+            double             rotation_degrees,
+            const osg::Vec4f&  color );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+        double      _radiusMajor, _radiusMinor;
+        double      _rotation;
+        osg::Vec4f  _color;
+    };
+
+
+    /**
+     * Creates an RectanlgeNode annotation.
+     */
+    class CreateRectangleNodeCommand : public Command
+    {
+    public:
+        CreateRectangleNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             width_m,
+            double             height_m,
+            const osg::Vec4f&  color );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+        double      _width, _height;
+        osg::Vec4f  _color;
+    };
+
+
+    /**
+     * Creates an FeatureNode annotation.
+     */
+    class CreateFeatureNodeCommand : public Command
+    {
+    public:
+        CreateFeatureNodeCommand(
+            const std::string& id,
+            const std::string& geomWKT,
+            const osg::Vec4f&  color,
+            bool               draped);
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        std::string _geomWKT;
+        osg::Vec4f  _color;
+        bool        _draped;
+    };
+
+
+    /**
+     * Creates an LocalGeometryNode annotation.
+     */
+    class CreateLocalGeometryNodeCommand : public Command
+    {
+    public:
+        CreateLocalGeometryNodeCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             alt_m,
+            const std::string& geomWKT,
+            const osg::Vec4f&  color,
+            bool               draped );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+        std::string _geomWKT;
+        osg::Vec4f  _color;
+        bool        _draped;
+    };
+
+
+    /**
+     * Sets the position of a localized annotation node.
+     */
+    class SetAnnotationNodePositionCommand : public Command
+    {
+    public:
+        SetAnnotationNodePositionCommand(
+            const std::string& id,
+            double             lat_degrees,
+            double             lon_degrees,
+            double             alt_m );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        double      _lat, _lon, _alt;
+    };
+
+
+    /**
+     * Sets the visibility of an annotation node.
+     */
+    class SetAnnotationNodeVisibilityCommand : public Command
+    {
+    public:
+        SetAnnotationNodeVisibilityCommand(
+            const std::string& id,
+            bool               visible );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        bool        _visible;
+    };
+
+
+    /**
+     * Removes an annotation node.
+     */
+    class RemoveAnnotationNodeCommand : public Command
+    {
+    public:
+        RemoveAnnotationNodeCommand(
+            const std::string& id );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+    };
+
+
+}
+#endif GODZIWEBCONTROL_ANNOTATIONS_H

@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreadsd.lib osgd.lib osgDBd.lib osgGAd.lib osgViewerd.lib osgTextd.lib osgFXd.lib osgSimd.lib osgUtild.lib osgTerraind.lib osgEarthd.lib osgEarthUtild.lib glu32.lib opengl32.lib"
+				AdditionalDependencies="OpenThreadsd.lib osgd.lib osgDBd.lib osgGAd.lib osgViewerd.lib osgTextd.lib osgFXd.lib osgSimd.lib osgUtild.lib osgTerraind.lib osgEarthd.lib osgEarthUtild.lib osgEarthFeaturesd.lib osgEarthSymbologyd.lib osgEarthAnnotationd.lib glu32.lib opengl32.lib"
 				OutputFile="$(OutDir)\$(ProjectName)d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(OSG_ROOT)\lib&quot;;&quot;$(OSGEARTH)\lib&quot;"
@@ -140,7 +140,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreads.lib osg.lib osgDB.lib osgGA.lib osgViewer.lib osgText.lib osgFX.lib osgSim.lib osgUtil.lib osgTerrain.lib osgEarth.lib osgEarthUtil.lib glu32.lib opengl32.lib"
+				AdditionalDependencies="OpenThreads.lib osg.lib osgDB.lib osgGA.lib osgViewer.lib osgText.lib osgFX.lib osgSim.lib osgUtil.lib osgTerrain.lib osgEarth.lib osgEarthUtil.lib osgEarthFeatures.lib osgEarthSymbology.lib osgEarthAnnotation.lib glu32.lib opengl32.lib"
 				OutputFile="$(OutDir)\$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OSG_ROOT)\lib;$(OSGEARTH)\lib"
@@ -185,6 +185,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\Annotations.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\Command.cpp"
 				>
@@ -247,6 +251,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Annotations"
+				>
+			</File>
 			<File
 				RelativePath=".\Command"
 				>

@@ -147,6 +147,22 @@ namespace GodziWebControl
         return nv._result;
     }
 
+    inline osg::Group* findOrCreateNamedGroup(const std::string& name, osg::Group* parent )
+    {
+        if ( !parent ) return 0;
+
+        osg::Node* result = findNamedNode( name, parent );
+        if ( result ) {
+            return result->asGroup();
+        }
+        else {
+            osg::Group* group = new osg::Group();
+            group->setName( name );
+            parent->addChild( group );
+            return group;
+        }
+    }
+
     inline osg::Node* findNodeWithDescription(const std::string& description, osg::Node* node)
     {
         if (!node) return 0;

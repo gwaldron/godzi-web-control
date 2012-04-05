@@ -7,6 +7,7 @@
 #include <GodziWebControl/MapCommands>
 #include <GodziWebControl/GetObjectInfoCommand>
 #include <GodziWebControl/MapEventHandler>
+#include <GodziWebControl/Annotations>
 
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
@@ -183,6 +184,8 @@ _eventCallback(0)
     addCommandFactory(new GetObjectInfoCommand::Factory());
 
     addCommandFactory(new SelectionCommandFactory() );
+
+    AnnotationCommands::registerAll(this);
 }
 
 void MapControl::init(void* window)
@@ -190,6 +193,8 @@ void MapControl::init(void* window)
     //Create a new viewer
     _viewer = new osgViewer::Viewer;
     //_viewer->setThreadingModel(osgViewer::ViewerBase::SingleThreaded);
+
+    _viewer->setRunFrameScheme( osgViewer::ViewerBase::ON_DEMAND );
 
     _viewer->setKeyEventSetsDone(0);
 
@@ -276,24 +281,30 @@ void MapControl::init(void* window)
 
 void MapControl::run()
 {
-  if (_viewer.valid())
-  {
-    while (!_viewer->done())
+    if (_viewer.valid())
     {
-      {
-        //Execute any pending commands
-        _commandQueue->execute(this);
+        while (!_viewer->done())
+        {
+            bool frameNeeded =
+                _viewer->getRunFrameScheme() != osgViewer::ViewerBase::ON_DEMAND ||
+                !_commandQueue->empty() ||
+                _viewer->checkNeedToDoFrame();
 
-        //Position the light to be at the eye point
-        //osg::Vec3d eye, center, up;
-        //_viewer->getCamera()->getViewMatrixAsLookAt(eye, center, up);
-        //_viewer->getLight()->setPosition(osg::Vec4(eye, 1));
-        //osg::notify(osg::NOTICE) << "Eye " << eye << std::endl;
-        _viewer->frame();
-      }
-      microSleep(10);
+            if ( frameNeeded )
+            {
+                //Execute any pending commands
+                _commandQueue->execute(this);
+
+                //Position the light to be at the eye point
+                //osg::Vec3d eye, center, up;
+                //_viewer->getCamera()->getViewMatrixAsLookAt(eye, center, up);
+                //_viewer->getLight()->setPosition(osg::Vec4(eye, 1));
+                //osg::notify(osg::NOTICE) << "Eye " << eye << std::endl;
+                _viewer->frame();
+            }
+            microSleep(10);
+        }
     }
-  }
 }
 
 int MapControl::cancel()

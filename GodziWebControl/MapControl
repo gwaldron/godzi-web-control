@@ -56,6 +56,8 @@ namespace GodziWebControl
         
         osgEarth::Map* getMap() { return _mapNode.get() ? _mapNode->getMap() : 0L; }
 
+        osgEarth::MapNode* getMapNode() { return _mapNode.get(); }
+
         SelectionSet* getSelectionSet() { return _selectionSet.get(); }
 
         void toggleStats();

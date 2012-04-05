@@ -15,6 +15,26 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "npgodziweb", "npgodziweb\np
 		{A9B01329-F486-4744-BF38-A11DE3A4AF10} = {A9B01329-F486-4744-BF38-A11DE3A4AF10}
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JavaScript API", "api\", "{111E0597-914A-4389-918F-A3B2F7ACDA9B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		Debug.AspNetCompiler.VirtualPath = "/api"
+		Debug.AspNetCompiler.PhysicalPath = "api\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\api\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/api"
+		Release.AspNetCompiler.PhysicalPath = "api\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\api\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50872"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +83,16 @@ Global
 		{B4BD900F-1B99-4087-88A5-085562F8BF42}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{B4BD900F-1B99-4087-88A5-085562F8BF42}.Release|Win32.ActiveCfg = Release|Win32
 		{B4BD900F-1B99-4087-88A5-085562F8BF42}.Release|Win32.Build.0 = Release|Win32
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{111E0597-914A-4389-918F-A3B2F7ACDA9B}.Release|Win32.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,6 +35,9 @@ namespace GodziWebControl
         CommandQueue();
         void add(Command* command);
         void execute(MapControl* map);
+
+        bool empty() const { return _commands.empty(); }
+
     protected:
         typedef std::vector<osg::ref_ptr<Command>> Commands;
         Commands _commands;
