@@ -4,13 +4,13 @@
 
 //---------------------------------------------------------
 
-Annotation = function(map, args) {
+Annotation = function(args) {
     this._id = guid();
-    this._map = map;
     this._visible = true;
-    
-    if ( args !== undefined ) {
-        if ( args.vislble !== undefined )
+    this._map = null;
+
+    if (args !== undefined) {
+        if (args.vislble !== undefined)
             this._visible = args.visible;
     }
 };
@@ -40,10 +40,9 @@ Annotation.prototype = {
 
 //---------------------------------------------------------
 
-PositionedAnnotation = function(map, args) {
-    Annotation.call(map, args);
-    
-    this._location = new Location(0.0,0.0,0.0);
+PositionedAnnotation = function(args) {
+
+    Annotation.call(this, args);
     
     if ( args !== undefined ) {
         if (args.location !== undefined) 
@@ -51,7 +50,9 @@ PositionedAnnotation = function(map, args) {
     }
 };
     
-PositionedAnnotation.prototype = InheritsFromClass( Annotation, {
+PositionedAnnotation.prototype = InheritsFromClass( Annotation.prototype, {
+
+    _location: new Location(0,0,0),
 
     getLocation : function() {
         return this._location;
@@ -67,7 +68,7 @@ PositionedAnnotation.prototype = InheritsFromClass( Annotation, {
             } );
             this._location = location;
         }
-    }        
+    }  
 });
 
 //---------------------------------------------------------
@@ -75,12 +76,9 @@ PositionedAnnotation.prototype = InheritsFromClass( Annotation, {
 /**
  * Constructs a new Label Annotation.
  */
-LabelAnnotation = function(map, args) {
+LabelAnnotation = function(args) {
 
-    PositionedAnnotation.call(map, args);
-    
-    this._text = "Label";
-    this._color = "#ffffffff";
+    PositionedAnnotation.call(this, args);
 
     if (args !== undefined) {
         if (args.text !== undefined )
@@ -90,7 +88,10 @@ LabelAnnotation = function(map, args) {
     }
 };
 
-LabelAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
+LabelAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
+
+    _text: "Label",
+    _color: "#ffffffff",
 
     setMap: function(map) {
         if (map !== undefined) {
@@ -100,15 +101,67 @@ LabelAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
                 longitude: this.getLocation().getLongitude(),
                 text: this.getText(),
                 color: this.getColor()
-            });
+            }, false);
             this._map = map;
         }
-    },    
-    
+    },
+
+    getText: function() {
+        return this._text;
+    },
+
+    getColor: function() {
+        return this._color;
+    }
+});
+
+//---------------------------------------------------------
+
+/**
+* Constructs a new PlaceNode Annotation.
+*/
+PlaceAnnotation = function(args) {
+
+    PositionedAnnotation.call(this, args);
+
+    if (args !== undefined) {
+        if (args.text !== undefined)
+            this._text = args.text;
+        if (args.icon !== undefined)
+            this._icon = args.icon;
+        if (args.color !== undefined)
+            this._color = args.color;
+    }
+};
+
+PlaceAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
+
+    _text: "Label",
+    _icon: "",
+    _color: "#ffffffff",
+
+    setMap: function(map) {
+        if (map !== undefined) {
+            map.sendCommand("createPlaceNode", {
+                id: this._id,
+                latitude: this.getLocation().getLatitude(),
+                longitude: this.getLocation().getLongitude(),
+                text: this.getText(),
+                iconURI: this.getIcon(),
+                color: this.getColor()
+            }, false);
+            this._map = map;
+        }
+    },
+
     getText: function() {
         return this._text;
     },
     
+    getIcon: function() {
+        return this._icon;
+    },
+
     getColor: function() {
         return this._color;
     }
@@ -119,12 +172,9 @@ LabelAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
 /**
  * Constructs a new Circle.
  */
-CircleAnnotation = function(map, args) {
+CircleAnnotation = function(args) {
 
-    PositionedAnnotation.call(map, args);
-    
-    this._radius = 10000.0;
-    this._color = "#ffff00ff";
+    PositionedAnnotation.call(this, args);
 
     if (args !== undefined) {
         if (args.radius !== undefined)
@@ -134,8 +184,11 @@ CircleAnnotation = function(map, args) {
     }
 };
 
-CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
+CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
 
+    _radius: 10000.0,
+    _color: "#ffff00ff",
+    
     setMap: function(map) {
         if (map !== null) {
             map.sendCommand("createCircleNode", {
@@ -144,7 +197,7 @@ CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation, {
                 longitude: this.getLocation().getLongitude(),
                 radius: this.getRadius(),
                 color: this.getColor()
-            });
+            }, false);
             this._map = map;
         }
     },

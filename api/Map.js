@@ -128,17 +128,18 @@ Map.prototype.addEvent = function( type, callback ) {
 }
 
 // convenience: json-ifies input and output
-Map.prototype.sendCommand = function( command, args, hasResult )
-{
-    var json_args = $.toJSON( args );
-    if ( hasResult )
-    {
-        var result = this._plugin.sendCommand( command, json_args, hasResult );
-        return jQuery.parseJSON( result );
+Map.prototype.sendCommand = function(command, args, hasResult) {
+
+    if (hasResult === undefined)
+        hasResult = false;
+        
+    var json_args = $.toJSON(args);
+    if (hasResult) {
+        var result = this._plugin.sendCommand(command, json_args, hasResult);
+        return jQuery.parseJSON(result);
     }
-    else
-    {
-        this._plugin.sendCommand( command, json_args, hasResult );
+    else {
+        this._plugin.sendCommand(command, json_args, hasResult);
     }
 }
 

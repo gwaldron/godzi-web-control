@@ -34,11 +34,26 @@
 var map;
 
 function createAnnotations() {
-    var label = new LabelAnnotation( {
-        location: new Location(42.0, -76.0, 0.0),
-        text: "Washington DC"
-    });
-    label.setMap(map);
+
+    new LabelAnnotation({
+        location: new Location(-27.4, 153.01, 0.0),
+        text: "Brisbane"
+    })
+    .setMap(map);
+
+    new PlaceAnnotation({
+        location: new Location(32.73, -117.17, 0),
+        text: "San Diego",
+        icon: "http://demo.pelicanmapping.com/icons/pushpin_yellow.png"
+    })
+    .setMap(map);
+
+    new CircleAnnotation({
+        location: new Location(32.0, -120.0, 0),
+        radius: 35000.0,
+        color: "#00ff00"
+    })
+    .setMap(map);
 }
 
 function initialize()

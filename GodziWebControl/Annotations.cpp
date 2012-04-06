@@ -207,6 +207,7 @@ CreateCircleNodeCommand::CreateCircleNodeCommand(const std::string& id,
 _id    ( id ),
 _lat   ( lat_degrees ),
 _lon   ( lon_degrees ),
+_alt   ( 0.0 ),
 _radius( radius_m ),
 _color ( color )
 {
@@ -226,7 +227,7 @@ CreateCircleNodeCommand::operator ()( MapControl* map )
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
             Distance(_radius, Units::METERS),
-            style ) );
+            style) );
     }
     return annoGroup != 0L;
 }
