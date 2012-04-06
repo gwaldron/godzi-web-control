@@ -51,7 +51,6 @@ namespace
         {
             annos = new osg::Group();
             annos->setName( ANNO_GROUP_NAME );
-            Decluttering::setEnabled( annos->getOrCreateStateSet(), true );
             root->addChild( annos );
         }
 
@@ -81,6 +80,8 @@ AnnotationCommands::registerAll( MapControl* map )
 
 //------------------------------------------------------------------------
 
+#undef  LC
+#define LC "[CreateLabelNodeCommand] "
 
 Command*
 CreateLabelNodeCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
@@ -118,10 +119,14 @@ CreateLabelNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        annoGroup->addChild( new LabelNode(
+        AnnotationNode* anno = new LabelNode(
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            _text ) );
+            _text );
+
+        anno->setName( _id );
+        Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
+        annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
 }
@@ -129,6 +134,8 @@ CreateLabelNodeCommand::operator ()( MapControl* map )
 
 //------------------------------------------------------------------------
 
+#undef  LC
+#define LC "[CreatePlaceNodeCommand] "
 
 Command*
 CreatePlaceNodeCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
@@ -169,19 +176,32 @@ CreatePlaceNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        osg::Image* icon = URI(_iconURI).getImage();
+        ReadResult r = URI(_iconURI).readImage();
+        osg::Image* icon = r.getImage();
 
-        annoGroup->addChild( new PlaceNode(
+        if ( r.failed() )
+        {
+            OE_WARN << LC << "Loading icon [" << _iconURI << "] error: " << r.getResultCodeString(r.code()) << std::endl;
+        }
+
+        AnnotationNode* anno = new PlaceNode(
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
             icon,
-            _text ) );
+            _text );
+
+        anno->setName( _id );
+        Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
+        annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
 }
 
 
 //------------------------------------------------------------------------
+
+#undef  LC
+#define LC "[CreateCircleNodeCommand] "
 
 Command*
 CreateCircleNodeCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
@@ -221,13 +241,18 @@ CreateCircleNodeCommand::operator ()( MapControl* map )
     if ( annoGroup )
     {
         Style style;
-        style.getOrCreate<TextSymbol>()->fill()->color() = _color;
+        style.getOrCreate<PolygonSymbol>()->fill()->color() = _color;
 
-        annoGroup->addChild( new CircleNode(
+        //OE_DEBUG << LC << "Creating circle node, lat = " << _lat << ", lon = " << _lon << ", _alt = " << alt << ", radius = " << _radius << std::endl;
+
+        AnnotationNode* anno = new CircleNode(
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
             Distance(_radius, Units::METERS),
-            style) );
+            style);
+
+        anno->setName( _id );
+        annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
 }
@@ -280,15 +305,18 @@ CreateEllipseNodeCommand::operator ()( MapControl* map )
     if ( annoGroup )
     {
         Style style;
-        style.getOrCreate<TextSymbol>()->fill()->color() = _color;
+        style.getOrCreate<PolygonSymbol>()->fill()->color() = _color;
 
-        annoGroup->addChild( new EllipseNode(
+        AnnotationNode* anno = new EllipseNode(
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
             Distance(_radiusMajor, Units::METERS),
             Distance(_radiusMinor, Units::METERS),
             Angle   (_rotation,    Units::DEGREES),
-            style ) );
+            style );
+
+        anno->setName( _id );
+        annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
 }
@@ -340,12 +368,15 @@ CreateRectangleNodeCommand::operator ()( MapControl* map )
         Style style;
         style.getOrCreate<TextSymbol>()->fill()->color() = _color;
 
-        annoGroup->addChild( new RectangleNode(
+        AnnotationNode* anno = new RectangleNode(
             map->getMapNode(),
             GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
             Distance(_width, Units::METERS),
             Distance(_height, Units::METERS),
-            style ) );
+            style );
+
+        anno->setName( _id );
+        annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
 }
@@ -401,10 +432,13 @@ CreateFeatureNodeCommand::operator ()( MapControl* map )
                 SpatialReference::create("wgs84"),
                 style );
 
-            annoGroup->addChild( new FeatureNode(
+            AnnotationNode* anno = new FeatureNode(
                 map->getMapNode(),
                 feature.get(),
-                _draped ) );
+                _draped );
+
+            anno->setName( _id );
+            annoGroup->addChild( anno );
         }
     }
     return annoGroup != 0L;
@@ -465,11 +499,14 @@ CreateLocalGeometryNodeCommand::operator ()( MapControl* map )
 
         if ( geom.valid() )
         {
-            annoGroup->addChild( new LocalGeometryNode(
+            AnnotationNode* anno = new LocalGeometryNode(
                 map->getMapNode(),
                 geom.get(),
                 style,
-                _draped ) );
+                _draped );
+
+            anno->setName( _id );
+            annoGroup->addChild( anno );
         }
     }
     return annoGroup != 0L;

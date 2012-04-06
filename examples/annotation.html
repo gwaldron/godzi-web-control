@@ -36,14 +36,14 @@ var map;
 function createAnnotations() {
 
     new LabelAnnotation({
-        location: new Location(-27.4, 153.01, 0.0),
-        text: "Brisbane"
+        text: "Brisbane",
+        location: new Location(-27.4, 153.01, 0.0)
     })
     .setMap(map);
 
     new PlaceAnnotation({
-        location: new Location(32.73, -117.17, 0),
         text: "San Diego",
+        location: new Location(32.73, -117.17, 0),
         icon: "http://demo.pelicanmapping.com/icons/pushpin_yellow.png"
     })
     .setMap(map);
@@ -51,7 +51,15 @@ function createAnnotations() {
     new CircleAnnotation({
         location: new Location(32.0, -120.0, 0),
         radius: 35000.0,
-        color: "#00ff00"
+        color: "#00ff008f"
+    })
+    .setMap(map);
+
+    new EllipseAnnotation({
+        location: new Location(0.0, -90.0, 0),
+        radiusMajor: 35000.0,
+        radiusMinor: 20000.0,
+        color: "#ff7f009f"
     })
     .setMap(map);
 }

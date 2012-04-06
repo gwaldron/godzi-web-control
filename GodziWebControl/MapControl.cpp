@@ -85,6 +85,12 @@ public:
               _log = new std::ofstream( filename.c_str() );
               std::cout.rdbuf( _log->rdbuf() );
               std::cerr.rdbuf( _log->rdbuf() );
+
+              std::string level( getenv("GODZI_LOGGING") );
+              if ( level == "INFO" )
+                  osgEarth::setNotifyLevel( osg::INFO );
+              else if ( level == "DEBUG" )
+                  osgEarth::setNotifyLevel( osg::DEBUG_INFO );
           }
 
 
