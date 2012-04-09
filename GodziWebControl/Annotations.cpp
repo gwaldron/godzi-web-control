@@ -71,12 +71,57 @@ namespace
     }
 
 
+    void getProp( const Config& conf, std::ostream& buf )
+    {
+        const std::string& name = conf.key();
+        const std::string& val  = conf.value();
+
+        if ( name.size() >= 2 && name[0] == '\"' && name[name.size()-1] == '\"' )
+            buf << name.substr(1, name.size()-2);
+        else
+            buf << name;
+
+        buf << ":";
+
+        if ( val.size() >= 2 && val[0] == '\"' && val[val.size()-1] == '\"' )
+            buf << val.substr(1, val.size()-2);
+        else
+            buf << val;
+
+        buf << ";";
+    }
+
+
     Style getStyle( const CommandArguments& args )
     {
+        // convert from JSON-encoded style to CSS style. Subtley different.
+        Config conf;
+        conf.fromJSON( args["style"] );
+
+        std::stringstream buf;
+        buf << "default { ";
+
+        if ( conf.children().size() > 0 )
+        {
+            for( ConfigSet::const_iterator i = conf.children().begin(); i != conf.children().end(); ++i )
+            {
+                getProp( *i, buf );
+            }
+        }
+        else
+        {
+            getProp( conf, buf );
+        }
+        buf << " }";
+        std::string css;
+        css = buf.str();
+
+        // now parse the CSS.
         ConfigSet styleSet;
-        CssUtils::readConfig( args["style"], "", styleSet );
+        CssUtils::readConfig( css, "", styleSet );
         Style result;
         SLDReader::readStyleFromCSSParams( styleSet.front(), result );
+
         return result;
     }        
 
