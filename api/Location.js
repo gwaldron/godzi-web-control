@@ -1,12 +1,7 @@
-function Location()
-{
-}
-
-function Location(latitude, longitude, altitude)
-{
-  this._latitude = latitude;
-  this._longitude = longitude;
-  this._altitude = altitude;
+Location = function(lat, lon, alt) {
+    this._latitude = lat !== undefined ? lat : 0.0;
+    this._longitude = lon !== undefined ? lon : 0.0;
+    this._altitude = alt != undefined ? alt : 0.0;
 }
 
 Location.prototype.clone = function()

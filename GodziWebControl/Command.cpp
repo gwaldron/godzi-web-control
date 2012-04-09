@@ -49,16 +49,30 @@ CommandArguments::CommandArguments( const std::string& json_string )
     {
         osg::notify(osg::WARN) << "JSON PARSING ERROR in: " << json_string << std::endl;
     }
+    else
+    {
+        osg::notify(osg::INFO) << "Parsed: " << json_string << std::endl;
+    }
 }
 
 std::string
 CommandArguments::operator [] ( const std::string& key ) const
 {
     osgEarth::Json::Value value = _obj.get( key, osgEarth::Json::Value() );
-    if ( value.isNull() || !value.isConvertibleTo( osgEarth::Json::stringValue ) )
+
+    if ( value.isNull() )
+    {
         return "";
-    else
+    }
+    else if ( value.isConvertibleTo(osgEarth::Json::stringValue) )
+    {
         return value.asString();
+    }
+    else
+    {
+        osgEarth::Json::FastWriter writer;
+        return writer.write( value );
+    }
 
     //if ( _obj.isConvertibleTo( osgEarth::Json::stringValue ) )
     //    _obj.get(

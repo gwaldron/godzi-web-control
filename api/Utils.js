@@ -61,4 +61,11 @@ Utils.makeAbsURI = function(reluri)
         return Utils.getPageURI().prefix + reluri;
     return null;
 }
-                 
+
+Utils.styleFromClass = function(name) {
+    var p = $("<div class='" + name + "'></p>").hide().appendTo("body");
+    var map = {}
+    p.css(map);
+    p.remove();
+    return JSON.stringify(map);
+}

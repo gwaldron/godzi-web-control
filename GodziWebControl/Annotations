@@ -10,12 +10,21 @@
 #include <osg/observer_ptr>
 #include <string>
 
+#include <osgEarth/GeoData>
+#include <osgEarth/Units>
+#include <osgEarthSymbology/Geometry>
+#include <osgEarthSymbology/Style>
+
 
 /**
  * Annotation commands - hooks into the osgEarth::Annotations framework.
  */
 namespace GodziWebControl
 {
+    using namespace osgEarth;
+    using namespace osgEarth::Symbology;
+
+
     class GODZIWEBCONTROL_EXPORT MapControl;
 
     /**
@@ -36,10 +45,9 @@ namespace GodziWebControl
     public:
         CreateLabelNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             alt_m,
-            const std::string& text );
+            const GeoPoint&    location,
+            const std::string& text,
+            const Style&       style );
 
     public:
         class Factory : public CommandFactory {
@@ -49,8 +57,9 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
+        GeoPoint    _location;
         std::string _text;
+        Style       _style;
     };
 
 
@@ -62,11 +71,10 @@ namespace GodziWebControl
     public:
         CreatePlaceNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             alt_m,
+            const GeoPoint&    location,
             const std::string& text,
-            const std::string& iconURI );
+            const std::string& iconURI,
+            const Style&       style );
 
     public:
         class Factory : public CommandFactory {
@@ -76,7 +84,8 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
+        GeoPoint    _location;
+        Style       _style;
         std::string _text, _iconURI;
     };
 
@@ -89,10 +98,9 @@ namespace GodziWebControl
     public:
         CreateCircleNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             radius_m,
-            const osg::Vec4f&  color );
+            const GeoPoint&    location,
+            const Distance&    radius,
+            const Style&       style );
 
     public:
         class Factory : public CommandFactory {
@@ -102,8 +110,9 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt, _radius;
-        osg::Vec4f  _color;
+        GeoPoint    _location;
+        Distance    _radius;
+        Style       _style;
     };
 
 
@@ -115,12 +124,11 @@ namespace GodziWebControl
     public:
         CreateEllipseNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             radius_major_m,
-            double             radius_minor_m,
-            double             rotation_degrees,
-            const osg::Vec4f&  color );
+            const GeoPoint&    location,
+            const Distance&    radiusMajor,
+            const Distance&    radiusMinor,
+            const Angle&       rotation,
+            const Style&       style );
 
     public:
         class Factory : public CommandFactory {
@@ -130,10 +138,10 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
-        double      _radiusMajor, _radiusMinor;
-        double      _rotation;
-        osg::Vec4f  _color;
+        GeoPoint    _location;
+        Distance    _radiusMajor, _radiusMinor;
+        Angle       _rotation;
+        Style       _style;
     };
 
 
@@ -145,11 +153,11 @@ namespace GodziWebControl
     public:
         CreateRectangleNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             width_m,
-            double             height_m,
-            const osg::Vec4f&  color );
+            const GeoPoint&    location,
+            const Distance&    width,
+            const Distance&    height,
+            const Style&       style,
+            bool               draped);
 
     public:
         class Factory : public CommandFactory {
@@ -159,9 +167,10 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
-        double      _width, _height;
-        osg::Vec4f  _color;
+        GeoPoint    _location;
+        Distance    _width, _height;
+        Style       _style;
+        bool        _draped;
     };
 
 
@@ -173,10 +182,9 @@ namespace GodziWebControl
     public:
         CreateFeatureNodeCommand(
             const std::string& id,
-            const std::string& geomWKT,
-            const osg::Vec4f&  color,
+            Geometry*          geom,
+            const Style&       style,
             bool               draped);
-
     public:
         class Factory : public CommandFactory {
             virtual Command* create(const std::string& cmd, const CommandArguments& args );
@@ -185,8 +193,8 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        std::string _geomWKT;
-        osg::Vec4f  _color;
+        osg::ref_ptr<Geometry> _geom;
+        Style       _style;
         bool        _draped;
     };
 
@@ -199,12 +207,10 @@ namespace GodziWebControl
     public:
         CreateLocalGeometryNodeCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             alt_m,
-            const std::string& geomWKT,
-            const osg::Vec4f&  color,
-            bool               draped );
+            const GeoPoint&    location,
+            Geometry*          geom,
+            const Style&       style,
+            bool               draped);
 
     public:
         class Factory : public CommandFactory {
@@ -214,9 +220,9 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
-        std::string _geomWKT;
-        osg::Vec4f  _color;
+        GeoPoint    _location;
+        osg::ref_ptr<Geometry> _geom;
+        Style       _style;
         bool        _draped;
     };
 
@@ -229,9 +235,7 @@ namespace GodziWebControl
     public:
         SetAnnotationNodePositionCommand(
             const std::string& id,
-            double             lat_degrees,
-            double             lon_degrees,
-            double             alt_m );
+            const GeoPoint&    location );
 
     public:
         class Factory : public CommandFactory {
@@ -241,7 +245,7 @@ namespace GodziWebControl
 
     protected:
         std::string _id;
-        double      _lat, _lon, _alt;
+        GeoPoint    _location;
     };
 
 

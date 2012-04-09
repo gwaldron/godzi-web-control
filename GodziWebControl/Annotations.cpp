@@ -12,6 +12,9 @@
 #include <osgEarthAnnotation/FeatureNode>
 #include <osgEarthAnnotation/LocalGeometryNode>
 #include <osgEarthSymbology/Geometry>
+#include <osgEarthSymbology/SLD>
+#include <osgEarthSymbology/CssUtils>
+
 #include <osgEarthFeatures/GeometryUtils>
 #include <osgEarthFeatures/Feature>
 
@@ -56,6 +59,32 @@ namespace
 
         return annos;
     }
+
+
+    GeoPoint getLocation( const CommandArguments& args )
+    {
+        return GeoPoint(
+            SpatialReference::create("wgs84"),
+            as<double>( args["longitude"], 0.0 ),
+            as<double>( args["latitude"],  0.0 ),
+            as<double>( args["altitude"],  0.0 ) );
+    }
+
+
+    Style getStyle( const CommandArguments& args )
+    {
+        ConfigSet styleSet;
+        CssUtils::readConfig( args["style"], "", styleSet );
+        Style result;
+        SLDReader::readStyleFromCSSParams( styleSet.front(), result );
+        return result;
+    }        
+
+
+    Geometry* getGeometry( const CommandArguments& args )
+    {
+        return GeometryUtils::geometryFromWKT( args["geomWKT"] );
+    }
 }
 
 
@@ -90,25 +119,22 @@ CreateLabelNodeCommand::Factory::create(const std::string& cmd, const CommandArg
     {
         return new CreateLabelNodeCommand(
             args["id"],
-            as<double>( args["latitude"],  0.0 ),
-            as<double>( args["longitude"], 0.0 ),
-            as<double>( args["altitude"],  0.0 ),
-            args["text"] );
+            getLocation( args ),
+            args["text"],
+            getStyle( args ) );
     }
     return 0L;
 }
 
 
 CreateLabelNodeCommand::CreateLabelNodeCommand(const std::string& id,
-                                               double             lat_degrees,
-                                               double             lon_degrees,
-                                               double             alt_m,
-                                               const std::string& text ) :
-_id  ( id ),
-_lat ( lat_degrees ),
-_lon ( lon_degrees ),
-_alt ( alt_m ),
-_text( text )
+                                               const GeoPoint&    location,
+                                               const std::string& text,
+                                               const Style&       style ) :
+_id      ( id ),
+_location( location ),
+_text    ( text ),
+_style   ( style )
 {
     //nop
 }
@@ -121,8 +147,9 @@ CreateLabelNodeCommand::operator ()( MapControl* map )
     {
         AnnotationNode* anno = new LabelNode(
             map->getMapNode(),
-            GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            _text );
+            _location,
+            _text,
+            _style );
 
         anno->setName( _id );
         Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
@@ -144,28 +171,25 @@ CreatePlaceNodeCommand::Factory::create(const std::string& cmd, const CommandArg
     {
         return new CreatePlaceNodeCommand(
             args["id"],
-            as<double>( args["latitude"],  0.0 ),
-            as<double>( args["longitude"], 0.0 ),
-            as<double>( args["altitude"],  0.0 ),
+            getLocation( args ),
             args["text"],
-            args["iconURI"] );
+            args["iconURI"],
+            getStyle( args ) );
     }
     return 0L;
 }
 
 
 CreatePlaceNodeCommand::CreatePlaceNodeCommand(const std::string& id,
-                                               double             lat_degrees,
-                                               double             lon_degrees,
-                                               double             alt_m,
+                                               const GeoPoint&    location,
                                                const std::string& text,
-                                               const std::string& iconURI) :
-_id     ( id ),
-_lat    ( lat_degrees ),
-_lon    ( lon_degrees ),
-_alt    ( alt_m ),
-_text   ( text ),
-_iconURI( iconURI )
+                                               const std::string& iconURI,
+                                               const Style&       style ) :
+_id      ( id ),
+_location( location ),
+_text    ( text ),
+_iconURI ( iconURI ),
+_style   ( style )
 {
     //nop
 }
@@ -184,11 +208,7 @@ CreatePlaceNodeCommand::operator ()( MapControl* map )
             OE_WARN << LC << "Loading icon [" << _iconURI << "] error: " << r.getResultCodeString(r.code()) << std::endl;
         }
 
-        AnnotationNode* anno = new PlaceNode(
-            map->getMapNode(),
-            GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            icon,
-            _text );
+        AnnotationNode* anno = new PlaceNode(map->getMapNode(), _location, icon, _text, _style);
 
         anno->setName( _id );
         Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
@@ -210,26 +230,22 @@ CreateCircleNodeCommand::Factory::create(const std::string& cmd, const CommandAr
     {
         return new CreateCircleNodeCommand(
             args["id"],
-            as<double>( args["latitude"],    0.0 ),
-            as<double>( args["longitude"],   0.0 ),
-            as<double>( args["radius"],      0.0 ),
-            Color( args["color"] ) );
+            getLocation( args ),
+            Distance( as<double>(args["radius"], 10000.0), Units::METERS ),
+            getStyle( args ) );
     }
     return 0L;
 }
 
 
 CreateCircleNodeCommand::CreateCircleNodeCommand(const std::string& id,
-                                                 double             lat_degrees,
-                                                 double             lon_degrees,
-                                                 double             radius_m,
-                                                 const osg::Vec4f&  color) :
-_id    ( id ),
-_lat   ( lat_degrees ),
-_lon   ( lon_degrees ),
-_alt   ( 0.0 ),
-_radius( radius_m ),
-_color ( color )
+                                                 const GeoPoint&    location,
+                                                 const Distance&    radius,
+                                                 const Style&       style ) :
+_id      ( id ),
+_location( location ),
+_radius  ( radius ),
+_style   ( style )
 {
     //nop
 }
@@ -240,16 +256,9 @@ CreateCircleNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        Style style;
-        style.getOrCreate<PolygonSymbol>()->fill()->color() = _color;
-
         //OE_DEBUG << LC << "Creating circle node, lat = " << _lat << ", lon = " << _lon << ", _alt = " << alt << ", radius = " << _radius << std::endl;
 
-        AnnotationNode* anno = new CircleNode(
-            map->getMapNode(),
-            GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            Distance(_radius, Units::METERS),
-            style);
+        AnnotationNode* anno = new CircleNode(map->getMapNode(), _location, _radius, _style);
 
         anno->setName( _id );
         annoGroup->addChild( anno );
@@ -268,31 +277,29 @@ CreateEllipseNodeCommand::Factory::create(const std::string& cmd, const CommandA
     {
         return new CreateEllipseNodeCommand(
             args["id"],
-            as<double>( args["latitude"],       0.0 ),
-            as<double>( args["longitude"],      0.0 ),
-            as<double>( args["radiusMajor"], 1000.0 ),
-            as<double>( args["radiusMinor"], 2000.0 ),
-            as<double>( args["rotation"],       0.0 ),
-            Color( args["color"] ) );
+            getLocation( args ),
+            Distance( as<double>(args["radiusMajor"], 1000.0), Units::METERS ),
+            Distance( as<double>(args["radiusMinor"], 2000.0), Units::METERS ),
+            Angle   ( as<double>(args["rotation"],       0.0), Units::DEGREES ),
+            getStyle( args ) );
+        
     }
     return 0L;
 }
 
 
 CreateEllipseNodeCommand::CreateEllipseNodeCommand(const std::string& id,
-                                                   double             lat_degrees,
-                                                   double             lon_degrees,
-                                                   double             radiusMajor_m,
-                                                   double             radiusMinor_m,
-                                                   double             rotation_degrees,
-                                                   const osg::Vec4f&  color) :
+                                                   const GeoPoint&    location,
+                                                   const Distance&    radiusMajor,
+                                                   const Distance&    radiusMinor,
+                                                   const Angle&       rotation,
+                                                   const Style&       style ) :
 _id         ( id ),
-_lat        ( lat_degrees ),
-_lon        ( lon_degrees ),
-_radiusMajor( radiusMajor_m ),
-_radiusMinor( radiusMinor_m ),
-_rotation   ( rotation_degrees ),
-_color      ( color )
+_location   ( location ),
+_radiusMajor( radiusMajor ),
+_radiusMinor( radiusMinor ),
+_rotation   ( rotation ),
+_style      ( style )
 {
     //nop
 }
@@ -304,16 +311,13 @@ CreateEllipseNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        Style style;
-        style.getOrCreate<PolygonSymbol>()->fill()->color() = _color;
-
         AnnotationNode* anno = new EllipseNode(
             map->getMapNode(),
-            GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            Distance(_radiusMajor, Units::METERS),
-            Distance(_radiusMinor, Units::METERS),
-            Angle   (_rotation,    Units::DEGREES),
-            style );
+            _location,
+            _radiusMajor,
+            _radiusMinor,
+            _rotation,
+            _style );
 
         anno->setName( _id );
         annoGroup->addChild( anno );
@@ -332,28 +336,28 @@ CreateRectangleNodeCommand::Factory::create(const std::string& cmd, const Comman
     {
         return new CreateRectangleNodeCommand(
             args["id"],
-            as<double>( args["latitude"],       0.0 ),
-            as<double>( args["longitude"],      0.0 ),
-            as<double>( args["width"],       1000.0 ),
-            as<double>( args["height"],      2000.0 ),
-            Color( args["color"] ) );
+            getLocation( args ),
+            Distance( as<double>( args["width"],       10000.0 ), Units::METERS ),
+            Distance( as<double>( args["height"],      20000.0 ), Units::METERS ),
+            getStyle( args ),
+            as<bool>(args["draped"], true) );
     }
     return 0L;
 }
 
 
 CreateRectangleNodeCommand::CreateRectangleNodeCommand(const std::string& id,
-                                                       double             lat_degrees,
-                                                       double             lon_degrees,
-                                                       double             width_m,
-                                                       double             height_m,
-                                                       const osg::Vec4f&  color) :
+                                                       const GeoPoint&    location,
+                                                       const Distance&    width,
+                                                       const Distance&    height,
+                                                       const Style&       style,
+                                                       bool               draped) :
 _id         ( id ),
-_lat        ( lat_degrees ),
-_lon        ( lon_degrees ),
-_width      ( width_m ),
-_height     ( height_m ),
-_color      ( color )
+_location   ( location ),
+_width      ( width ),
+_height     ( height ),
+_style      ( style ),
+_draped     ( draped )
 {
     //nop
 }
@@ -365,15 +369,13 @@ CreateRectangleNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        Style style;
-        style.getOrCreate<TextSymbol>()->fill()->color() = _color;
-
         AnnotationNode* anno = new RectangleNode(
             map->getMapNode(),
-            GeoPoint( SpatialReference::create("wgs84"), _lon, _lat, _alt ),
-            Distance(_width, Units::METERS),
-            Distance(_height, Units::METERS),
-            style );
+            _location,
+            _width,
+            _height,
+            _style,
+            _draped );
 
         anno->setName( _id );
         annoGroup->addChild( anno );
@@ -393,8 +395,8 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
     {
         return new CreateFeatureNodeCommand(
             args["id"],
-            args["geomWKT"],
-            Color( args["color"] ),
+            getGeometry( args ),
+            getStyle( args ),
             as<bool>( args["draped"], true ) );
     }
     return 0L;
@@ -402,12 +404,12 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
 
 
 CreateFeatureNodeCommand::CreateFeatureNodeCommand(const std::string& id,
-                                                   const std::string& geomWKT,
-                                                   const osg::Vec4f&  color,
+                                                   Geometry*          geom,
+                                                   const Style&       style,
                                                    bool               draped ) :
 _id         ( id ),
-_geomWKT    ( geomWKT ),
-_color      ( color ),
+_geom       ( geom ),
+_style      ( style ),
 _draped     ( draped )
 {
     //nop
@@ -420,17 +422,12 @@ CreateFeatureNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        Style style;
-        style.getOrCreate<TextSymbol>()->fill()->color() = _color;
-
-        osg::ref_ptr<Geometry> geom = GeometryUtils::geometryFromWKT( _geomWKT );
-
-        if ( geom.valid() )
+        if ( _geom.valid() )
         {
             osg::ref_ptr<Feature> feature = new Feature(
-                geom.get(),
+                _geom.get(),
                 SpatialReference::create("wgs84"),
-                style );
+                _style );
 
             AnnotationNode* anno = new FeatureNode(
                 map->getMapNode(),
@@ -456,11 +453,9 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
     {
         return new CreateLocalGeometryNodeCommand(
             args["id"],
-            as<double>( args["latitude"],  0.0 ),
-            as<double>( args["longitude"], 0.0 ),
-            as<double>( args["altitude"],  0.0 ),
-            args["geomWKT"],
-            Color( args["color"] ),
+            getLocation( args ),
+            getGeometry( args ),
+            getStyle( args ),
             as<bool>( args["draped"], true ) );
     }
     return 0L;
@@ -468,19 +463,15 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
 
 
 CreateLocalGeometryNodeCommand::CreateLocalGeometryNodeCommand(const std::string& id,
-                                                               double             lat_degrees,
-                                                               double             lon_degrees,
-                                                               double             alt_m,
-                                                               const std::string& geomWKT,
-                                                               const osg::Vec4f&  color,
+                                                               const GeoPoint&    location,
+                                                               Geometry*          geom,
+                                                               const Style&       style,
                                                                bool               draped ) :
 _id         ( id ),
-_lat        ( lat_degrees ),
-_lon        ( lon_degrees ),
-_alt        ( alt_m ),
-_geomWKT    ( geomWKT ),
-_draped     ( draped ),
-_color      ( color )
+_location   ( location ),
+_geom       ( geom ),
+_style      ( style ),
+_draped     ( draped )
 {
     //nop
 }
@@ -492,17 +483,12 @@ CreateLocalGeometryNodeCommand::operator ()( MapControl* map )
     osg::Group* annoGroup = getAnnotationGroup(map);
     if ( annoGroup )
     {
-        Style style;
-        style.getOrCreate<TextSymbol>()->fill()->color() = _color;
-
-        osg::ref_ptr<Geometry> geom = GeometryUtils::geometryFromWKT( _geomWKT );
-
-        if ( geom.valid() )
+        if ( _geom.valid() )
         {
             AnnotationNode* anno = new LocalGeometryNode(
                 map->getMapNode(),
-                geom.get(),
-                style,
+                _geom.get(),
+                _style,
                 _draped );
 
             anno->setName( _id );
@@ -523,22 +509,16 @@ SetAnnotationNodePositionCommand::Factory::create(const std::string& cmd, const 
     {
         return new SetAnnotationNodePositionCommand(
             args["id"],
-            as<double>( args["latitude"],  0.0 ),
-            as<double>( args["longitude"], 0.0 ),
-            as<double>( args["altitude"],  0.0 ) );
+            getLocation( args ) );
     }
     return 0L;
 }
 
 
 SetAnnotationNodePositionCommand::SetAnnotationNodePositionCommand(const std::string& id,
-                                                                   double             lat_degrees,
-                                                                   double             lon_degrees,
-                                                                   double             alt_m ) :
+                                                                   const GeoPoint&    location ) :
 _id         ( id ),
-_lat        ( lat_degrees ),
-_lon        ( lon_degrees ),
-_alt        ( alt_m )
+_location   ( location )
 {
     //nop
 }
@@ -554,7 +534,7 @@ SetAnnotationNodePositionCommand::operator ()( MapControl* map )
         PositionedAnnotationNode* pn = dynamic_cast<PositionedAnnotationNode*>( node );
         if ( pn )
         {
-            pn->setPosition( GeoPoint(SpatialReference::create("wgs84"), _lon, _lat, _alt) );
+            pn->setPosition( _location );
             return true;
         }
     }
