@@ -14,7 +14,7 @@ FeatureAnnotation = function(args) {
     }
 };
 
-FeatureAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
+FeatureAnnotation.prototype = InheritsFromClass(Annotation.prototype, {
 
     _geomWKT: null,
     _draped: false,

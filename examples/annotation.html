@@ -35,8 +35,8 @@
 <script src="../api/Annotations/PlaceAnnotation.js" type="text/javascript""></script>
 <script src="../api/Annotations/LabelAnnotation.js" type="text/javascript""></script>
 <script src="../api/Annotations/PlaceAnnotation.js" type="text/javascript""></script>
-<script src="../api/Annotations/LocalGeometryAnnotation.js" type="text/javascript""></script>
 <script src="../api/Annotations/FeatureAnnotation.js" type="text/javascript""></script>
+<script src="../api/Annotations/LocalGeometryAnnotation.js" type="text/javascript""></script>
 
 
 <script type="text/javascript">
@@ -99,6 +99,14 @@ function createAnnotations() {
             stroke_width: "3",
             extrusion_height: "30000"
         }
+    })
+    .setMap(map);
+
+    // Localized Geometry
+    new LocalGeometryAnnotation({
+        geomWKT: "POLYGON((0 0 0, -7000 0 25000, -7000 0 30000, 0 0 40000, 7000 0 30000, 7000 0 25000))",
+        location: new Location(33.4, -116.6),
+        style: { fill: "#00ff00", stroke: "#ffff00", stroke_width: "2" }
     })
     .setMap(map);
 }
