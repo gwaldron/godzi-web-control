@@ -350,12 +350,38 @@ Map.prototype.moveElevationLayer = function(layer, newIndex)
 Map.prototype.removeElevationLayer = function(layer)
 {
 	this.sendCommand("removeElevationLayer", { id: layer._id }, false);
+}
+
+/**
+* Gets a list of elevation layers from the map
+*/
+Map.prototype.getElevationLayers = function() {
+  var result = this.sendCommand("getElevationLayers", {}, true);
+
+  var ids = result.ids;
+  if ((ids != null) && (ids.length > 0)) {
+    ids = ids.split(";");
+  }
+
+  var names = result.names;
+  if ((names != null) && (names.length > 0)) {
+    names = names.split(";");
+  }
+
+  return { "ids": ids, "names": names };
 }
 
 /**
- * Sets and loads the specified map (.earth) file
- * @param {string} mapFile The map file URL
- */
+* Toggles an elevation layer
+*/
+Map.prototype.toggleElevationLayer = function(layer, visible) {
+  this.sendCommand("toggleElevationLayer", { "id": layer._id, "visible": visible }, false);
+}
+
+/**
+* Sets and loads the specified map (.earth) file
+* @param {string} mapFile The map file URL
+*/
 Map.prototype.setMapFile = function(mapFile)
 {
     var args = $.toJSON( { "filename": mapFile } );

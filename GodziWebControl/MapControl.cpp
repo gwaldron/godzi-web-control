@@ -178,6 +178,8 @@ _eventCallback(0)
     addCommandFactory(new AddElevationLayerCommand::Factory());
     addCommandFactory(new MoveElevationLayerCommand::Factory());
     addCommandFactory(new RemoveElevationLayerCommand::Factory());
+    addCommandFactory(new GetElevationLayersCommand::Factory());
+    addCommandFactory(new ToggleElevationLayerCommand::Factory());
 
     addCommandFactory(new UpdateTextLabelCommand::Factory());
     addCommandFactory(new RemoveTextLabelCommand::Factory());

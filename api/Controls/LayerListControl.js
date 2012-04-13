@@ -9,7 +9,11 @@ LayerListControl = function(element_id, map) {
 LayerListControl.prototype = {
   init: function() {
 
-    this.updateList();
+    jQuery(this.element).append('<div id="imgageGroupParent" style="margin-bottom: 20px;"/>');
+    jQuery(this.element).append('<div id="elevGroupParent"/>');
+
+    this.updateImageList();
+    this.updateElevList();
 
 
     //TODO: Add iframe shim to allow control to float over plugin control?
@@ -20,24 +24,28 @@ LayerListControl.prototype = {
 
     //TODO: Smarter updating instead of redrawing the entire list with each change
     var thisObj = this;
-    this.map.addEvent("imagelayeradded", function(data) { thisObj.updateList(); });
-    this.map.addEvent("imagelayerremoved", function(data) { thisObj.updateList(); });
-    this.map.addEvent("imagelayermoved", function(data) { thisObj.updateList(); });
+    this.map.addEvent("imagelayeradded", function(data) { thisObj.updateImageList(); });
+    this.map.addEvent("imagelayerremoved", function(data) { thisObj.updateImageList(); });
+    this.map.addEvent("imagelayermoved", function(data) { thisObj.updateImageList(); });
+    this.map.addEvent("elevationlayeradded", function(data) { thisObj.updateElevList(); });
+    this.map.addEvent("elevationlayerremoved", function(data) { thisObj.updateElevList(); });
+    this.map.addEvent("elevationlayermoved", function(data) { thisObj.updateElevList(); });
   },
 
-  updateList: function() {
+  updateImageList: function() {
+
+    var imageParent = jQuery("#imgageGroupParent");
 
     //Remove all existing children
-    jQuery(this.element).children().remove();
+    jQuery(imageParent).children().remove();
 
-    //jQuery(this.element).append('<div class="ui-widget-header"><span id="layer-header-toggle" style="float:left" class="ui-icon ui-icon-triangle-1-s"></span>Layers</div>');
-    jQuery(this.element).append('<div class="ui-widget-header">Layers</div>');
+    jQuery(imageParent).append('<div class="ui-widget-header"><span id="imagelayer-header-toggle" style="float:left" class="ui-icon ui-icon-triangle-1-s"></span>Image Layers</div>');
 
-    var layerContainer = jQuery('<div id="layer_container"/>');
-    jQuery(this.element).append(layerContainer);
+    var layerContainer = jQuery('<div id="imagelayer_container"/>');
+    jQuery(imageParent).append(layerContainer);
 
-    jQuery("#layer-header-toggle").bind("click", function() {
-      jQuery("#layer_container").slideToggle();
+    jQuery("#imagelayer-header-toggle").bind("click", function() {
+      jQuery("#imagelayer_container").slideToggle();
       var l = jQuery(this);
       if (l.hasClass("ui-icon-triangle-1-s")) {
         l.removeClass("ui-icon-triangle-1-s");
@@ -53,17 +61,17 @@ LayerListControl.prototype = {
 
     for (var i = 0; i < layers.ids.length; i++) {
       if (layers.ids[i].length > 0) {
-        var div = jQuery('<div id="layer_' + layers.ids[i] + '">')
+        var div = jQuery('<div id="imagelayer_' + layers.ids[i] + '" style="padding: 0px 10px 10px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
         var props = this.map.getImageLayerProperties(layers.ids[i]);
 
-        jQuery(div).append('<div class="drag_handle"><input id="layercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
-        jQuery(div).append('<div id="layeropacity_' + i + '" class="opacity-slider"></div>');
+        jQuery(div).append('<div class="drag_handle"><input id="imagelayercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
+        jQuery(div).append('<div id="imagelayeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
 
-        jQuery("#layercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
+        jQuery("#imagelayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
           var checked = jQuery(this).attr("checked");
 
           var layerProps = new ImageLayerProperties(event.data.layerId);
@@ -83,7 +91,7 @@ LayerListControl.prototype = {
         jQuery(layerContainer).disableSelection();
 
         var opacity = props.opacity;
-        jQuery('#layeropacity_' + i).slider({
+        jQuery('#imagelayeropacity_' + i).slider({
           min: 0,
           max: 100,
           value: opacity * 100.0,
@@ -99,6 +107,78 @@ LayerListControl.prototype = {
         });
       }
     }
+  },
 
+  updateElevList: function() {
+
+    var elevParent = jQuery("#elevGroupParent");
+
+    //Remove all existing children
+    jQuery(elevParent).children().remove();
+
+    jQuery(elevParent).append('<div class="ui-widget-header"><span id="elevlayer-header-toggle" style="float:left" class="ui-icon ui-icon-triangle-1-s"></span>Elevation Layers</div>');
+
+    var layerContainer = jQuery('<div id="elevlayer_container"/>');
+    jQuery(elevParent).append(layerContainer);
+
+    jQuery("#elevlayer-header-toggle").bind("click", function() {
+      jQuery("#elevlayer_container").slideToggle();
+      var l = jQuery(this);
+      if (l.hasClass("ui-icon-triangle-1-s")) {
+        l.removeClass("ui-icon-triangle-1-s");
+        l.addClass("ui-icon-triangle-1-e");
+      }
+      else if (l.hasClass('ui-icon-triangle-1-e')) {
+        l.addClass("ui-icon-triangle-1-s");
+        l.removeClass("ui-icon-triangle-1-e");
+      }
+    });
+
+    var layers = this.map.getElevationLayers();
+
+    for (var i = 0; i < layers.ids.length; i++) {
+      if (layers.ids[i].length > 0) {
+        var div = jQuery('<div id="elevlayer_' + layers.ids[i] + '">')
+                        .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
+
+        jQuery(div).append('<div class="drag_handle"><input id="elevlayercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
+        //jQuery(div).append('<div id="elevlayeropacity_' + i + '" class="opacity-slider"></div>');
+
+        jQuery(layerContainer).append(div);
+
+        jQuery("#elevlayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
+          var checked = jQuery(this).attr("checked");
+          event.data.map.toggleElevationLayer({ "_id": event.data.layerId }, checked);
+        });
+
+        //        var opacity = props.opacity;
+        //        jQuery('#elevlayeropacity_' + i).slider({
+        //          min: 0,
+        //          max: 100,
+        //          value: opacity * 100.0,
+        //          range: "min",
+        //          map: this.map,
+        //          layerId: layers.ids[i],
+        //          slide: function(event, ui) {
+        //            var opacity = ui.value / 100.0;
+        //            var layerProps = new ImageLayerProperties(jQuery(this).data('slider').options.layerId);
+        //            layerProps.setOpacity(opacity);
+        //            jQuery(this).data('slider').options.map.updateImageLayer(layerProps);
+        //          }
+        //        });
+      }
+    }
+
+    jQuery(layerContainer).sortable({
+      handle: '.drag_handle',
+      cursor: 'move',
+      map: this.map,
+      update: function(event, ui) {
+        jQuery(this).data('sortable').options.map.moveElevationLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
+      }
+    });
+
+    jQuery(layerContainer).disableSelection();
   }
+
 };

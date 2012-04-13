@@ -118,3 +118,66 @@ bool MoveElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
 
   return false;
 }
+
+/***************************************************************************************/
+
+Command* GetElevationLayersCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("getElevationLayers" == command)
+    {
+        return new GetElevationLayersCommand();
+    }
+    return NULL;
+}
+
+bool GetElevationLayersCommand::operator ()(GodziWebControl::MapControl *map)
+{
+  osgEarth::ElevationLayerVector layers;
+  map->getMap()->getElevationLayers(layers);
+
+  std::stringstream idBuf;
+  std::stringstream nameBuf;
+  for (osgEarth::ElevationLayerVector::const_iterator it = layers.begin(); it != layers.end(); ++it)
+  {
+    idBuf << (*it)->getUID() << ";";
+    nameBuf << (*it)->getName() << ";";
+  }
+
+  osgEarth::Json::Value result;
+  result["ids"] = idBuf.str();
+  result["names"] = nameBuf.str();
+  osgEarth::Json::FastWriter writer;
+  setResult(writer.write(result));
+
+  return true;
+}
+
+/***************************************************************************************/
+
+Command* ToggleElevationLayerCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("toggleElevationLayer" == command)
+    {
+        int id = as<int>(args["id"], -1);
+        bool visible = as<bool>(args["visible"], true);
+
+        return new ToggleElevationLayerCommand(id, visible);
+    }
+    return NULL;
+}
+
+bool ToggleElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
+{
+  std::cout << "Toggling elevation layer..." <<std::endl;
+  osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
+
+  if (layer && layer->getVisible() != _visible)
+  {
+    std::cout << "     ..." << (_visible ? "ON" : "OFF") << std::endl;
+    layer->setVisible(_visible);
+    std::cout << "     ...DONE" << std::endl;
+    return true;
+  }
+
+  return false;
+}
