@@ -12,6 +12,7 @@
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
 #include <osgEarthUtil/EarthManipulator>
+#include <osgEarthUtil/AutoClipPlaneHandler>
 #include <osgEarthDrivers/cache_filesystem/FileSystemCache>
 
 #include <osg/io_utils>
@@ -484,11 +485,19 @@ void MapControl::setMapFile(const std::string &mapFile)
     }
     _viewer->getDatabasePager()->registerPagedLODs(_root.get());
     _viewer->computeActiveCoordinateSystemNodePath();
-    //_viewer->getCameraManipulator()->setNode(_mapNode.get());
 
     osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator();
     manip->setIntersectTraversalMask( TERRAIN );
+    manip->getSettings()->setMinMaxDistance(2.5, DBL_MAX);  // Set min distance to help prevent zooming "into" the ground
+
     _viewer->setCameraManipulator( manip );
+
+    if (_mapNode.valid())
+    {
+        // Attempting to prevent zooming "into" the ground
+        _viewer->getCamera()->setNearFarRatio(0.00000001);
+        _viewer->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
+    }
 
     //Go home if we are going from an invalid map to a valid one
     if (!wasMapValid && _mapNode.valid())
