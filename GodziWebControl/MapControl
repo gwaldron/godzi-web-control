@@ -8,6 +8,7 @@
 #include <GodziWebControl/Model>
 #include <GodziWebControl/ImageLayer>
 #include <GodziWebControl/ElevationLayer>
+#include <GodziWebControl/ModelLayer>
 #include <GodziWebControl/Command>
 #include <GodziWebControl/Selection>
 

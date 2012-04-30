@@ -182,6 +182,13 @@ _eventCallback(0)
     addCommandFactory(new GetElevationLayersCommand::Factory());
     addCommandFactory(new ToggleElevationLayerCommand::Factory());
 
+    addCommandFactory(new AddModelLayerCommand::Factory());
+    addCommandFactory(new MoveModelLayerCommand::Factory());
+    addCommandFactory(new RemoveModelLayerCommand::Factory());
+    addCommandFactory(new GetModelLayersCommand::Factory());
+    addCommandFactory(new ToggleModelLayerCommand::Factory());
+    addCommandFactory(new GetModelLayerBoundsCommand::Factory());
+
     addCommandFactory(new UpdateTextLabelCommand::Factory());
     addCommandFactory(new RemoveTextLabelCommand::Factory());
 

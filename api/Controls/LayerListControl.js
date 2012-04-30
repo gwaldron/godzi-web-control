@@ -10,10 +10,12 @@ LayerListControl.prototype = {
   init: function() {
 
     jQuery(this.element).append('<div id="imgageGroupParent" style="margin-bottom: 20px;"/>');
-    jQuery(this.element).append('<div id="elevGroupParent"/>');
+    jQuery(this.element).append('<div id="elevGroupParent" style="margin-bottom: 20px;"/>');
+    jQuery(this.element).append('<div id="modelGroupParent"/>');
 
     this.updateImageList();
     this.updateElevList();
+    this.updateModelList();
 
 
     //TODO: Add iframe shim to allow control to float over plugin control?
@@ -30,6 +32,9 @@ LayerListControl.prototype = {
     this.map.addEvent("elevationlayeradded", function(data) { thisObj.updateElevList(); });
     this.map.addEvent("elevationlayerremoved", function(data) { thisObj.updateElevList(); });
     this.map.addEvent("elevationlayermoved", function(data) { thisObj.updateElevList(); });
+    this.map.addEvent("modellayeradded", function(data) { thisObj.updateModelList(); });
+    this.map.addEvent("modellayerremoved", function(data) { thisObj.updateModelList(); });
+    this.map.addEvent("modellayermoved", function(data) { thisObj.updateModelList(); });
   },
 
   updateImageList: function() {
@@ -175,6 +180,89 @@ LayerListControl.prototype = {
       map: this.map,
       update: function(event, ui) {
         jQuery(this).data('sortable').options.map.moveElevationLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
+      }
+    });
+
+    jQuery(layerContainer).disableSelection();
+  },
+
+  updateModelList: function() {
+
+    var modelParent = jQuery("#modelGroupParent");
+
+    //Remove all existing children
+    jQuery(modelParent).children().remove();
+
+    jQuery(modelParent).append('<div class="ui-widget-header"><span id="modellayer-header-toggle" style="float:left" class="ui-icon ui-icon-triangle-1-s"></span>Model Layers</div>');
+
+    var layerContainer = jQuery('<div id="modellayer_container"/>');
+    jQuery(modelParent).append(layerContainer);
+
+    jQuery("#modellayer-header-toggle").bind("click", function() {
+      jQuery("#modellayer_container").slideToggle();
+      var l = jQuery(this);
+      if (l.hasClass("ui-icon-triangle-1-s")) {
+        l.removeClass("ui-icon-triangle-1-s");
+        l.addClass("ui-icon-triangle-1-e");
+      }
+      else if (l.hasClass('ui-icon-triangle-1-e')) {
+        l.addClass("ui-icon-triangle-1-s");
+        l.removeClass("ui-icon-triangle-1-e");
+      }
+    });
+
+    var layers = this.map.getModelLayers();
+
+    for (var i = 0; i < layers.ids.length; i++) {
+      if (layers.ids[i].length > 0) {
+        var div = jQuery('<div id="modellayer_' + layers.ids[i] + '">')
+                        .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
+
+        jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="modellayercheck_' + i + '" type="checkbox" checked="checked"/>' + layers.names[i] + '</span><button id="modellayerbutton_' + i + '"></button></div>');
+        //jQuery(div).append('<div id="modellayeropacity_' + i + '" class="opacity-slider"></div>');
+
+        jQuery(layerContainer).append(div);
+
+        jQuery("#modellayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
+          var checked = jQuery(this).attr("checked");
+          event.data.map.toggleModelLayer({ "_id": event.data.layerId }, checked);
+        });
+
+
+        jQuery("#modellayerbutton_" + i).button({ icons: { primary: "ui-icon-search" }, text: false });
+
+        jQuery("#modellayerbutton_" + i).css({ 'position' : 'absolute', 'right' : '0px', 'width' : '16px', 'font-size' : '50%', 'margin-top' : '2px'});
+        
+        jQuery("#modellayerbutton_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
+          var bounds = event.data.map.getModelLayerBounds({ "_id": event.data.layerId });
+          event.data.map.setViewpoint({ latitude: bounds.latitude, longitude: bounds.longitude, pitch: -90, range: bounds.radius * 4.0 }, 1);
+        });
+
+
+        //        var opacity = props.opacity;
+        //        jQuery('#modellayeropacity_' + i).slider({
+        //          min: 0,
+        //          max: 100,
+        //          value: opacity * 100.0,
+        //          range: "min",
+        //          map: this.map,
+        //          layerId: layers.ids[i],
+        //          slide: function(event, ui) {
+        //            var opacity = ui.value / 100.0;
+        //            var layerProps = new ImageLayerProperties(jQuery(this).data('slider').options.layerId);
+        //            layerProps.setOpacity(opacity);
+        //            jQuery(this).data('slider').options.map.updateImageLayer(layerProps);
+        //          }
+        //        });
+      }
+    }
+
+    jQuery(layerContainer).sortable({
+      handle: '.drag_handle',
+      cursor: 'move',
+      map: this.map,
+      update: function(event, ui) {
+        jQuery(this).data('sortable').options.map.moveModelLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
       }
     });
 

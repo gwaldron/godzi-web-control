@@ -1,0 +1,110 @@
+#ifndef GODZIWEBCONTROL_MODELLAYER_H
+#define GODZIWEBCONTROL_MODELLAYER_H
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/Command>
+
+#include <osg/observer_ptr>
+
+#include <osgEarth/ModelLayer>
+
+#include <string>
+
+
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl;
+
+    class AddModelLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        AddModelLayerCommand(int id, const std::string &name, const CommandArguments& args) : _id(id), _name(name), _args(args) { }
+          
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        const CommandArguments _args;
+        int _id;
+        std::string _name;
+    };
+    
+    class MoveModelLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        MoveModelLayerCommand(int id, int index=-1) : _id(id), _index(index) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
+        int _index;
+    };
+
+    class RemoveModelLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        RemoveModelLayerCommand(int id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
+    };
+
+    class GetModelLayersCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetModelLayersCommand() { }
+        virtual bool operator()(MapControl* map);
+    };
+
+    class ToggleModelLayerCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        ToggleModelLayerCommand(int id, bool visible=true) : _id(id), _visible(visible) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
+        bool _visible;
+    };
+
+    class GetModelLayerBoundsCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetModelLayerBoundsCommand(int id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        int _id;
+    };
+}
+#endif GODZIWEBCONTROL_MODELLAYER_H

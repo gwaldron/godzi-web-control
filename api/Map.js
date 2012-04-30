@@ -379,6 +379,64 @@ Map.prototype.toggleElevationLayer = function(layer, visible) {
 }
 
 /**
+* Adds a model layer to the map
+* @param {supported layer type} layer The layer to add
+*/
+//Map.prototype.addModelLayer = function(layer) {
+//  layer.setMap(this, "addModelLayer");
+//}
+
+/**
+* Moves a model layer to the given index
+* @param {supported layer type} layer The layer to move
+* @param {integer} newIndex The (valid) new index of the layer
+*/
+Map.prototype.moveModelLayer = function(layer, newIndex) {
+  this.sendCommand("moveModelLayer", { id: layer._id, index: newIndex }, false);
+}
+
+/**
+* Removes a model layer from the map
+* @param {supported layer type} layer The layer to remove
+*/
+Map.prototype.removeModelLayer = function(layer) {
+  this.sendCommand("removeModelLayer", { id: layer._id }, false);
+}
+
+/**
+* Gets a list of model layers from the map
+*/
+Map.prototype.getModelLayers = function() {
+  var result = this.sendCommand("getModelLayers", {}, true);
+
+  var ids = result.ids;
+  if ((ids != null) && (ids.length > 0)) {
+    ids = ids.split(";");
+  }
+
+  var names = result.names;
+  if ((names != null) && (names.length > 0)) {
+    names = names.split(";");
+  }
+
+  return { "ids": ids, "names": names };
+}
+
+/**
+* Gets a model layer's bounds
+*/
+Map.prototype.getModelLayerBounds = function(layer) {
+  return this.sendCommand("getModelLayerBounds", { id: layer._id }, true);
+}
+
+/**
+* Toggles a model layer
+*/
+Map.prototype.toggleModelLayer = function(layer, visible) {
+  this.sendCommand("toggleModelLayer", { "id": layer._id, "visible": visible }, false);
+}
+
+/**
 * Sets and loads the specified map (.earth) file
 * @param {string} mapFile The map file URL
 */

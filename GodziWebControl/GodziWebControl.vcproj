@@ -230,6 +230,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ModelLayer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Selection.cpp"
 				>
 			</File>
@@ -297,6 +301,10 @@
 			</File>
 			<File
 				RelativePath=".\Model"
+				>
+			</File>
+			<File
+				RelativePath=".\ModelLayer"
 				>
 			</File>
 			<File

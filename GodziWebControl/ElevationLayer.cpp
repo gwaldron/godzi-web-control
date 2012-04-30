@@ -168,14 +168,11 @@ Command* ToggleElevationLayerCommand::Factory::create(const std::string& command
 
 bool ToggleElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
 {
-  std::cout << "Toggling elevation layer..." <<std::endl;
   osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
 
   if (layer && layer->getVisible() != _visible)
   {
-    std::cout << "     ..." << (_visible ? "ON" : "OFF") << std::endl;
     layer->setVisible(_visible);
-    std::cout << "     ...DONE" << std::endl;
     return true;
   }
 
