@@ -11,6 +11,7 @@
 #include <osgEarthAnnotation/RectangleNode>
 #include <osgEarthAnnotation/FeatureNode>
 #include <osgEarthAnnotation/LocalGeometryNode>
+#include <osgEarthAnnotation/AnnotationEditing>
 #include <osgEarthSymbology/Geometry>
 #include <osgEarthSymbology/SLD>
 #include <osgEarthSymbology/CssUtils>
@@ -35,29 +36,40 @@ using namespace osgEarth::Features;
 
 //------------------------------------------------------------------------
 
-#define ANNO_GROUP_NAME "_annotations"
+#define ANNO_GROUP_NAME        "_annotations"
+#define ANNO_EDITOR_GROUP_NAME "_annotationEditors"
 
 namespace
 {
-    osg::Group* getAnnotationGroup(MapControl* map)
+    osg::Group* getNamedGroup(MapControl* map, const std::string& name)
     {
         osg::Group* root = map->getRoot();
 
-        FindNamedNodeVisitor nv( ANNO_GROUP_NAME );
+        FindNamedNodeVisitor nv( name );
         root->accept(nv);
 
-        osg::Group* annos = 0L;
+        osg::Group* group = 0L;
         if ( nv._result )
-            annos = nv._result->asGroup();
+            group = nv._result->asGroup();
 
-        if ( !annos )
+        if ( !group )
         {
-            annos = new osg::Group();
-            annos->setName( ANNO_GROUP_NAME );
-            root->addChild( annos );
+            group = new osg::Group();
+            group->setName( name );
+            root->addChild( group );
         }
 
-        return annos;
+        return group;
+    }
+
+    osg::Group* getAnnotationGroup(MapControl* map)
+    {
+        return getNamedGroup(map, ANNO_GROUP_NAME);
+    }
+    
+    osg::Group* getAnnotationEditorGroup(MapControl* map)
+    {
+        return getNamedGroup(map, ANNO_EDITOR_GROUP_NAME);
     }
 
 
@@ -149,6 +161,7 @@ AnnotationCommands::registerAll( MapControl* map )
     map->addCommandFactory( new SetAnnotationNodePositionCommand::Factory );
     map->addCommandFactory( new SetAnnotationNodeVisibilityCommand::Factory );
     map->addCommandFactory( new RemoveAnnotationNodeCommand::Factory );
+    map->addCommandFactory( new ToggleAnnotationNodeEditorCommand::Factory );
 }
 
 
@@ -665,6 +678,90 @@ RemoveAnnotationNodeCommand::operator ()( MapControl* map )
         {
             annoGroup->removeChild( node );
             return true;
+        }
+    }
+
+    return false;
+}
+
+
+//------------------------------------------------------------------------
+
+
+
+Command*
+ToggleAnnotationNodeEditorCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
+{
+    if ( "toggleAnnotationNodeEditor" == cmd )
+    {
+        return new ToggleAnnotationNodeEditorCommand( 
+            args["id"], 
+            as<bool>(args["enabled"], true) );
+    }
+    return 0L;
+}
+
+
+ToggleAnnotationNodeEditorCommand::ToggleAnnotationNodeEditorCommand(const std::string& id,
+                                                                     bool               enabled) :
+_id     ( id ),
+_enabled( enabled )
+{
+    //nop
+}
+
+
+bool
+ToggleAnnotationNodeEditorCommand::operator ()( MapControl* map )
+{
+    OE_INFO << LC << "Toggle annotation editor (" << _enabled << ") id=" << _id << std::endl;
+
+    osg::Group* annoEditorGroup = getAnnotationEditorGroup(map);
+    if ( annoEditorGroup )
+    {
+        osg::Node* editor = findNamedNode( _id, annoEditorGroup );
+        if ( editor && !_enabled )
+        {
+            annoEditorGroup->removeChild( editor );
+        }
+        else if ( !editor && _enabled )
+        {
+            // find the corresponding annotation:
+            osg::Group* annoGroup = getAnnotationGroup(map);
+            if ( annoGroup )
+            {
+                osg::Node* anno = findNamedNode( _id, annoGroup );
+                if ( anno )
+                {
+                    OE_INFO << LC << "Found " << _id << ", creating editor.." << std::endl;
+
+                    if ( dynamic_cast<CircleNode*>(anno) )
+                    {
+                        editor = new CircleNodeEditor( dynamic_cast<CircleNode*>(anno) );
+                    }
+                    else if ( dynamic_cast<EllipseNode*>(anno) )
+                    {
+                        editor = new EllipseNodeEditor( dynamic_cast<EllipseNode*>(anno) );
+                    }
+                    else if ( dynamic_cast<RectangleNode*>(anno) )
+                    {
+                        editor = new RectangleNodeEditor( dynamic_cast<RectangleNode*>(anno) );
+                    }
+                    else if ( dynamic_cast<LocalizedNode*>(anno) )
+                    {
+                        editor = new LocalizedNodeEditor( dynamic_cast<LocalizedNode*>(anno) );
+                    }
+
+                    //TODO: add other types to edit image overlay and featurenode, for example
+
+                    if ( editor )
+                    {
+                        OE_INFO << LC << "Created editor of type " << typeid(*editor).name() << std::endl;
+                        editor->setName( _id );
+                        annoEditorGroup->addChild( editor );
+                    }
+                }   
+            }
         }
     }
 

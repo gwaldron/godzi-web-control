@@ -63,32 +63,33 @@ function createAnnotations() {
     .setMap(map);
 
     // Circle - circle at a lat/long with a radius
-    new CircleAnnotation({
+    var circle = new CircleAnnotation({
         location: new Location(34.051, -117.974),
         radius: 50000.0,
         style: { fill: "#ff00009f" }
-    })
-    .setMap(map);
+    });
+    circle.setMap(map);
+    circle.enableEditor(true);
 
     // Ellipse - ellipse at a lat/long with an optional rotation
-    new EllipseAnnotation({
+    var ellipse = new EllipseAnnotation({
         location: new Location(32.73, -119.0),
         radiusMajor: 50000.0,
         radiusMinor: 20000.0,
         rotation: 20.0,
         style: { fill: "#ff7f00bf" }
-    })
-    .setMap(map);
-
+    });
+    ellipse.setMap(map);
+    
     // Rectangle
-    new RectangleAnnotation({
+    var rect = new RectangleAnnotation({
         location: new Location(32.2, -119, 1000),
         width: 50000,
         height: 25000,
         style: { stroke: "#ffff00", stroke_width: "3" },
         draped: false
-    })
-    .setMap(map);
+    });
+    rect.setMap(map);
 
     // Feature (georeferenced geometry)
     new FeatureAnnotation({

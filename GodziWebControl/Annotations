@@ -291,5 +291,26 @@ namespace GodziWebControl
     };
 
 
+    /**
+     * Enable or disable the Editor for an Annotation.
+     */
+    class ToggleAnnotationNodeEditorCommand : public Command
+    {
+    public:
+        ToggleAnnotationNodeEditorCommand(
+            const std::string& id,
+            bool               enabled );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        bool        _enabled;
+    };
+
 }
 #endif GODZIWEBCONTROL_ANNOTATIONS_H

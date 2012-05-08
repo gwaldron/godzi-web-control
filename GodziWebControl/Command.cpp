@@ -35,6 +35,7 @@ void CommandQueue::execute(MapControl* map)
     OpenThreads::ScopedLock<OpenThreads::Mutex> lk(_commandsMutex);
     for (Commands::iterator itr = _commands.begin(); itr != _commands.end(); ++itr)
     {
+        OE_INFO << "Execute: " << typeid(*(*itr).get()).name() << std::endl;
         (*itr)->execute(map);
     }
     _commands.clear();

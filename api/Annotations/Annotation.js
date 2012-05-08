@@ -20,29 +20,36 @@ Annotation = function(args) {
 
 Annotation.prototype = {
 
-    getId : function() {
+    getId: function() {
         return this._id;
-    },    
-    
-    getMap : function() {
+    },
+
+    getMap: function() {
         return this._map;
-    },    
-    
-    getVisible : function() {
+    },
+
+    getVisible: function() {
         return this._visible;
-    },  
-      
-    getStyle : function() {
+    },
+
+    getStyle: function() {
         return this._style;
     },
-    
-    setVisible : function(value) {
-        if ( value != this._visible && this._map !== null ) {
-            this._map.sendCommand( "setAnnotationNodeVisibility", {
+
+    setVisible: function(value) {
+        if (value != this._visible && this._map !== null) {
+            this._map.sendCommand("setAnnotationNodeVisibility", {
                 visible: this._visible
-            } );
+            });
         }
-    }
+    },
+
+    enableEditor: function(value) {
+    this._map.sendCommand("toggleAnnotationNodeEditor", {
+            id: this._id,
+            enabled: value
+        });
+    }    
 };
 
 //---------------------------------------------------------
