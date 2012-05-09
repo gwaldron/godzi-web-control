@@ -160,6 +160,7 @@ AnnotationCommands::registerAll( MapControl* map )
     map->addCommandFactory( new CreateLocalGeometryNodeCommand::Factory );
     map->addCommandFactory( new SetAnnotationNodePositionCommand::Factory );
     map->addCommandFactory( new SetAnnotationNodeVisibilityCommand::Factory );
+    map->addCommandFactory( new GetAnnotationNodeBoundsCommand::Factory );
     map->addCommandFactory( new RemoveAnnotationNodeCommand::Factory );
     map->addCommandFactory( new ToggleAnnotationNodeEditorCommand::Factory );
 }
@@ -607,7 +608,7 @@ SetAnnotationNodePositionCommand::operator ()( MapControl* map )
 Command*
 SetAnnotationNodeVisibilityCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
 {
-    if ( "setAnnotationNodePosition" == cmd )
+    if ( "setAnnotationNodeVisibility" == cmd )
     {
         return new SetAnnotationNodeVisibilityCommand(
             args["id"],
@@ -637,6 +638,59 @@ SetAnnotationNodeVisibilityCommand::operator ()( MapControl* map )
         if ( anno )
         {
             anno->setNodeMask( _visible ? ~0 : 0 );
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+//------------------------------------------------------------------------
+
+
+Command*
+GetAnnotationNodeBoundsCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
+{
+    if ( "getAnnotationBounds" == cmd )
+    {
+        return new GetAnnotationNodeBoundsCommand( args["id"] );
+    }
+    return 0L;
+}
+
+
+GetAnnotationNodeBoundsCommand::GetAnnotationNodeBoundsCommand(const std::string& id) :
+_id( id )
+{
+    //nop
+}
+
+
+bool
+GetAnnotationNodeBoundsCommand::operator ()( MapControl* map )
+{
+    osg::Group* annoGroup = getAnnotationGroup(map);
+    if ( annoGroup )
+    {
+        osg::Node* node = findNamedNode( _id, annoGroup );
+        AnnotationNode* anno = dynamic_cast<AnnotationNode*>( node );
+        if ( anno )
+        {
+            const osg::BoundingSphere& bs = anno->getBound();
+            osg::Vec3d center = bs.center();
+
+            GeoPoint output;
+            map->getMap()->worldPointToMapPoint(center, output);
+
+            osgEarth::Json::Value result;
+            result["id"] = _id;
+            result["latitude"] = output.y();
+            result["longitude"] = output.x();
+            result["radius"] = bs.radius();
+            osgEarth::Json::FastWriter writer;
+            setResult(writer.write(result));
+
             return true;
         }
     }

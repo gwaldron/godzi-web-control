@@ -11,11 +11,13 @@ LayerListControl.prototype = {
 
     jQuery(this.element).append('<div id="imgageGroupParent" style="margin-bottom: 20px;"/>');
     jQuery(this.element).append('<div id="elevGroupParent" style="margin-bottom: 20px;"/>');
-    jQuery(this.element).append('<div id="modelGroupParent"/>');
+    jQuery(this.element).append('<div id="modelGroupParent" style="margin-bottom: 20px;"/>');
+    jQuery(this.element).append('<div id="annoGroupParent"/>');
 
     this.updateImageList();
     this.updateElevList();
     this.updateModelList();
+    this.initAnnotationList();
 
 
     //TODO: Add iframe shim to allow control to float over plugin control?
@@ -35,6 +37,34 @@ LayerListControl.prototype = {
     this.map.addEvent("modellayeradded", function(data) { thisObj.updateModelList(); });
     this.map.addEvent("modellayerremoved", function(data) { thisObj.updateModelList(); });
     this.map.addEvent("modellayermoved", function(data) { thisObj.updateModelList(); });
+  },
+
+  showImageLayers: function(visible) {
+    if (visible)
+      jQuery("#imgageGroupParent").show();
+    else
+      jQuery("#imgageGroupParent").hide();
+  },
+
+  showElevationLayers: function(visible) {
+    if (visible)
+      jQuery("#elevGroupParent").show();
+    else
+      jQuery("#elevGroupParent").hide();
+  },
+
+  showModelLayers: function(visible) {
+    if (visible)
+      jQuery("#modelGroupParent").show();
+    else
+      jQuery("#modelGroupParent").hide();
+  },
+
+  showAnnotations: function(visible) {
+    if (visible)
+      jQuery("#annoGroupParent").show();
+    else
+      jQuery("#annoGroupParent").hide();
   },
 
   updateImageList: function() {
@@ -231,8 +261,8 @@ LayerListControl.prototype = {
 
         jQuery("#modellayerbutton_" + i).button({ icons: { primary: "ui-icon-search" }, text: false });
 
-        jQuery("#modellayerbutton_" + i).css({ 'position' : 'absolute', 'right' : '0px', 'width' : '16px', 'font-size' : '50%', 'margin-top' : '2px'});
-        
+        jQuery("#modellayerbutton_" + i).css({ 'position': 'absolute', 'right': '0px', 'width': '16px', 'font-size': '50%', 'margin-top': '2px' });
+
         jQuery("#modellayerbutton_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
           var bounds = event.data.map.getModelLayerBounds({ "_id": event.data.layerId });
           event.data.map.setViewpoint({ latitude: bounds.latitude, longitude: bounds.longitude, pitch: -90, range: bounds.radius * 4.0 }, 1);
@@ -267,6 +297,75 @@ LayerListControl.prototype = {
     });
 
     jQuery(layerContainer).disableSelection();
+  },
+
+  initAnnotationList: function() {
+
+    var annoParent = jQuery("#annoGroupParent");
+
+    //Remove all existing children
+    jQuery(annoParent).children().remove();
+
+    jQuery(annoParent).append('<div class="ui-widget-header"><span id="annolayer-header-toggle" style="float:left" class="ui-icon ui-icon-triangle-1-s"></span>Annotations</div>');
+
+    var layerContainer = jQuery('<div id="annolayer_container"/>');
+    jQuery(annoParent).append(layerContainer);
+
+    jQuery("#annolayer-header-toggle").bind("click", function() {
+      jQuery("#annolayer_container").slideToggle();
+      var l = jQuery(this);
+      if (l.hasClass("ui-icon-triangle-1-s")) {
+        l.removeClass("ui-icon-triangle-1-s");
+        l.addClass("ui-icon-triangle-1-e");
+      }
+      else if (l.hasClass('ui-icon-triangle-1-e')) {
+        l.addClass("ui-icon-triangle-1-s");
+        l.removeClass("ui-icon-triangle-1-e");
+      }
+    });
+
+//    jQuery(layerContainer).sortable({
+//      handle: '.drag_handle',
+//      cursor: 'move',
+//      map: this.map,
+//      update: function(event, ui) {
+//        jQuery(this).data('sortable').options.map.moveAnnotationLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
+//      }
+//    });
+
+    jQuery(layerContainer).disableSelection();
+  },
+
+  addAnnotation: function(annotation) {
+    if (annotation != undefined) {
+      var id = annotation.getId();
+      var div = jQuery('<div id="annolayer_' + id + '">')
+                        .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
+
+      jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="annolayercheck_' + id + '" type="checkbox" checked="checked"/>' + annotation.getName() + '</span><button id="annolayerbutton_' + id + '"></button></div>');
+
+      var layerContainer = jQuery('#annolayer_container');
+      jQuery(layerContainer).append(div);
+
+      jQuery("#annolayercheck_" + id).bind("click", { "annotation": annotation }, function(event) {
+        event.data.annotation.setVisible(jQuery(this).attr("checked"));
+      });
+
+      jQuery("#annolayerbutton_" + id).button({ icons: { primary: "ui-icon-search" }, text: false });
+
+      jQuery("#annolayerbutton_" + id).css({ 'position': 'absolute', 'right': '0px', 'width': '16px', 'font-size': '50%', 'margin-top': '2px' });
+
+      jQuery("#annolayerbutton_" + id).bind("click", { "annotation": annotation, map: this.map }, function(event) {
+        var bounds = event.data.annotation.getBounds();
+        event.data.map.setViewpoint({ latitude: bounds.latitude, longitude: bounds.longitude, pitch: -90, range: bounds.radius * 4.0 }, 1);
+      });
+    }
+  },
+
+  removeAnnotation: function(annotation) {
+    if (annotation != undefined) {
+      var div = jQuery('<div id="annolayer_' + annotation.getId() + '">').remove();
+    }
   }
 
 };

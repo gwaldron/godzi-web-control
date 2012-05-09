@@ -272,6 +272,26 @@ namespace GodziWebControl
 
 
     /**
+     * Gets the bounds of an annotation node.
+     */
+    class GetAnnotationNodeBoundsCommand : public Command
+    {
+    public:
+        GetAnnotationNodeBoundsCommand(
+            const std::string& id );
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+    };
+
+
+    /**
      * Removes an annotation node.
      */
     class RemoveAnnotationNodeCommand : public Command

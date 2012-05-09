@@ -9,8 +9,11 @@ Annotation = function(args) {
     this._visible = true;
     this._map = null;
     this._style = null;
+    this._name = 'Annotation [' + this._id + ']';
 
     if (args !== undefined) {
+        if (args.name !== undefined)
+            this._name = args.name;
         if (args.vislble !== undefined)
             this._visible = args.visible;
         if (args.style !== undefined)
@@ -35,21 +38,37 @@ Annotation.prototype = {
     getStyle: function() {
         return this._style;
     },
+    
+    getName: function() {
+        return this._name;
+    },
+    
+    setName: function (name) {
+        this._name = name;
+    },
 
     setVisible: function(value) {
         if (value != this._visible && this._map !== null) {
+            this._visible = value;
             this._map.sendCommand("setAnnotationNodeVisibility", {
+                id: this._id,
                 visible: this._visible
             });
         }
     },
 
     enableEditor: function(value) {
-    this._map.sendCommand("toggleAnnotationNodeEditor", {
+        this._map.sendCommand("toggleAnnotationNodeEditor", {
             id: this._id,
             enabled: value
         });
-    }    
+    },
+
+    getBounds: function() {
+        return this._map.sendCommand("getAnnotationBounds", {
+            id: this._id
+        }, true);
+    }
 };
 
 //---------------------------------------------------------
