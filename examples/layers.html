@@ -91,6 +91,7 @@ function createAnnotations()
     style: { fill: "#ff7f00bf" }
   });
   ellipse.setMap(map);
+  ellipse.enableEditor(true);
   layerList.addAnnotation(ellipse);
 
   // Rectangle
@@ -100,9 +101,10 @@ function createAnnotations()
     width: 50000,
     height: 25000,
     style: { stroke: "#ffff00", stroke_width: "3" },
-    draped: false
+    draped: true
   });
   rect.setMap(map);
+  rect.enableEditor(true);
   layerList.addAnnotation(rect);
 }
 
