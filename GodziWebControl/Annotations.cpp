@@ -163,6 +163,8 @@ AnnotationCommands::registerAll( MapControl* map )
     map->addCommandFactory( new GetAnnotationNodeBoundsCommand::Factory );
     map->addCommandFactory( new RemoveAnnotationNodeCommand::Factory );
     map->addCommandFactory( new ToggleAnnotationNodeEditorCommand::Factory );
+    map->addCommandFactory( new SetAnnotationColorsCommand::Factory );
+    map->addCommandFactory( new GetAnnotationColorsCommand::Factory );
 }
 
 
@@ -702,7 +704,6 @@ GetAnnotationNodeBoundsCommand::operator ()( MapControl* map )
 //------------------------------------------------------------------------
 
 
-
 Command*
 RemoveAnnotationNodeCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
 {
@@ -742,6 +743,8 @@ RemoveAnnotationNodeCommand::operator ()( MapControl* map )
 //------------------------------------------------------------------------
 
 
+#undef  LC
+#define LC "[ToggleAnnotationNodeEditorCommand] "
 
 Command*
 ToggleAnnotationNodeEditorCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
@@ -817,6 +820,344 @@ ToggleAnnotationNodeEditorCommand::operator ()( MapControl* map )
                 }   
             }
         }
+    }
+
+    return false;
+}
+
+
+//------------------------------------------------------------------------
+
+
+#undef  LC
+#define LC "[SetAnnotationColorsCommand] "
+
+Command*
+SetAnnotationColorsCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
+{
+    if ( "setAnnotationColors" == cmd )
+    {
+        return new SetAnnotationColorsCommand( 
+            args["id"], 
+            args["fill"],
+            args["stroke"],
+            args["opacity"]);
+    }
+    return 0L;
+}
+
+
+SetAnnotationColorsCommand::SetAnnotationColorsCommand(const std::string& id, const std::string& fill, const std::string& stroke, const std::string& opacity) :
+_id( id ),
+_fill( fill ),
+_stroke( stroke ),
+_opacity( opacity )
+{
+    //nop
+}
+
+
+bool
+SetAnnotationColorsCommand::operator ()( MapControl* map )
+{
+    OE_INFO << LC << "Set annotation colors: fill(" << _fill << ") stroke(" << _stroke << ") opacity(" << _opacity << "), id=" << _id << std::endl;
+
+    if (_fill.length() < 6 && _stroke.length() < 6 && _opacity.length() != 2)
+      return false;
+
+    // find the annotation:
+    osg::Group* annoGroup = getAnnotationGroup(map);
+    if ( annoGroup )
+    {
+        osg::Node* anno = findNamedNode( _id, annoGroup );
+        if ( anno )
+        {
+            if ( dynamic_cast<CircleNode*>(anno) )
+            {
+                CircleNode* annoNode = dynamic_cast<CircleNode*>(anno);
+                Style newStyle = annoNode->getStyle();
+
+                //Get the current opacity or default to "FF"
+                std::string opacity = _opacity;
+                if (opacity.length() != 2)
+                {
+                  opacity = "FF";
+
+                  PolygonSymbol* polySymbol = newStyle.get<PolygonSymbol>();
+                  if (polySymbol)
+                  {
+                    std::string current = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    if (current.length() > 2)
+                      opacity = current.substr(current.length() - 2, 2);
+                  }
+                }
+
+                if (_fill.length() >= 6)
+                {
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(_fill + opacity);
+                }
+                else if (_opacity.length() == 2)
+                {
+                    //If only an opacity was passed in apply it to the current color
+                    std::string fill = osgEarth::Symbology::Color(newStyle.getOrCreate<PolygonSymbol>()->fill()->color()).toHTML();
+                    fill.replace(fill.length() - 2, 2, _opacity);
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(fill);
+                }
+
+                if (_stroke.length() >= 6)
+                    newStyle.getOrCreate<LineSymbol>()->stroke()->color() = osgEarth::Symbology::Color(_stroke);
+
+                annoNode->setStyle(newStyle);
+            }
+            else if ( dynamic_cast<EllipseNode*>(anno) )
+            {
+                EllipseNode* annoNode = dynamic_cast<EllipseNode*>(anno);
+                Style newStyle = annoNode->getStyle();
+
+                //Get the current opacity or default to "FF"
+                std::string opacity = _opacity;
+                if (opacity.length() != 2)
+                {
+                  opacity = "FF";
+
+                  PolygonSymbol* polySymbol = newStyle.get<PolygonSymbol>();
+                  if (polySymbol)
+                  {
+                    std::string current = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    if (current.length() > 2)
+                      opacity = current.substr(current.length() - 2, 2);
+                  }
+                }
+
+                if (_fill.length() >= 6)
+                {
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(_fill + opacity);
+                }
+                else if (_opacity.length() == 2)
+                {
+                    //If only an opacity was passed in apply it to the current color
+                    std::string fill = osgEarth::Symbology::Color(newStyle.getOrCreate<PolygonSymbol>()->fill()->color()).toHTML();
+                    fill.replace(fill.length() - 2, 2, _opacity);
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(fill);
+                }
+
+                if (_stroke.length() >= 6)
+                    newStyle.getOrCreate<LineSymbol>()->stroke()->color() = osgEarth::Symbology::Color(_stroke);
+
+                annoNode->setStyle(newStyle);
+            }
+            else if ( dynamic_cast<RectangleNode*>(anno) )
+            {
+                RectangleNode* annoNode = dynamic_cast<RectangleNode*>(anno);
+                Style newStyle = annoNode->getStyle();
+
+                //Get the current opacity or default to "FF"
+                std::string opacity = _opacity;
+                if (opacity.length() != 2)
+                {
+                  opacity = "FF";
+
+                  PolygonSymbol* polySymbol = newStyle.get<PolygonSymbol>();
+                  if (polySymbol)
+                  {
+                    std::string current = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    if (current.length() > 2)
+                      opacity = current.substr(current.length() - 2, 2);
+                  }
+                }
+
+                if (_fill.length() >= 6)
+                {
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(_fill + opacity);
+                }
+                else if (_opacity.length() == 2)
+                {
+                    //If only an opacity was passed in apply it to the current color
+                    std::string fill = osgEarth::Symbology::Color(newStyle.getOrCreate<PolygonSymbol>()->fill()->color()).toHTML();
+                    fill.replace(fill.length() - 2, 2, _opacity);
+                    newStyle.getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(fill);
+                }
+
+                if (_stroke.length() >= 6)
+                    newStyle.getOrCreate<LineSymbol>()->stroke()->color() = osgEarth::Symbology::Color(_stroke);
+
+                annoNode->setStyle(newStyle);
+            } 
+            else if ( dynamic_cast<FeatureNode*>(anno) )
+            {
+                FeatureNode* annoNode = dynamic_cast<FeatureNode*>(anno);
+                osgEarth::Features::Feature* annoFeature = const_cast<osgEarth::Features::Feature*>(annoNode->getFeature());
+
+                //Get the current opacity or default to "FF"
+                std::string opacity = _opacity;
+                if (opacity.length() != 2)
+                {
+                  opacity = "FF";
+
+                  PolygonSymbol* polySymbol = annoFeature->style()->get<PolygonSymbol>();
+                  if (polySymbol)
+                  {
+                    std::string current = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    if (current.length() > 2)
+                      opacity = current.substr(current.length() - 2, 2);
+                  }
+                }
+
+                if (_fill.length() >= 6)
+                {
+                    annoFeature->style()->getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(_fill + opacity);
+                }
+                else if (_opacity.length() == 2)
+                {
+                    //If only an opacity was passed in apply it to the current color
+                    std::string fill = osgEarth::Symbology::Color(annoFeature->style()->getOrCreate<PolygonSymbol>()->fill()->color()).toHTML();
+                    fill.replace(fill.length() - 2, 2, _opacity);
+                    annoFeature->style()->getOrCreate<PolygonSymbol>()->fill()->color() = osgEarth::Symbology::Color(fill);
+                }
+
+                if (_stroke.length() >= 6)
+                    annoFeature->style()->getOrCreate<LineSymbol>()->stroke()->color() = osgEarth::Symbology::Color(_stroke);
+
+                annoNode->setFeature(annoFeature);
+            }
+            //TODO: add other types???
+
+        }   
+    }
+
+    return false;
+}
+
+
+//------------------------------------------------------------------------
+
+
+#undef  LC
+#define LC "[GetAnnotationColorsCommand] "
+
+Command*
+GetAnnotationColorsCommand::Factory::create(const std::string& cmd, const CommandArguments& args)
+{
+    if ( "getAnnotationColors" == cmd )
+    {
+        return new GetAnnotationColorsCommand( 
+            args["id"]);
+    }
+    return 0L;
+}
+
+
+GetAnnotationColorsCommand::GetAnnotationColorsCommand(const std::string& id) :
+_id( id )
+{
+    //nop
+}
+
+
+bool
+GetAnnotationColorsCommand::operator ()( MapControl* map )
+{
+    OE_INFO << LC << "Get annotation colors, id=" << _id << std::endl;
+
+    if (_id.length() <= 0)
+      return false;
+
+    // find the annotation:
+    osg::Group* annoGroup = getAnnotationGroup(map);
+    if ( annoGroup )
+    {
+        osg::Node* anno = findNamedNode( _id, annoGroup );
+        if ( anno )
+        {
+            OE_INFO << LC << "Found " << _id << std::endl;
+
+            osgEarth::Json::Value result;
+
+            if ( dynamic_cast<CircleNode*>(anno) )
+            {
+                CircleNode* annoNode = dynamic_cast<CircleNode*>(anno);
+
+                const osgEarth::Symbology::PolygonSymbol* polySymbol = annoNode->getStyle().get<PolygonSymbol>();
+                if (polySymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    result["fill"] = color.substr(0, 7);
+                    result["opacity"] = polySymbol->fill()->color().a();
+                }
+
+                const osgEarth::Symbology::LineSymbol* lineSymbol = annoNode->getStyle().get<LineSymbol>();
+                if (lineSymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(lineSymbol->stroke()->color()).toHTML();
+                    result["stroke"] = color.substr(0, 7);
+                }
+            }
+            else if ( dynamic_cast<EllipseNode*>(anno) )
+            {
+                EllipseNode* annoNode = dynamic_cast<EllipseNode*>(anno);
+
+                const osgEarth::Symbology::PolygonSymbol* polySymbol = annoNode->getStyle().get<PolygonSymbol>();
+                if (polySymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    result["fill"] = color.substr(0, 7);
+                    result["opacity"] = polySymbol->fill()->color().a();
+                }
+
+                const osgEarth::Symbology::LineSymbol* lineSymbol = annoNode->getStyle().get<LineSymbol>();
+                if (lineSymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(lineSymbol->stroke()->color()).toHTML();
+                    result["stroke"] = color.substr(0, 7);
+                }
+            }
+            else if ( dynamic_cast<RectangleNode*>(anno) )
+            {
+                RectangleNode* annoNode = dynamic_cast<RectangleNode*>(anno);
+
+                const osgEarth::Symbology::PolygonSymbol* polySymbol = annoNode->getStyle().get<PolygonSymbol>();
+                if (polySymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    result["fill"] = color.substr(0, 7);
+                    result["opacity"] = polySymbol->fill()->color().a();
+                }
+
+                const osgEarth::Symbology::LineSymbol* lineSymbol = annoNode->getStyle().get<LineSymbol>();
+                if (lineSymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(lineSymbol->stroke()->color()).toHTML();
+                    result["stroke"] = color.substr(0, 7);
+                }
+            } 
+            else if ( dynamic_cast<FeatureNode*>(anno) )
+            {
+                FeatureNode* annoNode = dynamic_cast<FeatureNode*>(anno);
+                const osgEarth::Features::Feature* annoFeature = annoNode->getFeature();
+
+                const osgEarth::Symbology::PolygonSymbol* polySymbol = annoFeature->style()->get<PolygonSymbol>();
+                if (polySymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(polySymbol->fill()->color()).toHTML();
+                    result["fill"] = color.substr(0, 7);
+                    result["opacity"] = polySymbol->fill()->color().a();
+                }
+
+                const osgEarth::Symbology::LineSymbol* lineSymbol = annoFeature->style()->get<LineSymbol>();
+                if (lineSymbol)
+                {
+                    std::string color = osgEarth::Symbology::Color(lineSymbol->stroke()->color()).toHTML();
+                    result["stroke"] = color.substr(0, 7);
+                }
+            }
+            //TODO: add other types???
+
+
+            osgEarth::Json::FastWriter writer;
+            setResult(writer.write(result));
+
+            return true;
+        }   
     }
 
     return false;

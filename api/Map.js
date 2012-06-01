@@ -437,6 +437,13 @@ Map.prototype.toggleModelLayer = function(layer, visible) {
 }
 
 /**
+* Gets an annotation's color properties
+*/
+Map.prototype.getAnnotationColors = function(id) {
+  return this.sendCommand("getAnnotationColors", { "id": id }, true);
+}
+
+/**
 * Sets and loads the specified map (.earth) file
 * @param {string} mapFile The map file URL
 */

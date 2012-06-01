@@ -15,19 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0038AE97136847399AC62FBF04BE6F8B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_009EAFC44AC240208DF4D06F93DD0F9E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_017131C70FE14F76BE8ECA98528A3F41"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_01BD1D350F0B44119833CFF7CBB2B381"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,7 +33,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_02E0CDEF4E6242C2B9A28D8726864592"
+        "MsmKey" = "8:_025FD42F2BCA417295A954338A1ED52C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,7 +45,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_03C944C17DC749A281794599A97FD32A"
+        "MsmKey" = "8:_05FA607809114F73B3E4B6F1DEFFD9A8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_06656018A5BF4686B1AE27DE659D9B96"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0677BD6901E64F4B90B80518188CD0CA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,25 +69,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_09D5A54AAB0647B7B0916FEDE8408ACA"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmKey" = "8:_09382EF584F94E70B74FB1531FD1755D"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_09D5A54AAB0647B7B0916FEDE8408ACA"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
+        "MsmKey" = "8:_0958F00DC0F3429CBA53A99FD46111B3"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_09D5A54AAB0647B7B0916FEDE8408ACA"
-        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
+        "MsmKey" = "8:_0A738A298FF54932A0DBF0C6722E48F8"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0A92D5EEC9184A469B0C9E8E09AF7FA9"
+        "MsmKey" = "8:_0B22EEBA05E248059B9A30DB5599915F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0BF76593261346E6A8939A91EAEB4157"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0C5DE2A58A54404BBF2D7203FF3A7229"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -93,19 +111,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0D71489371E44E7E8D700E637968714D"
+        "MsmKey" = "8:_0D1E211CEB114AFFB4BB875C17945603"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_0E253B4DBAD2449B86FA9B7E57D60709"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0FE8F3F5A03B4597B35FBB74C0FEF504"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -123,7 +135,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_11D149DCE97D4E049DAD05DCCCEC30C6"
+        "MsmKey" = "8:_1243BC3FE00D42F0822FD9C6663104B6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_13206736B0E248429FFD3BAB728FE7A1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,7 +153,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1794CEF9C9CC491FB43E59CFE3CA7845"
+        "MsmKey" = "8:_188B036B110346B09628B1B1A7AE455C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_18D30B77934E44298658AD8616159C07"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -147,31 +171,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1A271644596B45A4AEF761D765AF6F50"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1977890033BB9AC575C2C786092572CE"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1ABC3B76F03043CEB48C05FFD2FBBB8A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C1382867D8A42F8A1E1FA16E3ECD1FA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C71740C39B3480ABAFA55B7BF1ABEB9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1DDD65324349467BA6EE336301548D71"
+        "MsmKey" = "8:_1CD68CD4C70145C4AABDC63F5E183376"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -183,13 +189,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1EDCB042EB374C618A5A4CBCC1B25AF4"
+        "MsmKey" = "8:_1EE7DF93F53946DEB778D1DDA89AB9B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1EE7DF93F53946DEB778D1DDA89AB9B8"
+        "MsmKey" = "8:_2025B22074C941E8B7614BCCAC80E7D7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -219,31 +225,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_217AA1EBF2DE4FAE96FE67315C5EC681"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_22A063E4923046D08117FBA71111B2BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_270C3AA98AA74061A109EF867713C5E6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_273EA048804448E9A9D2F61EDCCF316F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_27CE85F3D16541388B3E0F11484471CB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2826D6FC8505414FA1A94146F50E2B7C"
+        "MsmKey" = "8:_258B8110635E4C78B1EBAEECC216FE74"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -255,13 +249,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_29FFD276958045D0AE8F18F6A24495D2"
+        "MsmKey" = "8:_29F81C2B8BED4BC4B84A285E70F1A1B3"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2F5C446B84784AC98050A5F47D471296"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2AFC12BF2D744CC68BE5702267B5047A"
+        "MsmKey" = "8:_2F5C8A303D5B460480FAC9A988339A74"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -279,19 +279,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_308B6166CCD340228FCCBE300D9CBD65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_31075766FB924C8B900152555C7C614F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_31A0DCB394804EF1A96D2DFAE63D9304"
+        "MsmKey" = "8:_31FB4CD2A546472EA8A9BB15246D8490"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -315,7 +309,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_34D875F9F9714A21B4DA2F5EE59992D0"
+        "MsmKey" = "8:_355042B2CD4B4A3ABEF097497D3EC892"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -333,6 +327,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3920CCC23BC84BF48965920587E3CF92"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3921CFC8C4174851868377A0C9B7DC73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -345,7 +345,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C3D8954F36F4835AD9F9ED2D06D5F15"
+        "MsmKey" = "8:_3B848A200D3E4B888F8E305EA06CD323"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -369,37 +369,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_420921D33E8E44008C3946BDDF2379B3"
-        "OwnerKey" = "8:_564C15247289478FB74C5EC9AAE09419"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_42586A657064D4B33D251E287CB3205F"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_42B9D668F62147BDBDAE64ADE2D1A5E9"
+        "MsmKey" = "8:_448A8772FF8C456DA95D0D45794432AF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_42F25932A6F74FB3B1493FC80DFB8A0C"
+        "MsmKey" = "8:_45527B9B43D74355913F911450F30B34"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4677DEDA9E434C80878B221B1B99FCE8"
+        "MsmKey" = "8:_45A6AC4C414D44C89EB5A29A57927965"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_471717F6AF56453792AD47F67B3925DC"
+        "MsmKey" = "8:_46294BCC52E54BA58823A4F2517C4269"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46300AF5345B4626951237538DB31B11"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -411,25 +411,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_48F6EFC7FC934C4EA7B8681583405BEB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4924E7C4AFDD4DF29D5AA2215D9928D7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_49F0D0A9D7404938896ED161C73BEBFC"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4B056BCE0820438D898795D9B14AE8B0"
+        "MsmKey" = "8:_4BF044577FCD4611B0DFC5DBE81C5C54"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -447,25 +435,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4D31966333DC4972ACB40963DD86BD23"
-        "OwnerKey" = "8:_09D5A54AAB0647B7B0916FEDE8408ACA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4E07EF7A8B2246279BBE650CAEA472CA"
+        "MsmKey" = "8:_4E6D6B0FD0D1452184CA49D734E1A532"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4ECEE1C5521F441C80201FBD45F888D2"
+        "MsmKey" = "8:_504C989EB0F946D990EAD947E16D8790"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_50D2F196E74A4DBCA4E9DE4FD3D7E377"
+        "MsmKey" = "8:_50764104F3B6407082084D79C69195C5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -483,7 +465,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_546979926BD94CA78DCA0E19978EAD2F"
+        "MsmKey" = "8:_53A280AFAD1D44CEB231C1CF3A988676"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -495,25 +477,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_564C15247289478FB74C5EC9AAE09419"
-        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_579D0167D93945B4A1862EFD35A05853"
+        "MsmKey" = "8:_55BF00D050A54226ADC7982E6C019068"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5802EC0C91C74575A15F249740E4D52F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_58B5B2BA67D04FE1B58FB40520947B7B"
+        "MsmKey" = "8:_571C183062604920A7F5A8B6C7104086"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -525,19 +495,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_593CBF1FDB3A400290970CFA4DDDBDC7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5A46237CE164981CA4E2BE7A5D4C8A1B"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5BAF41A672514F93B5A290012D202485"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5C6067FDB2594E2DBBABCA963F0190C4"
+        "MsmKey" = "8:_5C03106DE01E45C5B1ACC5A3CF55940F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -555,7 +525,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E78707BDA194C8B876492DFF79556A0"
+        "MsmKey" = "8:_5E205B85267D4FF493A100C92BC8AB5F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -573,7 +543,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6292D17D128F4EC79602BCD022ED3AF2"
+        "MsmKey" = "8:_645E600EB9324E959C10F3D373F886B5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -585,13 +555,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6553BE8356CE425A8267913BDEAFC916"
+        "MsmKey" = "8:_6594F16F14EA44608B0BA30631CF55EA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6594F16F14EA44608B0BA30631CF55EA"
+        "MsmKey" = "8:_65BEC7BA30344E418958F228830109E1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -603,31 +573,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_669B0027E3B1498CA7BB0CB5C0007D87"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_68899A7ADFC84AAD87015837A0B3202D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6BB67B14C4914F17906DB8D22EEDC61C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6C7553C92B954E58A4356AE9ADE02D34"
+        "MsmKey" = "8:_6B6BADA346984FDE82C6F2C963309796"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6D51637223D04BEF82D5B2C123FB74AE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6DD73DCE1A8845B8A947E6E59439D977"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -657,7 +615,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_71D89A11D1964BA0B9034809E025FDF0"
+        "MsmKey" = "8:_7391A41C20C446E9A5EEFF3791BD205F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -669,14 +627,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_76434B85D5224F52A3773C15DC1D960E"
-        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
+        "MsmKey" = "8:_749D2EBD3CD94E8E99B459C36AB7D308"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_76A96A5E965D4BFC96951F08A2DC067E"
+        "MsmKey" = "8:_74BD4C57669B496EA96F174C16658334"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_75F03CFC2EEB4C3CADB2FC2EB18313D5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_761B97DD1FC04B7483D39C2138B359AC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_76434B85D5224F52A3773C15DC1D960E"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -687,19 +663,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_77662BEBB8F34EFAA47BEE02C4402168"
+        "MsmKey" = "8:_7756480C98DA4B92AE33795A9C17463F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_77F787848BAF422FA15C1F3F6806E40C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7816D96DA89C467B9C4403C7A6D0BD6C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -717,6 +687,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_798902E75CBA4258912463BD1C9B1B65"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7A52D30A9E9E4BF892D344153BA6AF44"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7B0DD7C24421313C7A52AD97818EA425"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
@@ -729,7 +711,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7EF7A2A640364901AF757E11350CC7AA"
+        "MsmKey" = "8:_7F5E72E48509491EACF24B905D750781"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -741,25 +723,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_83B9050A538D4100B1252A3D156BADB4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_83E0056F843A48358F3E145ED7E01256"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_846FD847D5144400AFC3B3DD77C7E8C9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_84FB3492462E498A93BDB19A171DD04F"
+        "MsmKey" = "8:_8263EE6D9F9645A48B37B47744C14F07"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -777,13 +741,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8610A3ACAA3A49A08B2EE9FCEFE0C6AE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_861F443468794BAFB78910BE9A317396"
+        "MsmKey" = "8:_860DA8E493764F33ABCE24FCAEBEC241"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -795,43 +753,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8A0BA3333156494AB9174602E68DC5C1"
+        "MsmKey" = "8:_8741F126F7194453868986393240E282"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8B450D22FFE944289AA454A979173001"
+        "MsmKey" = "8:_880802C8151741A4AFD339402E29BACA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8C60A539901A4D74A63F44A57C5BCCBE"
+        "MsmKey" = "8:_8A8F6776CF5D444389399EDF3D1BA2A1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8C6C3C9380FC4861BEE2383D2E0B5A15"
+        "MsmKey" = "8:_8D82015D0E7540BFA646FC6584562E19"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8DFDC12378BB4502A15EE8EF16B2E3A9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8F2A1646343F43D3A937A4B187F7093D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8F3A16094AF94F3FB119866B5C36EFF7"
+        "MsmKey" = "8:_8E8352CA3F4F4EDB90FAC97CE15FBAED"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -849,7 +795,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8FD7EEBE701A4A4A97B2726F7DCE4E66"
+        "MsmKey" = "8:_903A2FA76B7B4FE19143A4A6E39937DB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -861,25 +807,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_910B14B3F15B48B598056202C4C5E89C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_92EB0F33790C4C58BC4809FC257FB827"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_92F257118B429C1AE56D4230C0E4100F"
         "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_939F7D819E884FF48F6066299D4599BC"
+        "MsmKey" = "8:_93295C457E6D4C8F8DCF0A5649B56DC8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9476681263CC490B933B82D815C8B6DC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_94AC5B70426B4B2B831245144BF78A22"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_97274646530743FFA63926920B056E73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -891,13 +843,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9844DA7A4E194FDD8FF4596612FFAAB6"
+        "MsmKey" = "8:_98887A5D664D49BE9462AA170D205EEF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9AA7759C826D489FA67CA9F1041E0EB8"
+        "MsmKey" = "8:_99ECD4F9A6814038BD64DECCD03D0143"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -915,31 +867,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9C25B4063B2E4F3E93A638B85D0CFF8E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9C3CCFB9D871464686AA2AA7A56DE66B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9CC52F9E80D449B9B57350099DF2B087"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9EFD9BA4C6D843A3822BDE7E44A00AE3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A078DFCA16A645D688C46F820AD621D8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A18D3A8AE0A7416BB7549E707A0EB5DC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -951,25 +885,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A1E296878E6645B187FAE5A83420A9D1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A255174BA55843C79D154FDA556DE4AF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A2B7DBB5A30F4FD5AF559E78A2F1A9A4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A46E40B04D764C24BC538AA040EB6B59"
+        "MsmKey" = "8:_A33D9A52335A493CBBE3AAE56F5BC340"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A66F9E0120B04079B5B4F4FEB14D6B8A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -981,7 +909,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A791D760DA174A35B62EE75588A8F65D"
+        "MsmKey" = "8:_A800E677B7DE4069A4B5618076F197E7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -993,19 +921,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A8ED92C192EB43E48BB32329AB6DF2C7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A968AEE9CCE245E19941F1AFEAF1A0A4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A98B1B23C91B47D6BB5AABBC172C9953"
+        "MsmKey" = "8:_A9842FB63CF54AA1B3140F37D073DDD7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AAE9BCD84AE844789AFECC409B4190B1"
+        "MsmKey" = "8:_ACB6B32B325D4498A87B4096D664D011"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1030,12 +964,6 @@
         "Entry"
         {
         "MsmKey" = "8:_AFC1C80E698B4A30B76CB0F069DEE563"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AFFAB8915EE049B487CB8DBFF46651C0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1071,25 +999,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B33D95AAA33C47FAB21F4F6D6BC7A5B9"
+        "MsmKey" = "8:_B36B9D9E8F3F4B468CE7CB77FA9EB794"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B36BBE5119584D66B7C023C335A1C718"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B3DBF63D693E44CFAEBBDF00B6E8B5B4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B5F53C795ECB463AA25A200C473A182C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1119,13 +1035,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B9A3AFF1E4B94C2892D0DDE2D46CD45D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B9AC72ECB40D49F8B52F3909FB6A6C18"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B9E9CF18060A407BA8AE28A6B6720CEB"
+        "MsmKey" = "8:_BAC74460973842318340118B90F2CE36"
+        "OwnerKey" = "8:_29F81C2B8BED4BC4B84A285E70F1A1B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAFA2E4674BE42848793207E1A95D026"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1137,25 +1065,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BBEBD1E939CB4D04A137944564927470"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BC939FE68CDF4B569DC31510925B0BE7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BCB4AEEE4C2846CD8B07E5F4F969C28C"
+        "MsmKey" = "8:_BCC22C040B2F4F1B96E77B3526724A6E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BF1A4B39B34F4AE6BBDDC7132138E048"
+        "MsmKey" = "8:_BD00F40CCA0444CFA91287A6FE05CE9A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C0C3283DF1074812A2C687334FBA37CF"
+        "MsmKey" = "8:_BD1CF51958A14E75BF2CAF8C3A14CE40"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1167,25 +1101,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C53338556EE34B9C81F50D170C0C01F6"
+        "MsmKey" = "8:_C65178B0B3CD40E8B9A94A61B32FFA3F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C5A2096AEC544077A339B68AE2F26142"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C6E6000304CA4153992D4F2585B06144"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C71751ADF55D4147AEDF3C9FD7F32E3C"
+        "MsmKey" = "8:_C665D1FAC8334A1FBF071BD8DCBDCE0E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1203,13 +1125,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C8D00F248B1F435A9720A25BCF70EC18"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C9155BFF02154530BA51505AE146B470"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CB43E51EAAAF4CEE97BD494A9CC788A8"
+        "MsmKey" = "8:_C91F68BAC659460791D42A1990D01065"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C9E6241B54FB4F55A22175ABC6658699"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1227,31 +1161,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CDBF59379F724956A38C209A4E4F8864"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CE339B2F632346998BB475E67CE4CA00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CFA3E3FBF8404EC1B1585BB7E6CED2FF"
+        "MsmKey" = "8:_CF70BC43EDE04C67A5BC9F65EC974DE7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D16FCF1B713D402798B9B62DB693F3D4"
+        "MsmKey" = "8:_D23F01E119754D46B8618F13DEF29E6D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D3906F54235E4A92B5C428EA535BC976"
+        "MsmKey" = "8:_D2F4C858F1B44FB78862B2DBC570B06D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1269,7 +1197,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D73109683145487E94F1BD7BE17A421B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D7EBD40D192446009055963D66A202EA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D86CF8FE08144E0CBBE4623D1C81A02E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1281,7 +1221,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DB73C619E1114E5388C7AE340905F158"
+        "MsmKey" = "8:_DA2FD8F5DBE34697A83FAA911842DCFD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA3487542F7F4F0E9742EB7DCCCFC9EE"
+        "OwnerKey" = "8:_15AF0585958645F386C33149F942C18A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA3487542F7F4F0E9742EB7DCCCFC9EE"
+        "OwnerKey" = "8:_A848FB9B3E904F49B8C125FD25E6E93E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA3487542F7F4F0E9742EB7DCCCFC9EE"
+        "OwnerKey" = "8:_4CB79E5A4B37437F8AEA25B5625F9124"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA59598B286E479698C9DA15279A81F0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1293,19 +1257,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DEACF8EDB7DE4CE496F9FCFA84C24D8A"
+        "MsmKey" = "8:_DCBFF8D5CB754777AE1E95AB4C51AC0F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DEC7CF4C64944752BA0339F3F1F09908"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DF49C459D8F04F199393DDF87121A38A"
+        "MsmKey" = "8:_DE53F9CF828D490988824A89722B1825"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1323,31 +1281,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E050485B104249FAA536C85FA21903EF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E07B512DBCF24D97838D50E6CFD990FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E14A3C18CCCC4699A980DF67207213F6"
+        "MsmKey" = "8:_E285A23176DA47349AEA2A5866B5205D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E1B96B0677FD499A88F00CBC4C09E34A"
+        "MsmKey" = "8:_E29C1A3FBBE0469ABE176139594A6E7D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E95CB323AFF64F459EADB1F259DC6FB7"
+        "MsmKey" = "8:_E67FC1C32E314DD380CDB0C353C6ADFF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6F075FD3CBD458AAE993D478E79BFC4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E8AC0B0B75D847BBB08E612DB2B35226"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1359,13 +1323,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_ED801B7B140F4000A0682344787DAC9E"
+        "MsmKey" = "8:_ED5938B9EC794A40B8A18C29C98718C0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F31C08A58D9E4E92A1E94AC0E855CA4F"
+        "MsmKey" = "8:_F227FF81CC93463C834CE0B02185A2F9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F292058ECE044784BB0E0869488FA453"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F2D4F7C52BCE44EFB52EB79665BC4E81"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1377,19 +1353,43 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F91BD08885BD47C9B35A9DDCD56F3FB6"
+        "MsmKey" = "8:_F59E1D873BC34D279D202F8E0B71586F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FBF696A73AF742639456DAC73C53EB2C"
+        "MsmKey" = "8:_F7F8455AB0BE4FC6A38574B4DD5483A7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FDC9CAFD079F4580BBB222F57AEB0DC5"
+        "MsmKey" = "8:_F8AAE776E15F4A1BA8CF0934643F270C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F90C7F01D9144186AFD3AB09DFF901E3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F96CD07B7F134919A76184B5FC62D7CF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F9EBAE9FEC8645CF8A39DA5F914C341C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FDDDA3C3D4DB444BB6388DEB55926CC1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1401,8 +1401,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FE329681BEF1428C9A7E362FF95D071D"
+        "MsmKey" = "8:_FE2415EA086E4279A81097C0FFEAF1D9"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FF199CA5DAE944CFAB9D27B8050252BD"
+        "OwnerKey" = "8:_DA3487542F7F4F0E9742EB7DCCCFC9EE"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1495,52 +1501,32 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0038AE97136847399AC62FBF04BE6F8B"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_engine_osgterrain.dll"
-            "TargetName" = "8:osgdb_osgearth_engine_osgterrain.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_009EAFC44AC240208DF4D06F93DD0F9E"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_png.dll"
-            "TargetName" = "8:osgdb_png.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_017131C70FE14F76BE8ECA98528A3F41"
             {
             "SourcePath" = "8:..\\dependencies\\remote.dll"
             "TargetName" = "8:remote.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01BD1D350F0B44119833CFF7CBB2B381"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_curl.dll"
+            "TargetName" = "8:osgdb_curl.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1575,12 +1561,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_02E0CDEF4E6242C2B9A28D8726864592"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_025FD42F2BCA417295A954338A1ED52C"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_gif.dll"
-            "TargetName" = "8:osgdb_gif.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osganimation.dll"
+            "TargetName" = "8:osgdb_deprecated_osganimation.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1615,12 +1601,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_03C944C17DC749A281794599A97FD32A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05FA607809114F73B3E4B6F1DEFFD9A8"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_vtf.dll"
-            "TargetName" = "8:osgdb_vtf.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgtgz.dll"
+            "TargetName" = "8:osgdb_osgtgz.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_06656018A5BF4686B1AE27DE659D9B96"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_txp.dll"
+            "TargetName" = "8:osgdb_txp.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0677BD6901E64F4B90B80518188CD0CA"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_png.dll"
+            "TargetName" = "8:osgdb_png.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1655,12 +1681,112 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0A92D5EEC9184A469B0C9E8E09AF7FA9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_09382EF584F94E70B74FB1531FD1755D"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgfx.dll"
-            "TargetName" = "8:osgdb_serializers_osgfx.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_yahoo.dll"
+            "TargetName" = "8:osgdb_osgearth_yahoo.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0958F00DC0F3429CBA53A99FD46111B3"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_xyz.dll"
+            "TargetName" = "8:osgdb_osgearth_xyz.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0A738A298FF54932A0DBF0C6722E48F8"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_debug.dll"
+            "TargetName" = "8:osgdb_osgearth_debug.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B22EEBA05E248059B9A30DB5599915F"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_mdl.dll"
+            "TargetName" = "8:osgdb_mdl.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0BF76593261346E6A8939A91EAEB4157"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_pov.dll"
+            "TargetName" = "8:osgdb_pov.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C5DE2A58A54404BBF2D7203FF3A7229"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_bmp.dll"
+            "TargetName" = "8:osgdb_bmp.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1695,12 +1821,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D71489371E44E7E8D700E637968714D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D1E211CEB114AFFB4BB875C17945603"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osg.dll"
-            "TargetName" = "8:osgdb_deprecated_osg.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgterrain.dll"
+            "TargetName" = "8:osgdb_deprecated_osgterrain.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1719,26 +1845,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\msvcp71.dll"
             "TargetName" = "8:msvcp71.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0FE8F3F5A03B4597B35FBB74C0FEF504"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgshadow.dll"
-            "TargetName" = "8:osgdb_osgshadow.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -1795,12 +1901,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11D149DCE97D4E049DAD05DCCCEC30C6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1243BC3FE00D42F0822FD9C6663104B6"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_3ds.dll"
-            "TargetName" = "8:osgdb_3ds.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgterrain.dll"
+            "TargetName" = "8:osgdb_osgterrain.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1815,12 +1921,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1794CEF9C9CC491FB43E59CFE3CA7845"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13206736B0E248429FFD3BAB728FE7A1"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_tiff.dll"
-            "TargetName" = "8:osgdb_tiff.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgviewer.dll"
+            "TargetName" = "8:osgdb_osgviewer.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_188B036B110346B09628B1B1A7AE455C"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_bvh.dll"
+            "TargetName" = "8:osgdb_bvh.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18D30B77934E44298658AD8616159C07"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgterrain.dll"
+            "TargetName" = "8:osgdb_serializers_osgterrain.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1855,92 +2001,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A271644596B45A4AEF761D765AF6F50"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CD68CD4C70145C4AABDC63F5E183376"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_txp.dll"
-            "TargetName" = "8:osgdb_txp.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_rot.dll"
+            "TargetName" = "8:osgdb_rot.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1ABC3B76F03043CEB48C05FFD2FBBB8A"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_yahoo.dll"
-            "TargetName" = "8:osgdb_osgearth_yahoo.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C1382867D8A42F8A1E1FA16E3ECD1FA"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_normals.dll"
-            "TargetName" = "8:osgdb_normals.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C71740C39B3480ABAFA55B7BF1ABEB9"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_obj.dll"
-            "TargetName" = "8:osgdb_obj.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1DDD65324349467BA6EE336301548D71"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_ocean_surface.dll"
-            "TargetName" = "8:osgdb_osgearth_ocean_surface.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1975,10 +2041,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1EDCB042EB374C618A5A4CBCC1B25AF4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1EE7DF93F53946DEB778D1DDA89AB9B8"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_qfont.dll"
-            "TargetName" = "8:osgdb_qfont.dll"
+            "SourcePath" = "8:..\\dependencies\\zlib1.dll"
+            "TargetName" = "8:zlib1.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -1995,12 +2061,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1EE7DF93F53946DEB778D1DDA89AB9B8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2025B22074C941E8B7614BCCAC80E7D7"
             {
-            "SourcePath" = "8:..\\dependencies\\zlib1.dll"
-            "TargetName" = "8:zlib1.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_zip.dll"
+            "TargetName" = "8:osgdb_zip.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2055,6 +2121,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_217AA1EBF2DE4FAE96FE67315C5EC681"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_hdr.dll"
+            "TargetName" = "8:osgdb_hdr.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22A063E4923046D08117FBA71111B2BF"
             {
             "SourcePath" = "8:..\\dependencies\\osgManipulator.dll"
@@ -2075,72 +2161,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_270C3AA98AA74061A109EF867713C5E6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_258B8110635E4C78B1EBAEECC216FE74"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_cache_filesystem.dll"
-            "TargetName" = "8:osgdb_osgearth_cache_filesystem.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osga.dll"
+            "TargetName" = "8:osgdb_osga.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_273EA048804448E9A9D2F61EDCCF316F"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_wfs.dll"
-            "TargetName" = "8:osgdb_osgearth_feature_wfs.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_27CE85F3D16541388B3E0F11484471CB"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_tfs.dll"
-            "TargetName" = "8:osgdb_osgearth_feature_tfs.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2826D6FC8505414FA1A94146F50E2B7C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_kml.dll"
-            "TargetName" = "8:osgdb_kml.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2175,12 +2201,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29FFD276958045D0AE8F18F6A24495D2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F5C446B84784AC98050A5F47D471296"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_tga.dll"
-            "TargetName" = "8:osgdb_tga.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_revisions.dll"
+            "TargetName" = "8:osgdb_revisions.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2195,12 +2221,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AFC12BF2D744CC68BE5702267B5047A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F5C8A303D5B460480FAC9A988339A74"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgsim.dll"
-            "TargetName" = "8:osgdb_serializers_osgsim.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_bsp.dll"
+            "TargetName" = "8:osgdb_bsp.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2255,26 +2281,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_308B6166CCD340228FCCBE300D9CBD65"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgshadow.dll"
-            "TargetName" = "8:osgdb_serializers_osgshadow.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_31075766FB924C8B900152555C7C614F"
             {
             "SourcePath" = "8:..\\dependencies\\NCScnet_fw.dll"
@@ -2295,12 +2301,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_31A0DCB394804EF1A96D2DFAE63D9304"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_31FB4CD2A546472EA8A9BB15246D8490"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_simple.dll"
-            "TargetName" = "8:osgdb_osgearth_model_simple.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_rgb.dll"
+            "TargetName" = "8:osgdb_rgb.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2375,12 +2381,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_34D875F9F9714A21B4DA2F5EE59992D0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_355042B2CD4B4A3ABEF097497D3EC892"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tilecache.dll"
-            "TargetName" = "8:osgdb_osgearth_tilecache.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgviewer.dll"
+            "TargetName" = "8:osgdb_deprecated_osgviewer.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2435,6 +2441,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3920CCC23BC84BF48965920587E3CF92"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_jpeg.dll"
+            "TargetName" = "8:osgdb_jpeg.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3921CFC8C4174851868377A0C9B7DC73"
             {
             "SourcePath" = "8:..\\dependencies\\jpeg12_osgeo.dll"
@@ -2475,12 +2501,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C3D8954F36F4835AD9F9ED2D06D5F15"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B848A200D3E4B888F8E305EA06CD323"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osga.dll"
-            "TargetName" = "8:osgdb_osga.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_ocean_surface.dll"
+            "TargetName" = "8:osgdb_osgearth_ocean_surface.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2575,12 +2601,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42B9D668F62147BDBDAE64ADE2D1A5E9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_448A8772FF8C456DA95D0D45794432AF"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_hdr.dll"
-            "TargetName" = "8:osgdb_hdr.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_ply.dll"
+            "TargetName" = "8:osgdb_ply.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2595,12 +2621,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42F25932A6F74FB3B1493FC80DFB8A0C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45527B9B43D74355913F911450F30B34"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_wms.dll"
-            "TargetName" = "8:osgdb_osgearth_wms.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_shp.dll"
+            "TargetName" = "8:osgdb_shp.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2615,12 +2641,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4677DEDA9E434C80878B221B1B99FCE8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45A6AC4C414D44C89EB5A29A57927965"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_ogr.dll"
-            "TargetName" = "8:osgdb_ogr.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_stl.dll"
+            "TargetName" = "8:osgdb_stl.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2635,12 +2661,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_471717F6AF56453792AD47F67B3925DC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46294BCC52E54BA58823A4F2517C4269"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_earth.dll"
-            "TargetName" = "8:osgdb_earth.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_x.dll"
+            "TargetName" = "8:osgdb_x.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46300AF5345B4626951237538DB31B11"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgvolume.dll"
+            "TargetName" = "8:osgdb_deprecated_osgvolume.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2659,26 +2705,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\osgTerrain.dll"
             "TargetName" = "8:osgTerrain.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_48F6EFC7FC934C4EA7B8681583405BEB"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_cfg.dll"
-            "TargetName" = "8:osgdb_cfg.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -2715,32 +2741,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_49F0D0A9D7404938896ED161C73BEBFC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4BF044577FCD4611B0DFC5DBE81C5C54"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_gdal.dll"
-            "TargetName" = "8:osgdb_gdal.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tms.dll"
+            "TargetName" = "8:osgdb_osgearth_tms.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B056BCE0820438D898795D9B14AE8B0"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_dot.dll"
-            "TargetName" = "8:osgdb_dot.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2775,12 +2781,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E07EF7A8B2246279BBE650CAEA472CA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E6D6B0FD0D1452184CA49D734E1A532"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_refresh.dll"
-            "TargetName" = "8:osgdb_osgearth_refresh.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgmanipulator.dll"
+            "TargetName" = "8:osgdb_serializers_osgmanipulator.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2795,12 +2801,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4ECEE1C5521F441C80201FBD45F888D2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_504C989EB0F946D990EAD947E16D8790"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_logo.dll"
-            "TargetName" = "8:osgdb_logo.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_gif.dll"
+            "TargetName" = "8:osgdb_gif.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2815,12 +2821,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50D2F196E74A4DBCA4E9DE4FD3D7E377"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50764104F3B6407082084D79C69195C5"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_freetype.dll"
-            "TargetName" = "8:osgdb_freetype.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_arcgis.dll"
+            "TargetName" = "8:osgdb_osgearth_arcgis.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2875,12 +2881,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_546979926BD94CA78DCA0E19978EAD2F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_53A280AFAD1D44CEB231C1CF3A988676"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osg.dll"
-            "TargetName" = "8:osgdb_serializers_osg.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_gdal.dll"
+            "TargetName" = "8:osgdb_osgearth_gdal.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2915,12 +2921,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_579D0167D93945B4A1862EFD35A05853"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55BF00D050A54226ADC7982E6C019068"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_ive.dll"
-            "TargetName" = "8:osgdb_ive.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_3dc.dll"
+            "TargetName" = "8:osgdb_3dc.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2935,32 +2941,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5802EC0C91C74575A15F249740E4D52F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_571C183062604920A7F5A8B6C7104086"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_scriptengine_javascript.dll"
-            "TargetName" = "8:osgdb_osgearth_scriptengine_javascript.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_simple.dll"
+            "TargetName" = "8:osgdb_osgearth_model_simple.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_58B5B2BA67D04FE1B58FB40520947B7B"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_label_annotation.dll"
-            "TargetName" = "8:osgdb_osgearth_label_annotation.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2995,6 +2981,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_593CBF1FDB3A400290970CFA4DDDBDC7"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_vtf.dll"
+            "TargetName" = "8:osgdb_vtf.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5A46237CE164981CA4E2BE7A5D4C8A1B"
             {
             "SourcePath" = "8:osgText.dll"
@@ -3015,32 +3021,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5BAF41A672514F93B5A290012D202485"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C03106DE01E45C5B1ACC5A3CF55940F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_gdal.dll"
-            "TargetName" = "8:osgdb_osgearth_gdal.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgfx.dll"
+            "TargetName" = "8:osgdb_deprecated_osgfx.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C6067FDB2594E2DBBABCA963F0190C4"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vpb.dll"
-            "TargetName" = "8:osgdb_osgearth_vpb.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3095,12 +3081,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5E78707BDA194C8B876492DFF79556A0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5E205B85267D4FF493A100C92BC8AB5F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osganimation.dll"
-            "TargetName" = "8:osgdb_serializers_osganimation.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_cfg.dll"
+            "TargetName" = "8:osgdb_cfg.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3155,12 +3141,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6292D17D128F4EC79602BCD022ED3AF2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_645E600EB9324E959C10F3D373F886B5"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_openflight.dll"
-            "TargetName" = "8:osgdb_openflight.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vpb.dll"
+            "TargetName" = "8:osgdb_osgearth_vpb.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3179,26 +3165,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\OpenThreads.dll"
             "TargetName" = "8:OpenThreads.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6553BE8356CE425A8267913BDEAFC916"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgterrain.dll"
-            "TargetName" = "8:osgdb_osgterrain.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -3235,6 +3201,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65BEC7BA30344E418958F228830109E1"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_normals.dll"
+            "TargetName" = "8:osgdb_normals.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66071F143A3B424E906C2254062FBAE5"
             {
             "SourcePath" = "8:..\\dependencies\\geotiff_fw.dll"
@@ -3255,72 +3241,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_669B0027E3B1498CA7BB0CB5C0007D87"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B6BADA346984FDE82C6F2C963309796"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgmanipulator.dll"
-            "TargetName" = "8:osgdb_serializers_osgmanipulator.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_tga.dll"
+            "TargetName" = "8:osgdb_tga.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_68899A7ADFC84AAD87015837A0B3202D"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgtext.dll"
-            "TargetName" = "8:osgdb_deprecated_osgtext.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6BB67B14C4914F17906DB8D22EEDC61C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgsim.dll"
-            "TargetName" = "8:osgdb_deprecated_osgsim.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6C7553C92B954E58A4356AE9ADE02D34"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_md2.dll"
-            "TargetName" = "8:osgdb_md2.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3341,6 +3267,26 @@
             "TargetName" = "8:zlib_fw.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6DD73DCE1A8845B8A947E6E59439D977"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_engine_osgterrain.dll"
+            "TargetName" = "8:osgdb_osgearth_engine_osgterrain.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3435,12 +3381,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71D89A11D1964BA0B9034809E025FDF0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7391A41C20C446E9A5EEFF3791BD205F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_zip.dll"
-            "TargetName" = "8:osgdb_zip.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_earth.dll"
+            "TargetName" = "8:osgdb_earth.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3475,6 +3421,86 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_749D2EBD3CD94E8E99B459C36AB7D308"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_mbtiles.dll"
+            "TargetName" = "8:osgdb_osgearth_mbtiles.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74BD4C57669B496EA96F174C16658334"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgfx.dll"
+            "TargetName" = "8:osgdb_serializers_osgfx.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_75F03CFC2EEB4C3CADB2FC2EB18313D5"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tileservice.dll"
+            "TargetName" = "8:osgdb_osgearth_tileservice.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_761B97DD1FC04B7483D39C2138B359AC"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgshadow.dll"
+            "TargetName" = "8:osgdb_osgshadow.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76434B85D5224F52A3773C15DC1D960E"
             {
             "SourcePath" = "8:osgGA.dll"
@@ -3493,26 +3519,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76A96A5E965D4BFC96951F08A2DC067E"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_pnm.dll"
-            "TargetName" = "8:osgdb_pnm.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76D84CFD5D3042F5BFBCD951836D6532"
@@ -3535,12 +3541,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_77662BEBB8F34EFAA47BEE02C4402168"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7756480C98DA4B92AE33795A9C17463F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_gz.dll"
-            "TargetName" = "8:osgdb_gz.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_geo.dll"
+            "TargetName" = "8:osgdb_geo.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3559,26 +3565,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\gmodule-1.3.dll"
             "TargetName" = "8:gmodule-1.3.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7816D96DA89C467B9C4403C7A6D0BD6C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgvolume.dll"
-            "TargetName" = "8:osgdb_deprecated_osgvolume.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -3635,6 +3621,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_798902E75CBA4258912463BD1C9B1B65"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_wcs.dll"
+            "TargetName" = "8:osgdb_osgearth_wcs.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A52D30A9E9E4BF892D344153BA6AF44"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osg.dll"
+            "TargetName" = "8:osgdb_deprecated_osg.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7B0DD7C24421313C7A52AD97818EA425"
             {
             "SourcePath" = "8:osgUtil.dll"
@@ -3675,12 +3701,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7EF7A2A640364901AF757E11350CC7AA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F5E72E48509491EACF24B905D750781"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_bvh.dll"
-            "TargetName" = "8:osgdb_bvh.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_refresh.dll"
+            "TargetName" = "8:osgdb_osgearth_refresh.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3715,72 +3741,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83B9050A538D4100B1252A3D156BADB4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8263EE6D9F9645A48B37B47744C14F07"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tileservice.dll"
-            "TargetName" = "8:osgdb_osgearth_tileservice.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_dxf.dll"
+            "TargetName" = "8:osgdb_dxf.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83E0056F843A48358F3E145ED7E01256"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgparticle.dll"
-            "TargetName" = "8:osgdb_deprecated_osgparticle.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_846FD847D5144400AFC3B3DD77C7E8C9"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_xyz.dll"
-            "TargetName" = "8:osgdb_osgearth_xyz.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84FB3492462E498A93BDB19A171DD04F"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgparticle.dll"
-            "TargetName" = "8:osgdb_serializers_osgparticle.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3835,32 +3801,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8610A3ACAA3A49A08B2EE9FCEFE0C6AE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_860DA8E493764F33ABCE24FCAEBEC241"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm2008.dll"
-            "TargetName" = "8:osgdb_osgearth_vdatum_egm2008.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_feature_stencil.dll"
+            "TargetName" = "8:osgdb_osgearth_model_feature_stencil.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_861F443468794BAFB78910BE9A317396"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_stl.dll"
-            "TargetName" = "8:osgdb_stl.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3895,12 +3841,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8A0BA3333156494AB9174602E68DC5C1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8741F126F7194453868986393240E282"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_trans.dll"
-            "TargetName" = "8:osgdb_trans.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_tgz.dll"
+            "TargetName" = "8:osgdb_tgz.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3915,12 +3861,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8B450D22FFE944289AA454A979173001"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_880802C8151741A4AFD339402E29BACA"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_pic.dll"
-            "TargetName" = "8:osgdb_pic.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_openflight.dll"
+            "TargetName" = "8:osgdb_openflight.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3935,12 +3881,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C60A539901A4D74A63F44A57C5BCCBE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8A8F6776CF5D444389399EDF3D1BA2A1"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_revisions.dll"
-            "TargetName" = "8:osgdb_revisions.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgsim.dll"
+            "TargetName" = "8:osgdb_serializers_osgsim.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3955,12 +3901,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C6C3C9380FC4861BEE2383D2E0B5A15"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D82015D0E7540BFA646FC6584562E19"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_agglite.dll"
-            "TargetName" = "8:osgdb_osgearth_agglite.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_dds.dll"
+            "TargetName" = "8:osgdb_dds.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3975,52 +3921,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DFDC12378BB4502A15EE8EF16B2E3A9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E8352CA3F4F4EDB90FAC97CE15FBAED"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgshadow.dll"
-            "TargetName" = "8:osgdb_deprecated_osgshadow.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_ac.dll"
+            "TargetName" = "8:osgdb_ac.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F2A1646343F43D3A937A4B187F7093D"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_lwo.dll"
-            "TargetName" = "8:osgdb_lwo.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F3A16094AF94F3FB119866B5C36EFF7"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_dw.dll"
-            "TargetName" = "8:osgdb_dw.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4075,12 +3981,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FD7EEBE701A4A4A97B2726F7DCE4E66"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_903A2FA76B7B4FE19143A4A6E39937DB"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osganimation.dll"
-            "TargetName" = "8:osgdb_deprecated_osganimation.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_freetype.dll"
+            "TargetName" = "8:osgdb_freetype.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4099,46 +4005,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\osgWidget.dll"
             "TargetName" = "8:osgWidget.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_910B14B3F15B48B598056202C4C5E89C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_wcs.dll"
-            "TargetName" = "8:osgdb_osgearth_wcs.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92EB0F33790C4C58BC4809FC257FB827"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_geo.dll"
-            "TargetName" = "8:osgdb_geo.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -4175,12 +4041,72 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_939F7D819E884FF48F6066299D4599BC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_93295C457E6D4C8F8DCF0A5649B56DC8"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_rot.dll"
-            "TargetName" = "8:osgdb_rot.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_lwo.dll"
+            "TargetName" = "8:osgdb_lwo.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9476681263CC490B933B82D815C8B6DC"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_glsl.dll"
+            "TargetName" = "8:osgdb_glsl.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94AC5B70426B4B2B831245144BF78A22"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_pnm.dll"
+            "TargetName" = "8:osgdb_pnm.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97274646530743FFA63926920B056E73"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_scale.dll"
+            "TargetName" = "8:osgdb_scale.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4215,12 +4141,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9844DA7A4E194FDD8FF4596612FFAAB6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_98887A5D664D49BE9462AA170D205EEF"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_dxf.dll"
-            "TargetName" = "8:osgdb_dxf.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgshadow.dll"
+            "TargetName" = "8:osgdb_serializers_osgshadow.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4235,12 +4161,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9AA7759C826D489FA67CA9F1041E0EB8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_99ECD4F9A6814038BD64DECCD03D0143"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_3dc.dll"
-            "TargetName" = "8:osgdb_3dc.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_dot.dll"
+            "TargetName" = "8:osgdb_dot.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4295,86 +4221,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C25B4063B2E4F3E93A638B85D0CFF8E"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgfx.dll"
-            "TargetName" = "8:osgdb_deprecated_osgfx.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C3CCFB9D871464686AA2AA7A56DE66B"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgviewer.dll"
-            "TargetName" = "8:osgdb_deprecated_osgviewer.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9CC52F9E80D449B9B57350099DF2B087"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm96.dll"
-            "TargetName" = "8:osgdb_osgearth_vdatum_egm96.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EFD9BA4C6D843A3822BDE7E44A00AE3"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_mask_feature.dll"
-            "TargetName" = "8:osgdb_osgearth_mask_feature.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A078DFCA16A645D688C46F820AD621D8"
             {
             "SourcePath" = "8:..\\dependencies\\geosd_c.dll"
@@ -4395,50 +4241,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A18D3A8AE0A7416BB7549E707A0EB5DC"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_logo.dll"
+            "TargetName" = "8:osgdb_logo.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A1C4DC0DD4764498A6DE674AB9ABF69C"
             {
             "SourcePath" = "8:..\\dependencies\\mfhdf_fw.dll"
             "TargetName" = "8:mfhdf_fw.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A1E296878E6645B187FAE5A83420A9D1"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_x.dll"
-            "TargetName" = "8:osgdb_x.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A255174BA55843C79D154FDA556DE4AF"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_mdl.dll"
-            "TargetName" = "8:osgdb_mdl.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -4475,12 +4301,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A46E40B04D764C24BC538AA040EB6B59"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A33D9A52335A493CBBE3AAE56F5BC340"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_label_overlay.dll"
-            "TargetName" = "8:osgdb_osgearth_label_overlay.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_wms.dll"
+            "TargetName" = "8:osgdb_osgearth_wms.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A66F9E0120B04079B5B4F4FEB14D6B8A"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgparticle.dll"
+            "TargetName" = "8:osgdb_serializers_osgparticle.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4515,12 +4361,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A791D760DA174A35B62EE75588A8F65D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A800E677B7DE4069A4B5618076F197E7"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_feature_geom.dll"
-            "TargetName" = "8:osgdb_osgearth_model_feature_geom.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_cache_filesystem.dll"
+            "TargetName" = "8:osgdb_osgearth_cache_filesystem.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8ED92C192EB43E48BB32329AB6DF2C7"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgparticle.dll"
+            "TargetName" = "8:osgdb_deprecated_osgparticle.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4555,12 +4421,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A98B1B23C91B47D6BB5AABBC172C9953"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9842FB63CF54AA1B3140F37D073DDD7"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_txf.dll"
-            "TargetName" = "8:osgdb_txf.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgsim.dll"
+            "TargetName" = "8:osgdb_deprecated_osgsim.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4575,12 +4441,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AAE9BCD84AE844789AFECC409B4190B1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ACB6B32B325D4498A87B4096D664D011"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgtext.dll"
-            "TargetName" = "8:osgdb_serializers_osgtext.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgvolume.dll"
+            "TargetName" = "8:osgdb_serializers_osgvolume.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4675,26 +4541,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AFFAB8915EE049B487CB8DBFF46651C0"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_pvr.dll"
-            "TargetName" = "8:osgdb_pvr.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B2A4891E98E14D5F99D81821DA378F56"
             {
             "SourcePath" = "8:..\\dependencies\\rpf.dll"
@@ -4755,12 +4601,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B33D95AAA33C47FAB21F4F6D6BC7A5B9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B36B9D9E8F3F4B468CE7CB77FA9EB794"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_rgb.dll"
-            "TargetName" = "8:osgdb_rgb.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_ive.dll"
+            "TargetName" = "8:osgdb_ive.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4779,46 +4625,6 @@
             {
             "SourcePath" = "8:..\\dependencies\\gdal_wrap.dll"
             "TargetName" = "8:gdal_wrap.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3DBF63D693E44CFAEBBDF00B6E8B5B4"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_pov.dll"
-            "TargetName" = "8:osgdb_pov.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5F53C795ECB463AA25A200C473A182C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgvolume.dll"
-            "TargetName" = "8:osgdb_serializers_osgvolume.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
             "Condition" = "8:"
@@ -4915,6 +4721,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9A3AFF1E4B94C2892D0DDE2D46CD45D"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_pic.dll"
+            "TargetName" = "8:osgdb_pic.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9AC72ECB40D49F8B52F3909FB6A6C18"
             {
             "SourcePath" = "8:..\\dependencies\\adrg.dll"
@@ -4935,12 +4761,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9E9CF18060A407BA8AE28A6B6720CEB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BAFA2E4674BE42848793207E1A95D026"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_arcgis.dll"
-            "TargetName" = "8:osgdb_osgearth_arcgis.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_agglite.dll"
+            "TargetName" = "8:osgdb_osgearth_agglite.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4975,6 +4801,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBEBD1E939CB4D04A137944564927470"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osg.dll"
+            "TargetName" = "8:osgdb_osg.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC939FE68CDF4B569DC31510925B0BE7"
             {
             "SourcePath" = "8:..\\dependencies\\iconv.dll"
@@ -4995,12 +4841,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCB4AEEE4C2846CD8B07E5F4F969C28C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCC22C040B2F4F1B96E77B3526724A6E"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_bmp.dll"
-            "TargetName" = "8:osgdb_bmp.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgtext.dll"
+            "TargetName" = "8:osgdb_serializers_osgtext.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5015,12 +4861,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF1A4B39B34F4AE6BBDDC7132138E048"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BD00F40CCA0444CFA91287A6FE05CE9A"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_dds.dll"
-            "TargetName" = "8:osgdb_dds.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_feature_geom.dll"
+            "TargetName" = "8:osgdb_osgearth_model_feature_geom.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5035,12 +4881,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C0C3283DF1074812A2C687334FBA37CF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BD1CF51958A14E75BF2CAF8C3A14CE40"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_curl.dll"
-            "TargetName" = "8:osgdb_curl.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_pvr.dll"
+            "TargetName" = "8:osgdb_pvr.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5075,12 +4921,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C53338556EE34B9C81F50D170C0C01F6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C65178B0B3CD40E8B9A94A61B32FFA3F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_ply.dll"
-            "TargetName" = "8:osgdb_ply.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgshadow.dll"
+            "TargetName" = "8:osgdb_deprecated_osgshadow.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5095,52 +4941,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5A2096AEC544077A339B68AE2F26142"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C665D1FAC8334A1FBF071BD8DCBDCE0E"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_tgz.dll"
-            "TargetName" = "8:osgdb_tgz.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_trans.dll"
+            "TargetName" = "8:osgdb_trans.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6E6000304CA4153992D4F2585B06144"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_jpeg.dll"
-            "TargetName" = "8:osgdb_jpeg.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C71751ADF55D4147AEDF3C9FD7F32E3C"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgtgz.dll"
-            "TargetName" = "8:osgdb_osgtgz.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5195,6 +5001,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8D00F248B1F435A9720A25BCF70EC18"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_txf.dll"
+            "TargetName" = "8:osgdb_txf.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C9155BFF02154530BA51505AE146B470"
             {
             "SourcePath" = "8:..\\dependencies\\libmysql.dll"
@@ -5215,12 +5041,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB43E51EAAAF4CEE97BD494A9CC788A8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C91F68BAC659460791D42A1990D01065"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_ogr.dll"
-            "TargetName" = "8:osgdb_osgearth_feature_ogr.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgwidget.dll"
+            "TargetName" = "8:osgdb_deprecated_osgwidget.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C9E6241B54FB4F55A22175ABC6658699"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm84.dll"
+            "TargetName" = "8:osgdb_osgearth_vdatum_egm84.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5275,26 +5121,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDBF59379F724956A38C209A4E4F8864"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osgterrain.dll"
-            "TargetName" = "8:osgdb_serializers_osgterrain.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CE339B2F632346998BB475E67CE4CA00"
             {
             "SourcePath" = "8:..\\dependencies\\msvcrt.dll"
@@ -5315,12 +5141,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFA3E3FBF8404EC1B1585BB7E6CED2FF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF70BC43EDE04C67A5BC9F65EC974DE7"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osg.dll"
-            "TargetName" = "8:osgdb_osg.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_gz.dll"
+            "TargetName" = "8:osgdb_gz.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5335,12 +5161,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D16FCF1B713D402798B9B62DB693F3D4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D23F01E119754D46B8618F13DEF29E6D"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgterrain.dll"
-            "TargetName" = "8:osgdb_deprecated_osgterrain.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tilecache.dll"
+            "TargetName" = "8:osgdb_osgearth_tilecache.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5355,12 +5181,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D3906F54235E4A92B5C428EA535BC976"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D2F4C858F1B44FB78862B2DBC570B06D"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_arcgis_map_cache.dll"
-            "TargetName" = "8:osgdb_osgearth_arcgis_map_cache.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_obj.dll"
+            "TargetName" = "8:osgdb_obj.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5415,12 +5241,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D73109683145487E94F1BD7BE17A421B"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_ogr.dll"
+            "TargetName" = "8:osgdb_ogr.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7EBD40D192446009055963D66A202EA"
             {
             "SourcePath" = "8:..\\dependencies\\mapscript.dll"
             "TargetName" = "8:mapscript.dll"
             "Tag" = "8:"
             "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D86CF8FE08144E0CBBE4623D1C81A02E"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_label_overlay.dll"
+            "TargetName" = "8:osgdb_osgearth_label_overlay.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5455,12 +5321,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB73C619E1114E5388C7AE340905F158"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA2FD8F5DBE34697A83FAA911842DCFD"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_tms.dll"
-            "TargetName" = "8:osgdb_osgearth_tms.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_ogr.dll"
+            "TargetName" = "8:osgdb_osgearth_feature_ogr.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA59598B286E479698C9DA15279A81F0"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osganimation.dll"
+            "TargetName" = "8:osgdb_serializers_osganimation.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5495,12 +5381,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEACF8EDB7DE4CE496F9FCFA84C24D8A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCBFF8D5CB754777AE1E95AB4C51AC0F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_lws.dll"
-            "TargetName" = "8:osgdb_lws.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_arcgis_map_cache.dll"
+            "TargetName" = "8:osgdb_osgearth_arcgis_map_cache.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5515,32 +5401,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEC7CF4C64944752BA0339F3F1F09908"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE53F9CF828D490988824A89722B1825"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgwidget.dll"
-            "TargetName" = "8:osgdb_deprecated_osgwidget.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_mask_feature.dll"
+            "TargetName" = "8:osgdb_osgearth_mask_feature.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF49C459D8F04F199393DDF87121A38A"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm84.dll"
-            "TargetName" = "8:osgdb_osgearth_vdatum_egm84.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5595,26 +5461,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E050485B104249FAA536C85FA21903EF"
-            {
-            "SourcePath" = "8:..\\dependencies\\osgdb_glsl.dll"
-            "TargetName" = "8:osgdb_glsl.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E07B512DBCF24D97838D50E6CFD990FA"
             {
             "SourcePath" = "8:..\\dependencies\\gtkglarea.dll"
@@ -5635,12 +5481,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E14A3C18CCCC4699A980DF67207213F6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E285A23176DA47349AEA2A5866B5205D"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_shp.dll"
-            "TargetName" = "8:osgdb_shp.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_deprecated_osgtext.dll"
+            "TargetName" = "8:osgdb_deprecated_osgtext.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5655,12 +5501,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E1B96B0677FD499A88F00CBC4C09E34A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E29C1A3FBBE0469ABE176139594A6E7D"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_mbtiles.dll"
-            "TargetName" = "8:osgdb_osgearth_mbtiles.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm2008.dll"
+            "TargetName" = "8:osgdb_osgearth_vdatum_egm2008.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5675,12 +5521,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E95CB323AFF64F459EADB1F259DC6FB7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E67FC1C32E314DD380CDB0C353C6ADFF"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_osg.dll"
-            "TargetName" = "8:osgdb_osgearth_osg.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_tfs.dll"
+            "TargetName" = "8:osgdb_osgearth_feature_tfs.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6F075FD3CBD458AAE993D478E79BFC4"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_gdal.dll"
+            "TargetName" = "8:osgdb_gdal.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8AC0B0B75D847BBB08E612DB2B35226"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_feature_wfs.dll"
+            "TargetName" = "8:osgdb_osgearth_feature_wfs.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5715,12 +5601,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED801B7B140F4000A0682344787DAC9E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED5938B9EC794A40B8A18C29C98718C0"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_scale.dll"
-            "TargetName" = "8:osgdb_scale.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_vdatum_egm96.dll"
+            "TargetName" = "8:osgdb_osgearth_vdatum_egm96.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5735,12 +5621,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F31C08A58D9E4E92A1E94AC0E855CA4F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F227FF81CC93463C834CE0B02185A2F9"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_ac.dll"
-            "TargetName" = "8:osgdb_ac.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_label_annotation.dll"
+            "TargetName" = "8:osgdb_osgearth_label_annotation.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F292058ECE044784BB0E0869488FA453"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_lws.dll"
+            "TargetName" = "8:osgdb_lws.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2D4F7C52BCE44EFB52EB79665BC4E81"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_tiff.dll"
+            "TargetName" = "8:osgdb_tiff.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5775,12 +5701,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F91BD08885BD47C9B35A9DDCD56F3FB6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F59E1D873BC34D279D202F8E0B71586F"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_bsp.dll"
-            "TargetName" = "8:osgdb_bsp.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_osg.dll"
+            "TargetName" = "8:osgdb_osgearth_osg.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5795,12 +5721,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FBF696A73AF742639456DAC73C53EB2C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F7F8455AB0BE4FC6A38574B4DD5483A7"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgviewer.dll"
-            "TargetName" = "8:osgdb_osgviewer.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_serializers_osg.dll"
+            "TargetName" = "8:osgdb_serializers_osg.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5815,12 +5741,92 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FDC9CAFD079F4580BBB222F57AEB0DC5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8AAE776E15F4A1BA8CF0934643F270C"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_model_feature_stencil.dll"
-            "TargetName" = "8:osgdb_osgearth_model_feature_stencil.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_md2.dll"
+            "TargetName" = "8:osgdb_md2.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F90C7F01D9144186AFD3AB09DFF901E3"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_kml.dll"
+            "TargetName" = "8:osgdb_kml.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F96CD07B7F134919A76184B5FC62D7CF"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_qfont.dll"
+            "TargetName" = "8:osgdb_qfont.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F9EBAE9FEC8645CF8A39DA5F914C341C"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_scriptengine_javascript.dll"
+            "TargetName" = "8:osgdb_osgearth_scriptengine_javascript.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FDDDA3C3D4DB444BB6388DEB55926CC1"
+            {
+            "SourcePath" = "8:..\\dependencies\\osgdb_3ds.dll"
+            "TargetName" = "8:osgdb_3ds.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5855,12 +5861,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE329681BEF1428C9A7E362FF95D071D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE2415EA086E4279A81097C0FFEAF1D9"
             {
-            "SourcePath" = "8:..\\dependencies\\osgdb_osgearth_debug.dll"
-            "TargetName" = "8:osgdb_osgearth_debug.dll"
+            "SourcePath" = "8:..\\dependencies\\osgdb_dw.dll"
+            "TargetName" = "8:osgdb_dw.dll"
             "Tag" = "8:"
-            "Folder" = "8:_7A42B8CB9F9648BCBAFFD617F581009E"
+            "Folder" = "8:_9133B09F148749FBBF06E161A03AF6DA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5902,6 +5908,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_9133B09F148749FBBF06E161A03AF6DA"
+                    {
+                    "Name" = "8:osgPlugins-3.1.3"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_2DE066AC3B3B4A49A3EE3E614E35B414"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_A7AB82F423F44CB89F3D4738F2BDE4D8"
@@ -5932,7 +5949,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Godzi Web Control"
         "ProductCode" = "8:{2459F56F-3F52-467F-93F4-55FFDF45CBCB}"
-        "PackageCode" = "8:{33527F8A-3E36-44AF-992E-05BC35EB4844}"
+        "PackageCode" = "8:{A903A308-9555-48B6-8811-C32037227AA0}"
         "UpgradeCode" = "8:{DF9DED76-B5EE-4E83-A0AC-C0FAF9EED7F8}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -6519,11 +6536,11 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_09D5A54AAB0647B7B0916FEDE8408ACA"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_29F81C2B8BED4BC4B84A285E70F1A1B3"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_MFC_x86.msm"
                 "Properties"
                 {
                 }
@@ -6533,7 +6550,7 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_420921D33E8E44008C3946BDDF2379B3"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_BAC74460973842318340118B90F2CE36"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -6547,11 +6564,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_4D31966333DC4972ACB40963DD86BD23"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_DA3487542F7F4F0E9742EB7DCCCFC9EE"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_crt_x86.msm"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
                 "Properties"
                 {
                 }
@@ -6561,11 +6578,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_564C15247289478FB74C5EC9AAE09419"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_FF199CA5DAE944CFAB9D27B8050252BD"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_MFC_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_crt_x86.msm"
                 "Properties"
                 {
                 }

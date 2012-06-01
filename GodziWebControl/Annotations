@@ -332,5 +332,51 @@ namespace GodziWebControl
         bool        _enabled;
     };
 
+
+    /**
+     * Gets the color properties of an Annotation's Style.
+     */
+    class GetAnnotationColorsCommand : public Command
+    {
+    public:
+        GetAnnotationColorsCommand(
+            const std::string& id);
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+    };
+
+
+    /**
+     * Sets the color properties of an Annotation's Style.
+     */
+    class SetAnnotationColorsCommand : public Command
+    {
+    public:
+        SetAnnotationColorsCommand(
+            const std::string& id,
+            const std::string& fill,
+            const std::string& stroke,
+            const std::string& opacity);
+
+    public:
+        class Factory : public CommandFactory {
+            virtual Command* create(const std::string& cmd, const CommandArguments& args );
+        };
+        virtual bool operator()( MapControl* map );
+
+    protected:
+        std::string _id;
+        std::string _fill;
+        std::string _stroke;
+        std::string _opacity;
+    };
+
 }
 #endif GODZIWEBCONTROL_ANNOTATIONS_H

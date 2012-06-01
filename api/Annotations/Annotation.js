@@ -55,6 +55,27 @@ Annotation.prototype = {
                 visible: this._visible
             });
         }
+      },
+
+    setFill: function(color) {
+        this._map.sendCommand("setAnnotationColors", {
+            id: this._id,
+            fill: color
+        });
+    },
+
+    setStroke: function(color) {
+        this._map.sendCommand("setAnnotationColors", {
+          id: this._id,
+          stroke: color
+        });
+    },
+    
+    setOpacity: function(alpha) {
+        this._map.sendCommand("setAnnotationColors", {
+          id: this._id,
+          opacity: alpha
+        });
     },
 
     enableEditor: function(value) {

@@ -107,7 +107,7 @@ LayerListControl.prototype = {
         jQuery(layerContainer).append(div);
 
         jQuery("#imagelayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
-          var checked = jQuery(this).attr("checked");
+          var checked = jQuery(this).prop("checked");
 
           var layerProps = new ImageLayerProperties(event.data.layerId);
           layerProps.setVisible(checked);
@@ -119,8 +119,8 @@ LayerListControl.prototype = {
           cursor: 'move',
           map: this.map,
           update: function(event, ui) {
-            jQuery(this).data('sortable').options.map.moveImageLayer(new ImageLayerProperties(ui.item.attr('id').split("_").pop()), ui.item.index());
-            //alert(ui.item.attr('id').split("_").pop() + 'at' + ui.item.index());
+            jQuery(this).data('sortable').options.map.moveImageLayer(new ImageLayerProperties(ui.item.prop('id').split("_").pop()), ui.item.index());
+            //alert(ui.item.prop('id').split("_").pop() + 'at' + ui.item.index());
           }
         });
         jQuery(layerContainer).disableSelection();
@@ -173,7 +173,7 @@ LayerListControl.prototype = {
 
     for (var i = 0; i < layers.ids.length; i++) {
       if (layers.ids[i].length > 0) {
-        var div = jQuery('<div id="elevlayer_' + layers.ids[i] + '">')
+        var div = jQuery('<div id="elevlayer_' + layers.ids[i] + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
         jQuery(div).append('<div class="drag_handle"><input id="elevlayercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
@@ -182,7 +182,7 @@ LayerListControl.prototype = {
         jQuery(layerContainer).append(div);
 
         jQuery("#elevlayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
-          var checked = jQuery(this).attr("checked");
+          var checked = jQuery(this).prop("checked");
           event.data.map.toggleElevationLayer({ "_id": event.data.layerId }, checked);
         });
 
@@ -209,7 +209,7 @@ LayerListControl.prototype = {
       cursor: 'move',
       map: this.map,
       update: function(event, ui) {
-        jQuery(this).data('sortable').options.map.moveElevationLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
+        jQuery(this).data('sortable').options.map.moveElevationLayer({ "_id": ui.item.prop('id').split("_").pop() }, ui.item.index());
       }
     });
 
@@ -245,7 +245,7 @@ LayerListControl.prototype = {
 
     for (var i = 0; i < layers.ids.length; i++) {
       if (layers.ids[i].length > 0) {
-        var div = jQuery('<div id="modellayer_' + layers.ids[i] + '">')
+        var div = jQuery('<div id="modellayer_' + layers.ids[i] + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
         jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="modellayercheck_' + i + '" type="checkbox" checked="checked"/>' + layers.names[i] + '</span><button id="modellayerbutton_' + i + '"></button></div>');
@@ -254,7 +254,7 @@ LayerListControl.prototype = {
         jQuery(layerContainer).append(div);
 
         jQuery("#modellayercheck_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
-          var checked = jQuery(this).attr("checked");
+          var checked = jQuery(this).prop("checked");
           event.data.map.toggleModelLayer({ "_id": event.data.layerId }, checked);
         });
 
@@ -292,7 +292,7 @@ LayerListControl.prototype = {
       cursor: 'move',
       map: this.map,
       update: function(event, ui) {
-        jQuery(this).data('sortable').options.map.moveModelLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
+        jQuery(this).data('sortable').options.map.moveModelLayer({ "_id": ui.item.prop('id').split("_").pop() }, ui.item.index());
       }
     });
 
@@ -324,14 +324,14 @@ LayerListControl.prototype = {
       }
     });
 
-//    jQuery(layerContainer).sortable({
-//      handle: '.drag_handle',
-//      cursor: 'move',
-//      map: this.map,
-//      update: function(event, ui) {
-//        jQuery(this).data('sortable').options.map.moveAnnotationLayer({ "_id": ui.item.attr('id').split("_").pop() }, ui.item.index());
-//      }
-//    });
+    //    jQuery(layerContainer).sortable({
+    //      handle: '.drag_handle',
+    //      cursor: 'move',
+    //      map: this.map,
+    //      update: function(event, ui) {
+    //        jQuery(this).data('sortable').options.map.moveAnnotationLayer({ "_id": ui.item.prop('id').split("_").pop() }, ui.item.index());
+    //      }
+    //    });
 
     jQuery(layerContainer).disableSelection();
   },
@@ -339,7 +339,7 @@ LayerListControl.prototype = {
   addAnnotation: function(annotation) {
     if (annotation != undefined) {
       var id = annotation.getId();
-      var div = jQuery('<div id="annolayer_' + id + '">')
+      var div = jQuery('<div id="annolayer_' + id + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
       jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="annolayercheck_' + id + '" type="checkbox" checked="checked"/>' + annotation.getName() + '</span><button id="annolayerbutton_' + id + '"></button></div>');
@@ -348,8 +348,64 @@ LayerListControl.prototype = {
       jQuery(layerContainer).append(div);
 
       jQuery("#annolayercheck_" + id).bind("click", { "annotation": annotation }, function(event) {
-        event.data.annotation.setVisible(jQuery(this).attr("checked"));
+        event.data.annotation.setVisible(jQuery(this).prop("checked"));
       });
+
+      var colors = this.map.getAnnotationColors(id);
+
+      if (colors != undefined && colors.fill != undefined && colors.fill != "") {
+        // add color picker
+        var input = $('<input type="hidden" id="fillcolorpicker_' + id + '" class="color-picker" size="6" value="' + colors.fill + '" />');
+        input.insertBefore($("#annolayerbutton_" + id));
+
+        // add div for opacity slider
+        jQuery(div).append('<div id="annolayeropacity_' + id + '" class="opacity-slider"></div>');
+        jQuery(div).css("padding", "0px 10px 10px 10px");
+
+        // setup fill color picker
+        $("#fillcolorpicker_" + id).miniColors({
+          letterCase: 'uppercase',
+          change: function(hex, rgb) {
+            annotation.setFill(hex);
+          }
+        });
+
+        // setup opacity slider
+        var opacity = 1.0;
+        if (colors.opacity != undefined)
+          opacity = colors.opacity;
+
+        jQuery('#annolayeropacity_' + id).slider({
+          min: 0,
+          max: 100,
+          value: opacity * 100.0,
+          range: "min",
+          map: this.map,
+          annoId: id,
+          slide: function(event, ui) {
+            var opacity = Math.round(ui.value / 100.0 * 255.0);
+            var s = opacity.toString(16);
+            
+            //Pad with leading zeros if necessary
+            if (s.length < 2)
+              s = ("00" + s).slice(-2);
+              
+            annotation.setOpacity(s);
+          }
+        });
+      }
+
+      if (colors != undefined && colors.stroke != undefined && colors.stroke != "") {
+        var input = $('<input type="hidden" id="strokecolorpicker_' + id + '" class="color-picker" size="6" value="' + colors.stroke + '" />');
+        input.insertBefore($("#annolayerbutton_" + id));
+
+        $("#strokecolorpicker_" + id).miniColors({
+          letterCase: 'uppercase',
+          change: function(hex, rgb) {
+            annotation.setStroke(hex);
+          }
+        });
+      }
 
       jQuery("#annolayerbutton_" + id).button({ icons: { primary: "ui-icon-search" }, text: false });
 
