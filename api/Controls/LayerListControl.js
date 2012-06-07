@@ -261,7 +261,7 @@ LayerListControl.prototype = {
 
         jQuery("#modellayerbutton_" + i).button({ icons: { primary: "ui-icon-search" }, text: false });
 
-        jQuery("#modellayerbutton_" + i).css({ 'position': 'absolute', 'right': '0px', 'width': '16px', 'font-size': '50%', 'margin-top': '2px' });
+        jQuery("#modellayerbutton_" + i).css({ 'position': 'absolute', 'right': '0px', 'padding': '4px 2px', 'font-size': '50%', 'margin-top': '2px' });
 
         jQuery("#modellayerbutton_" + i).bind("click", { layerId: layers.ids[i], map: this.map }, function(event) {
           var bounds = event.data.map.getModelLayerBounds({ "_id": event.data.layerId });
@@ -409,7 +409,7 @@ LayerListControl.prototype = {
 
       jQuery("#annolayerbutton_" + id).button({ icons: { primary: "ui-icon-search" }, text: false });
 
-      jQuery("#annolayerbutton_" + id).css({ 'position': 'absolute', 'right': '0px', 'width': '16px', 'font-size': '50%', 'margin-top': '2px' });
+      jQuery("#annolayerbutton_" + id).css({ 'position': 'absolute', 'right': '0px', 'padding' : '4px 2px', 'font-size': '50%', 'margin-top': '2px' });
 
       jQuery("#annolayerbutton_" + id).bind("click", { "annotation": annotation, map: this.map }, function(event) {
         var bounds = event.data.annotation.getBounds();
