@@ -23,7 +23,7 @@ if(jQuery) (function($) {
 				var hsb = hex2hsb(color);
 				
 				// Create trigger
-				var trigger = $('<a class="miniColors-trigger" style="background-color: #' + color + '" href="#"></a>');
+				var trigger = $('<span class="miniColors-trigger" style="background-color: #' + color + '" /></span>');
 				trigger.insertAfter(input);
 				
 				// Set input data and update attributes
