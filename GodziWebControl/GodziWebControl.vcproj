@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Kml.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MapCommands.cpp"
 				>
 			</File>
@@ -285,6 +289,10 @@
 			</File>
 			<File
 				RelativePath=".\ImageLayer"
+				>
+			</File>
+			<File
+				RelativePath=".\Kml"
 				>
 			</File>
 			<File

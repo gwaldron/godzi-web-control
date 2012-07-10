@@ -43,7 +43,7 @@ Geode* createIcon(osg::Image* image,float s,float t)
             dstate->setTextureAttributeAndModes(0, texture,osg::StateAttribute::ON);
 
             // set up the geoset.
-            Geometry* geom = new Geometry;
+            osg::Geometry* geom = new osg::Geometry;
             geom->setStateSet(dstate);
 
             Vec3Array* coords = new Vec3Array(4);
@@ -63,7 +63,7 @@ Geode* createIcon(osg::Image* image,float s,float t)
             osg::Vec4Array* colours = new osg::Vec4Array(1);
             (*colours)[0].set(1.0f,1.0f,1.0,1.0f);
             geom->setColorArray(colours);
-            geom->setColorBinding(Geometry::BIND_OVERALL);
+            geom->setColorBinding(osg::Geometry::BIND_OVERALL);
 
             geom->addPrimitiveSet(new DrawArrays(PrimitiveSet::QUADS,0,4));
 

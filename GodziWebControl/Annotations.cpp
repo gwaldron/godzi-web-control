@@ -683,7 +683,7 @@ GetAnnotationNodeBoundsCommand::operator ()( MapControl* map )
             osg::Vec3d center = bs.center();
 
             GeoPoint output;
-            map->getMap()->worldPointToMapPoint(center, output);
+            output.fromWorld(map->getMap()->getSRS(), center);
 
             osgEarth::Json::Value result;
             result["id"] = _id;

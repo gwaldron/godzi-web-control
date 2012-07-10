@@ -220,7 +220,7 @@ bool GetModelLayerBoundsCommand::operator ()(GodziWebControl::MapControl *map)
           center += bs.center();
 
         GeoPoint output;
-        map->getMap()->worldPointToMapPoint(center, output);
+        output.fromWorld(map->getMap()->getSRS(), center);
 
         osgEarth::Json::Value result;
         result["id"] = _id;

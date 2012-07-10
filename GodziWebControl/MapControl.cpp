@@ -8,6 +8,7 @@
 #include <GodziWebControl/GetObjectInfoCommand>
 #include <GodziWebControl/MapEventHandler>
 #include <GodziWebControl/Annotations>
+#include <GodziWebControl/Kml>
 
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
@@ -199,6 +200,9 @@ _eventCallback(0)
     addCommandFactory(new GetObjectInfoCommand::Factory());
 
     addCommandFactory(new SelectionCommandFactory() );
+
+    addCommandFactory(new LoadKmlCommand::Factory());
+    addCommandFactory(new RemoveKmlCommand::Factory());
 
     AnnotationCommands::registerAll(this);
 }
@@ -504,6 +508,10 @@ void MapControl::setMapFile(const std::string &mapFile)
         // Attempting to prevent zooming "into" the ground
         _viewer->getCamera()->setNearFarRatio(0.00000001);
         _viewer->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
+
+        // install the Feature Manipulation tool.
+        _manipTool = new osgEarth::Util::FeatureManipTool( _mapNode );
+        _viewer->addEventHandler( _manipTool );
     }
 
     //Go home if we are going from an invalid map to a valid one

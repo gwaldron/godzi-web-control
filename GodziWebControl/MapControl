@@ -17,6 +17,7 @@
 #include <osgViewer/ViewerEventHandlers>
 #include <osgTerrain/Terrain>
 
+#include <osgEarthUtil/FeatureManipTool>
 #include <osgEarthUtil/SkyNode>
 #include <osgEarth/Viewpoint>
 #include <osgEarth/MapNode>
@@ -106,6 +107,7 @@ namespace GodziWebControl
         osg::ref_ptr<GodziWebControl::CommandQueue> _commandQueue;
 
         osg::ref_ptr<osgEarth::Util::SkyNode> _skyNode;
+        osgEarth::Util::FeatureManipTool* _manipTool;
 
         HWND    _hwnd;
         WNDPROC _previousWindowProcedure;
