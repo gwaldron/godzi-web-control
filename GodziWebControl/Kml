@@ -1,0 +1,51 @@
+#ifndef GODZIWEBCONTROL_KML_H
+#define GODZIWEBCONTROL_KML_H
+
+
+#include <GodziWebControl/Export>
+#include <GodziWebControl/Command>
+#include <GodziWebControl/Command>
+
+#include <osg/MatrixTransform>
+#include <osg/observer_ptr>
+#include <string>
+
+
+namespace GodziWebControl
+{
+    class GODZIWEBCONTROL_EXPORT MapControl;
+
+    class LoadKmlCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        LoadKmlCommand(const std::string &id, const std::string &url, const std::string &defaultIconURI, double iconBaseScale, int iconMaxSize, bool declutter);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        std::string _id;
+        std::string _url;
+        std::string _defaultIconURI;
+        double _iconBaseScale;
+        int _iconMaxSize;
+        bool _declutter;
+    };
+
+    class RemoveKmlCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        RemoveKmlCommand(const std::string &id);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        std::string _id;
+    };
+}
+#endif GODZIWEBCONTROL_KML_H
