@@ -22,13 +22,16 @@ REM Copy GDAL deps
 xcopy /D /Y "%GDAL%\bin\*.dll" %DEST_DIR%
 
 REM Copy over the necessary plugins
-xcopy /D /Y "%OSG_PLUGINS_DIR%\osgdb_*.dll" %DEST_DIR%
+mkdir "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
 
-xcopy /D /Y "%OSGEARTH_PLUGINS%\*.dll" %DEST_DIR%
+xcopy /D /Y "%OSG_PLUGINS_DIR%\osgdb_*.dll" "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
+
+xcopy /D /Y "%OSGEARTH_PLUGINS%\*.dll" "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
 
 REM Copy over the GEOS dlls
 xcopy /D /Y "%GEOS%\bin\*.dll" %DEST_DIR%
 
 REM Delete any debug dlls
 del %DEST_DIR%\*d.dll
+del %DEST_DIR%\%OSG_PLUGINS_FOLDER%\*d.dll
 

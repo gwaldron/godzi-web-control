@@ -79,7 +79,8 @@ namespace
             SpatialReference::create("wgs84"),
             as<double>( args["longitude"], 0.0 ),
             as<double>( args["latitude"],  0.0 ),
-            as<double>( args["altitude"],  0.0 ) );
+            as<double>( args["altitude"],  0.0 ),
+            osgEarth::AltitudeMode::ALTMODE_ABSOLUTE);
     }
 
 
