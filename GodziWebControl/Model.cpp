@@ -181,6 +181,7 @@ bool UpdateModelCommand::operator ()(GodziWebControl::MapControl *map)
 
     // turn on GL_NORMALIZE to prevent problems with scaled normals
     model->getOrCreateStateSet()->setMode(GL_NORMALIZE, osg::StateAttribute::ON );
+    model->getOrCreateStateSet()->setRenderBinDetails(-100, "RenderBin");
 
     return true;
 }
