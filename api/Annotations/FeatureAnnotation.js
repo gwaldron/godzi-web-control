@@ -25,7 +25,8 @@ FeatureAnnotation.prototype = InheritsFromClass(Annotation.prototype, {
                 id: this.getId(),
                 geomWKT: this.getGeomWKT(),
                 style: this.getStyle(),
-                draped: this.getDraped()
+                draped: this.getDraped(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

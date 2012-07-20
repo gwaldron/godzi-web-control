@@ -35,7 +35,8 @@ EllipseAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, 
                 radiusMinor: this.getRadiusMinor(),
                 rotation: this.getRotation(),
                 style: this.getStyle(),
-                draped: this.getDraped()
+                draped: this.getDraped(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

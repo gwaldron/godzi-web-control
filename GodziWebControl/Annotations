@@ -47,7 +47,8 @@ namespace GodziWebControl
             const std::string& id,
             const GeoPoint&    location,
             const std::string& text,
-            const Style&       style );
+            const Style&       style,
+            bool               visible=true );
 
     public:
         class Factory : public CommandFactory {
@@ -60,6 +61,7 @@ namespace GodziWebControl
         GeoPoint    _location;
         std::string _text;
         Style       _style;
+        bool        _visible;
     };
 
 
@@ -74,7 +76,8 @@ namespace GodziWebControl
             const GeoPoint&    location,
             const std::string& text,
             const std::string& iconURI,
-            const Style&       style );
+            const Style&       style,
+            bool               visible=true );
 
     public:
         class Factory : public CommandFactory {
@@ -87,6 +90,7 @@ namespace GodziWebControl
         GeoPoint    _location;
         Style       _style;
         std::string _text, _iconURI;
+        bool        _visible;
     };
 
 
@@ -100,7 +104,8 @@ namespace GodziWebControl
             const std::string& id,
             const GeoPoint&    location,
             const Distance&    radius,
-            const Style&       style );
+            const Style&       style,
+            bool               visible=true );
 
     public:
         class Factory : public CommandFactory {
@@ -113,6 +118,7 @@ namespace GodziWebControl
         GeoPoint    _location;
         Distance    _radius;
         Style       _style;
+        bool        _visible;
     };
 
 
@@ -128,7 +134,8 @@ namespace GodziWebControl
             const Distance&    radiusMajor,
             const Distance&    radiusMinor,
             const Angle&       rotation,
-            const Style&       style );
+            const Style&       style,
+            bool               visible=true );
 
     public:
         class Factory : public CommandFactory {
@@ -142,6 +149,7 @@ namespace GodziWebControl
         Distance    _radiusMajor, _radiusMinor;
         Angle       _rotation;
         Style       _style;
+        bool        _visible;
     };
 
 
@@ -157,7 +165,8 @@ namespace GodziWebControl
             const Distance&    width,
             const Distance&    height,
             const Style&       style,
-            bool               draped);
+            bool               draped,
+            bool               visible=true);
 
     public:
         class Factory : public CommandFactory {
@@ -171,6 +180,7 @@ namespace GodziWebControl
         Distance    _width, _height;
         Style       _style;
         bool        _draped;
+        bool        _visible;
     };
 
 
@@ -184,7 +194,8 @@ namespace GodziWebControl
             const std::string& id,
             Geometry*          geom,
             const Style&       style,
-            bool               draped);
+            bool               draped,
+            bool               visible=true);
     public:
         class Factory : public CommandFactory {
             virtual Command* create(const std::string& cmd, const CommandArguments& args );
@@ -196,6 +207,7 @@ namespace GodziWebControl
         osg::ref_ptr<Geometry> _geom;
         Style       _style;
         bool        _draped;
+        bool        _visible;
     };
 
 
@@ -210,7 +222,8 @@ namespace GodziWebControl
             const GeoPoint&    location,
             Geometry*          geom,
             const Style&       style,
-            bool               draped);
+            bool               draped,
+            bool               visible=true);
 
     public:
         class Factory : public CommandFactory {
@@ -224,6 +237,7 @@ namespace GodziWebControl
         osg::ref_ptr<Geometry> _geom;
         Style       _style;
         bool        _draped;
+        bool        _visible;
     };
 
 

@@ -31,7 +31,8 @@ RectangleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype
                 width: this.getWidth(),
                 height: this.getHeight(),
                 style: this.getStyle(),
-                draped: this.getDraped()
+                draped: this.getDraped(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

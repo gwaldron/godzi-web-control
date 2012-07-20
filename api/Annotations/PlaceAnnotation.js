@@ -30,7 +30,8 @@ PlaceAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
                 longitude: this.getLocation().getLongitude(),
                 text: this.getText(),
                 iconURI: this.getIcon(),
-                style: this.getStyle()
+                style: this.getStyle(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

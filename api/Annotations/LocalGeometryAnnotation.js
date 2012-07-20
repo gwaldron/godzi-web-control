@@ -28,7 +28,8 @@ LocalGeometryAnnotation.prototype = InheritsFromClass(PositionedAnnotation.proto
                 altitude: this.getLocation().getAltitude(),
                 geomWKT: this.getGeomWKT(),
                 style: this.getStyle(),
-                draped: this.getDraped()
+                draped: this.getDraped(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

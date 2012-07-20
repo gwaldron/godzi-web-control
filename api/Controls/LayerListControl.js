@@ -101,7 +101,7 @@ LayerListControl.prototype = {
 
         var props = this.map.getImageLayerProperties(layers.ids[i]);
 
-        jQuery(div).append('<div class="drag_handle"><input id="imagelayercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
+        jQuery(div).append('<div class="drag_handle"><input id="imagelayercheck_' + i + '" type="checkbox"' + (props.visible == true ? ' checked="checked"' : '') + '/><span>' + layers.names[i] + '</span></div>');
         jQuery(div).append('<div id="imagelayeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
@@ -176,7 +176,9 @@ LayerListControl.prototype = {
         var div = jQuery('<div id="elevlayer_' + layers.ids[i] + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
-        jQuery(div).append('<div class="drag_handle"><input id="elevlayercheck_' + i + '" type="checkbox" checked="checked"/><span>' + layers.names[i] + '</span></div>');
+        var props = this.map.getElevationLayerProperties(layers.ids[i]);
+
+        jQuery(div).append('<div class="drag_handle"><input id="elevlayercheck_' + i + '" type="checkbox"' + (props.visible == true ? ' checked="checked"' : '') + '/><span>' + layers.names[i] + '</span></div>');
         //jQuery(div).append('<div id="elevlayeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
@@ -248,7 +250,9 @@ LayerListControl.prototype = {
         var div = jQuery('<div id="modellayer_' + layers.ids[i] + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
-        jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="modellayercheck_' + i + '" type="checkbox" checked="checked"/>' + layers.names[i] + '</span><button id="modellayerbutton_' + i + '"></button></div>');
+        var props = this.map.getModelLayerProperties(layers.ids[i]);
+
+        jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="modellayercheck_' + i + '" type="checkbox"' + (props.visible == true ? ' checked="checked"' : '') + '/>' + layers.names[i] + '</span><button id="modellayerbutton_' + i + '"></button></div>');
         //jQuery(div).append('<div id="modellayeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
@@ -342,7 +346,7 @@ LayerListControl.prototype = {
       var div = jQuery('<div id="annolayer_' + id + '" style="padding: 0px 10px 0px 10px;">')
                         .addClass('ui-widget-content ui-state-default ui-helper-clearfix');
 
-      jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="annolayercheck_' + id + '" type="checkbox" checked="checked"/>' + annotation.getName() + '</span><button id="annolayerbutton_' + id + '"></button></div>');
+      jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="annolayercheck_' + id + '" type="checkbox"' + (annotation.getVisible() == true ? ' checked="checked"' : '') + '/>' + annotation.getName() + '</span><button id="annolayerbutton_' + id + '"></button></div>');
 
       var layerContainer = jQuery('#annolayer_container');
       jQuery(layerContainer).append(div);

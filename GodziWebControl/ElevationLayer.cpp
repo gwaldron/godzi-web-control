@@ -178,3 +178,32 @@ bool ToggleElevationLayerCommand::operator ()(GodziWebControl::MapControl *map)
 
   return false;
 }
+
+/***************************************************************************************/
+
+Command* GetElevationLayerPropertiesCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("getElevationLayerProperties" == command)
+    {
+        int id = as<int>(args["id"], -1);
+        return new GetElevationLayerPropertiesCommand(id);
+    }
+    return NULL;
+}
+
+bool GetElevationLayerPropertiesCommand::operator ()(GodziWebControl::MapControl *map)
+{
+    osgEarth::ElevationLayer* layer = map->getMap()->getElevationLayerByUID(_id);
+    if (layer)
+    {
+        osgEarth::Json::Value result;
+        result["name"] = layer->getName();
+        result["visible"] = layer->getVisible();
+        osgEarth::Json::FastWriter writer;
+        setResult(writer.write(result));
+
+        return true;
+    }
+
+    return false;
+}

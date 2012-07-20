@@ -379,6 +379,14 @@ Map.prototype.toggleElevationLayer = function(layer, visible) {
 }
 
 /**
+* Gets an elevation layer's properties
+* @param {integer} layer id
+*/
+Map.prototype.getElevationLayerProperties = function(id) {
+  return this.sendCommand("getElevationLayerProperties", { "id": id }, true);
+}
+
+/**
 * Adds a model layer to the map
 * @param {supported layer type} layer The layer to add
 */
@@ -427,6 +435,14 @@ Map.prototype.getModelLayers = function() {
 */
 Map.prototype.getModelLayerBounds = function(layer) {
   return this.sendCommand("getModelLayerBounds", { id: layer._id }, true);
+}
+
+/**
+* Gets a model layer's properties
+* @param {integer} layer id
+*/
+Map.prototype.getModelLayerProperties = function(id) {
+  return this.sendCommand("getModelLayerProperties", { "id": id }, true);
 }
 
 /**

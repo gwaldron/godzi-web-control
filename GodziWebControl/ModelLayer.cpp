@@ -237,3 +237,33 @@ bool GetModelLayerBoundsCommand::operator ()(GodziWebControl::MapControl *map)
 
   return false;
 }
+
+/***************************************************************************************/
+
+Command* GetModelLayerPropertiesCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("getModelLayerProperties" == command)
+    {
+        int id = as<int>(args["id"], -1);
+        return new GetModelLayerPropertiesCommand(id);
+    }
+    return NULL;
+}
+
+bool GetModelLayerPropertiesCommand::operator ()(GodziWebControl::MapControl *map)
+{
+    osgEarth::ModelLayer* layer = map->getMap()->getModelLayerByUID(_id);
+    if (layer)
+    {
+        osgEarth::Json::Value result;
+        result["name"] = layer->getName();
+        result["overlay"] = layer->getOverlay();
+        result["visible"] = layer->getVisible();
+        osgEarth::Json::FastWriter writer;
+        setResult(writer.write(result));
+
+        return true;
+    }
+
+    return false;
+}

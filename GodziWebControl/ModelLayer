@@ -106,5 +106,20 @@ namespace GodziWebControl
     protected:
         int _id;
     };
+
+    class GetModelLayerPropertiesCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetModelLayerPropertiesCommand(int id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
+    };
 }
 #endif GODZIWEBCONTROL_MODELLAYER_H

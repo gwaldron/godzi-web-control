@@ -25,7 +25,8 @@ CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
                 longitude: this.getLocation().getLongitude(),
                 radius: this.getRadius(),
                 style: this.getStyle(),
-                draped: this.getDraped()
+                draped: this.getDraped(),
+                visible: this.getVisible()
             }, false);
             this._map = map;
         }

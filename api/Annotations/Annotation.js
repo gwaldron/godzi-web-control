@@ -14,7 +14,7 @@ Annotation = function(args) {
     if (args !== undefined) {
         if (args.name !== undefined)
             this._name = args.name;
-        if (args.vislble !== undefined)
+        if (args.visible !== undefined)
             this._visible = args.visible;
         if (args.style !== undefined)
             this._style = args.style;

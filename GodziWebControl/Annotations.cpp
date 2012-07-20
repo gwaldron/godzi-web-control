@@ -183,7 +183,8 @@ CreateLabelNodeCommand::Factory::create(const std::string& cmd, const CommandArg
             args["id"],
             getLocation( args ),
             args["text"],
-            getStyle( args ) );
+            getStyle( args ),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -192,11 +193,13 @@ CreateLabelNodeCommand::Factory::create(const std::string& cmd, const CommandArg
 CreateLabelNodeCommand::CreateLabelNodeCommand(const std::string& id,
                                                const GeoPoint&    location,
                                                const std::string& text,
-                                               const Style&       style ) :
+                                               const Style&       style,
+                                               bool               visible ) :
 _id      ( id ),
 _location( location ),
 _text    ( text ),
-_style   ( style )
+_style   ( style ),
+_visible ( visible )
 {
     //nop
 }
@@ -214,6 +217,7 @@ CreateLabelNodeCommand::operator ()( MapControl* map )
             _style );
 
         anno->setName( _id );
+        anno->setNodeMask( _visible ? ~0 : 0 );
         Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
         annoGroup->addChild( anno );
     }
@@ -236,7 +240,8 @@ CreatePlaceNodeCommand::Factory::create(const std::string& cmd, const CommandArg
             getLocation( args ),
             args["text"],
             args["iconURI"],
-            getStyle( args ) );
+            getStyle( args ),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -246,12 +251,14 @@ CreatePlaceNodeCommand::CreatePlaceNodeCommand(const std::string& id,
                                                const GeoPoint&    location,
                                                const std::string& text,
                                                const std::string& iconURI,
-                                               const Style&       style ) :
+                                               const Style&       style,
+                                               bool               visible ) :
 _id      ( id ),
 _location( location ),
 _text    ( text ),
 _iconURI ( iconURI ),
-_style   ( style )
+_style   ( style ),
+_visible ( visible )
 {
     //nop
 }
@@ -273,6 +280,7 @@ CreatePlaceNodeCommand::operator ()( MapControl* map )
         AnnotationNode* anno = new PlaceNode(map->getMapNode(), _location, icon, _text, _style);
 
         anno->setName( _id );
+        anno->setNodeMask( _visible ? ~0 : 0 );
         Decluttering::setEnabled( anno->getOrCreateStateSet(), true );
         annoGroup->addChild( anno );
     }
@@ -294,7 +302,8 @@ CreateCircleNodeCommand::Factory::create(const std::string& cmd, const CommandAr
             args["id"],
             getLocation( args ),
             Distance( as<double>(args["radius"], 10000.0), Units::METERS ),
-            getStyle( args ) );
+            getStyle( args ),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -303,11 +312,13 @@ CreateCircleNodeCommand::Factory::create(const std::string& cmd, const CommandAr
 CreateCircleNodeCommand::CreateCircleNodeCommand(const std::string& id,
                                                  const GeoPoint&    location,
                                                  const Distance&    radius,
-                                                 const Style&       style ) :
+                                                 const Style&       style,
+                                                 bool               visible ) :
 _id      ( id ),
 _location( location ),
 _radius  ( radius ),
-_style   ( style )
+_style   ( style ),
+_visible ( visible )
 {
     //nop
 }
@@ -323,6 +334,7 @@ CreateCircleNodeCommand::operator ()( MapControl* map )
         AnnotationNode* anno = new CircleNode(map->getMapNode(), _location, _radius, _style);
 
         anno->setName( _id );
+        anno->setNodeMask( _visible ? ~0 : 0 );
         annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
@@ -343,7 +355,8 @@ CreateEllipseNodeCommand::Factory::create(const std::string& cmd, const CommandA
             Distance( as<double>(args["radiusMajor"], 1000.0), Units::METERS ),
             Distance( as<double>(args["radiusMinor"], 2000.0), Units::METERS ),
             Angle   ( as<double>(args["rotation"],       0.0), Units::DEGREES ),
-            getStyle( args ) );
+            getStyle( args ),
+            as<bool>(args["visible"], true) );
         
     }
     return 0L;
@@ -355,13 +368,15 @@ CreateEllipseNodeCommand::CreateEllipseNodeCommand(const std::string& id,
                                                    const Distance&    radiusMajor,
                                                    const Distance&    radiusMinor,
                                                    const Angle&       rotation,
-                                                   const Style&       style ) :
+                                                   const Style&       style,
+                                                   bool               visible ) :
 _id         ( id ),
 _location   ( location ),
 _radiusMajor( radiusMajor ),
 _radiusMinor( radiusMinor ),
 _rotation   ( rotation ),
-_style      ( style )
+_style      ( style ),
+_visible ( visible )
 {
     //nop
 }
@@ -382,6 +397,7 @@ CreateEllipseNodeCommand::operator ()( MapControl* map )
             _style );
 
         anno->setName( _id );
+        anno->setNodeMask( _visible ? ~0 : 0 );
         annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
@@ -402,7 +418,8 @@ CreateRectangleNodeCommand::Factory::create(const std::string& cmd, const Comman
             Distance( as<double>( args["width"],       10000.0 ), Units::METERS ),
             Distance( as<double>( args["height"],      20000.0 ), Units::METERS ),
             getStyle( args ),
-            as<bool>(args["draped"], true) );
+            as<bool>(args["draped"], true),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -413,13 +430,15 @@ CreateRectangleNodeCommand::CreateRectangleNodeCommand(const std::string& id,
                                                        const Distance&    width,
                                                        const Distance&    height,
                                                        const Style&       style,
-                                                       bool               draped) :
+                                                       bool               draped,
+                                                       bool               visible) :
 _id         ( id ),
 _location   ( location ),
 _width      ( width ),
 _height     ( height ),
 _style      ( style ),
-_draped     ( draped )
+_draped     ( draped ),
+_visible    ( visible )
 {
     //nop
 }
@@ -440,6 +459,7 @@ CreateRectangleNodeCommand::operator ()( MapControl* map )
             _draped );
 
         anno->setName( _id );
+        anno->setNodeMask( _visible ? ~0 : 0 );
         annoGroup->addChild( anno );
     }
     return annoGroup != 0L;
@@ -459,7 +479,8 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
             args["id"],
             getGeometry( args ),
             getStyle( args ),
-            as<bool>( args["draped"], true ) );
+            as<bool>( args["draped"], true ),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -468,11 +489,13 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
 CreateFeatureNodeCommand::CreateFeatureNodeCommand(const std::string& id,
                                                    Geometry*          geom,
                                                    const Style&       style,
-                                                   bool               draped ) :
+                                                   bool               draped,
+                                                   bool               visible ) :
 _id         ( id ),
 _geom       ( geom ),
 _style      ( style ),
-_draped     ( draped )
+_draped     ( draped ),
+_visible    ( visible )
 {
     //nop
 }
@@ -497,6 +520,7 @@ CreateFeatureNodeCommand::operator ()( MapControl* map )
                 _draped );
 
             anno->setName( _id );
+            anno->setNodeMask( _visible ? ~0 : 0 );
             annoGroup->addChild( anno );
         }
     }
@@ -518,7 +542,8 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
             getLocation( args ),
             getGeometry( args ),
             getStyle( args ),
-            as<bool>( args["draped"], true ) );
+            as<bool>( args["draped"], true ),
+            as<bool>(args["visible"], true) );
     }
     return 0L;
 }
@@ -528,12 +553,14 @@ CreateLocalGeometryNodeCommand::CreateLocalGeometryNodeCommand(const std::string
                                                                const GeoPoint&    location,
                                                                Geometry*          geom,
                                                                const Style&       style,
-                                                               bool               draped ) :
+                                                               bool               draped,
+                                                               bool               visible ) :
 _id         ( id ),
 _location   ( location ),
 _geom       ( geom ),
 _style      ( style ),
-_draped     ( draped )
+_draped     ( draped ),
+_visible    ( visible )
 {
     //nop
 }
@@ -554,6 +581,7 @@ CreateLocalGeometryNodeCommand::operator ()( MapControl* map )
                 _draped );
 
             anno->setName( _id );
+            anno->setNodeMask( _visible ? ~0 : 0 );
             annoGroup->addChild( anno );
         }
     }
@@ -641,6 +669,7 @@ SetAnnotationNodeVisibilityCommand::operator ()( MapControl* map )
         if ( anno )
         {
             anno->setNodeMask( _visible ? ~0 : 0 );
+            map->getView()->requestRedraw();
             return true;
         }
     }

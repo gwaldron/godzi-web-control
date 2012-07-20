@@ -91,5 +91,20 @@ namespace GodziWebControl
         int _id;
         bool _visible;
     };
+
+    class GetElevationLayerPropertiesCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+        
+        GetElevationLayerPropertiesCommand(int id) : _id(id) { }
+        virtual bool operator()(MapControl* map);
+        
+    protected:
+        int _id;
+    };
 }
 #endif GODZIWEBCONTROL_ELEVATIONLAYER_H
