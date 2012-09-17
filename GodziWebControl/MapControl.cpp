@@ -9,9 +9,11 @@
 #include <GodziWebControl/MapEventHandler>
 #include <GodziWebControl/Annotations>
 #include <GodziWebControl/Kml>
+#include <GodziWebControl/FirstPersonManipulator>
 
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
+#include <osgEarthUtil/Controls>
 #include <osgEarthUtil/EarthManipulator>
 #include <osgEarthUtil/AutoClipPlaneHandler>
 #include <osgEarthDrivers/cache_filesystem/FileSystemCache>
@@ -24,6 +26,11 @@
 #include <osgDB/FileUtils>
 #include <osgDB/FileNameUtils>
 #include <osgGA/TrackballManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
 #include <osgViewer/api/Win32/GraphicsWindowWin32>
 #include <OpenThreads/Thread>
 
@@ -41,6 +48,7 @@
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 
 using namespace GodziWebControl;
+using namespace osgEarth::Util::Controls;
 
 #define WM_GODZI_EVENT (WM_USER + 0)
 
@@ -147,6 +155,31 @@ static LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     return map->handleNativeWindowingEvent(hWnd, msg, wParam, lParam);
 }
 
+struct MapControlManipLabelHandler : public osgGA::GUIEventHandler
+{
+    MapControlManipLabelHandler( LabelControl* label )
+        : _label(label) { }
+
+    bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa )
+    {
+        if ( ea.getEventType() == ea.KEYDOWN )
+        {
+            if ( ea.getKey() == '2' )
+            {
+              _label->setText("First-Person Mode");
+            }
+            else if ( ea.getKey() == '1' )
+            {
+              _label->setText("Global Mode");
+            }
+        }
+
+        return false;
+    }
+
+    LabelControl* _label;
+};
+
 MapControl::MapControl():
 _eventCallback(0)
 {
@@ -164,6 +197,7 @@ _eventCallback(0)
     addCommandFactory(new CyclePolygonModeCommand::Factory());
     addCommandFactory(new HomeCommand::Factory());
     addCommandFactory(new FadeMapCommand::Factory());
+    addCommandFactory(new ToggleNavDisplayCommand::Factory());
 
     addCommandFactory(new UpdateIconCommand::Factory());
     addCommandFactory(new RemoveIconCommand::Factory());
@@ -273,7 +307,7 @@ void MapControl::init(void* window)
 
     _root = new osg::Group;
 
-	osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator;
+	  osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator;
     //manip->setSmoothingEnabled(false);
     manip->setIntersectTraversalMask(TERRAIN);
     _viewer->setCameraManipulator( manip );
@@ -286,6 +320,21 @@ void MapControl::init(void* window)
     light->setAmbient( osg::Vec4( .4, .4, .4, 1 ) );
     light->setDiffuse( osg::Vec4( 1, 1, .8, 1 ) );*/
     //_root->getOrCreateStateSet()->setMode(GL_LIGHTING , osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE);
+
+    //Create a control canvas and label control to display manipulator mode
+    ControlCanvas* cs = ControlCanvas::get( _viewer );
+    _manipLabel = new LabelControl( "Global Mode" );
+    _manipLabel->setFont( osgText::readFontFile( "arialbd.ttf" ) );
+    _manipLabel->setFontSize( 12.0f );
+    _manipLabel->setHorizAlign( Control::ALIGN_RIGHT );
+    _manipLabel->setVertAlign( Control::ALIGN_BOTTOM );
+    _manipLabel->setMargin( 5 );
+    _manipLabel->setPadding( 3.0 );
+    _manipLabel->setForeColor( 1.0f, 1.0f, 1.0f, 1.0f );
+    _manipLabel->setBackColor( 0.2f, 0.2f, 0.2f, 0.3f );
+    _manipLabel->setVisible(false);
+    cs->addControl( _manipLabel.get() );
+    _root->addChild( cs );
     
     _viewer->setSceneData( _root.get() );
 
@@ -294,6 +343,7 @@ void MapControl::init(void* window)
     _viewer->addEventHandler( new MapEventHandler(this) );
 
     _stateSetManipulator = new osgGA::StateSetManipulator(_viewer->getCamera()->getOrCreateStateSet());
+    _stateSetManipulator->setKeyEventToggleTexturing('x');
     _viewer->addEventHandler( _stateSetManipulator.get() );
 
     _viewer->setDone( false );
@@ -321,6 +371,7 @@ void MapControl::run()
         {
             bool frameNeeded =
                 _paintRequested ||
+                _refreshRequested ||
                 _viewer->getRunFrameScheme() != osgViewer::ViewerBase::ON_DEMAND ||
                 !_commandQueue->empty() ||
                 _viewer->checkNeedToDoFrame();
@@ -338,6 +389,7 @@ void MapControl::run()
                 _viewer->frame();
 
                 _paintRequested = false;
+                _refreshRequested = false;
             }
             microSleep(10);
         }
@@ -373,6 +425,28 @@ int MapControl::cancel()
 
     osg::notify(osg::NOTICE) << "  Thread cancelled" << std::endl;
     return result;
+}
+
+osgEarth::Util::EarthManipulator* MapControl::selectEarthManipulator()
+{
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    if (ksm)
+    {
+        ksm->selectMatrixManipulator(0);
+        _manipLabel->setText("Global Mode");
+        return dynamic_cast<osgEarth::Util::EarthManipulator*>(ksm->getMatrixManipulatorWithIndex(0));
+    }
+}
+
+GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulator()
+{
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    if (ksm)
+    {
+        ksm->selectMatrixManipulator(1);
+        _manipLabel->setText("First-Person Mode");
+        return dynamic_cast<GodziWebControl::FirstPersonManipulator*>(ksm->getMatrixManipulatorWithIndex(1));
+    }
 }
 
 void MapControl::toggleStats()
@@ -499,11 +573,18 @@ void MapControl::setMapFile(const std::string &mapFile)
     _viewer->getDatabasePager()->registerPagedLODs(_root.get());
     _viewer->computeActiveCoordinateSystemNodePath();
 
+    
     osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator();
     manip->setIntersectTraversalMask( TERRAIN );
     manip->getSettings()->setMinMaxDistance(2.5, DBL_MAX);  // Set min distance to help prevent zooming "into" the ground
 
-    _viewer->setCameraManipulator( manip );
+    // Setup key switch manip
+    osg::ref_ptr<osgGA::KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA::KeySwitchMatrixManipulator;
+    keyswitchManipulator->addMatrixManipulator( '1', "Earth", manip );
+    keyswitchManipulator->addMatrixManipulator( '2', "FirstPerson", new GodziWebControl::FirstPersonManipulator() );
+    _viewer->setCameraManipulator(keyswitchManipulator.get());
+
+    getView()->addEventHandler(new MapControlManipLabelHandler(_manipLabel));
 
     if (_mapNode.valid())
     {
@@ -538,6 +619,16 @@ void MapControl::setSkyDateTime(int year, int month, int day, double timeUTC)
 {
   if (_skyNode.valid())
     _skyNode->setDateTime(year, month, day, timeUTC);
+}
+
+void MapControl::toggleNavDisplay(bool visible)
+{
+  if (_manipLabel.valid())
+  {
+    _manipLabel->setVisible(visible);
+    //_viewer->requestRedraw();
+    //requestRefresh();
+  }
 }
 
 LRESULT MapControl::handleNativeWindowingEvent( HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam )
@@ -626,13 +717,21 @@ void MapControl::xyzToLatLongHeight(double x, double y, double z, double &lat, d
 osgEarth::Util::Viewpoint
 MapControl::getViewpoint()
 {
-	osgEarth::Util::EarthManipulator* em = dynamic_cast<osgEarth::Util::EarthManipulator*>(getView()->getCameraManipulator());
-    if (em)
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    if (ksm)
     {
-        return em->getViewpoint();
-        //return em->getCurrentViewpoint();
+        osgEarth::Util::EarthManipulator* em = dynamic_cast<osgEarth::Util::EarthManipulator*>(ksm->getCurrentMatrixManipulator());
+        if (em)
+        {
+            return em->getViewpoint();
+        }
+        else
+        {
+            OE_DEBUG << "Warning: cannot get viewpoint for manipulators other than EarthManipulator." << std::endl;
+        }
     }
-	return osgEarth::Util::Viewpoint();
+	  
+	  return osgEarth::Util::Viewpoint();
 }
 
 void

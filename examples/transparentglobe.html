@@ -13,6 +13,7 @@
 
 #controls_div
 {
+  width: 100%;
 }
 
 #label_div
@@ -27,6 +28,21 @@
   height: 11px;
   width: 200px;
   padding-top: 0.25em;
+}
+#opacity_div
+{
+  float: left;
+}
+
+#nav_div
+{
+  float: right;
+  color: #fff;
+}
+
+.clear-div
+{
+  clear: both;
 }
 
 body
@@ -80,6 +96,8 @@ function initialize()
   map = new Map('mapcontrol');
   map.setMapFile("http://demo.pelicanmapping.com/rmweb/maps/blending.earth");
 
+  toggleNavDisplay();
+
   initGlobeSlider();
   
   theModel.setURL(modelFile);
@@ -89,6 +107,11 @@ function initialize()
   map.addModel(theModel);
 }
 
+function toggleNavDisplay()
+{
+  map.ToggleNavigationDisplay($('#nav_check').attr('checked') ? true : false);
+}
+
 </script>
 
 </head>
@@ -96,8 +119,14 @@ function initialize()
 <body onload="initialize()">
 
 <div id="controls_div">
-  <div id="label_div">Opacity:</div>
-  <div id="slider_div"></div>
+  <div id="opacity_div">
+    <div id="label_div">Opacity:</div>
+    <div id="slider_div"></div>
+  </div>
+  <div id="nav_div">
+    <input type="checkbox" id="nav_check" checked="checked" onchange="toggleNavDisplay()" />Navigation Display
+  </div>
+  <div class="clear-div"></div>
 </div>
 <br />
 <div id="map_div">

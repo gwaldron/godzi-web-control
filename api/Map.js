@@ -575,6 +575,11 @@ Map.prototype.setSkyDateTime = function (year, month, day, timeUTC)
 	this.sendCommand("setSkyDateTime", { year: year, month: month, day: day, time:timeUTC }, false);
 }
 
+Map.prototype.ToggleNavigationDisplay = function (visible)
+{
+  this.sendCommand("toggleNavDisplay", { "visible": visible }, false);
+}
+
 /**
  * Resets the view. Equivalent of pressing the spacebar.
  */

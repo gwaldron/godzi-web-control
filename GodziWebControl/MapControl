@@ -11,12 +11,15 @@
 #include <GodziWebControl/ModelLayer>
 #include <GodziWebControl/Command>
 #include <GodziWebControl/Selection>
+#include <GodziWebControl/FirstPersonManipulator>
 
 #include <osgGA/StateSetManipulator>
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgTerrain/Terrain>
 
+#include <osgEarthUtil/Controls>
+#include <osgEarthUtil/EarthManipulator>
 #include <osgEarthUtil/FeatureManipTool>
 #include <osgEarthUtil/SkyNode>
 #include <osgEarth/Viewpoint>
@@ -62,6 +65,9 @@ namespace GodziWebControl
 
         SelectionSet* getSelectionSet() { return _selectionSet.get(); }
 
+        osgEarth::Util::EarthManipulator* selectEarthManipulator();
+        GodziWebControl::FirstPersonManipulator* selectFirstPersonManipulator();
+
         void toggleStats();
         void cyclePolygonMode();
 
@@ -69,6 +75,8 @@ namespace GodziWebControl
 
         void showSkyNode();
         void setSkyDateTime(int year, int month, int day, double timeUTC);
+
+        void toggleNavDisplay(bool visible);
 
         float getVerticalScale();
         void setVerticalScale(float verticalScale);
@@ -89,6 +97,7 @@ namespace GodziWebControl
 
         void postEvent(const std::string &target, const std::string &eventName, const std::string &data);
 
+        void requestRefresh() { _refreshRequested = true; }
 
     private:
 
@@ -108,10 +117,12 @@ namespace GodziWebControl
 
         osg::ref_ptr<osgEarth::Util::SkyNode> _skyNode;
         osgEarth::Util::FeatureManipTool* _manipTool;
+        osg::ref_ptr<osgEarth::Util::Controls::LabelControl> _manipLabel;
 
         HWND    _hwnd;
         WNDPROC _previousWindowProcedure;
         bool    _paintRequested;
+        bool    _refreshRequested;
 
         //osg::ref_ptr<osg::Node> _rootNode;
         osg::ref_ptr<osgEarth::MapNode> _mapNode;

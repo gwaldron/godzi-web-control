@@ -7,6 +7,7 @@
 #include <osgEarthUtil/EarthManipulator>
 
 #include <osg/ComputeBoundsVisitor>
+#include <osgGA/KeySwitchMatrixManipulator>
 #include <osgUtil/IntersectionVisitor>
 #include <osgUtil/LineSegmentIntersector>
 #include <osgSim/ShapeAttribute>
@@ -149,17 +150,10 @@ Command* SetViewpointCommand::Factory::create(const std::string& command, const 
         double pitch          = osgEarth::as<double>(args["pitch"], 0.0);
         double transitionTime = osgEarth::as<double>(args["transitionTime"], 0.0);
 
-		return new SetViewpointCommand( osgEarth::Util::Viewpoint(
+		    return new SetViewpointCommand( osgEarth::Util::Viewpoint(
             osg::Vec3d( longitude, latitude, altitude ),
             heading, pitch, range ),
             transitionTime );
-            //Viewpoint(osg::DegreesToRadians(longitude), 
-            //osg::DegreesToRadians(latitude), 
-            //range, 
-            //osg::DegreesToRadians(heading),
-            //osg::DegreesToRadians(pitch)),
-            //transitionTime);
-
     }
     return NULL;
 }
@@ -172,14 +166,10 @@ SetViewpointCommand::SetViewpointCommand(const osgEarth::Util::Viewpoint& viewpo
 
 bool SetViewpointCommand::operator()(MapControl* map)
 {
-	osgEarth::Util::EarthManipulator* em = dynamic_cast<osgEarth::Util::EarthManipulator*>(
-        map->getView()->getCameraManipulator() );
-
+    osgEarth::Util::EarthManipulator* em = map->selectEarthManipulator();
     if (em)
-    {
         em->setViewpoint(_viewpoint, _transitionTime);
-        //em->setViewpoint( _viewpoint );
-    }
+
     return true;
 }
 
@@ -533,4 +523,25 @@ bool FadeMapCommand::operator ()(GodziWebControl::MapControl *map)
 }
 
 
-/*****************************************************************************/
+/**************************************************************************************************/
+
+Command* ToggleNavDisplayCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("toggleNavDisplay" == command)
+    {
+        bool visible = args["visible"] == "true";
+        return new ToggleNavDisplayCommand(visible);
+    }
+    return NULL;
+}
+
+ToggleNavDisplayCommand::ToggleNavDisplayCommand(bool visible):
+_visible(visible)
+{
+}
+
+bool ToggleNavDisplayCommand::operator()(MapControl* map)
+{
+    map->toggleNavDisplay(_visible);
+    return true;
+}

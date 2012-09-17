@@ -235,6 +235,23 @@ namespace GodziWebControl
     protected:
         float _opacity;
     };
+
+    class GODZIWEBCONTROL_EXPORT ToggleNavDisplayCommand : public Command
+    {
+    public:
+      class GODZIWEBCONTROL_EXPORT Factory : public CommandFactory
+        {
+        public:
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ToggleNavDisplayCommand(bool visible);
+
+        virtual bool operator()(MapControl* map);
+
+    private:
+        bool _visible;
+    };
 }
 
 #endif //GODZIWEBCONTROL_MAPCOMMANDS
