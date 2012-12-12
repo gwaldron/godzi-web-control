@@ -201,7 +201,7 @@ bool GetModelLayerBoundsCommand::operator ()(GodziWebControl::MapControl *map)
 
   if (layer)
   {
-    osg::ref_ptr<osg::Node> temp = layer->getOrCreateNode();
+    osg::ref_ptr<osg::Node> temp = layer->createSceneGraph( map->getMap(), map->getMap()->getDBOptions(), 0L );
     if (temp.valid())
     {
       osg::NodePathList nodePaths = temp->getParentalNodePaths();

@@ -25,6 +25,7 @@
 #include <osgEarth/Viewpoint>
 #include <osgEarth/MapNode>
 #include <osgEarth/Map>
+#include <osgEarth/MapModelChange>
 #include <osgEarth/JsonUtils>
 
 #include <windows.h>

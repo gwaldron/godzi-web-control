@@ -16,7 +16,7 @@ REM Copy OSG deps
 xcopy /D /Y "%OSG_DEPS%\bin\*.dll" %DEST_DIR%
 
 REM Copy 3rd party deps
-xcopy /D /Y "3rdParty\*.dll" %DEST_DIR%
+REM xcopy /D /Y "3rdParty\*.dll" %DEST_DIR%
 
 REM Copy GDAL deps
 xcopy /D /Y "%GDAL%\bin\*.dll" %DEST_DIR%

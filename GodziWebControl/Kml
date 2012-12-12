@@ -22,13 +22,12 @@ namespace GodziWebControl
         {
             virtual Command* create(const std::string& command, const CommandArguments& args);
         };
-        LoadKmlCommand(const std::string &id, const std::string &url, const std::string &defaultIconURI, double iconBaseScale, int iconMaxSize, bool declutter);
+        LoadKmlCommand(const std::string &id, const std::string &url, double iconBaseScale, int iconMaxSize, bool declutter);
         virtual bool operator()(MapControl* map);
 
     protected:
         std::string _id;
         std::string _url;
-        std::string _defaultIconURI;
         double _iconBaseScale;
         int _iconMaxSize;
         bool _declutter;

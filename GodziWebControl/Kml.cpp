@@ -58,23 +58,21 @@ Command* LoadKmlCommand::Factory::create(const std::string& command, const Comma
     {
         std::string id             = args["id"];
         std::string url            = args["url"];
-        std::string defaultIconURI = args["defaultIconURI"];
         double iconBaseScale       = as<double>(args["iconBaseScale"], 1.0);
         int iconMaxSize            = as<int>(args["iconMaxSize"], 32);
         bool declutter             = args["declutter"] == "true";
 
         OE_INFO << LC << "Creating command to load: " << url << std::endl;
 
-        return new LoadKmlCommand(id, url, defaultIconURI, iconBaseScale, iconMaxSize, declutter);
+        return new LoadKmlCommand(id, url, iconBaseScale, iconMaxSize, declutter);
     }
     return NULL;
 }
 
-LoadKmlCommand::LoadKmlCommand(const std::string &id, const std::string &url, const std::string &defaultIconURI, double iconBaseScale, int iconMaxSize, bool declutter)
+LoadKmlCommand::LoadKmlCommand(const std::string &id, const std::string &url, double iconBaseScale, int iconMaxSize, bool declutter)
 {
     _id = id;
     _url = url;
-    _defaultIconURI = defaultIconURI;
     _iconBaseScale = iconBaseScale;
     _iconMaxSize = iconMaxSize;
     _declutter = declutter;
@@ -85,7 +83,6 @@ bool LoadKmlCommand::operator ()(GodziWebControl::MapControl *map)
     if ( !_url.empty() )
     {
         osgEarth::Drivers::KMLOptions kml_options;
-        kml_options.defaultIconURI() = _defaultIconURI;
         kml_options.iconBaseScale() = _iconBaseScale;
         kml_options.iconMaxSize() = _iconMaxSize;
         kml_options.declutter() = _declutter;

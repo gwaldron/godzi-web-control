@@ -6,6 +6,7 @@
 #include <osgEarth/Common>
 #include <osgEarth/JsonUtils>
 #include <osgEarth/MapNode>
+#include <osgEarth/NodeUtils>
 
 #include <osgUtil/IntersectionVisitor>
 #include <osgUtil/LineSegmentIntersector>
@@ -142,7 +143,7 @@ GetObjectInfoCommand::operator ()( GodziWebControl::MapControl* mapControl )
             }
         }
 
-        osgEarth::MapNode* mapNode = findTopMostNodeOfType<osgEarth::MapNode>( mapControl->getRoot() );
+        osgEarth::MapNode* mapNode = osgEarth::findTopMostNodeOfType<osgEarth::MapNode>( mapControl->getRoot() );
         if (mapNode)
         {
             double lat, lon, h;  
