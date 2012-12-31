@@ -10,9 +10,7 @@ RectangleAnnotation = function(args) {
         if (args.width !== undefined)
             this._width = args.width;
         if (args.height !== undefined)
-            this._height = args.height;
-        if (args.draped !== undefined)
-            this._draped = args.draped;            
+            this._height = args.height;           
     }
 };
 
@@ -20,7 +18,6 @@ RectangleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype
 
     _width: 10000,
     _height: 5000,
-    _draped: true,
 
     setMap: function(map) {
         if (map !== null) {
@@ -31,7 +28,6 @@ RectangleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype
                 width: this.getWidth(),
                 height: this.getHeight(),
                 style: this.getStyle(),
-                draped: this.getDraped(),
                 visible: this.getVisible()
             }, false);
             this._map = map;
@@ -43,8 +39,5 @@ RectangleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype
     },
     getHeight: function() {
         return this._height;
-    },
-    getDraped: function() {
-        return this._draped;
     }
 });

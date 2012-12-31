@@ -35,7 +35,8 @@ http://readymap.org
             <style type="text/css">
                 states {
                    stroke: #ffff00;
-                   altitude-offset: 1000;                   
+                   altitude-clamping:   terrain;
+                   altitude-offset: 1000;                 
                 }                    
             </style>
         </styles>

@@ -13,8 +13,6 @@ EllipseAnnotation = function(args) {
             this._radiusMinor = args.radiusMinor;
         if (args.rotation !== undefined)
             this._rotation = args.rotation;
-        if (args.draped !== undefined)
-            this._draped = args.draped;
     }
 };
 
@@ -23,7 +21,6 @@ EllipseAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, 
     _radiusMajor: 20000.0,
     _radiusMinor: 13000.0,
     _rotation: 0.0,
-    _draped: true,
 
     setMap: function(map) {
         if (map !== null) {
@@ -35,7 +32,6 @@ EllipseAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, 
                 radiusMinor: this.getRadiusMinor(),
                 rotation: this.getRotation(),
                 style: this.getStyle(),
-                draped: this.getDraped(),
                 visible: this.getVisible()
             }, false);
             this._map = map;
@@ -50,8 +46,5 @@ EllipseAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, 
     },
     getRotation: function() {
         return this._rotation;
-    },
-    getDraped: function() {
-        return this._draped;
     }
 });

@@ -93,7 +93,7 @@ function createAnnotations()
     radiusMajor: 50000.0,
     radiusMinor: 20000.0,
     rotation: 20.0,
-    style: { fill: "#ff7f00bf" }
+    style: { fill: "#ff7f00bf", altitude_clamping: "terrain", altitude_technique: "drape" }
   });
   ellipse.setMap(map);
   ellipse.enableEditor(true);
@@ -105,8 +105,7 @@ function createAnnotations()
     location: new Location(32.2, -119, 1000),
     width: 50000,
     height: 25000,
-    style: { stroke: "#ffff00", stroke_width: "3" },
-    draped: true
+    style: { stroke: "#ffff00", stroke_width: "5", altitude_clamping:  "terrain", altitude_technique: "drape" }
   });
   rect.setMap(map);
   rect.enableEditor(true);
@@ -117,7 +116,7 @@ function createAnnotations()
     name: "Circle",
     location: new Location(32.73, -118.75),
     radius: 30000.0,
-    style: { fill: "#00ffffbf", stroke: "#ffffff", stroke_width: "7" }
+    style: { fill: "#00ffffbf", stroke: "#ffffff", stroke_width: "7", altitude_clamping: "terrain", altitude_technique: "drape" }
   });
   circle.setMap(map);
   circle.enableEditor(true);

@@ -133,7 +133,7 @@ namespace
         ConfigSet styleSet;
         CssUtils::readConfig( css, "", styleSet );
         Style result;
-        SLDReader::readStyleFromCSSParams( styleSet.front(), result );
+        result.fromSLD( styleSet.front() );
 
         return result;
     }        
@@ -418,7 +418,6 @@ CreateRectangleNodeCommand::Factory::create(const std::string& cmd, const Comman
             Distance( as<double>( args["width"],       10000.0 ), Units::METERS ),
             Distance( as<double>( args["height"],      20000.0 ), Units::METERS ),
             getStyle( args ),
-            as<bool>(args["draped"], true),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -430,14 +429,12 @@ CreateRectangleNodeCommand::CreateRectangleNodeCommand(const std::string& id,
                                                        const Distance&    width,
                                                        const Distance&    height,
                                                        const Style&       style,
-                                                       bool               draped,
                                                        bool               visible) :
 _id         ( id ),
 _location   ( location ),
 _width      ( width ),
 _height     ( height ),
 _style      ( style ),
-_draped     ( draped ),
 _visible    ( visible )
 {
     //nop
@@ -455,8 +452,7 @@ CreateRectangleNodeCommand::operator ()( MapControl* map )
             _location,
             _width,
             _height,
-            _style,
-            _draped );
+            _style );
 
         anno->setName( _id );
         anno->setNodeMask( _visible ? ~0 : 0 );
@@ -479,7 +475,6 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
             args["id"],
             getGeometry( args ),
             getStyle( args ),
-            as<bool>( args["draped"], true ),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -489,12 +484,10 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
 CreateFeatureNodeCommand::CreateFeatureNodeCommand(const std::string& id,
                                                    Geometry*          geom,
                                                    const Style&       style,
-                                                   bool               draped,
                                                    bool               visible ) :
 _id         ( id ),
 _geom       ( geom ),
 _style      ( style ),
-_draped     ( draped ),
 _visible    ( visible )
 {
     //nop
@@ -516,8 +509,7 @@ CreateFeatureNodeCommand::operator ()( MapControl* map )
 
             AnnotationNode* anno = new FeatureNode(
                 map->getMapNode(),
-                feature.get(),
-                _draped );
+                feature.get() );
 
             anno->setName( _id );
             anno->setNodeMask( _visible ? ~0 : 0 );
@@ -542,7 +534,6 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
             getLocation( args ),
             getGeometry( args ),
             getStyle( args ),
-            as<bool>( args["draped"], true ),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -553,13 +544,11 @@ CreateLocalGeometryNodeCommand::CreateLocalGeometryNodeCommand(const std::string
                                                                const GeoPoint&    location,
                                                                Geometry*          geom,
                                                                const Style&       style,
-                                                               bool               draped,
                                                                bool               visible ) :
 _id         ( id ),
 _location   ( location ),
 _geom       ( geom ),
 _style      ( style ),
-_draped     ( draped ),
 _visible    ( visible )
 {
     //nop
@@ -577,8 +566,7 @@ CreateLocalGeometryNodeCommand::operator ()( MapControl* map )
             AnnotationNode* anno = new LocalGeometryNode(
                 map->getMapNode(),
                 _geom.get(),
-                _style,
-                _draped );
+                _style );
 
             anno->setName( _id );
             anno->setNodeMask( _visible ? ~0 : 0 );

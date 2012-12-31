@@ -15,7 +15,6 @@ CircleAnnotation = function(args) {
 CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
 
     _radius: 10000.0,
-    _draped: true,
 
     setMap: function(map) {
         if (map !== null) {
@@ -25,7 +24,6 @@ CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
                 longitude: this.getLocation().getLongitude(),
                 radius: this.getRadius(),
                 style: this.getStyle(),
-                draped: this.getDraped(),
                 visible: this.getVisible()
             }, false);
             this._map = map;
@@ -34,8 +32,5 @@ CircleAnnotation.prototype = InheritsFromClass(PositionedAnnotation.prototype, {
 
     getRadius: function() {
         return this._radius;
-    },
-    getDraped: function() {
-        return this._draped;
     }
 });

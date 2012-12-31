@@ -9,15 +9,12 @@ FeatureAnnotation = function(args) {
     if (args !== undefined) {
         if (args.geomWKT !== undefined)
             this._geomWKT = args.geomWKT;
-        if (args.draped !== undefined)
-            this._draped = args.draped;
     }
 };
 
 FeatureAnnotation.prototype = InheritsFromClass(Annotation.prototype, {
 
     _geomWKT: null,
-    _draped: false,
 
     setMap: function(map) {
         if (map !== null) {
@@ -25,7 +22,6 @@ FeatureAnnotation.prototype = InheritsFromClass(Annotation.prototype, {
                 id: this.getId(),
                 geomWKT: this.getGeomWKT(),
                 style: this.getStyle(),
-                draped: this.getDraped(),
                 visible: this.getVisible()
             }, false);
             this._map = map;
@@ -34,8 +30,5 @@ FeatureAnnotation.prototype = InheritsFromClass(Annotation.prototype, {
 
     getGeomWKT: function() {
         return this._geomWKT;
-    },
-    getDraped: function() {
-        return this._draped;
     }
 });
