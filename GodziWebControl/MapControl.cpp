@@ -593,7 +593,7 @@ void MapControl::setMapFile(const std::string &mapFile)
         _viewer->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
 
         // install the Feature Manipulation tool.
-        _manipTool = new osgEarth::Util::FeatureManipTool( _mapNode );
+        _manipTool = new osgEarth::Util::FeatureManipTool( _mapNode, true );
         _viewer->addEventHandler( _manipTool );
     }
 
