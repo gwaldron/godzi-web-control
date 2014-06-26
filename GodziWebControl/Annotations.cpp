@@ -418,6 +418,7 @@ CreateRectangleNodeCommand::Factory::create(const std::string& cmd, const Comman
             Distance( as<double>( args["width"],       10000.0 ), Units::METERS ),
             Distance( as<double>( args["height"],      20000.0 ), Units::METERS ),
             getStyle( args ),
+            as<bool>(args["draped"], true),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -429,12 +430,14 @@ CreateRectangleNodeCommand::CreateRectangleNodeCommand(const std::string& id,
                                                        const Distance&    width,
                                                        const Distance&    height,
                                                        const Style&       style,
+                                                       bool               draped,
                                                        bool               visible) :
 _id         ( id ),
 _location   ( location ),
 _width      ( width ),
 _height     ( height ),
 _style      ( style ),
+_draped     ( draped ),
 _visible    ( visible )
 {
     if (_draped)
@@ -480,6 +483,7 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
             args["id"],
             getGeometry( args ),
             getStyle( args ),
+            as<bool>( args["draped"], true ),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -489,10 +493,12 @@ CreateFeatureNodeCommand::Factory::create(const std::string& cmd, const CommandA
 CreateFeatureNodeCommand::CreateFeatureNodeCommand(const std::string& id,
                                                    Geometry*          geom,
                                                    const Style&       style,
+                                                   bool               draped,
                                                    bool               visible ) :
 _id         ( id ),
 _geom       ( geom ),
 _style      ( style ),
+_draped     ( draped ),
 _visible    ( visible )
 {
     //nop
@@ -514,7 +520,8 @@ CreateFeatureNodeCommand::operator ()( MapControl* map )
 
             AnnotationNode* anno = new FeatureNode(
                 map->getMapNode(),
-                feature.get() );
+                feature.get(),
+                _draped );
 
             anno->setName( _id );
             anno->setNodeMask( _visible ? ~0 : 0 );
@@ -539,6 +546,7 @@ CreateLocalGeometryNodeCommand::Factory::create(const std::string& cmd, const Co
             getLocation( args ),
             getGeometry( args ),
             getStyle( args ),
+            as<bool>( args["draped"], true ),
             as<bool>(args["visible"], true) );
     }
     return 0L;
@@ -549,11 +557,13 @@ CreateLocalGeometryNodeCommand::CreateLocalGeometryNodeCommand(const std::string
                                                                const GeoPoint&    location,
                                                                Geometry*          geom,
                                                                const Style&       style,
+                                                               bool               draped,
                                                                bool               visible ) :
 _id         ( id ),
 _location   ( location ),
 _geom       ( geom ),
 _style      ( style ),
+_draped     ( draped ),
 _visible    ( visible )
 {
     if (_draped)

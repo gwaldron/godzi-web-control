@@ -165,6 +165,7 @@ namespace GodziWebControl
             const Distance&    width,
             const Distance&    height,
             const Style&       style,
+            bool               draped,
             bool               visible=true);
 
     public:
@@ -178,6 +179,7 @@ namespace GodziWebControl
         GeoPoint    _location;
         Distance    _width, _height;
         Style       _style;
+        bool        _draped;
         bool        _visible;
     };
 
@@ -192,6 +194,7 @@ namespace GodziWebControl
             const std::string& id,
             Geometry*          geom,
             const Style&       style,
+            bool               draped,
             bool               visible=true);
     public:
         class Factory : public CommandFactory {
@@ -203,6 +206,7 @@ namespace GodziWebControl
         std::string _id;
         osg::ref_ptr<Geometry> _geom;
         Style       _style;
+        bool        _draped;
         bool        _visible;
     };
 
@@ -218,6 +222,7 @@ namespace GodziWebControl
             const GeoPoint&    location,
             Geometry*          geom,
             const Style&       style,
+            bool               draped,
             bool               visible=true);
 
     public:
@@ -231,6 +236,7 @@ namespace GodziWebControl
         GeoPoint    _location;
         osg::ref_ptr<Geometry> _geom;
         Style       _style;
+        bool        _draped;
         bool        _visible;
     };
 
