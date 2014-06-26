@@ -23,6 +23,48 @@ namespace GodziWebControl
         std::string _mapFile;
     };
 
+    class GODZIWEBCONTROL_EXPORT SetOverviewCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        SetOverviewCommand(const std::string &mapFile, MapControl::OverviewPosition position);
+
+        virtual bool operator()(MapControl* map);
+    private:
+        std::string _mapFile;
+        MapControl::OverviewPosition _position;
+    };
+
+    class GODZIWEBCONTROL_EXPORT ShowOverviewCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ShowOverviewCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
+    class GODZIWEBCONTROL_EXPORT HideOverviewCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        HideOverviewCommand();
+
+        virtual bool operator()(MapControl* map);
+    };
+
     class GODZIWEBCONTROL_EXPORT GetBackColorCommand : public Command
     {
     public:

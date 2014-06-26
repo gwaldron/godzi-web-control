@@ -257,7 +257,7 @@ bool GetModelLayerPropertiesCommand::operator ()(GodziWebControl::MapControl *ma
     {
         osgEarth::Json::Value result;
         result["name"] = layer->getName();
-        result["overlay"] = layer->getOverlay();
+        result["opacity"] = layer->getOpacity();
         result["visible"] = layer->getVisible();
         osgEarth::Json::FastWriter writer;
         setResult(writer.write(result));

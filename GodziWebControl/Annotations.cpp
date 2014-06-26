@@ -13,7 +13,7 @@
 #include <osgEarthAnnotation/LocalGeometryNode>
 #include <osgEarthAnnotation/AnnotationEditing>
 #include <osgEarthSymbology/Geometry>
-#include <osgEarthSymbology/SLD>
+//#include <osgEarthSymbology/SLD>
 #include <osgEarthSymbology/CssUtils>
 
 #include <osgEarthFeatures/GeometryUtils>

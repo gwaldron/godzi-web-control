@@ -15,20 +15,24 @@
 
 #include <osgGA/StateSetManipulator>
 #include <osgViewer/Viewer>
+#include <osgViewer/CompositeViewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgTerrain/Terrain>
 
 #include <osgEarthUtil/Controls>
 #include <osgEarthUtil/EarthManipulator>
 #include <osgEarthUtil/FeatureManipTool>
-#include <osgEarthUtil/SkyNode>
+#include <osgEarthUtil/FeatureQueryTool>
+#include <osgEarthUtil/Sky>
 #include <osgEarth/Viewpoint>
 #include <osgEarth/MapNode>
 #include <osgEarth/Map>
 #include <osgEarth/MapModelChange>
 #include <osgEarth/JsonUtils>
+#include <osgEarthAnnotation/PlaceNode>
 
 #include <windows.h>
+
 
 namespace GodziWebControl
 {
@@ -37,6 +41,14 @@ namespace GodziWebControl
     class GODZIWEBCONTROL_EXPORT MapControl : public osg::Referenced, public OpenThreads::Thread
     {
     public:
+
+        enum OverviewPosition
+        {
+          LOWER_LEFT,
+          LOWER_RIGHT,
+          UPPER_LEFT,
+          UPPER_RIGHT
+        };
 
         class EventCallback
         {
@@ -56,7 +68,7 @@ namespace GodziWebControl
 
         CommandQueue* getCommandQueue() {return _commandQueue.get();}
 
-        osgViewer::View* getView() {return _viewer.get();}
+        osgViewer::View* getView() {return _mainView.get();}
 
         osg::Group* getRoot() {return _root.get();}
         
@@ -73,6 +85,10 @@ namespace GodziWebControl
         void cyclePolygonMode();
 
         void setMapFile(const std::string &mapFile);
+
+        void setOverviewMap(const std::string &mapFile, OverviewPosition position=LOWER_LEFT);
+        void showOverviewMap();
+        void hideOverviewMap();
 
         void showSkyNode();
         void setSkyDateTime(int year, int month, int day, double timeUTC);
@@ -105,8 +121,20 @@ namespace GodziWebControl
         osg::ref_ptr<MapControlMapCallback> _mapCallback;
         osg::Vec4 _clearColor;
 
-        osg::ref_ptr<osgViewer::Viewer> _viewer;
+        osg::ref_ptr<osgViewer::CompositeViewer> _viewer;
+        osg::ref_ptr<osgViewer::View> _mainView;
+        osg::ref_ptr<osgViewer::View> _minimapView;
         osg::ref_ptr<osg::Group> _root;
+
+        bool _showMinimap;
+        int _minimapWidth;
+        int _minimapHeight;
+        int _minimapX;
+        int _minimapY;
+        OverviewPosition _minimapPosition;
+
+        osg::ref_ptr<osgEarth::Annotation::PlaceNode> _eyeMarker;
+        osg::ref_ptr<osgEarth::Annotation::CircleNode> _eyeCircle;
 
         osg::ref_ptr<osgViewer::StatsHandler> _statsHandler;
         osg::ref_ptr<osgGA::StateSetManipulator> _stateSetManipulator;
@@ -134,6 +162,13 @@ namespace GodziWebControl
         EventCallback* _eventCallback;
 
         osg::ref_ptr<SelectionSet> _selectionSet;
+
+        osg::ref_ptr<osgEarth::Util::FeatureQueryTool> _featureQueryTool;
+
+    protected:
+        friend class MapEventHandler;
+
+        void updateOverviewMap(bool updatePosition=false);
     };
 
 

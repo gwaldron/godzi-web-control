@@ -26,10 +26,17 @@ mkdir "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
 
 xcopy /D /Y "%OSG_PLUGINS_DIR%\osgdb_*.dll" "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
 
-xcopy /D /Y "%OSGEARTH_PLUGINS%\*.dll" "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
+REM xcopy /D /Y "%OSGEARTH_PLUGINS%\*.dll" "%DEST_DIR%\%OSG_PLUGINS_FOLDER%"
 
 REM Copy over the GEOS dlls
-xcopy /D /Y "%GEOS%\bin\*.dll" %DEST_DIR%
+REM xcopy /D /Y "%GEOS%\bin\*.dll" %DEST_DIR%
+
+REM Copy the Collada dlls
+REM xcopy /D /Y "%COLLADA_DIR%\*.dll" %DEST_DIR%
+REM xcopy /D /Y "%LIBXML_DIR%\*.dll" %DEST_DIR%
+
+REM Copy the V8 dlls
+REM xcopy /D /Y "%V8_DIR%\*.dll" %DEST_DIR%
 
 REM Delete any debug dlls
 del %DEST_DIR%\*d.dll

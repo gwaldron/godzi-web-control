@@ -17,6 +17,10 @@
 #include <osgEarthUtil/EarthManipulator>
 #include <osgEarthUtil/AutoClipPlaneHandler>
 #include <osgEarthDrivers/cache_filesystem/FileSystemCache>
+#include <osgEarthDrivers/tms/TMSOptions>
+#include <osgEarthDrivers/gdal/GDALOptions>
+#include <osgEarthAnnotation/CircleNode>
+#include <osgEarthUtil/FeatureQueryTool>
 
 #include <osg/io_utils>
 #include <osg/Version>
@@ -181,11 +185,14 @@ struct MapControlManipLabelHandler : public osgGA::GUIEventHandler
 };
 
 MapControl::MapControl():
-_eventCallback(0)
+_eventCallback(0), _minimapWidth(350), _minimapHeight(200), _minimapX(10), _minimapY(10), _showMinimap(false)
 {
     _commandQueue = new CommandQueue;
 
     addCommandFactory(new SetMapCommand::Factory());
+    addCommandFactory(new SetOverviewCommand::Factory());
+    addCommandFactory(new ShowOverviewCommand::Factory());
+    addCommandFactory(new HideOverviewCommand::Factory());
     addCommandFactory(new ShowSkyCommand::Factory());
     addCommandFactory(new SetSkyDateTimeCommand::Factory());
     addCommandFactory(new GetBackColorCommand::Factory());
@@ -257,9 +264,12 @@ void MapControl::init(void* window)
     osg::DisplaySettings::instance()->setNumOfHttpDatabaseThreadsHint( remoteThreads );
 
 
+    
     //Create a new viewer
-    _viewer = new osgViewer::Viewer;
-    //_viewer->setThreadingModel(osgViewer::ViewerBase::SingleThreaded);
+    _viewer = new osgViewer::CompositeViewer;
+    _viewer->setThreadingModel(osgViewer::ViewerBase::SingleThreaded);
+
+    _mainView = new osgViewer::View();
 
     // enable "on demand" rendering.
     _viewer->setRunFrameScheme( osgViewer::ViewerBase::ON_DEMAND );
@@ -300,19 +310,48 @@ void MapControl::init(void* window)
     //Doing this prevents context ID reuse
     osg::GraphicsContext::incrementContextIDUsageCount(gc->getState()->getContextID());
 
-    _viewer->getCamera()->setGraphicsContext( gc.get() );
-    _viewer->getCamera()->setViewport( new osg::Viewport( 0, 0, t->width, t->height ) );
-    _viewer->getCamera()->setProjectionMatrixAsPerspective(30.0f, (double)(t->width)/(double)(t->height), 1.0f, 10000.0f);
-    _viewer->getCamera()->setClearColor(_clearColor);
+    _mainView->getCamera()->setGraphicsContext( gc.get() );
+    _mainView->getCamera()->setViewport( new osg::Viewport( 0, 0, t->width, t->height ) );
+    _mainView->getCamera()->setProjectionMatrixAsPerspective(30.0f, (double)(t->width)/(double)(t->height), 1.0f, 10000.0f);
+    _mainView->getCamera()->setClearColor(_clearColor);
 
     _root = new osg::Group;
 
 	  osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator;
     //manip->setSmoothingEnabled(false);
     manip->setIntersectTraversalMask(TERRAIN);
-    _viewer->setCameraManipulator( manip );
+    _mainView->setCameraManipulator( manip );
 
-    //_root->addChild(osgDB::readNodeFile("c:/dev/OpenSceneGraph-Data/cow.osg"));
+    _viewer->addView(_mainView.get());
+
+
+    //Setup the minimap
+    _minimapView = new osgViewer::View();
+    _minimapView->getCamera()->setNearFarRatio(0.00002);
+    _minimapView->getCamera()->setViewport( _minimapX, _minimapY, _minimapWidth, _minimapHeight);
+
+    //Create minimap manipulator and override action bindings
+    osgEarth::Util::EarthManipulator* em = new osgEarth::Util::EarthManipulator();
+    em->getSettings()->bindMouse( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON );
+    em->getSettings()->bindMouse( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON );
+    em->getSettings()->bindMouse( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::MIDDLE_MOUSE_BUTTON );
+    em->getSettings()->bindMouse( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON | osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON );
+    em->getSettings()->bindScroll( osgEarth::Util::EarthManipulator::ACTION_NULL,  osgGA::GUIEventAdapter::SCROLL_DOWN );
+    em->getSettings()->bindScroll( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::SCROLL_UP );
+    em->getSettings()->bindKey( osgEarth::Util::EarthManipulator::ACTION_NULL,  osgGA::GUIEventAdapter::KEY_Left );
+    em->getSettings()->bindKey( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::KEY_Right );
+    em->getSettings()->bindKey( osgEarth::Util::EarthManipulator::ACTION_NULL,    osgGA::GUIEventAdapter::KEY_Up );
+    em->getSettings()->bindKey( osgEarth::Util::EarthManipulator::ACTION_NULL,  osgGA::GUIEventAdapter::KEY_Down );
+    em->getSettings()->bindMouseDoubleClick( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON );
+    em->getSettings()->bindMouseDoubleClick( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON );
+    em->getSettings()->bindMouseDoubleClick( osgEarth::Util::EarthManipulator::ACTION_NULL, osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON );
+
+    _minimapView->setCameraManipulator( em );    
+    _minimapView->getCamera()->setClearColor( osg::Vec4(0,0,0,0) );
+    _minimapView->getCamera()->setProjectionResizePolicy( osg::Camera::FIXED );
+    _minimapView->getCamera()->setProjectionMatrixAsPerspective(30.0, double(_minimapWidth) / double(_minimapHeight), 1.0, 1000.0);
+    _minimapView->getCamera()->setGraphicsContext( _mainView->getCamera()->getGraphicsContext());        
+
 
     /*//Set up a skylight rather than using the traditional headlamp
     _viewer->setLightingMode(osg::View::SKY_LIGHT);
@@ -321,8 +360,9 @@ void MapControl::init(void* window)
     light->setDiffuse( osg::Vec4( 1, 1, .8, 1 ) );*/
     //_root->getOrCreateStateSet()->setMode(GL_LIGHTING , osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE);
 
+
     //Create a control canvas and label control to display manipulator mode
-    ControlCanvas* cs = ControlCanvas::get( _viewer );
+    ControlCanvas* cs = ControlCanvas::get( _mainView );
     _manipLabel = new LabelControl( "Global Mode" );
     _manipLabel->setFont( osgText::readFontFile( "arialbd.ttf" ) );
     _manipLabel->setFontSize( 12.0f );
@@ -336,15 +376,22 @@ void MapControl::init(void* window)
     cs->addControl( _manipLabel.get() );
     _root->addChild( cs );
     
-    _viewer->setSceneData( _root.get() );
+    _mainView->setSceneData( _root.get() );
 
     _statsHandler = new osgViewer::StatsHandler();
-    _viewer->addEventHandler( _statsHandler.get() );
-    _viewer->addEventHandler( new MapEventHandler(this) );
+    _mainView->addEventHandler( _statsHandler.get() );
 
-    _stateSetManipulator = new osgGA::StateSetManipulator(_viewer->getCamera()->getOrCreateStateSet());
+    MapEventHandler* meh = new MapEventHandler(this);
+    _mainView->addEventHandler( meh );
+
+    _featureQueryTool = new osgEarth::Util::FeatureQueryTool(0L);
+    _featureQueryTool->addCallback( new osgEarth::Util::FeatureHighlightCallback() );
+    _featureQueryTool->addCallback( meh );
+    _mainView->addEventHandler( _featureQueryTool );
+
+    _stateSetManipulator = new osgGA::StateSetManipulator(_mainView->getCamera()->getOrCreateStateSet());
     _stateSetManipulator->setKeyEventToggleTexturing('x');
-    _viewer->addEventHandler( _stateSetManipulator.get() );
+    _mainView->addEventHandler( _stateSetManipulator.get() );
 
     _viewer->setDone( false );
 
@@ -354,9 +401,9 @@ void MapControl::init(void* window)
 
 	_viewer->realize();
 
-    _selectionSet = new SelectionSet( _viewer->getCamera() );
+    _selectionSet = new SelectionSet( _mainView->getCamera() );
 
-    _viewer->home();
+    _mainView->home();
 
 
     //Initialize the map callback
@@ -381,11 +428,8 @@ void MapControl::run()
                 //Execute any pending commands
                 _commandQueue->execute(this);
 
-                //Position the light to be at the eye point
-                //osg::Vec3d eye, center, up;
-                //_viewer->getCamera()->getViewMatrixAsLookAt(eye, center, up);
-                //_viewer->getLight()->setPosition(osg::Vec4(eye, 1));
-                //osg::notify(osg::NOTICE) << "Eye " << eye << std::endl;
+                updateOverviewMap();
+
                 _viewer->frame();
 
                 _paintRequested = false;
@@ -398,7 +442,7 @@ void MapControl::run()
 
 int MapControl::cancel()
 {
-    int contextID = _viewer->getCamera()->getGraphicsContext()->getState()->getContextID();
+    int contextID = _mainView->getCamera()->getGraphicsContext()->getState()->getContextID();
 
     int result = 0;
 
@@ -429,7 +473,7 @@ int MapControl::cancel()
 
 osgEarth::Util::EarthManipulator* MapControl::selectEarthManipulator()
 {
-    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_mainView->getCameraManipulator());
     if (ksm)
     {
         ksm->selectMatrixManipulator(0);
@@ -440,7 +484,7 @@ osgEarth::Util::EarthManipulator* MapControl::selectEarthManipulator()
 
 GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulator()
 {
-    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_mainView->getCameraManipulator());
     if (ksm)
     {
         ksm->selectMatrixManipulator(1);
@@ -452,13 +496,13 @@ GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulato
 void MapControl::toggleStats()
 {
     int key = _statsHandler->getKeyEventTogglesOnScreenStats();
-    _viewer->getEventQueue()->keyPress(key, _viewer->getEventQueue()->getTime());
+    _mainView->getEventQueue()->keyPress(key, _mainView->getEventQueue()->getTime());
 }
 
 void MapControl::cyclePolygonMode()
 {
     int key = _stateSetManipulator->getKeyEventCyclePolygonMode();
-    _viewer->getEventQueue()->keyPress( key, _viewer->getEventQueue()->getTime() );
+    _mainView->getEventQueue()->keyPress( key, _mainView->getEventQueue()->getTime() );
 }
 
 float MapControl::getVerticalScale()
@@ -505,6 +549,8 @@ void MapControl::setMapFile(const std::string &mapFile)
     if (_mapNode.valid())
     {
         _mapNode->getMap()->removeMapCallback(_mapCallback);
+        _featureQueryTool->setMapNode(0L);
+
         //Remove the current map node
 		    _root->removeChild( _mapNode.get() );
         
@@ -512,7 +558,7 @@ void MapControl::setMapFile(const std::string &mapFile)
           _root->removeChild( _skyNode.get() );
 
         _mapNode->releaseGLObjects();
-        osg::flushAllDeletedGLObjects(_viewer->getCamera()->getGraphicsContext()->getState()->getContextID());
+        osg::flushAllDeletedGLObjects(_mainView->getCamera()->getGraphicsContext()->getState()->getContextID());
         _mapNode = 0;
         _csn = new osg::CoordinateSystemNode();
         _csn->setEllipsoidModel(new osg::EllipsoidModel());
@@ -566,12 +612,15 @@ void MapControl::setMapFile(const std::string &mapFile)
               _skyNode = 0L;
               showSkyNode();
             }
+
+            OE_WARN << "SETTING MAP NODE" << std::endl;
+            _featureQueryTool->setMapNode(mapNode);
         }
 
         mapNode->getMap()->addMapCallback(_mapCallback);
     }
-    _viewer->getDatabasePager()->registerPagedLODs(_root.get());
-    _viewer->computeActiveCoordinateSystemNodePath();
+    _mainView->getDatabasePager()->registerPagedLODs(_root.get());
+    _mainView->computeActiveCoordinateSystemNodePath();
 
     
     osgEarth::Util::EarthManipulator* manip = new osgEarth::Util::EarthManipulator();
@@ -582,43 +631,157 @@ void MapControl::setMapFile(const std::string &mapFile)
     osg::ref_ptr<osgGA::KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA::KeySwitchMatrixManipulator;
     keyswitchManipulator->addMatrixManipulator( '1', "Earth", manip );
     keyswitchManipulator->addMatrixManipulator( '2', "FirstPerson", new GodziWebControl::FirstPersonManipulator() );
-    _viewer->setCameraManipulator(keyswitchManipulator.get());
+    _mainView->setCameraManipulator(keyswitchManipulator.get());
 
     getView()->addEventHandler(new MapControlManipLabelHandler(_manipLabel));
 
     if (_mapNode.valid())
     {
         // Attempting to prevent zooming "into" the ground
-        _viewer->getCamera()->setNearFarRatio(0.00000001);
-        _viewer->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
+        _mainView->getCamera()->setNearFarRatio(0.00000001);
+        _mainView->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
 
         // install the Feature Manipulation tool.
         _manipTool = new osgEarth::Util::FeatureManipTool( _mapNode, true );
-        _viewer->addEventHandler( _manipTool );
+        _mainView->addEventHandler( _manipTool );
     }
 
     //Go home if we are going from an invalid map to a valid one
     if (!wasMapValid && _mapNode.valid())
     {
-        _viewer->home();
+        _mainView->home();
     }
 }
+
+
+void MapControl::setOverviewMap(const std::string &mapFile, OverviewPosition position)
+{
+  OE_WARN << "setOverviewMap: " << mapFile << std::endl;
+  osg::notify(osg::NOTICE) << "MapControl::setOverviewMap " << mapFile << std::endl;
+
+  hideOverviewMap();
+
+  osg::Group* minimapRoot = new osg::Group;
+
+  MapOptions mapOpt;
+  mapOpt.coordSysType() = MapOptions::CSTYPE_PROJECTED;
+  Map* minimap = new Map( mapOpt );    
+
+  osgEarth::Drivers::TMSOptions imagery;
+  imagery.url() = mapFile;
+  minimap->addImageLayer( new ImageLayer( ImageLayerOptions("overview", imagery) ) );
+
+  MapNodeOptions mapNodeOptions;
+  mapNodeOptions.enableLighting() = false;    
+
+  MapNode* miniMapNode = new MapNode( minimap, mapNodeOptions );
+  minimapRoot->addChild( miniMapNode );
+  _minimapView->setSceneData( minimapRoot );        
+
+  Style circleStyle;
+  circleStyle.getOrCreate<PolygonSymbol>()->fill()->color() = Color(Color::Yellow, 0.7);
+  circleStyle.getOrCreate<AltitudeSymbol>()->clamping() = AltitudeSymbol::CLAMP_NONE;
+
+  _eyeCircle = new osgEarth::Annotation::CircleNode(
+    miniMapNode,
+    GeoPoint(miniMapNode->getMapSRS(), 0, 0, 10., ALTMODE_ABSOLUTE),
+    Linear(5, Units::METERS),
+    circleStyle);
+
+  minimapRoot->addChild(_eyeCircle);
+
+  _minimapPosition = position;
+  updateOverviewMap(true);
+
+  showOverviewMap();
+}
+
+void MapControl::showOverviewMap()
+{
+  if (!_showMinimap)
+  {
+    _viewer->addView( _minimapView );
+    _showMinimap = true;
+
+    updateOverviewMap();
+  }
+}
+
+void MapControl::hideOverviewMap()
+{
+  if (_showMinimap)
+  {
+    _showMinimap = false;
+    _viewer->removeView( _minimapView );
+  }
+}
+
+void MapControl::updateOverviewMap(bool updatePosition)
+{
+  if (updatePosition)
+  {
+    switch (_minimapPosition)
+    {
+      case LOWER_LEFT:
+        _minimapX = 10;
+        _minimapY = 10;
+        break;
+      case LOWER_RIGHT:
+        _minimapX = _mainView->getCamera()->getViewport()->width() - 10 - _minimapWidth;
+        _minimapY = 10;
+        break;
+      case UPPER_LEFT:
+        _minimapX = 10;
+        _minimapY = _mainView->getCamera()->getViewport()->height() - 10 - _minimapHeight;
+        break;
+      case UPPER_RIGHT:
+        _minimapX = _mainView->getCamera()->getViewport()->width() - 10 - _minimapWidth;
+        _minimapY = _mainView->getCamera()->getViewport()->height() - 10 - _minimapHeight;
+        break;
+    }
+  }
+
+  if (_showMinimap)
+  {
+    _minimapView->getCamera()->setViewport( _minimapX, _minimapY, _minimapWidth, _minimapHeight);
+
+    if (_mapNode.valid())
+    {
+      //Get the eye point of the main view
+      osg::Vec3d eye, up, center;
+      _mainView->getCamera()->getViewMatrixAsLookAt( eye, center, up );
+
+      GeoPoint eyeGeo;
+      eyeGeo.fromWorld( _mapNode->getMapSRS(), eye );
+      eyeGeo.transform( _eyeCircle->getMapNode()->getMapSRS());
+      eyeGeo.z() = 10.;
+      eyeGeo.altitudeMode() = ALTMODE_ABSOLUTE;
+
+      _eyeCircle->setPosition( eyeGeo );
+    }
+  }
+}
+
 
 void MapControl::showSkyNode()
 {
   if (!_skyNode.valid())
   {
-    _skyNode = new osgEarth::Util::SkyNode( _mapNode->getMap() );
-    _skyNode->setDateTime( 2011, 3, 6, 12.0 );
-    _skyNode->attach( _viewer );
-    _root->addChild( _skyNode );
+    _skyNode = osgEarth::Util::SkyNode::create(_mapNode);
+    if ( _skyNode.valid() )
+    {
+      _skyNode->attach( _mainView, 0 );
+      _skyNode->setDateTime( DateTime(2011, 3, 6, 0.0) );
+      _root->addChild( _skyNode );
+      //osgEarth::insertGroup(_skyNode, _mapNode);
+    }
   }
 }
 
 void MapControl::setSkyDateTime(int year, int month, int day, double timeUTC)
 {
   if (_skyNode.valid())
-    _skyNode->setDateTime(year, month, day, timeUTC);
+    _skyNode->setDateTime(DateTime(year, month, day, timeUTC));
 }
 
 void MapControl::toggleNavDisplay(bool visible)
@@ -717,7 +880,7 @@ void MapControl::xyzToLatLongHeight(double x, double y, double z, double &lat, d
 osgEarth::Util::Viewpoint
 MapControl::getViewpoint()
 {
-    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_viewer->getCameraManipulator());
+    osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_mainView->getCameraManipulator());
     if (ksm)
     {
         osgEarth::Util::EarthManipulator* em = dynamic_cast<osgEarth::Util::EarthManipulator*>(ksm->getCurrentMatrixManipulator());

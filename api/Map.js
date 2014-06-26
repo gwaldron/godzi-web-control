@@ -453,6 +453,14 @@ Map.prototype.toggleModelLayer = function(layer, visible) {
 }
 
 /**
+* Updates a model layer
+* @param {ModelLayerProperties} updated layer properties
+*/
+Map.prototype.updateModelLayer = function(layer) {
+  this.sendCommand("updateModelLayer", { 'id': layer._id, 'name': layer._name, 'visible': layer._visible, 'opacity': layer._opacity }, false);
+}
+
+/**
 * Gets an annotation's color properties
 */
 Map.prototype.getAnnotationColors = function(id) {
@@ -467,6 +475,31 @@ Map.prototype.setMapFile = function(mapFile)
 {
     var args = $.toJSON( { "filename": mapFile } );
     this._plugin.sendCommand("setMap", args, false);
+  }
+
+/**
+* Sets and loads the overview map (.earth) file
+* @param {string} mapFile The map file URL
+*/
+Map.prototype.setOverviewMap = function(mapFile, position) {
+  var args = $.toJSON({ "filename": mapFile, "position": position });
+  this._plugin.sendCommand("setOverview", args, false);
+}
+
+/**
+* Sets and loads the overview map (.earth) file
+* @param {string} mapFile The map file URL
+*/
+Map.prototype.showOverviewMap = function() {
+  this._plugin.sendCommand("showOverview", {}, false);
+}
+
+/**
+* Sets and loads the overview map (.earth) file
+* @param {string} mapFile The map file URL
+*/
+Map.prototype.hideOverviewMap = function() {
+  this._plugin.sendCommand("hideOverview", {}, false);
 }
 
 /**

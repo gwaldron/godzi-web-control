@@ -253,7 +253,7 @@ LayerListControl.prototype = {
         var props = this.map.getModelLayerProperties(layers.ids[i]);
 
         jQuery(div).append('<div class="drag_handle" style="position: relative; padding-bottom: 2px;"><span><input id="modellayercheck_' + i + '" type="checkbox"' + (props.visible == true ? ' checked="checked"' : '') + '/>' + layers.names[i] + '</span><button id="modellayerbutton_' + i + '"></button></div>');
-        //jQuery(div).append('<div id="modellayeropacity_' + i + '" class="opacity-slider"></div>');
+        jQuery(div).append('<div id="modellayeropacity_' + i + '" class="opacity-slider"></div>');
 
         jQuery(layerContainer).append(div);
 
@@ -273,21 +273,21 @@ LayerListControl.prototype = {
         });
 
 
-        //        var opacity = props.opacity;
-        //        jQuery('#modellayeropacity_' + i).slider({
-        //          min: 0,
-        //          max: 100,
-        //          value: opacity * 100.0,
-        //          range: "min",
-        //          map: this.map,
-        //          layerId: layers.ids[i],
-        //          slide: function(event, ui) {
-        //            var opacity = ui.value / 100.0;
-        //            var layerProps = new ImageLayerProperties(jQuery(this).data('slider').options.layerId);
-        //            layerProps.setOpacity(opacity);
-        //            jQuery(this).data('slider').options.map.updateImageLayer(layerProps);
-        //          }
-        //        });
+                var opacity = props.opacity;
+                jQuery('#modellayeropacity_' + i).slider({
+                  min: 0,
+                  max: 100,
+                  value: opacity * 100.0,
+                  range: "min",
+                  map: this.map,
+                  layerId: layers.ids[i],
+                  slide: function(event, ui) {
+                    var opacity = ui.value / 100.0;
+                    var layerProps = new ImageLayerProperties(jQuery(this).data('slider').options.layerId);
+                    layerProps.setOpacity(opacity);
+                    jQuery(this).data('slider').options.map.updateModelLayer(layerProps);
+                  }
+                });
       }
     }
 

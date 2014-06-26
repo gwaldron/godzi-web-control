@@ -4,6 +4,7 @@
 #include <osgEarth/Common>
 #include <osgEarth/JsonUtils>
 #include <osgEarth/MapNode>
+#include <osgEarth/StringUtils>
 #include <osgEarthUtil/EarthManipulator>
 
 #include <osg/ComputeBoundsVisitor>
@@ -36,6 +37,90 @@ _mapFile(mapFile)
 bool SetMapCommand::operator ()(MapControl* map)
 {
     map->setMapFile( _mapFile );
+    return false;
+}
+
+
+
+/**************************************************************************************************/
+
+Command*
+SetOverviewCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("setOverview" == command)
+    {
+        std::string filename = args["filename"];
+
+        std::string pos = osgEarth::toLower(args["position"]);
+        MapControl::OverviewPosition position = MapControl::LOWER_LEFT;
+        if(pos == "lowerright" || pos == "lr")
+          position = MapControl::LOWER_RIGHT;
+        else if (pos == "upperleft" || pos == "ul")
+          position = MapControl::UPPER_LEFT;
+        else if (pos == "upperright" || pos == "ur")
+          position = MapControl::UPPER_RIGHT;
+
+        return new SetOverviewCommand(filename, position);
+    }
+    return NULL;
+}
+
+SetOverviewCommand::SetOverviewCommand(const std::string &mapFile, MapControl::OverviewPosition position):
+_mapFile(mapFile), _position(position)
+{
+}
+
+bool SetOverviewCommand::operator ()(MapControl* map)
+{
+    map->setOverviewMap( _mapFile, _position );
+    return false;
+}
+
+
+
+/**************************************************************************************************/
+
+Command*
+ShowOverviewCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("showOverview" == command)
+    {
+        return new ShowOverviewCommand();
+    }
+    return NULL;
+}
+
+ShowOverviewCommand::ShowOverviewCommand()
+{
+}
+
+bool ShowOverviewCommand::operator ()(MapControl* map)
+{
+    map->showOverviewMap();
+    return false;
+}
+
+
+
+/**************************************************************************************************/
+
+Command*
+HideOverviewCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("hideOverview" == command)
+    {
+        return new HideOverviewCommand();
+    }
+    return NULL;
+}
+
+HideOverviewCommand::HideOverviewCommand()
+{
+}
+
+bool HideOverviewCommand::operator ()(MapControl* map)
+{
+    map->hideOverviewMap();
     return false;
 }
 
