@@ -13,8 +13,8 @@
 #include <osgEarthAnnotation/LocalGeometryNode>
 #include <osgEarthAnnotation/AnnotationEditing>
 #include <osgEarthSymbology/Geometry>
-//#include <osgEarthSymbology/SLD>
 #include <osgEarthSymbology/CssUtils>
+#include <osgEarthSymbology/AltitudeSymbol>
 
 #include <osgEarthFeatures/GeometryUtils>
 #include <osgEarthFeatures/Feature>
@@ -80,7 +80,7 @@ namespace
             as<double>( args["longitude"], 0.0 ),
             as<double>( args["latitude"],  0.0 ),
             as<double>( args["altitude"],  0.0 ),
-            osgEarth::AltitudeMode::ALTMODE_ABSOLUTE);
+            osgEarth::ALTMODE_ABSOLUTE);
     }
 
 
@@ -133,7 +133,7 @@ namespace
         ConfigSet styleSet;
         CssUtils::readConfig( css, "", styleSet );
         Style result;
-        result.fromSLD( styleSet.front() );
+        result.fromSLD( styleSet.front() );        
 
         return result;
     }        
@@ -437,7 +437,12 @@ _height     ( height ),
 _style      ( style ),
 _visible    ( visible )
 {
-    //nop
+    if (_draped)
+    {
+        AltitudeSymbol* alt = _style.getOrCreate<AltitudeSymbol>();
+        alt->technique() = AltitudeSymbol::TECHNIQUE_DRAPE;
+        alt->clamping() = AltitudeSymbol::CLAMP_TO_TERRAIN;
+    }
 }
 
 
@@ -452,7 +457,7 @@ CreateRectangleNodeCommand::operator ()( MapControl* map )
             _location,
             _width,
             _height,
-            _style );
+            _style);
 
         anno->setName( _id );
         anno->setNodeMask( _visible ? ~0 : 0 );
@@ -551,7 +556,12 @@ _geom       ( geom ),
 _style      ( style ),
 _visible    ( visible )
 {
-    //nop
+    if (_draped)
+    {
+        AltitudeSymbol* alt = _style.getOrCreate<AltitudeSymbol>();
+        alt->technique() = AltitudeSymbol::TECHNIQUE_DRAPE;
+        alt->clamping() = AltitudeSymbol::CLAMP_TO_TERRAIN;
+    }
 }
 
 
@@ -566,7 +576,7 @@ CreateLocalGeometryNodeCommand::operator ()( MapControl* map )
             AnnotationNode* anno = new LocalGeometryNode(
                 map->getMapNode(),
                 _geom.get(),
-                _style );
+                _style);
 
             anno->setName( _id );
             anno->setNodeMask( _visible ? ~0 : 0 );

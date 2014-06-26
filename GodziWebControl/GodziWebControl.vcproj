@@ -202,10 +202,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\FirstPersonManipulator.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\GeoIcon.cpp"
 				>
 			</File>

@@ -9,7 +9,7 @@
 #include <GodziWebControl/MapEventHandler>
 #include <GodziWebControl/Annotations>
 #include <GodziWebControl/Kml>
-#include <GodziWebControl/FirstPersonManipulator>
+//#include <GodziWebControl/FirstPersonManipulator>
 
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
@@ -482,6 +482,7 @@ osgEarth::Util::EarthManipulator* MapControl::selectEarthManipulator()
     }
 }
 
+/*
 GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulator()
 {
     osgGA::KeySwitchMatrixManipulator* ksm = dynamic_cast<osgGA::KeySwitchMatrixManipulator*>(_mainView->getCameraManipulator());
@@ -492,6 +493,7 @@ GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulato
         return dynamic_cast<GodziWebControl::FirstPersonManipulator*>(ksm->getMatrixManipulatorWithIndex(1));
     }
 }
+*/
 
 void MapControl::toggleStats()
 {
@@ -630,7 +632,7 @@ void MapControl::setMapFile(const std::string &mapFile)
     // Setup key switch manip
     osg::ref_ptr<osgGA::KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA::KeySwitchMatrixManipulator;
     keyswitchManipulator->addMatrixManipulator( '1', "Earth", manip );
-    keyswitchManipulator->addMatrixManipulator( '2', "FirstPerson", new GodziWebControl::FirstPersonManipulator() );
+    //keyswitchManipulator->addMatrixManipulator( '2', "FirstPerson", new GodziWebControl::FirstPersonManipulator() );
     _mainView->setCameraManipulator(keyswitchManipulator.get());
 
     getView()->addEventHandler(new MapControlManipLabelHandler(_manipLabel));
@@ -638,8 +640,7 @@ void MapControl::setMapFile(const std::string &mapFile)
     if (_mapNode.valid())
     {
         // Attempting to prevent zooming "into" the ground
-        _mainView->getCamera()->setNearFarRatio(0.00000001);
-        _mainView->getCamera()->addCullCallback( new osgEarth::Util::AutoClipPlaneCullCallback(_mapNode) );
+        _viewer->getCamera()->setNearFarRatio(0.00002);        
 
         // install the Feature Manipulation tool.
         _manipTool = new osgEarth::Util::FeatureManipTool( _mapNode, true );
