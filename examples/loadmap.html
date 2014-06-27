@@ -1,6 +1,8 @@
 <html>
 <head>
 
+<meta http-equiv="x-ua-compatible" content="IE=10">
+
 <title>Load Map</title>
 
 <style type="text/css">
@@ -28,7 +30,8 @@
 function initialize()
 {
   map = new Map('mapcontrol');
-  map.setMapFile("http://demo.pelicanmapping.com/rmweb/maps/ags_imagery.earth");
+  map.setMapFile("http://gwaldron.github.io/godzi-web-control/data/readaymap.earth");
+  map.setOverviewMap("http://readymap.org:8080/readymap/tiles/1.0.0/1/", "ul");
   map.showSky();
 }
 
@@ -40,7 +43,7 @@ function initialize()
 
 <div id="map_div">
   <script type="text/javascript">
-    Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+    Map.embed("map_div", "mapcontrol", "application/osgearth", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
   </script>
 </div>
 

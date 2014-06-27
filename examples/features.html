@@ -1,7 +1,9 @@
 <html>
 <head>
 
-<title>Events Example</title>
+<meta http-equiv="x-ua-compatible" content="IE=10">
+
+<title>Features - Godzi Web Control</title>
 
 <style type="text/css">
 #map_div     
@@ -20,11 +22,7 @@
 <script src="../api/Location.js" type="text/javascript"></script>
 <script src="../api/Orientation.js" type="text/javascript"></script>
 <script src="../api/Scale.js" type="text/javascript"></script>
-<script src="../api/TextLabel.js" type="text/javascript"> </script>
 <script src="../api/Map.js" type="text/javascript"> </script>
-<script src="../api/Model.js" type="text/javascript"></script>
-<script src="../api/GeoIcon.js" type="text/javascript"></script>
-<script src="../api/Parsers/GPXParser.js" type="text/javascript"></script>
 
 
 <script type="text/javascript">
@@ -32,17 +30,24 @@
 function initialize()
 {
   map = new Map('mapcontrol');
-  map.setBackColor(new Color(0.01, 0.01, 0.01, 1));
-  map.setMapFile("http://demo.pelicanmapping.com/rmweb/maps/ags_imagery.earth");
+  map.setMapFile("http://gwaldron.github.io/godzi-web-control/data/tfs_features.earth");
+  map.setOverviewMap("http://readymap.org:8080/readymap/tiles/1.0.0/1/", "ll");
+  map.showSky();
 
-  map.addEvent("onmousedown", onMapClick);
+  map.addEvent("onfeatureselect", onFeatureSelect);
 }
 
-function onMapClick(data)
+function onFeatureSelect(feature)
 {
-  var loc = map.getIntersection(data.x, data.y);
-  if (loc != null)
-    alert("Latitude: " + loc.getLatitude() + "\nLongitude: " + loc.getLongitude());
+  if (feature)
+  {
+    var msg = "Feature: " + feature.fid + "\nAttributes:";
+    for(var attr in feature.attributes) {
+        msg += "\n     " + attr + ': ' + feature.attributes[attr];
+    }
+    
+    alert(msg);
+  }
 }
 
 </script>
@@ -51,12 +56,9 @@ function onMapClick(data)
 
 <body onload="initialize()">
 
-Click the map:
-<br />
-
 <div id="map_div">
   <script type="text/javascript">
-    Map.embed("map_div", "mapcontrol", "application/godzi", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+    Map.embed("map_div", "mapcontrol", "application/osgearth", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
   </script>
 </div>
 
