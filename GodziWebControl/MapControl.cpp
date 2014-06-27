@@ -657,8 +657,7 @@ void MapControl::setMapFile(const std::string &mapFile)
 
 void MapControl::setOverviewMap(const std::string &mapFile, OverviewPosition position)
 {
-  OE_WARN << "setOverviewMap: " << mapFile << std::endl;
-  osg::notify(osg::NOTICE) << "MapControl::setOverviewMap " << mapFile << std::endl;
+  OE_NOTICE << "setOverviewMap: " << mapFile << std::endl;
 
   hideOverviewMap();
 
