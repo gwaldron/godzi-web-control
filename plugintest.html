@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<style type="text/css">
+body
+{
+    background-color: #000;
+}
+
+td.maintd
+{
+    color:#FFF;
+    background-image:url('data/rmsplash.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    text-align:center;
+}
+
+div.maindiv
+{
+    width:500px;
+    margin:0px auto;
+    padding:10px;
+    background-color:#666;
+    opacity:0.7;
+    filter:alpha(opacity=70);
+    text-align:center;
+    font-family: sans-serif;
+}
+
+p.base
+{
+    font-size: medium;
+}
+
+p.emphasis
+{
+    font-size: large;
+}
+</style>
+
+<script src="api/PluginManagement.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function initialize()
+{
+    if ( detectGodzi() )
+        document.getElementById('msg_div').innerHTML = '<p class="base">The Godzi Web Control plugin is already installed!</p>';
+    else
+        document.getElementById('msg_div').innerHTML = '<p class="base">The Godzi Web Control plugin is not installed</p><p class="emphasis"><a href="http://gwaldron.github.io/godzi-web-control/data/GodziWebControl.msi">Click here to install it now!</a></p>';
+}
+</script>
+</head>
+<body onload="initialize()">
+    <table width=100% height=100% border=0>
+	<tr>
+	    <td class="maintd" valign="center">
+		<div id="msg_div" class="maindiv">
+		</div>
+            </td>
+	</tr>
+    </table>
+</body>
+</html>
