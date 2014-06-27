@@ -71,10 +71,10 @@ Map.embed = function(div_id, map_id, type, classid )
 	     }
 	     else
        {
-	         objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
+	         objString = '<iframe src="http://gwaldron.github.io/godzi-web-control/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
 	     }
     }
-    else if (BrowserDetect.browser == "Explorer")
+    else if (BrowserDetect.browser == "Explorer" || (BrowserDetect.browser == "Mozilla" && BrowserDetect.version >= 11 ))
     {
 	      if (detectGodzi())
 	      {
@@ -82,7 +82,7 @@ Map.embed = function(div_id, map_id, type, classid )
 	      }
 	      else
 	      {
-	          objString = '<iframe src="http://demo.pelicanmapping.com/rmweb/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
+	          objString = '<iframe src="http://gwaldron.github.io/godzi-web-control/plugintest.html" width="100%" frameborder="0" height="100%"></iframe>';
 	      }
     }
     else
