@@ -508,8 +508,8 @@ Map.prototype.hideOverviewMap = function() {
  * @param {float} y The mouse Y coordinate
  * @returns {Location} a Location object containing the intersect coordinates (lat/lon/alt) or null if none found
  */
-Map.prototype.getIntersection = function(x,y)
-{
+ Map.prototype.getIntersection = function(x,y)
+ {
     var result = this.sendCommand("getIntersection", { x: x, y: y }, true);
 
     if (result.valid == 1)
@@ -517,15 +517,27 @@ Map.prototype.getIntersection = function(x,y)
         return new Location(result.latitude,result.longitude,result.height);
     }
 
-    return null;                                                         
-}
+    return null;
+ }
 
 /**
- * Gets the names of objects in the scene at a given location based on mouse x/y coordinates
- * @param {float} x The mouse x coordinate
- * @param {float} y The mouse y coordinate
- * @returns {object} Array of strings containing the names
+ * Gets a terrain profile based on a pair of mouse x/y coordinates
+ * @param (float) x1 The mouse X coordinate of the first point
+ * @param (float) y1 The mouse Y coordinate of the first point
+ * @param (float) x2 The mouse X coordinate of the second point
+ * @param (float) y2 The mouse Y coordinate of the second point
+ * @returns (object) object containing the map profile and it's properties
  */
+ Map.prototype.getTerrainProfile = function(x1, y1, x2, y2) {
+   return this.sendCommand("getMapProfile", { x1: x1, y1: y1, x2: x2, y2: y2 }, true);
+ }
+
+/**
+* Gets the names of objects in the scene at a given location based on mouse x/y coordinates
+* @param {float} x The mouse x coordinate
+* @param {float} y The mouse y coordinate
+* @returns {object} Array of strings containing the names
+*/
 Map.prototype.getNames = function(x,y)
 {
     var result = this.sendCommand("getNames", { x: x, y: y }, true);

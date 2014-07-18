@@ -1,0 +1,132 @@
+<html>
+<head>
+
+<meta http-equiv="x-ua-compatible" content="IE=10">
+
+<title>Terrain Profile</title>
+
+<style type="text/css">
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#map_div { 
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+#control_div {
+  width: 20%;
+  height: 100%;
+  padding: 10px;
+  float: left;
+  overflow: auto;
+  background-color: #ddd;
+  box-sizing: border-box;
+}
+
+#captureClicksButton {
+  width: 100%;
+}
+
+#captureClicksButton.capturing {
+  background-color: #6ff;
+}
+
+#output_div {
+  margin: 20px 10px;
+  height: 200px;
+  overflow: auto;
+  background-color: #ccc;
+  color: #000;
+  padding: 2px;
+  font-size: small;
+}
+
+</style>
+
+<script src="../api/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../api/jquery.json-2.2.min.js" type="text/javascript"></script>
+<script src="../api/PluginManagement.js" type="text/javascript"></script>
+<script src="../api/BrowserDetect.js" type = "text/javascript"></script>
+<script src="../api/Common.js" type="text/javascript"> </script>
+<script src="../api/Color.js" type="text/javascript"> </script>
+<script src="../api/Location.js" type="text/javascript"></script>
+<script src="../api/Orientation.js" type="text/javascript"></script>
+<script src="../api/Scale.js" type="text/javascript"></script>
+<script src="../api/Map.js" type="text/javascript"> </script>
+
+
+<script type="text/javascript">
+
+var capturing = false;
+var firstClick = null;
+var map = null;
+
+function initialize() {
+  map = new Map('mapcontrol');
+  map.setMapFile("http://gwaldron.github.io/godzi-web-control/examples/data/readymap.earth");
+  map.showSky();
+
+  map.addEvent("onclick", onMapClick);
+}
+
+function onCaptureClicked() {
+  firstClick = null;
+  capturing = true;
+  document.getElementById('captureClicksButton').setAttribute('class', 'capturing');
+}
+
+function onMapClick(click) {
+  if (capturing) {
+    if (firstClick) {
+
+      var profile = map.getTerrainProfile(firstClick.x, firstClick.y, click.x, click.y);
+      if (profile) {
+        var output = "total distance: " + profile.totalDistance.toFixed(2) + "<br />";
+        output += "min/max elevation: " + profile.elevationRange.min.toFixed(2) + " / " + profile.elevationRange.max.toFixed(2) + "<br /><br />";
+        output += "profile points (distance/elevation):<br />";
+
+        for (i = 0; i < profile.profile.length; i++) {
+          output += "   " + profile.profile[i].distance.toFixed(2) + " / " + profile.profile[i].elevation.toFixed(2) + "<br />";
+        }
+
+        document.getElementById('output_div').innerHTML = output;
+      }
+      else {
+        document.getElementById('output_div').innerHTML = "Invalid value";
+      }
+
+      firstClick = null;
+      capturing = false;
+      document.getElementById('captureClicksButton').removeAttribute('class');
+    }
+    else {
+      firstClick = click;
+    }
+  }
+}
+
+</script>
+
+</head>
+
+<body onload="initialize()">
+
+<div id="map_div">
+  <script type="text/javascript">
+    Map.embed("map_div", "mapcontrol", "application/osgearth", "CLSID:5F41CFDD-D29D-4CA8-B37D-6F64F28E12EA");
+  </script>
+</div>
+
+<div id="control_div">
+  <p>To get a terrain profile click the "Get Profile" button below then click two points on the map."</p>
+  <button id="captureClicksButton" type="button" onclick="onCaptureClicked()">Get Profile</button>
+  <div id="output_div"></div>
+</div>
+
+</body>
+</html>

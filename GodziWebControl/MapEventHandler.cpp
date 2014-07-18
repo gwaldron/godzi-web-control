@@ -86,6 +86,8 @@ MapEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapte
     default:
         return false;
     }
+
+    return false;
 }
 
 void

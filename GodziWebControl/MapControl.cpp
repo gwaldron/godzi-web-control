@@ -56,6 +56,8 @@ using namespace osgEarth::Util::Controls;
 
 #define WM_GODZI_EVENT (WM_USER + 0)
 
+#define LC "[MapControl] "
+
 class EventData
 {
 public:
@@ -237,7 +239,8 @@ _eventCallback(0), _minimapWidth(350), _minimapHeight(200), _minimapX(10), _mini
     addCommandFactory(new RemoveTextLabelCommand::Factory());
 
     addCommandFactory(new GetNamesCommand::Factory());
-    addCommandFactory(new GetIntersectionCommand::Factory());   
+    addCommandFactory(new GetIntersectionCommand::Factory());
+    addCommandFactory(new GetMapProfileCommand::Factory());
     addCommandFactory(new GetDescriptionsCommand::Factory());
 
     addCommandFactory(new GetObjectInfoCommand::Factory());
@@ -480,6 +483,8 @@ osgEarth::Util::EarthManipulator* MapControl::selectEarthManipulator()
         _manipLabel->setText("Global Mode");
         return dynamic_cast<osgEarth::Util::EarthManipulator*>(ksm->getMatrixManipulatorWithIndex(0));
     }
+
+    return 0L;
 }
 
 
@@ -492,6 +497,8 @@ GodziWebControl::FirstPersonManipulator* MapControl::selectFirstPersonManipulato
         _manipLabel->setText("First-Person Mode");
         return dynamic_cast<GodziWebControl::FirstPersonManipulator*>(ksm->getMatrixManipulatorWithIndex(1));
     }
+
+    return 0L;
 }
 
 
@@ -609,17 +616,17 @@ void MapControl::setMapFile(const std::string &mapFile)
             {
 				        mapNode->getMap()->getImageLayerAt(i)->setOpacity( 1.0f );
             }
+
             if (_skyNode.valid())
             {
               _skyNode = 0L;
               showSkyNode();
             }
 
-            OE_WARN << "SETTING MAP NODE" << std::endl;
             _featureQueryTool->setMapNode(mapNode);
-        }
 
-        mapNode->getMap()->addMapCallback(_mapCallback);
+            mapNode->getMap()->addMapCallback(_mapCallback);
+        }
     }
     _mainView->getDatabasePager()->registerPagedLODs(_root.get());
     _mainView->computeActiveCoordinateSystemNodePath();

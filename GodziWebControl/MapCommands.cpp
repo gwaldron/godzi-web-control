@@ -6,6 +6,7 @@
 #include <osgEarth/MapNode>
 #include <osgEarth/StringUtils>
 #include <osgEarthUtil/EarthManipulator>
+#include <osgEarthUtil/TerrainProfile>
 
 #include <osg/ComputeBoundsVisitor>
 #include <osgGA/KeySwitchMatrixManipulator>
@@ -506,6 +507,78 @@ bool GetIntersectionCommand::operator()(MapControl* map)
     result["valid"] = valid;
     osgEarth::Json::FastWriter writer;
     osg::notify(osg::NOTICE) << "Intersection " << writer.write(result);
+    setResult(writer.write(result));
+    return true;
+}
+
+
+/**************************************************************************************************/
+Command* GetMapProfileCommand::Factory::create(const std::string &command, const CommandArguments &args)
+{
+    if ("getMapProfile" == command)
+    {
+        int x1 = osgEarth::as<int>(args["x1"], 0);
+        int y1 = osgEarth::as<int>(args["y1"], 0);
+        int x2 = osgEarth::as<int>(args["x2"], 0);
+        int y2 = osgEarth::as<int>(args["y2"], 0);
+        return new GetMapProfileCommand(x1,y1, x2, y2);
+    }
+    return NULL;
+}
+
+GetMapProfileCommand::GetMapProfileCommand(int x1, int y1, int x2, int y2):
+_x1(x1),
+_y1(y1),
+_x2(x2),
+_y2(y2)
+{
+}
+
+bool GetMapProfileCommand::operator()(MapControl* map)
+{
+    osgEarth::Json::Value result;
+
+    osg::Vec3d world1;
+    osg::Vec3d world2;
+    if (map->getMapNode()->getTerrain()->getWorldCoordsUnderMouse( map->getView(), _x1, _y1, world1 ) &&
+        map->getMapNode()->getTerrain()->getWorldCoordsUnderMouse( map->getView(), _x2, _y2, world2 ))
+    {
+        osgEarth::GeoPoint mapPoint1;
+        mapPoint1.fromWorld( map->getMapNode()->getMapSRS(), world1 );
+
+        osgEarth::GeoPoint mapPoint2;
+        mapPoint2.fromWorld( map->getMapNode()->getMapSRS(), world2 );
+
+        osgEarth::Util::TerrainProfile profile;
+        osgEarth::Util::TerrainProfileCalculator::computeTerrainProfile(map->getMapNode(), mapPoint1, mapPoint2, profile);
+
+        result["totalDistance"] = profile.getTotalDistance();
+        result["elevationCount"] = profile.getNumElevations();
+
+        double minE, maxE;
+        profile.getElevationRanges(minE, maxE);
+        osgEarth::Json::Value elevRange;
+        elevRange["min"] = minE;
+        elevRange["max"] = maxE;
+        result["elevationRange"] = elevRange;
+
+        osgEarth::Json::Value profileArray(osgEarth::Json::arrayValue);
+        for (unsigned int i = 0; i < profile.getNumElevations(); i++)
+        {
+            double distance = profile.getDistance( i );
+            double elevation = profile.getElevation( i );
+
+            osgEarth::Json::Value elevationValue;
+            elevationValue["distance"] = profile.getDistance( i );
+            elevationValue["elevation"] = profile.getElevation( i );
+
+            profileArray.append(elevationValue);
+        }
+
+        result["profile"] = profileArray;
+    }
+
+    osgEarth::Json::FastWriter writer;
     setResult(writer.write(result));
     return true;
 }

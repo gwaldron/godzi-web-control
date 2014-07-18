@@ -247,6 +247,24 @@ namespace GodziWebControl
         int _y;
     };
 
+    class GODZIWEBCONTROL_EXPORT GetMapProfileCommand : public Command
+    {
+    public:
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        GetMapProfileCommand(int x1, int y1, int x2, int y2);
+        virtual bool operator()(MapControl* map);
+
+    protected:
+        int _x1;
+        int _y1;
+        int _x2;
+        int _y2;
+    };
+
     class GODZIWEBCONTROL_EXPORT GetDescriptionsCommand : public Command
     {
     public:
