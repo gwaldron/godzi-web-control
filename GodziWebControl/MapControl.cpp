@@ -60,6 +60,14 @@ using namespace osgEarth::Util::Controls;
 
 #define LC "[MapControl] "
 
+// Silverlining and Triton license info
+#define SILVERLINING_USER "USERNAME"
+#define SILVERLINING_LICENSE_CODE "LICENSE_CODE"
+
+#define TRITON_USER "USERNAME"
+#define TRITON_LICENSE_CODE "LICENSE_CODE"
+
+
 class EventData
 {
 public:
@@ -794,8 +802,8 @@ void MapControl::showSkyNode(const osgEarth::Config& skyConf)
         if ( toLower(skyConf.value("driver")) == "silverlining" )
         {
             osgEarth::Config slConf;
-            slConf.set("user", "USERNAME");
-            slConf.set("license_code", "LICENSE_CODE");
+            slConf.set("user", SILVERLINING_USER);
+            slConf.set("license_code", SILVERLINING_LICENSE_CODE);
 
             char *appData = getenv("APPDATA");
             slConf.set("resource_path", std::string(appData) + "\\GodziWebControl\\Silverlining\\resources");
@@ -831,8 +839,8 @@ void MapControl::showOceanNode(const osgEarth::Config& oceanConf)
         if ( toLower(oceanConf.value("driver")) == "triton" )
         {
             osgEarth::Config trtnConf;
-            trtnConf.set("user", "USERNAME");
-            trtnConf.set("license_code", "LICENSE_CODE");
+            trtnConf.set("user", TRITON_USER);
+            trtnConf.set("license_code", TRITON_LICENSE_CODE);
 
             char *appData = getenv("APPDATA");
             trtnConf.set("resource_path", std::string(appData) + "\\GodziWebControl\\Triton\\Resources");
