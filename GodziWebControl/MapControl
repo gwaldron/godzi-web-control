@@ -24,6 +24,7 @@
 #include <osgEarthUtil/FeatureManipTool>
 #include <osgEarthUtil/FeatureQueryTool>
 #include <osgEarthUtil/Sky>
+#include <osgEarthUtil/Ocean>
 #include <osgEarth/Viewpoint>
 #include <osgEarth/MapNode>
 #include <osgEarth/Map>
@@ -90,8 +91,10 @@ namespace GodziWebControl
         void showOverviewMap();
         void hideOverviewMap();
 
-        void showSkyNode();
+        void showSkyNode(const osgEarth::Config& skyConf=osgEarth::Config());
         void setSkyDateTime(int year, int month, int day, double timeUTC);
+
+        void showOceanNode(const osgEarth::Config& oceanConf=osgEarth::Config());
 
         void toggleNavDisplay(bool visible);
 
@@ -145,6 +148,8 @@ namespace GodziWebControl
         osg::ref_ptr<GodziWebControl::CommandQueue> _commandQueue;
 
         osg::ref_ptr<osgEarth::Util::SkyNode> _skyNode;
+        osg::ref_ptr<osgEarth::Util::OceanNode> _oceanNode;
+
         osgEarth::Util::FeatureManipTool* _manipTool;
         osg::ref_ptr<osgEarth::Util::Controls::LabelControl> _manipLabel;
 

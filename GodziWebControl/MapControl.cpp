@@ -21,6 +21,8 @@
 #include <osgEarthDrivers/gdal/GDALOptions>
 #include <osgEarthAnnotation/CircleNode>
 #include <osgEarthUtil/FeatureQueryTool>
+#include <osgEarthUtil/Sky>
+#include <osgEarthUtil/Ocean>
 
 #include <osg/io_utils>
 #include <osg/Version>
@@ -564,7 +566,16 @@ void MapControl::setMapFile(const std::string &mapFile)
 		    _root->removeChild( _mapNode.get() );
         
         if (_skyNode.valid())
+        {
           _root->removeChild( _skyNode.get() );
+          _skyNode = 0L;
+        }
+
+        if (_oceanNode.valid())
+        {
+          _root->removeChild(_oceanNode);
+          _oceanNode = 0L;
+        }
 
         _mapNode->releaseGLObjects();
         osg::flushAllDeletedGLObjects(_mainView->getCamera()->getGraphicsContext()->getState()->getContextID());
@@ -607,26 +618,30 @@ void MapControl::setMapFile(const std::string &mapFile)
         }
 
         _terrain = findTopMostNodeOfType<osgTerrain::Terrain>(_mapNode);
-        osgEarth::MapNode* mapNode = findTopMostNodeOfType<osgEarth::MapNode>(_mapNode);
-        if (mapNode)
+
+        _root->addChild(_mapNode.get());
+
+	      for (unsigned int i = 0; i < _mapNode->getMap()->getNumImageLayers(); ++i)
         {
-            _root->addChild(_mapNode.get());
-
-			      for (unsigned int i = 0; i < mapNode->getMap()->getNumImageLayers(); ++i)
-            {
-				        mapNode->getMap()->getImageLayerAt(i)->setOpacity( 1.0f );
-            }
-
-            if (_skyNode.valid())
-            {
-              _skyNode = 0L;
-              showSkyNode();
-            }
-
-            _featureQueryTool->setMapNode(mapNode);
-
-            mapNode->getMap()->addMapCallback(_mapCallback);
+		        _mapNode->getMap()->getImageLayerAt(i)->setOpacity( 1.0f );
         }
+
+        // look for external config settings
+        const Config& externals = _mapNode->externalConfig();
+        const Config& skyConf = externals.child("sky");
+        const Config& oceanConf = externals.child("ocean");
+
+        // Adding sky and ocean models if specified
+        if (!skyConf.empty())
+            showSkyNode(skyConf);
+
+        if (!oceanConf.empty())
+            showOceanNode(oceanConf);
+
+
+        _featureQueryTool->setMapNode(_mapNode);
+
+        _mapNode->getMap()->addMapCallback(_mapCallback);
     }
     _mainView->getDatabasePager()->registerPagedLODs(_root.get());
     _mainView->computeActiveCoordinateSystemNodePath();
@@ -770,19 +785,69 @@ void MapControl::updateOverviewMap(bool updatePosition)
 }
 
 
-void MapControl::showSkyNode()
+void MapControl::showSkyNode(const osgEarth::Config& skyConf)
 {
-  if (!_skyNode.valid())
-  {
-    _skyNode = osgEarth::Util::SkyNode::create(_mapNode);
-    if ( _skyNode.valid() )
+    if (_mapNode.valid() && !_skyNode.valid())
     {
-      _skyNode->attach( _mainView, 0 );
-      _skyNode->setDateTime( DateTime(2011, 3, 6, 0.0) );
-      _root->addChild( _skyNode );
-      //osgEarth::insertGroup(_skyNode, _mapNode);
+        osgEarth::Config skyConfLcl(skyConf);
+
+        if ( toLower(skyConf.value("driver")) == "silverlining" )
+        {
+            osgEarth::Config slConf;
+            slConf.set("user", "USERNAME");
+            slConf.set("license_code", "LICENSE_CODE");
+
+            char *appData = getenv("APPDATA");
+            slConf.set("resource_path", std::string(appData) + "\\GodziWebControl\\Silverlining\\resources");
+            slConf.merge(skyConf);
+            
+            skyConfLcl = slConf;
+        }
+
+        osgEarth::Util::SkyOptions options(skyConfLcl);
+        if ( options.getDriver().empty() )
+        {
+            if ( _mapNode->getMapSRS()->isGeographic() )
+                options.setDriver("simple");
+            else
+                options.setDriver("gl");
+        }
+
+        _skyNode = osgEarth::Util::SkyNode::create(options, _mapNode);
+        if ( _skyNode )
+        {
+            _skyNode->attach( _mainView, 0 );
+            _root->addChild( _skyNode );
+        }
     }
-  }
+}
+
+void MapControl::showOceanNode(const osgEarth::Config& oceanConf)
+{
+    if ( _mapNode.valid() && !_oceanNode.valid() )
+    {
+        osgEarth::Config oceanConfLcl(oceanConf);
+
+        if ( toLower(oceanConf.value("driver")) == "triton" )
+        {
+            osgEarth::Config trtnConf;
+            trtnConf.set("user", "USERNAME");
+            trtnConf.set("license_code", "LICENSE_CODE");
+
+            char *appData = getenv("APPDATA");
+            trtnConf.set("resource_path", std::string(appData) + "\\GodziWebControl\\Triton\\Resources");
+            trtnConf.merge(oceanConf);
+            
+            oceanConfLcl = trtnConf;
+        }
+
+        _oceanNode = osgEarth::Util::OceanNode::create(osgEarth::Util::OceanOptions(oceanConfLcl), _mapNode);
+        if ( _oceanNode )
+        {
+            _root->addChild( _oceanNode );
+        }
+    }
+
 }
 
 void MapControl::setSkyDateTime(int year, int month, int day, double timeUTC)
