@@ -19,20 +19,20 @@ function Map( id )
 	    var callbackArray = map._eventCallbacks[eventName];
 	    if (callbackArray)
 	    {
-              //Try to parse any data passed in.
-              var obj = null;
+        //Try to parse any data passed in.
+        var obj = null;
 	      try
 	      {
                 obj = jQuery.parseJSON(data);
 	      }
 	      catch(e)
 	      {
-                //alert(e + "Data=" + data);
-              }
+          //alert(e + "Data=" + data);
+        }
 
 	      //Call each callback
 	      for (var i in callbackArray)
-                callbackArray[i](obj);
+	        callbackArray[i].callback(obj, callbackArray[i].data);
 	    }
             //else
 	    //{
@@ -106,7 +106,7 @@ Map.prototype._eventCallbacks = {};
  * @param {string} type The event to register for
  * @param {function} callback The callback function
  */
-Map.prototype.addEvent = function( type, callback ) {
+Map.prototype.addEvent = function( type, callback, data ) {
   //Registers callbacks for events by type
   //Valid types include:
   //  onmousedown, onmouseup, onmousemove, onframeend, onclick, ondoubleclick
@@ -114,16 +114,18 @@ Map.prototype.addEvent = function( type, callback ) {
   //Make sure the given callback is indeed a function.
   if ( typeof callback != "function" )
     throw new TypeError();
+    
+  var callbackStruct = {callback: callback, data: data};
 
   //If a collection of callbacks for the given event type already extists,
   //add the callback to the collection. If not, start a new collection.
   if ( type in this._eventCallbacks )
   {
-    this._eventCallbacks[type].push(callback);
+    this._eventCallbacks[type].push(callbackStruct);
   }
   else
   {
-    this._eventCallbacks[type] = [callback];
+    this._eventCallbacks[type] = [callbackStruct];
   }
 }
 

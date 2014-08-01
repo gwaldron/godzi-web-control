@@ -80,7 +80,7 @@ namespace
             as<double>( args["longitude"], 0.0 ),
             as<double>( args["latitude"],  0.0 ),
             as<double>( args["altitude"],  0.0 ),
-            osgEarth::ALTMODE_ABSOLUTE);
+            osgEarth::ALTMODE_RELATIVE);
     }
 
 
@@ -133,7 +133,13 @@ namespace
         ConfigSet styleSet;
         CssUtils::readConfig( css, "", styleSet );
         Style result;
-        result.fromSLD( styleSet.front() );        
+        result.fromSLD( styleSet.front() ); 
+
+        if (as<bool>( args["draped"], true ))
+        {
+            result.getOrCreate<AltitudeSymbol>()->clamping() = AltitudeSymbol::CLAMP_TO_TERRAIN;
+            result.getOrCreate<AltitudeSymbol>()->technique() = AltitudeSymbol::TECHNIQUE_DRAPE;
+        }
 
         return result;
     }        

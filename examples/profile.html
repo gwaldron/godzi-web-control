@@ -28,14 +28,6 @@ html, body {
   box-sizing: border-box;
 }
 
-#captureClicksButton {
-  width: 100%;
-}
-
-#captureClicksButton.capturing {
-  background-color: #6ff;
-}
-
 #output_div {
   margin: 20px 10px;
   height: 200px;
@@ -58,55 +50,32 @@ html, body {
 <script src="../api/Orientation.js" type="text/javascript"></script>
 <script src="../api/Scale.js" type="text/javascript"></script>
 <script src="../api/Map.js" type="text/javascript"> </script>
+<script src="../api/Utils.js" type="text/javascript"></script>
+<script src="../api/Controls/TerrainProfileButtonControl.js" type="text/javascript"> </script>
+<script src="../api/Annotations/Annotation.js" type="text/javascript"></script>
+<script src="../api/Annotations/FeatureAnnotation.js" type="text/javascript"></script>
+<script src="../api/Annotations/PlaceAnnotation.js" type="text/javascript"></script>
 
 
 <script type="text/javascript">
 
-var capturing = false;
-var firstClick = null;
 var map = null;
+var profileControl;
 
 function initialize() {
   map = new Map('mapcontrol');
   map.setMapFile("http://gwaldron.github.io/godzi-web-control/examples/data/readymap.earth");
   map.showSky();
 
-  map.addEvent("onclick", onMapClick);
+  profileControl = new TerrainProfileButtonControl("profileButtonDiv", map, onProfileComplete);
 }
 
-function onCaptureClicked() {
-  firstClick = null;
-  capturing = true;
-  document.getElementById('captureClicksButton').setAttribute('class', 'capturing');
-}
-
-function onMapClick(click) {
-  if (capturing) {
-    if (firstClick) {
-
-      var profile = map.getTerrainProfile(firstClick.x, firstClick.y, click.x, click.y);
-      if (profile) {
-        var output = "total distance: " + profile.totalDistance.toFixed(2) + "<br />";
-        output += "min/max elevation: " + profile.elevationRange.min.toFixed(2) + " / " + profile.elevationRange.max.toFixed(2) + "<br /><br />";
-        output += "profile points (distance/elevation):<br />";
-
-        for (i = 0; i < profile.profile.length; i++) {
-          output += "   " + profile.profile[i].distance.toFixed(2) + " / " + profile.profile[i].elevation.toFixed(2) + "<br />";
-        }
-
-        document.getElementById('output_div').innerHTML = output;
-      }
-      else {
-        document.getElementById('output_div').innerHTML = "Invalid value";
-      }
-
-      firstClick = null;
-      capturing = false;
-      document.getElementById('captureClicksButton').removeAttribute('class');
-    }
-    else {
-      firstClick = click;
-    }
+function onProfileComplete(output) {
+  if (output) {
+    document.getElementById('output_div').innerHTML = output;
+  }
+  else {
+    document.getElementById('output_div').innerHTML = "Invalid value";
   }
 }
 
@@ -123,8 +92,8 @@ function onMapClick(click) {
 </div>
 
 <div id="control_div">
-  <p>To get a terrain profile click the "Get Profile" button below then click two points on the map."</p>
-  <button id="captureClicksButton" type="button" onclick="onCaptureClicked()">Get Profile</button>
+  <p>To get a terrain profile click the "Terrain Profile" button below then click two points on the map."</p>
+  <div id="profileButtonDiv"></div>
   <div id="output_div"></div>
 </div>
 
