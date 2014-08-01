@@ -15,6 +15,8 @@ TerrainProfileButtonControl.prototype = {
     this.place2 = null;
     this.profileLine = null;
 
+    this.markerUrl = "http://s3.amazonaws.com/pelican-downloads/aam/data/placemark32.png";
+
     this.$button = jQuery('<button class="terrain-profile-button">Terrain Profile</button>');
     jQuery(this.element).append(this.$button);
 
@@ -66,7 +68,7 @@ TerrainProfileButtonControl.prototype = {
           context.place2 = new PlaceAnnotation({
             text: "",
             location: loc,
-            icon: "http://s3.amazonaws.com/pelican-downloads/aam/data/placemark32.png",
+            icon: context.markerUrl,
             style: { text_size: "28" }
           });
           context.place2.setMap(context.map);
@@ -115,7 +117,7 @@ TerrainProfileButtonControl.prototype = {
           context.place1 = new PlaceAnnotation({
             text: "",
             location: loc,
-            icon: "http://s3.amazonaws.com/pelican-downloads/aam/data/placemark32.png",
+            icon: context.markerUrl,
             style: { text_size: "28" }
           });
           context.place1.setMap(context.map);
