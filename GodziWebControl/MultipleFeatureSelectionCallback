@@ -1,0 +1,56 @@
+#ifndef GODZIWEBCONTROL_MULTIPLEFEATURESELECTIONCALLBACK_H
+#define GODZIWEBCONTROL_MULTIPLEFEATURESELECTIONCALLBACK_H 1
+
+#include <GodziWebControl/Export>
+//#include <GodziWebControl/MapControl>
+
+#include <osgEarthFeatures/Feature>
+#include <osgEarthFeatures/FeatureSource>
+#include <osgEarthFeatures/FeatureSourceIndexNode>
+#include <osgEarthUtil/FeatureQueryTool>
+
+#include <osgGA/GUIEventHandler>
+
+namespace GodziWebControl
+{
+    using namespace osgEarth;
+    using namespace osgEarth::Features;
+
+    class MapControl;
+
+    class GODZIWEBCONTROL_EXPORT MultipleFeatureSelectionCallback : public osgEarth::Util::FeatureQueryTool::Callback
+    {
+    public:
+        MultipleFeatureSelectionCallback(MapControl* map, bool multiselect=true);
+        virtual ~MultipleFeatureSelectionCallback();
+
+        void setMultiselect(bool multiselect) { _multiselect = multiselect; }
+
+        void clearSelection(bool postEvent=true);
+
+        virtual void onHit( FeatureSourceIndexNode* index, FeatureID fid, const EventArgs& args );
+
+        virtual void onMiss( const EventArgs& args );
+
+    protected:
+        osg::ref_ptr<MapControl> _map;
+        bool _multiselect;
+
+        bool clearSelection(FeatureID fid);
+
+        void postSelectionEvent();
+
+        struct Selection {
+            osg::observer_ptr<FeatureSourceIndexNode> _index;
+            osg::observer_ptr<osg::Group>             _group;
+            FeatureID                                 _fid;
+            bool operator < ( const Selection& rhs ) const { return _fid < rhs._fid; }
+        };
+
+        typedef std::set<Selection> SelectionSet;
+        SelectionSet _selections;
+    };
+
+}
+
+#endif  //GODZIWEBCONTROL_MULTIPLEFEATURESELECTIONCALLBACK_H
