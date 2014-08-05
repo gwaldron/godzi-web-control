@@ -312,6 +312,35 @@ namespace GodziWebControl
     private:
         bool _visible;
     };
+
+    class GODZIWEBCONTROL_EXPORT SetMultiselectCommand : public Command
+    {
+    public:
+
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        SetMultiselectCommand(bool multiselect);
+        virtual bool operator()(MapControl* map);
+
+    private:
+        bool _multiselect;
+    };
+
+    class GODZIWEBCONTROL_EXPORT ClearSelctionCommand : public Command
+    {
+    public:
+
+        class Factory : public CommandFactory
+        {
+            virtual Command* create(const std::string& command, const CommandArguments& args);
+        };
+
+        ClearSelctionCommand();
+        virtual bool operator()(MapControl* map);
+    };
 }
 
 #endif //GODZIWEBCONTROL_MAPCOMMANDS

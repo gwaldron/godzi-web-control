@@ -89,36 +89,3 @@ MapEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapte
 
     return false;
 }
-
-void
-MapEventHandler::onHit( FeatureSourceIndexNode* index, FeatureID fid, const EventArgs& args )
-{
-    Json::Value root;
-    std::string fidStr = Stringify() << fid;
-    root["fid"] = fidStr;
-
-    Json::Value attributes;
-    if ( index && index->getFeatureSource() )
-    {
-        const Feature* f;
-        if ( index->getFeature(fid, f) )
-        {
-            const AttributeTable& attrs = f->getAttrs();
-            for( AttributeTable::const_iterator i = attrs.begin(); i != attrs.end(); ++i)
-            {
-                attributes[i->first] = i->second.getString();
-            }
-        }
-    }    
-    root["attributes"] = attributes;
-
-    Json::FastWriter writer;
-    _map->postEvent("", "onfeatureselect", writer.write(root));
-}
-
-void
-MapEventHandler::onMiss( const EventArgs& args )
-{
-  OE_WARN << "FEATURE MISS" << std::endl;
-  _map->postEvent("", "onfeatureselect", "");
-}

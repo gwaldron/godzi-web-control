@@ -38,6 +38,7 @@
 namespace GodziWebControl
 {
     struct MapControlMapCallback;
+    class MultipleFeatureSelectionCallback;
 
     class GODZIWEBCONTROL_EXPORT MapControl : public osg::Referenced, public OpenThreads::Thread
     {
@@ -58,6 +59,8 @@ namespace GodziWebControl
         };
 
         MapControl();
+        virtual ~MapControl();
+
         virtual void init(void* window);
 
         void setEventCallback(EventCallback* eventCallback) { _eventCallback = eventCallback; }
@@ -96,6 +99,9 @@ namespace GodziWebControl
 
         void showOceanNode(const osgEarth::Config& oceanConf=osgEarth::Config());
 
+        void setMultiselect(bool multiselect);
+        void clearSelection();
+
         void toggleNavDisplay(bool visible);
 
         float getVerticalScale();
@@ -122,6 +128,7 @@ namespace GodziWebControl
     private:
 
         osg::ref_ptr<MapControlMapCallback> _mapCallback;
+        osg::ref_ptr<MultipleFeatureSelectionCallback> _selectionCallback;
         osg::Vec4 _clearColor;
 
         osg::ref_ptr<osgViewer::CompositeViewer> _viewer;

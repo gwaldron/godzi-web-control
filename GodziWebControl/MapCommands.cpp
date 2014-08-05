@@ -703,3 +703,49 @@ bool ToggleNavDisplayCommand::operator()(MapControl* map)
     map->toggleNavDisplay(_visible);
     return true;
 }
+
+
+/**************************************************************************************************/
+
+Command* SetMultiselectCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("setMultiselect" == command)
+    {
+        bool multiselect = args["multiselect"] == "true";
+        return new SetMultiselectCommand(multiselect);
+    }
+    return NULL;
+}
+
+SetMultiselectCommand::SetMultiselectCommand(bool multiselect):
+_multiselect(multiselect)
+{
+}
+
+bool SetMultiselectCommand::operator()(MapControl* map)
+{
+    map->setMultiselect(_multiselect);
+    return true;
+}
+
+
+/**************************************************************************************************/
+
+Command* ClearSelctionCommand::Factory::create(const std::string& command, const CommandArguments& args)
+{
+    if ("clearSelection" == command)
+    {
+        return new ClearSelctionCommand();
+    }
+    return NULL;
+}
+
+ClearSelctionCommand::ClearSelctionCommand()
+{
+}
+
+bool ClearSelctionCommand::operator()(MapControl* map)
+{
+    map->clearSelection();
+    return true;
+}

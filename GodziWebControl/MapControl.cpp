@@ -10,6 +10,7 @@
 #include <GodziWebControl/Annotations>
 #include <GodziWebControl/Kml>
 #include <GodziWebControl/FirstPersonManipulator>
+#include <GodziWebControl/MultipleFeatureSelectionCallback>
 
 #include <osgEarth/Registry>
 #include <osgEarth/Cache>
@@ -255,12 +256,19 @@ _eventCallback(0), _minimapWidth(350), _minimapHeight(200), _minimapX(10), _mini
 
     addCommandFactory(new GetObjectInfoCommand::Factory());
 
-    addCommandFactory(new SelectionCommandFactory() );
+    //addCommandFactory(new SelectionCommandFactory() );
 
     addCommandFactory(new LoadKmlCommand::Factory());
     addCommandFactory(new RemoveKmlCommand::Factory());
 
+    addCommandFactory(new SetMultiselectCommand::Factory());
+    addCommandFactory(new ClearSelctionCommand::Factory());
+
     AnnotationCommands::registerAll(this);
+}
+
+MapControl::~MapControl()
+{
 }
 
 void MapControl::init(void* window)
@@ -393,13 +401,11 @@ void MapControl::init(void* window)
 
     _statsHandler = new osgViewer::StatsHandler();
     _mainView->addEventHandler( _statsHandler.get() );
-
-    MapEventHandler* meh = new MapEventHandler(this);
-    _mainView->addEventHandler( meh );
+    _mainView->addEventHandler( new MapEventHandler(this) );
 
     _featureQueryTool = new osgEarth::Util::FeatureQueryTool(0L);
-    _featureQueryTool->addCallback( new osgEarth::Util::FeatureHighlightCallback() );
-    _featureQueryTool->addCallback( meh );
+    _selectionCallback = new MultipleFeatureSelectionCallback(this, false);
+    _featureQueryTool->addCallback( _selectionCallback );
     _mainView->addEventHandler( _featureQueryTool );
 
     _stateSetManipulator = new osgGA::StateSetManipulator(_mainView->getCamera()->getOrCreateStateSet());
@@ -862,6 +868,22 @@ void MapControl::setSkyDateTime(int year, int month, int day, double timeUTC)
 {
   if (_skyNode.valid())
     _skyNode->setDateTime(DateTime(year, month, day, timeUTC));
+}
+
+void MapControl::setMultiselect(bool multiselect)
+{
+  if (_selectionCallback.valid())
+  {
+    _selectionCallback->setMultiselect(multiselect);
+  }
+}
+
+void MapControl::clearSelection()
+{
+  if (_selectionCallback.valid())
+  {
+    _selectionCallback->clearSelection();
+  }
 }
 
 void MapControl::toggleNavDisplay(bool visible)

@@ -242,6 +242,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MultipleFeatureSelectionCallback.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Selection.cpp"
 				>
 			</File>
@@ -321,6 +325,10 @@
 			</File>
 			<File
 				RelativePath=".\ModelLayer"
+				>
+			</File>
+			<File
+				RelativePath=".\MultipleFeatureSelectionCallback"
 				>
 			</File>
 			<File

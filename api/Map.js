@@ -674,3 +674,18 @@ Map.prototype.flashObject = function( tag, duration_s )
 {
     this.sendCommand( "flashObject", { "tag": tag, "duration": duration_s }, false );
 }
+
+/**
+* Set whether multiselect mode is engageds
+* @param {bool} multiselect The desired multiselect state
+*/
+Map.prototype.setMultiselect = function(multiselect) {
+    this.sendCommand("setMultiselect", { multiselect: multiselect }, false);
+}
+
+/**
+* Clear the current selection
+*/
+Map.prototype.clearSelection = function() {
+  this.sendCommand("clearSelection", { }, false);
+}

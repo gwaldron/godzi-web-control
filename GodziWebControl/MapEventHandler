@@ -4,26 +4,16 @@
 #include <GodziWebControl/Export>
 #include <GodziWebControl/MapControl>
 
-#include <osgEarthFeatures/Feature>
-#include <osgEarthFeatures/FeatureSource>
-#include <osgEarthFeatures/FeatureSourceIndexNode>
-#include <osgEarthUtil/FeatureQueryTool>
-
 #include <osgGA/GUIEventHandler>
 
 namespace GodziWebControl
 {
-    using namespace osgEarth;
-    using namespace osgEarth::Features;
-
-    class GODZIWEBCONTROL_EXPORT MapEventHandler : public osgGA::GUIEventHandler, public osgEarth::Util::FeatureQueryTool::Callback
+    class GODZIWEBCONTROL_EXPORT MapEventHandler : public osgGA::GUIEventHandler
     {
     public:
         MapEventHandler(MapControl* map);
         bool handle(const osgGA::GUIEventAdapter& ea,osgGA::GUIActionAdapter& aa);
 
-        virtual void onHit( FeatureSourceIndexNode* index, FeatureID fid, const EventArgs& args );
-        virtual void onMiss( const EventArgs& args );
     private:
         osg::ref_ptr<MapControl> _map;
         float _xMouseDown, _yMouseDown;
