@@ -483,6 +483,19 @@ int MapControl::cancel()
     //osg::discardAllDeletedGLObjects(contextID);
     //osg::Texture::discardAllDeletedTextureObjects(contextID);
 
+    _selectionCallback = 0L;
+    _featureQueryTool = 0L;
+
+    if (_mapNode.valid())
+    {
+        _mapNode->getMap()->removeMapCallback(_mapCallback);
+        _mapNode->releaseGLObjects();
+        osg::flushAllDeletedGLObjects(_mainView->getCamera()->getGraphicsContext()->getState()->getContextID());
+        _mapNode = 0;
+    }
+
+    _mapCallback = 0L;
+
     //Delete the viewer
     _viewer = 0;
 
@@ -831,7 +844,7 @@ void MapControl::showSkyNode(const osgEarth::Config& skyConf)
         if ( _skyNode )
         {
             _skyNode->attach( _mainView, 0 );
-            _root->addChild( _skyNode );
+            osgEarth::insertGroup(_skyNode, _mapNode->getParent(0));
         }
     }
 }

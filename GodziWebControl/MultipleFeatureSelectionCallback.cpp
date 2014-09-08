@@ -19,6 +19,7 @@ MultipleFeatureSelectionCallback::MultipleFeatureSelectionCallback(MapControl* m
 
 MultipleFeatureSelectionCallback::~MultipleFeatureSelectionCallback()
 {
+  _map = 0L;
 }
 
 void
@@ -174,38 +175,41 @@ MultipleFeatureSelectionCallback::clearSelection(FeatureID fid)
 void
 MultipleFeatureSelectionCallback::postSelectionEvent()
 {
-    Json::Value root( Json::arrayValue );
-    unsigned index = 0;
-
-    for( SelectionSet::const_iterator i = _selections.begin(); i != _selections.end(); ++i )
+    if (_map.valid())
     {
-        const Selection& selection = *i;
+        Json::Value root( Json::arrayValue );
+        unsigned index = 0;
 
-        Json::Value selectionRoot;
-
-        std::string fidStr = Stringify() << selection._fid;
-        selectionRoot["fid"] = fidStr;
-
-        Json::Value attributes;
-        if ( selection._index.valid() && selection._index->getFeatureSource() )
+        for( SelectionSet::const_iterator i = _selections.begin(); i != _selections.end(); ++i )
         {
-            const Feature* f;
-            if ( selection._index->getFeature(selection._fid, f) )
+            const Selection& selection = *i;
+
+            Json::Value selectionRoot;
+
+            std::string fidStr = Stringify() << selection._fid;
+            selectionRoot["fid"] = fidStr;
+
+            Json::Value attributes;
+            if ( selection._index.valid() && selection._index->getFeatureSource() )
             {
-                const AttributeTable& attrs = f->getAttrs();
-                for( AttributeTable::const_iterator i = attrs.begin(); i != attrs.end(); ++i)
+                const Feature* f;
+                if ( selection._index->getFeature(selection._fid, f) )
                 {
-                    attributes[i->first] = i->second.getString();
+                    const AttributeTable& attrs = f->getAttrs();
+                    for( AttributeTable::const_iterator i = attrs.begin(); i != attrs.end(); ++i)
+                    {
+                        attributes[i->first] = i->second.getString();
+                    }
                 }
-            }
-        }    
-        selectionRoot["attributes"] = attributes;
-        root[index++] = selectionRoot;
+            }    
+            selectionRoot["attributes"] = attributes;
+            root[index++] = selectionRoot;
+        }
+
+
+        OE_WARN << "POSTING: " << index << " features!" << std::endl;
+
+        Json::FastWriter writer;
+        _map->postEvent("", "onfeatureselect", writer.write(root));
     }
-
-
-    OE_WARN << "POSTING: " << index << " features!" << std::endl;
-
-    Json::FastWriter writer;
-    _map->postEvent("", "onfeatureselect", writer.write(root));
 }
